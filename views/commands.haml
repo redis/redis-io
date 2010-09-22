@@ -1,0 +1,7 @@
+%h1 Commands
+
+%ul
+  - @commands.each do |name, attributes|
+    %li
+      %a(href="/commands/#{name}")
+        = name.upcase

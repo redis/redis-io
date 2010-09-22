@@ -1,0 +1,23 @@
+%title
+  = @name.upcase
+
+%h1
+  = @name.upcase
+
+  - @command["arguments"].each do |argument|
+    %span.argument
+      - if argument["type"] == "enum"
+        = argument["enum"].join("|")
+
+      - else
+        - if argument["command"]
+          %span.command
+            = argument["command"]
+
+        - if argument["name"].kind_of?(Array)
+          = argument["name"].join(", ")
+        - else
+          = argument["name"]
+
+%article
+  = @body
