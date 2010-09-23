@@ -3,6 +3,29 @@ require "haml"
 require "rdiscount"
 require "json"
 
+class RedisTemplate < Tilt::RDiscountTemplate
+  SECTIONS = {
+    "complexity"  => "Time complexity",
+    "description" => "Description",
+    "examples"    => "Examples",
+    "return"      => "Return value",
+  }
+
+  def preprocess(source)
+    source.gsub(/^\@(\w+)$/) do
+      title = SECTIONS[$1]
+      "#{title}\n---"
+    end
+  end
+
+  def prepare
+    @data = preprocess(@data)
+    super
+  end
+end
+
+Tilt.register "md", RedisTemplate
+
 Cuba.define do
   def haml(template, locals = {})
     render("views/layout.haml", content: render("views/#{template}.haml", locals))
