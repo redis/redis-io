@@ -1,0 +1,25 @@
+%section#clients
+
+  %h1 Clients
+
+  - @clients_by_language.each do |language, clients|
+    %h2= language
+
+    %table
+
+      %tbody
+        - clients.sort_by { |name, _| name.downcase }.each do |name, info|
+          %tr
+            %td
+              = name
+
+            %td
+              - if info["repository"]
+                %a(href="#{info["repository"]}") Repository
+
+              - if info["url"]
+                %a(href="#{info["url"]}") Homepage
+
+            %td
+              - info["authors"].each do |author|
+                %a(href="http://twitter.com/#{author}")= author

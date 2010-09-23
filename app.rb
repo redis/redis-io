@@ -122,6 +122,14 @@ Cuba.define do
     end
   end
 
+  on get, path("clients") do
+    @clients = JSON.parse(File.read("redis-doc/clients.json"))
+
+    @clients_by_language = @clients.group_by { |name, info| info["language"] }.sort_by { |name, _| name.downcase }
+
+    res.write haml("clients")
+  end
+
   on post do
     on path("commits"), param(:payload) do
       if redis.setnx("commits:refresh", 1)
