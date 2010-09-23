@@ -6,14 +6,11 @@ task :test do
   Cutest.run(Dir["test/*.rb"])
 end
 
-directory "tmp"
-
-task :update => "tmp" do
-  if File.directory?("tmp/redis-doc")
-    Dir.chdir("tmp/redis-doc") { `git pull -q` }
+task :update do
+  if File.directory?("redis-doc")
+    Dir.chdir("redis-doc") { `git pull -q` }
   else
-    Dir.chdir("tmp") { `git clone -q git://github.com/antirez/redis-doc.git` }
+    `git clone -q git://github.com/antirez/redis-doc.git`
+    `rm -rf redis-doc/.git`
   end
 end
-
-

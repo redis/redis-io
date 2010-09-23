@@ -1,0 +1,1448 @@
+{
+  "append": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "auth": {
+    "arguments": [
+      {
+        "name": "password",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "connection"
+  },
+  "bgrewriteaof": {
+    "since": null,
+    "group": "server"
+  },
+  "bgsave": {
+    "since": null,
+    "group": "server"
+  },
+  "blpop": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      },
+      {
+        "name": "timeout",
+        "type": "integer"
+      }
+    ],
+    "since": "1.3.1",
+    "group": "list"
+  },
+  "brpop": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      },
+      {
+        "name": "timeout",
+        "type": "integer"
+      }
+    ],
+    "since": "1.3.1",
+    "group": "list"
+  },
+  "config get": {
+    "arguments": [
+      {
+        "name": "parameter",
+        "type": "string"
+      }
+    ],
+    "since": "2.0",
+    "group": "server"
+  },
+  "config set": {
+    "arguments": [
+      {
+        "name": "parameter",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": "2.0",
+    "group": "server"
+  },
+  "dbsize": {
+    "since": null,
+    "group": "server"
+  },
+  "debug object": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "server"
+  },
+  "debug segfault": {
+    "since": null,
+    "group": "server"
+  },
+  "decr": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "decrement",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "decrby": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "decrement",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "del": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "discard": {
+    "since": null,
+    "group": "transactions"
+  },
+  "echo": {
+    "arguments": [
+      {
+        "name": "message",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "connection"
+  },
+  "exec": {
+    "since": null,
+    "group": "transactions"
+  },
+  "exists": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "server"
+  },
+  "expire": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "seconds",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "expireat": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "timestamp",
+        "type": "posix time"
+      }
+    ],
+    "since": "1.1",
+    "group": "generic"
+  },
+  "flushall": {
+    "since": null,
+    "group": "server"
+  },
+  "flushdb": {
+    "since": null,
+    "group": "server"
+  },
+  "get": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "getset": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "hdel": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hexists": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hget": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hgetall": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hincrby": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      },
+      {
+        "name": "increment",
+        "type": "integer"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hkeys": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hlen": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hmget": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "multiple": true
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hmset": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": ["field", "value"],
+        "type": ["string", "string"],
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "hash"
+  },
+  "hset": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "hsetnx": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "field",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "hash"
+  },
+  "hvals": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": "1.3.10",
+    "group": "hash"
+  },
+  "incr": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "incrby": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "increment",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "info": {
+    "since": null,
+    "group": "server"
+  },
+  "keys": {
+    "arguments": [
+      {
+        "name": "pattern",
+        "type": "pattern"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "lastsave": {
+    "since": null,
+    "group": "server"
+  },
+  "lindex": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "index",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "linsert": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "where",
+        "type": "enum",
+        "enum": ["before", "after"]
+      },
+      {
+        "name": "pivot",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "llen": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lpop": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lpush": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lpushx": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lrange": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lrem": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "count",
+        "type": "integer"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "lset": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "index",
+        "type": "integer"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "ltrim": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "mget": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "monitor": {
+    "since": null,
+    "group": "server"
+  },
+  "move": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "db",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "mset": {
+    "arguments": [
+      {
+        "name": ["key", "value"],
+        "type": ["key", "string"]
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "msetnx": {
+    "arguments": [
+      {
+        "name": ["key", "value"],
+        "type": ["key", "string"],
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "multi": {
+    "since": null,
+    "group": "transactions"
+  },
+  "persist": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "ping": {
+    "since": null,
+    "group": "connection"
+  },
+  "psubscribe": {
+    "arguments": [
+      {
+        "name": ["pattern"],
+        "type": ["pattern"]
+      }
+    ],
+    "since": null,
+    "group": "pubsub"
+  },
+  "publish": {
+    "arguments": [
+      {
+        "name": "channel",
+        "type": "string"
+      },
+      {
+        "name": "message",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "pubsub"
+  },
+  "punsubscribe": {
+    "arguments": [
+      {
+        "name": ["pattern"],
+        "type": ["pattern"],
+        "optional": true
+      }
+    ],
+    "since": null,
+    "group": "pubsub"
+  },
+  "quit": {
+    "since": null,
+    "group": "connection"
+  },
+  "randomkey": {
+    "since": null,
+    "group": "generic"
+  },
+  "rename": {
+    "arguments": [
+      {
+        "name": "old",
+        "type": "key"
+      },
+      {
+        "name": "new",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "renamenx": {
+    "arguments": [
+      {
+        "name": "old",
+        "type": "key"
+      },
+      {
+        "name": "new",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "rpop": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "rpoplpush": {
+    "arguments": [
+      {
+        "name": "source",
+        "type": "key"
+      },
+      {
+        "name": "destination",
+        "type": "key"
+      }
+    ],
+    "since": "1.1",
+    "group": "list"
+  },
+  "rpush": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "rpushx": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "list"
+  },
+  "sadd": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "save": {
+    "since": null,
+    "group": "control"
+  },
+  "scard": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sdiff": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sdiffstore": {
+    "arguments": [
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "select": {
+    "arguments": [
+      {
+        "name": "index",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "connection"
+  },
+  "set": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "setex": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "timestamp",
+        "type": "posix time"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "setnx": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "shutdown": {
+    "since": null,
+    "group": "server"
+  },
+  "sinter": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sinterstore": {
+    "arguments": [
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sismember": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "slaveof": {
+    "arguments": [
+      {
+        "name": "host",
+        "type": "string"
+      },
+      {
+        "name": "port",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "server"
+  },
+  "smembers": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "smove": {
+    "arguments": [
+      {
+        "name": "source",
+        "type": "key"
+      },
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sort": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "command": "by",
+        "name": "pattern",
+        "type": "pattern",
+        "optional": true
+      },
+      {
+        "command": "limit",
+        "name": ["start", "count"],
+        "type": ["integer", "integer"],
+        "optional": true
+      },
+      {
+        "command": "get",
+        "name": "pattern",
+        "type": "string",
+        "optional": true,
+        "multiple": true
+      },
+      {
+        "name": "order",
+        "type": "enum",
+        "enum": ["asc", "desc"],
+        "optional": true
+      },
+      {
+        "name": "sorting",
+        "type": "enum",
+        "enum": ["alpha"],
+        "optional": true
+      },
+      {
+        "command": "store",
+        "name": "destination",
+        "type": "key",
+        "optional": true
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "spop": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "srandmember": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "srem": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "strlen": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "subscribe": {
+    "arguments": [
+      {
+        "name": ["channel"],
+        "type": ["string"]
+      }
+    ],
+    "since": null,
+    "group": "pubsub"
+  },
+  "substr": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": null,
+    "group": "string"
+  },
+  "sunion": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sunionstore": {
+    "arguments": [
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": null,
+    "group": "set"
+  },
+  "sync": {
+    "since": null,
+    "group": "control"
+  },
+  "ttl": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "type": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": null,
+    "group": "generic"
+  },
+  "unsubscribe": {
+    "arguments": [
+      {
+        "name": ["channel"],
+        "type": ["string"],
+        "optional": true
+      }
+    ],
+    "since": null,
+    "group": "pubsub"
+  },
+  "unwatch": {
+    "since": null,
+    "group": "transactions"
+  },
+  "watch": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      }
+    ],
+    "since": "2.1.0",
+    "group": "transactions"
+  },
+  "zadd": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "score",
+        "type": "double"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zcard": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zcount": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "min",
+        "type": "double"
+      },
+      {
+        "name": "max",
+        "type": "double"
+      }
+    ],
+    "since": null,
+    "group": "sorted_set"
+  },
+  "zincrby": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "increment",
+        "type": "integer"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zinterstore": {
+    "arguments": [
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      },
+      {
+        "command": "weights",
+        "name": "weight",
+        "type": "integer",
+        "variadic": true,
+        "optional": true
+      },
+      {
+        "command": "aggregate",
+        "name": "aggregate",
+        "type": "enum",
+        "enum": ["sum", "min", "max"],
+        "optional": true
+      }
+    ],
+    "since": null,
+    "group": "sorted_set"
+  },
+  "zrange": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zrangebyscore": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "min",
+        "type": "double"
+      },
+      {
+        "name": "max",
+        "type": "double"
+      }
+    ],
+    "since": null,
+    "group": "sorted_set"
+  },
+  "zrank": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.4",
+    "group": "sorted_set"
+  },
+  "zrem": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zremrangebyrank": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": "1.3.4",
+    "group": "sorted_set"
+  },
+  "zremrangebyscore": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "min",
+        "type": "double"
+      },
+      {
+        "name": "max",
+        "type": "double"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zrevrange": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "start",
+        "type": "integer"
+      },
+      {
+        "name": "stop",
+        "type": "integer"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zrevrank": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.3.4",
+    "group": "sorted_set"
+  },
+  "zscore": {
+    "arguments": [
+      {
+        "name": "key",
+        "type": "key"
+      },
+      {
+        "name": "member",
+        "type": "string"
+      }
+    ],
+    "since": "1.1",
+    "group": "sorted_set"
+  },
+  "zunionstore": {
+    "arguments": [
+      {
+        "name": "destination",
+        "type": "key"
+      },
+      {
+        "name": "key",
+        "type": "key",
+        "multiple": true
+      },
+      {
+        "command": "weights",
+        "name": "weight",
+        "type": "integer",
+        "variadic": true,
+        "optional": true
+      },
+      {
+        "command": "aggregate",
+        "name": "aggregate",
+        "type": "enum",
+        "enum": ["sum", "min", "max"],
+        "optional": true
+      }
+    ],
+    "since": null,
+    "group": "sorted_set"
+  }
+}
