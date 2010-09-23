@@ -1,4 +1,4 @@
-task :default => [:update, :test]
+task :default => :test
 
 task :test do
   require "cutest"
