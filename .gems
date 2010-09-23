@@ -2,3 +2,4 @@ compass
 cuba
 haml
 rdiscount
+redis

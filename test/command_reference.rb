@@ -1,12 +1,4 @@
-require "cuba/test"
-require File.expand_path("../app", File.dirname(__FILE__))
-
-begin
-  require "ruby-debug"
-rescue LoadError
-end
-
-Capybara.default_selector = :css
+require "./test/helper"
 
 scope do
   test "Command reference" do

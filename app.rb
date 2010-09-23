@@ -3,18 +3,24 @@ require "haml"
 require "rdiscount"
 require "json"
 require "compass"
+require "open-uri"
+require "digest/md5"
+require "redis"
 
 Encoding.default_external = Encoding::UTF_8
 
 class Tilt::SassTemplate
+  OPTIONS = Compass.sass_engine_options
+  OPTIONS.merge!(style: :compact, line_comments: false)
+  OPTIONS[:load_paths] << File.expand_path("views")
+
   def prepare
-    @engine = ::Sass::Engine.new(
-      data,
-      sass_options.merge(Compass.sass_engine_options).merge(
-        style: :compact, line_comments: false
-      )
-    )
+    @engine = ::Sass::Engine.new(data, sass_options.merge(OPTIONS))
   end
+end
+
+def redis
+  $redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
 end
 
 class RedisTemplate < Tilt::RDiscountTemplate
@@ -89,6 +95,14 @@ Cuba.define do
     res.write render("views/styles.sass")
   end
 
+  on get, path("") do
+    json = redis.get("commits")
+
+    @commits = json ? JSON.parse(json)["commits"] : []
+
+    res.write haml("home")
+  end
+
   on get, path("commands") do
     on segment do |name|
       @name = name.upcase
@@ -104,6 +118,17 @@ Cuba.define do
       @title = "Command reference"
 
       res.write haml("commands")
+    end
+  end
+
+  on post do
+    on path("commits"), param(:payload) do
+      if redis.setnx("commits:refresh", 1)
+        redis.pipelined do
+          redis.set("commits", open("http://github.com/api/v2/json/commits/list/antirez/redis/master").read)
+          redis.expire("commits:refresh", 90)
+        end
+      end
     end
   end
 end
