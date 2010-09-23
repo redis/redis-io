@@ -18,13 +18,30 @@ class RedisTemplate < Tilt::RDiscountTemplate
     end
   end
 
+  def autolink(source)
+    source.gsub(/\B`([A-Z]+)`\B/) do
+      name = $1
+      command = commands[name]
+
+      if command
+        "[#{name}](/commands/#{name.downcase})"
+      else
+        name
+      end
+    end
+  end
+
   def prepare
-    @data = preprocess(@data)
+    @data = autolink(preprocess(@data))
     super
   end
 end
 
 Tilt.register "md", RedisTemplate
+
+def commands
+  $commands ||= JSON.parse(File.read("redis-doc/commands.json"))
+end
 
 Cuba.define do
   def haml(template, locals = {})
@@ -34,7 +51,7 @@ Cuba.define do
   on get, path("commands") do
     on segment do |name|
       @name = name.upcase
-      @command = JSON.parse(File.read("redis-doc/commands.json"))[@name]
+      @command = commands[@name]
       @body = render("redis-doc/commands/#{name}.md")
       @title = @name
 
@@ -42,7 +59,7 @@ Cuba.define do
     end
 
     on default do
-      @commands = JSON.parse(File.read("redis-doc/commands.json"))
+      @commands = commands
       @title = "Command reference"
 
       res.write haml("commands")
