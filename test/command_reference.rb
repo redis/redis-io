@@ -18,17 +18,19 @@ scope do
   test "Command page" do
     visit "/commands"
 
-    click "SELECT"
+    click "EXPIREAT"
 
-    assert has_css?("title", text: "SELECT")
+    assert has_css?("title", text: "EXPIREAT")
 
     within "h1" do
-      assert has_content?("SELECT")
-      assert has_content?("index")
+      assert has_content?("EXPIREAT")
+      assert has_content?("key")
+      assert has_content?("timestamp")
     end
 
     within "article" do
-      assert has_css?("p", text: "Select the DB")
+      assert has_css?("p", text: "Set a timeout on the specified key.")
+      assert has_content?("Available since 1.1")
     end
   end
 
