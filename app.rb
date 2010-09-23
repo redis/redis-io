@@ -2,8 +2,20 @@ require "cuba"
 require "haml"
 require "rdiscount"
 require "json"
+require "compass"
 
 Encoding.default_external = Encoding::UTF_8
+
+class Tilt::SassTemplate
+  def prepare
+    @engine = ::Sass::Engine.new(
+      data,
+      sass_options.merge(Compass.sass_engine_options).merge(
+        style: :compact, line_comments: false
+      )
+    )
+  end
+end
 
 class RedisTemplate < Tilt::RDiscountTemplate
   SECTIONS = {
@@ -69,6 +81,12 @@ end
 Cuba.define do
   def haml(template, locals = {})
     render("views/layout.haml", content: render("views/#{template}.haml", locals))
+  end
+
+  on get, path("styles.css") do
+    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+    res.headers["Content-Type"] = "text/css; charset=utf-8"
+    res.write render("views/styles.sass")
   end
 
   on get, path("commands") do
