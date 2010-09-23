@@ -32,6 +32,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
   }
 
   REPLY_TYPES = {
+    "nil"         => "Null multi-bulk reply",
     "status"      => "Status code reply",
     "integer"     => "Integer reply",
     "bulk"        => "Bulk reply",
