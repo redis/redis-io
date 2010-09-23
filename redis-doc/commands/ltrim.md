@@ -1,6 +1,7 @@
+@complexity
 
+O(n) (with n being len of list - len of range)
 
-_Time complexity: O(n) (with n being len of list - len of range)_
 
 Trim an existing list so that it will contain only the specified
 range of elements specified. Start and end are zero-based indexes.
@@ -28,7 +29,7 @@ Redis to store logs for example. It is important to note that when used
 in this way LTRIM is an O(1) operation because in the average case
 just one element is removed from the tail of the list.
 
-## Return value
+@return
 
 [Status code reply][1]
 

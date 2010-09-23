@@ -1,14 +1,15 @@
+@complexity
 
+O(1)
 
-_Time complexity: O(1)_
 
 SETNX works exactly like [SET][1] with the only difference tha
 if the key already exists no operation is performed.
 SETNX actually means SET if Not eXists.
 
-## Return value
+@return
 
-[Integer reply][2], specifically:
+@integer-reply, specifically:
 
 	1 if the key was se
 	0 if the key was not se

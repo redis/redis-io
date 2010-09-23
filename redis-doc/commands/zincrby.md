@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity O(log(N)) with N being the number of elements in the sorted
+O(log(N)) with N being the number of elements in the sorted
 set_
 
 If _member_ already exists in the sorted set adds the _increment_ to its score
@@ -16,9 +16,9 @@ point number. It's possible to provide a negative value to perform a decrement.
 
 For an introduction to sorted sets check the [Introduction to Redis data types][1] page.
 
-## Return value
+@return
 
-[Bulk reply][2]
+@bulk-reply
 
 	The new score (a double precision floating point number) represented as string.
 	

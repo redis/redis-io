@@ -1,13 +1,14 @@
+@complexity
 
+O(1)
 
-_Time complexity O(1)_
 
 Return the set cardinality (number of elements). If the _key_ does no
 exist 0 is returned, like for empty sets.
 
-## Return value
+@return
 
-[Integer reply][1], specifically:
+@integer-reply, specifically:
 
 `the cardinality (number of elements) of the set as an integer.`
 

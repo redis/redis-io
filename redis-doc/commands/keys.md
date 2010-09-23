@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity: O(n) (with n being the number of keys in the DB, and assuming
+O(n) (with n being the number of keys in the DB, and assuming
 keys and pattern of limited length)_
 
 Returns all the keys matching the glob-style _pattern_ as
@@ -27,7 +27,7 @@ Glob style patterns examples:
 
 Use \ to escape special chars if you want to match them verbatim.
 
-## Return value
+@return
 
 [Multi bulk reply][2]
 

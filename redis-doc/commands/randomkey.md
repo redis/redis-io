@@ -1,10 +1,11 @@
+@complexity
 
+O(1)
 
-_Time complexity: O(1)_
 
 Return a randomly selected key from the currently selected DB.
 
-## Return value
+@return
 
 [Singe line reply][1], specifically the randomly selected key or an empty string
 is the database is empty.

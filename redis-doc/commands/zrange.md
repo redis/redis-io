@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity: O(log(N))+O(M) (with N being the number of elements in the
+O(log(N))+O(M) (with N being the number of elements in the
 sorted set and M the number of elements requested)_
 
 Return the specified elements of the sorted set at the specified
@@ -26,7 +26,7 @@ libraries are free to return a more appropriate data type (what we think is tha
 the best return type for this command is a Array of two-elements Array / Tuple in
 order to preserve sorting).
 
-## Return value
+@return
 
 [Multi bulk reply][1], specifically a list of elements in the specified range.
 

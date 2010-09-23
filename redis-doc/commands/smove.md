@@ -1,6 +1,7 @@
+@complexity
 
+O(1)
 
-_Time complexity O(1)_
 
 Move the specifided _member_ from the set at _srckey_ to the set at _dstkey_.
 This operation is atomic, in every given moment the element will appear to
@@ -14,9 +15,9 @@ set.
 
 An error is raised if the source or destination keys contain a non Set value.
 
-## Return value
+@return
 
-[Integer reply][1], specifically:
+@integer-reply, specifically:
 
 	1 if the element was moved
 	0 if the element was not found on the first set and no operation was performed

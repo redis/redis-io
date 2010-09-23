@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity: O(1). The amortized time complexity is O(1) assuming the
+O(1). The amortized time complexity is O(1) assuming the
 appended value is small and the already present value is of any size, since
 the dynamic string library used by Redis will double the free space available
 on every reallocation._
@@ -10,12 +10,12 @@ provided value at the end of the string.
 If the _key_ does not exist it is created and set as an empty string, so
 APPEND will be very similar to SET in this special case.
 
-## Return value
+@return
 
-[Integer reply][1], specifically the total length of the string after the append
+@integer-reply, specifically the total length of the string after the append
 operation.
 
-## Examples
+@examples
 
 	redis exists mykey
 	(integer) 0

@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity O(N) where N is the total number of elements in all the provided
+O(N) where N is the total number of elements in all the provided
 sets_
 
 Return the members of a set resulting from the union of all the
@@ -11,7 +11,7 @@ produces the same result as [SMEMBERS][1].
 
 Non existing keys are considered like empty sets.
 
-## Return value
+@return
 
 [Multi bulk reply][2], specifically the list of common elements.
 

@@ -1,6 +1,7 @@
+@complexity
 
+O(1)
 
-_Time complexity: O(1)_
 
 Atomically return and remove the last (tail) element of the _srckey_ list,
 and push the element as the first (head) element of the _dstkey_ list. For
@@ -38,9 +39,9 @@ the full list from the server to the client in a single [LRANGE][4] operation.
 Note that a process can traverse the list even while other processes
 are actively RPUSHing against the list, and still no element will be skipped.
 
-## Return value
+@return
 
-[Bulk reply][5]
+@bulk-reply
 
 
 

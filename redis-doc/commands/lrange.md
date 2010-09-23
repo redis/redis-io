@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity: O(start+n) (with n being the length of the range and star
+O(start+n) (with n being the length of the range and star
 being the start offset)_
 
 Return the specified elements of the list stored at the specified key. Star
@@ -30,7 +30,7 @@ Indexes out of range will not produce an error: if start is over the end of
 the list, or start end, an empty list is returned. If end is over the end of
 the list Redis will threat it just like the last element of the list.
 
-## Return value
+@return
 
 [Multi bulk reply][1], specifically a list of elements in the specified range.
 

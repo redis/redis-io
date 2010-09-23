@@ -1,6 +1,6 @@
+@complexity
 
-
-_Time complexity: O(start+n) (with start being the start index and n the total
+O(start+n) (with start being the start index and n the total
 length of the requested range). Note that the lookup part of this command is
 O(1) so for small strings this is actually an O(1) command._
 
@@ -13,11 +13,11 @@ so forth.
 The function handles out of range requests without raising an error, bu
 just limiting the resulting range to the actual length of the string.
 
-## Return value
+@return
 
-[Bulk reply][1]
+@bulk-reply
 
-## Examples
+@examples
 
 	redis set s This is a string
 	OK

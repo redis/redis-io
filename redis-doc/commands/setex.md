@@ -1,6 +1,7 @@
+@complexity
 
+O(1)
 
-_Time complexity: O(1)_
 
 The command is exactly equivalent to the following group of commands:
 	SET _key_ _value_
@@ -9,7 +10,7 @@ operation was already provided
 using [MULTI/EXEC][3], but SETEX is a faster alternative provided
 because this operation is very common when Redis is used as a Cache.
 
-## Return value
+@return
 
 [Status code reply][4]
 
