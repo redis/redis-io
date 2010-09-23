@@ -11,14 +11,21 @@ class RedisTemplate < Tilt::RDiscountTemplate
     "return"      => "Return value",
   }
 
-  def preprocess(source)
+  REPLY_TYPES = {
+    "status"      => "Status code reply",
+    "integer"     => "Integer reply",
+    "bulk"        => "Bulk reply",
+    "multi-bulk"  => "Multi-bulk reply"
+  }
+
+  def sections(source)
     source.gsub(/^\@(\w+)$/) do
       title = SECTIONS[$1]
       "#{title}\n---"
     end
   end
 
-  def autolink(source)
+  def autolink_commands(source)
     source.gsub(/\B`([A-Z]+)`\B/) do
       name = $1
       command = commands[name]
@@ -31,8 +38,22 @@ class RedisTemplate < Tilt::RDiscountTemplate
     end
   end
 
+  def reply_types(source)
+    source.gsub(/@(#{REPLY_TYPES.keys.join("|")})\-reply/) do
+      type = $1
+      "[#{REPLY_TYPES[type]}](/protocol##{type}-reply)"
+    end
+  end
+
+  def preprocess(data)
+    data = sections(data)
+    data = autolink_commands(data)
+    data = reply_types(data)
+    data
+  end
+
   def prepare
-    @data = autolink(preprocess(@data))
+    @data = preprocess(@data)
     super
   end
 end
