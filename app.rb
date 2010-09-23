@@ -3,6 +3,8 @@ require "haml"
 require "rdiscount"
 require "json"
 
+Encoding.default_external = Encoding::UTF_8
+
 class RedisTemplate < Tilt::RDiscountTemplate
   SECTIONS = {
     "complexity"  => "Time complexity",
