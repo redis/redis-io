@@ -6,8 +6,8 @@ require "json"
 Cuba.define do
   on get, path("commands") do
     on segment do |name|
-      @command = JSON.parse(File.read("redis-doc/commands.json"))[name]
-      @name = name
+      @name = name.upcase
+      @command = JSON.parse(File.read("redis-doc/commands.json"))[@name]
       @body = render("redis-doc/commands/#{name}.md")
 
       res.write render("views/commands/name.haml")

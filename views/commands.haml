@@ -3,5 +3,5 @@
 %ul
   - @commands.each do |name, attributes|
     %li
-      %a(href="/commands/#{name}")
-        = name.upcase
+      %a(href="/commands/#{name.downcase}")
+        = name

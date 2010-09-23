@@ -7,11 +7,8 @@ task :test do
 end
 
 task :update do
-  if File.directory?("redis-doc")
-    Dir.chdir("redis-doc") { `git pull -q` }
-  else
-    `git clone -q git://github.com/antirez/redis-doc.git`
-    `rm -rf redis-doc/.git`
-  end
+  sh "rm -rf redis-doc"
+  sh "git clone -q --depth 1 git://github.com/antirez/redis-doc.git"
+  sh "rm -rf redis-doc/.git"
 end
 
