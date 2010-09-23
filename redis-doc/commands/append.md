@@ -8,23 +8,23 @@ on every reallocation._
 If the _key_ already exists and is a string, this command appends the
 provided value at the end of the string.
 If the _key_ does not exist it is created and set as an empty string, so
-APPEND will be very similar to SET in this special case.
+`APPEND` will be very similar to `SET` in this special case.
 
 @return
 
-@integer-reply, specifically the total length of the string after the append
+@integer-reply: the total length of the string after the append
 operation.
 
 @examples
 
-	redis exists mykey
-	(integer) 0
-	redis append mykey Hello
-	(integer) 6
-	redis append mykey World
-	(integer) 11
-	redis get mykey
-	Hello World
+    redis exists mykey
+    (integer) 0
+    redis append mykey Hello
+    (integer) 6
+    redis append mykey World
+    (integer) 11
+    redis get mykey
+    Hello World
 
 
 
