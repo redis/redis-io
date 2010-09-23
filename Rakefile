@@ -14,3 +14,4 @@ task :update do
     `rm -rf redis-doc/.git`
   end
 end
+
