@@ -1,7 +1,7 @@
 %h1
   = @name
 
-  - @command["arguments"].each do |argument|
+  - (@command["arguments"] || []).each do |argument|
     %span.argument
       - if argument["type"] == "enum"
         = argument["enum"].join("|")
