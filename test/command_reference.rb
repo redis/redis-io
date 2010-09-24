@@ -42,7 +42,7 @@ scope do
 
       assert limit
       assert limit.node.at_css("span.command").text["LIMIT"]
-      assert limit.text["start, count"]
+      assert limit.text["start count"]
 
       order = find(".argument", text: "ASC")
 
