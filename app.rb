@@ -7,6 +7,8 @@ require "open-uri"
 require "digest/md5"
 require "redis"
 
+require File.expand_path("reference", File.dirname(__FILE__))
+
 Encoding.default_external = Encoding::UTF_8
 
 class Tilt::SassTemplate
@@ -82,7 +84,7 @@ end
 Tilt.register "md", RedisTemplate
 
 def commands
-  $commands ||= JSON.parse(File.read("redis-doc/commands.json"))
+  $commands ||= Reference.new(JSON.parse(File.read("redis-doc/commands.json")))
 end
 
 Cuba.define do

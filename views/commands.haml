@@ -1,7 +1,7 @@
 %h1 Commands
 
 %ul
-  - @commands.each do |name, attributes|
+  - @commands.each do |command|
     %li
-      %a(href="/commands/#{name.downcase}")
-        = name
+      %a(href="/commands/#{command.name.downcase}")
+        = command.name
