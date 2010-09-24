@@ -14,6 +14,8 @@ ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 module Cuba
   def self.define(&block)
     @app = Rack::Builder.new do
+      use Rack::Session::Cookie
+      use Rack::OpenID
       run Cuba::Ron.new(&block)
     end
   end
@@ -33,10 +35,6 @@ class Tilt::SassTemplate
   def prepare
     @engine = ::Sass::Engine.new(data, sass_options.merge(OPTIONS))
   end
-end
-
-def redis
-  $redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
 end
 
 class RedisTemplate < Tilt::RDiscountTemplate
@@ -99,6 +97,14 @@ Tilt.register "md", RedisTemplate
 
 def commands
   $commands ||= Reference.new(JSON.parse(File.read("redis-doc/commands.json")))
+end
+
+def redis
+  $redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
+end
+
+def user
+  $user ||= User[session[:user]]
 end
 
 Cuba.define do
