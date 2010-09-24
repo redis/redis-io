@@ -7,7 +7,9 @@ require "open-uri"
 require "digest/md5"
 require "redis"
 
-require File.expand_path("reference", File.dirname(__FILE__))
+ROOT_PATH = File.expand_path(File.dirname(__FILE__))
+
+require File.expand_path("reference", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -88,8 +90,17 @@ def commands
 end
 
 Cuba.define do
+  def render(path, locals = {})
+    return unless File.expand_path(path).start_with?(ROOT_PATH)
+    super(path, locals)
+  end
+
   def haml(template, locals = {})
-    render("views/layout.haml", content: render("views/#{template}.haml", locals))
+    layout render("views/#{template}.haml", locals)
+  end
+
+  def layout(content)
+    render "views/layout.haml", content: content
   end
 
   on get, path("styles.css") do
@@ -108,10 +119,8 @@ Cuba.define do
 
   on get, path("commands") do
     on segment do |name|
-      @name = name.upcase
+      @name = @title = name.upcase
       @command = commands[@name]
-      @body = render("redis-doc/commands/#{name}.md")
-      @title = @name
 
       res.write haml("commands/name")
     end
@@ -130,6 +139,13 @@ Cuba.define do
     @clients_by_language = @clients.group_by { |name, info| info["language"] }.sort_by { |name, _| name.downcase }
 
     res.write haml("clients")
+  end
+
+  on get, path("topics") do
+    on segment do |name|
+      @name = name
+      res.write haml("topics/name")
+    end
   end
 
   on post do
