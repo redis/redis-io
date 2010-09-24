@@ -1,5 +1,7 @@
 compass
 cuba
 haml
+ohm --pre
+rack-openid
 rdiscount
 redis

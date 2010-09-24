@@ -6,10 +6,22 @@ require "compass"
 require "open-uri"
 require "digest/md5"
 require "redis"
+require "rack/openid"
+require "ohm"
 
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
+module Cuba
+  def self.define(&block)
+    @app = Rack::Builder.new do
+      run Cuba::Ron.new(&block)
+    end
+  end
+end
+
 require File.expand_path("reference", ROOT_PATH)
+require File.expand_path("user", ROOT_PATH)
+require File.expand_path("comment", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -141,10 +153,27 @@ Cuba.define do
     res.write haml("clients")
   end
 
-  on get, path("topics") do
-    on segment do |name|
+  on path("topics") do
+    on post, segment, path("comments"), param("body") do |_, url, _, body|
+      Comment.create(user_id: session[:user], body: body, url: url)
+    end
+
+    on get, segment do |name|
       @name = name
       res.write haml("topics/name")
+    end
+  end
+
+  on get, path("login") do
+    if response = env["rack.openid.response"]
+      session[:user] = User.from_openid(response).id
+      res.redirect "/"
+    else
+      res.headers["WWW-Authenticate"] = Rack::OpenID.build_header(
+        identifier: "https://www.google.com/accounts/o8/id",
+        required: ["http://schema.openid.net/contact/email"]
+      )
+      res.status = 401
     end
   end
 
