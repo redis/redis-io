@@ -6,20 +6,21 @@
     %h2= language
 
     %table
+      - clients.sort_by { |name, _| name.downcase }.each do |name, info|
+        %tr
+          %td
+            = name
 
-      %tbody
-        - clients.sort_by { |name, _| name.downcase }.each do |name, info|
-          %tr
-            %td
-              = name
+          %td
+            - if info["repository"]
+              %a(href="#{info["repository"]}") Repository
 
-            %td
-              - if info["repository"]
-                %a(href="#{info["repository"]}") Repository
+            - if info["url"]
+              %a(href="#{info["url"]}") Homepage
 
-              - if info["url"]
-                %a(href="#{info["url"]}") Homepage
+          %td
+            - info["authors"].each do |author|
+              %a(href="http://twitter.com/#{author}")= author
 
-            %td
-              - info["authors"].each do |author|
-                %a(href="http://twitter.com/#{author}")= author
+          %td
+            = info["description"]
