@@ -1,5 +1,4 @@
-require "json"
-require "ruby-debug"
+require "./test/helper"
 
 require File.expand_path("../reference", File.dirname(__FILE__))
 

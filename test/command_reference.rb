@@ -32,30 +32,11 @@ scope do
     click "SORT"
 
     within "h1" do
-      by = find(".argument", text: "BY")
-
-      assert by
-      assert by.text["pattern"]
-
-      limit = find(".argument", text: "LIMIT")
-
-      assert limit
-      assert limit.text["start count"]
-
-      order = find(".argument", text: "ASC")
-
-      assert order
-      assert order.text["ASC|DESC"]
-
-      alpha = find(".argument", text: "ALPHA")
-
-      assert alpha
-      assert alpha.text["ALPHA"]
-
-      store = find(".argument", text: "STORE")
-
-      assert store
-      assert store.text["destination"]
+      assert has_content?("[BY pattern]")
+      assert has_content?("[LIMIT start count]")
+      assert has_content?("[ASC|DESC]")
+      assert has_content?("[ALPHA]")
+      assert has_content?("[STORE destination]")
     end
   end
 end
