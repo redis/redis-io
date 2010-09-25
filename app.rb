@@ -114,17 +114,15 @@ Cuba.define do
   end
 
   def haml(template, locals = {})
-    layout render("views/#{template}.haml", locals)
+    layout(partial(template, locals))
+  end
+
+  def partial(template, locals = {})
+    render("views/#{template}.haml", locals)
   end
 
   def layout(content)
-    render "views/layout.haml", content: content
-  end
-
-  on get, path("styles.css") do
-    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-    res.headers["Content-Type"] = "text/css; charset=utf-8"
-    res.write render("views/styles.sass")
+    partial("layout", content: content)
   end
 
   on get, path("") do
@@ -159,15 +157,14 @@ Cuba.define do
     res.write haml("clients")
   end
 
-  on path("topics") do
-    on post, segment, path("comments"), param("body") do |_, url, _, body|
-      Comment.create(user_id: session[:user], body: body, url: url)
-    end
+  on get, path("topics"), segment do |_, _, name|
+    @name = name
+    res.write haml("topics/name")
+  end
 
-    on get, segment do |name|
-      @name = name
-      res.write haml("topics/name")
-    end
+  on post, path("comments"), param("url"), param("body") do |_, _, url, body|
+    Comment.create(user_id: session[:user], body: body, url: url)
+    res.redirect url
   end
 
   on get, path("login") do
@@ -192,5 +189,17 @@ Cuba.define do
         end
       end
     end
+  end
+
+  on get, path("styles.css") do
+    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+    res.headers["Content-Type"] = "text/css; charset=utf-8"
+    res.write render("views/styles.sass")
+  end
+
+  on get, path("app.js") do |_, file|
+    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+    res.headers["Content-Type"] = "text/javascript; charset=utf-8"
+    res.write File.read("views/app.js")
   end
 end

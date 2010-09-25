@@ -1,0 +1,26 @@
+%aside#comments
+  %ul
+    - Comment.find(url: req.path).sort(order: "desc").each do |comment|
+      %li
+        = partial "avatar", user: comment.user, size: 32
+
+        %article
+          - time = Time.at(comment.last_modified.to_i).utc
+
+          %time(datetime="#{time.iso8601}" pubdate="pubdate")
+            = time.strftime("%b %e, %Y %I.%M%P")
+
+          ~ RDiscount.new(comment.body, :smart, :filter_html).to_html
+
+  - if user
+    %form(method="post" action="/comments")
+      %input(type="hidden" name="url" value="#{req.path}")
+
+      = partial "avatar", user: user, size: 32
+
+      %textarea(name="body")
+
+      %input(type="submit" value="Post")
+  - else
+    %p
+      %a(href="/login") Log in to comment

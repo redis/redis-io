@@ -1,8 +1,4 @@
 %article#topic
   ~ render("redis-doc/topics/#{@name}.md")
 
-%form(method="post" action="#{req.path}/comments")
-
-  %textarea(name="body")
-
-  %input(type="submit" value="Post")
+  = partial("comments")
