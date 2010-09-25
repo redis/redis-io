@@ -11,15 +11,8 @@ require "ohm"
 
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
-module Cuba
-  def self.define(&block)
-    @app = Rack::Builder.new do
-      use Rack::Session::Cookie
-      use Rack::OpenID
-      run Cuba::Ron.new(&block)
-    end
-  end
-end
+Cuba.use Rack::Session::Cookie
+Cuba.use Rack::OpenID
 
 require File.expand_path("reference", ROOT_PATH)
 require File.expand_path("user", ROOT_PATH)
