@@ -170,8 +170,9 @@ Cuba.define do
   on get, path("login") do
     if response = env["rack.openid.response"]
       session[:user] = User.from_openid(response).id
-      res.redirect "/"
+      res.redirect(session.delete(:return_to) || "/")
     else
+      session[:return_to] = req.referer
       res.headers["WWW-Authenticate"] = Rack::OpenID.build_header(
         identifier: "https://www.google.com/accounts/o8/id",
         required: ["http://schema.openid.net/contact/email"]
