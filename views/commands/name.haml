@@ -8,6 +8,6 @@
     - else
       Available in Redis master.
 
-  ~ render("redis-doc/commands/#{@name}.md")
+  ~ render("redis-doc/commands/#{@name.downcase}.md")
 
   = partial("comments")
