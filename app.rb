@@ -157,7 +157,9 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
-    @name = name
+    @body = render("redis-doc/topics/#{name}.md")
+    @title = @body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
+
     res.write haml("topics/name")
   end
 
