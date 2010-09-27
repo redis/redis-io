@@ -120,6 +120,10 @@ Cuba.define do
     partial("layout", content: content)
   end
 
+  def gravatar_hash(email)
+    Digest::MD5.hexdigest(email)
+  end
+
   on get, path("") do
     json = redis.get("commits")
 
@@ -164,7 +168,9 @@ Cuba.define do
 
   on get, path("login") do
     if response = env["rack.openid.response"]
-      session[:user] = User.from_openid(response).id
+      user = User.from_openid(response)
+      session[:user] = user.id
+      res.set_cookie :gravatar, gravatar_hash(user.email)
       res.redirect(session.delete(:return_to) || "/")
     else
       session[:return_to] = req.referer

@@ -2,7 +2,7 @@
   %ul
     - Comment.find(url: req.path).sort(order: "desc").each do |comment|
       %li
-        = partial "avatar", user: comment.user, size: 32
+        = partial "avatar", email: comment.user.email, size: 32
 
         %article
           - time = Time.at(comment.last_modified.to_i).utc
@@ -12,15 +12,14 @@
 
           ~ RDiscount.new(comment.body, :smart, :filter_html).to_html
 
-  - if user
-    %form(method="post" action="/comments")
-      %input(type="hidden" name="url" value="#{req.path}")
+  %form.user.logged-in(method="post" action="/comments" style="display: none")
+    %input(type="hidden" name="url" value="#{req.path}")
 
-      = partial "avatar", user: user, size: 32
+    %img.user.gravatar(src="" width="32" height="32")
 
-      %textarea(name="body")
+    %textarea(name="body")
 
-      %input(type="submit" value="Post")
-  - else
-    %p
-      %a(href="/login") Log in to comment
+    %input(type="submit" value="Post")
+
+  %p.user.anonymous
+    %a(href="/login") Log in to comment

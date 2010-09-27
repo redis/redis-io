@@ -10,7 +10,7 @@
     %ul
       - @commits.each do |commit|
         %li
-          %img(src="http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(commit["author"]["email"])}.jpg?s=20" width="20" height="20" alt="#{commit["author"]["name"]}" title="#{commit["author"]["name"]}")
+          = partial "avatar", email: commit["author"]["email"], size: 20, alt: commit["author"]["name"]
 
           %a(href="#{commit["url"]}")= commit["message"].split("\n").first
 

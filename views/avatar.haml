@@ -1,3 +1,9 @@
 - size ||= 32
+- alt ||= ""
 
-%img(src="http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}.jpg?s=#{size}" width="#{size}" height="#{size}")
+%img(src="http://www.gravatar.com/avatar/#{gravatar_hash email}.jpg?s=#{size}"
+  width="#{size}"
+  height="#{size}"
+  alt="#{alt}"
+  title="#{alt}"
+)
