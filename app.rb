@@ -100,6 +100,8 @@ def user
   $user ||= User[session[:user]]
 end
 
+Ohm.redis = redis
+
 Cuba.define do
   def render(path, locals = {})
     return unless File.expand_path(path).start_with?(ROOT_PATH)
