@@ -79,6 +79,10 @@ class Reference
     def since
       command["since"]
     end
+
+    def to_param
+      name.downcase.gsub(" ", "-")
+    end
   end
 
   def initialize(commands)

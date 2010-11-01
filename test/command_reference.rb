@@ -39,4 +39,13 @@ scope do
       assert has_content?("[STORE destination]")
     end
   end
+
+  test "Commands with spaces" do
+    visit "/commands"
+
+    click "DEBUG OBJECT"
+
+    assert has_css?("title", text: "DEBUG OBJECT")
+    assert has_css?("h1", text: "DEBUG OBJECT")
+  end
 end

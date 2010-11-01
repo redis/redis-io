@@ -3,5 +3,5 @@
 %ul
   - @commands.each do |command|
     %li
-      %a(href="/commands/#{command.name.downcase}")
+      %a(href="/commands/#{command.to_param}")
         = command.name

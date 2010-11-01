@@ -134,7 +134,7 @@ Cuba.define do
 
   on get, path("commands") do
     on segment do |name|
-      @name = @title = name.upcase
+      @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
 
       res.write haml("commands/name")
