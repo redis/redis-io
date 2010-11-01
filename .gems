@@ -1,5 +1,5 @@
 compass
-cuba -v 0.2.0
+cuba -v 0.3.0
 haml
 ohm -v 0.1.0.rc6
 rack-openid

@@ -8,11 +8,13 @@ require "digest/md5"
 require "redis"
 require "rack/openid"
 require "ohm"
+require "rack/static"
 
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::OpenID
+Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public") unless ENV["HEROKU_TYPE"]
 
 require File.expand_path("reference", ROOT_PATH)
 require File.expand_path("user", ROOT_PATH)
@@ -120,6 +122,15 @@ Cuba.define do
     partial("layout", content: content)
   end
 
+  def topic(template)
+    # TODO: Relying on ivars for this is ugly.
+
+    @body = render(template)
+    @title = @body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
+
+    haml("topics/name")
+  end
+
   def gravatar_hash(email)
     Digest::MD5.hexdigest(email)
   end
@@ -130,6 +141,10 @@ Cuba.define do
     @commits = json ? JSON.parse(json)["commits"] : []
 
     res.write haml("home")
+  end
+
+  on get, path("download") do
+    res.write topic("views/download.md")
   end
 
   on get, path("commands") do
