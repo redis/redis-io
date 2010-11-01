@@ -14,7 +14,7 @@ ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::OpenID
-Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public") unless ENV["HEROKU_TYPE"]
+Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 
 require File.expand_path("reference", ROOT_PATH)
 require File.expand_path("user", ROOT_PATH)
