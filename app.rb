@@ -147,6 +147,10 @@ Cuba.define do
     res.write topic("views/download.md")
   end
 
+  on get, path("community") do
+    res.write topic("views/community.md")
+  end
+
   on get, path("commands") do
     on segment do |name|
       @name = @title = name.upcase.gsub("-", " ")
