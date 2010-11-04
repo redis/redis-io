@@ -211,7 +211,7 @@ Cuba.define do
     on path("commits"), param(:payload) do
       if redis.setnx("commits:refresh", 1)
         redis.pipelined do
-          redis.set("commits", open("http://github.com/api/v2/json/commits/list/antirez/redis/master").read)
+          redis.set("commits", open("https://github.com/api/v2/json/commits/list/antirez/redis/master").read)
           redis.expire("commits:refresh", 90)
         end
       end
