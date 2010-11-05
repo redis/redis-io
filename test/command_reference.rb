@@ -10,7 +10,7 @@ scope do
   test "Command page" do
     visit "/commands"
 
-    click "EXPIREAT"
+    click_link_or_button "EXPIREAT"
 
     assert has_css?("title", text: "EXPIREAT")
 
@@ -29,7 +29,7 @@ scope do
   test "Command page with complex arguments" do
     visit "/commands"
 
-    click "SORT"
+    click_link_or_button "SORT"
 
     within "h1" do
       assert has_content?("[BY pattern]")
@@ -43,7 +43,7 @@ scope do
   test "Commands with spaces" do
     visit "/commands"
 
-    click "DEBUG OBJECT"
+    click_link_or_button "DEBUG OBJECT"
 
     assert has_css?("title", text: "DEBUG OBJECT")
     assert has_css?("h1", text: "DEBUG OBJECT")

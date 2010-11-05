@@ -12,7 +12,7 @@
         %li
           = partial "avatar", email: commit["author"]["email"], size: 20, alt: commit["author"]["name"]
 
-          %a(href="#{commit["url"]}")= commit["message"].split("\n").first
+          %a(href="http://github.com#{commit["url"]}")= commit["message"].split("\n").first
 
           - # %time(datetime="#{commit["committed_date"]}")
           - #   = commit["committed_date"]

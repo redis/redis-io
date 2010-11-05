@@ -4,19 +4,19 @@ scope do
   test "Sitemap" do
     visit "/"
 
-    click "Download"
+    click_link_or_button "Download"
 
     assert has_content?("Redis is now compiled.")
 
-    click "Community"
+    click_link_or_button "Community"
 
     assert has_css?("a[href='http://groups.google.com/group/redis-db']", text: "mailing list")
     assert has_content?("#redis")
     assert has_css?("a[href='http://twitter.com/antirez']", text: "Salvatore")
 
-    click "Documentation"
+    click_link_or_button "Documentation"
 
-    click "full list of commands"
+    click_link_or_button "full list of commands"
 
     assert has_content?("PING")
   end
