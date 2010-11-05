@@ -5,6 +5,7 @@ scope do
     visit "/commands"
 
     assert has_content?("ECHO")
+    assert has_content?("Echo the given string")
   end
 
   test "Command page" do
