@@ -1,11 +1,10 @@
 @import "compass/reset"
 @import "compass/css3"
 
-+global-reset
 +reset-html5
 
 body, textarea
-  font: 14px/20px "Helvetica Neue", sans-serif
+  font: 12.5px/18px "Helvetica Neue", sans-serif
 
 h1, h2
   font-weight: 300
@@ -25,22 +24,25 @@ pre
   code
     font-family: "Menlo", monospace
 
-$max-width: 800px
+$max-width: 900px
 
 body
-  $header-height: 48px
+  $header-height: 45px
   background-color: #f0f0f0
   color: #333
   padding: $header-height 0 10px 0
 
   > header
+    $gradient-start: #323232
+    $gradient-stop: #000
+
     +box-shadow(#999, 0px, 4px, 8px)
-    +linear-gradient(color_stops(#333, #111))
     background-color: #333
-    border-bottom: 1px solid #000
-    height: $header-height - 10px
+    +linear-gradient(color_stops($gradient-start, $gradient-stop))
+    border-top: 1px solid #000
+    height: $header-height
     left: 0
-    padding: 5px 10px
+    padding: 0 10px
     position: fixed
     top: 0
     width: 100%
@@ -50,14 +52,21 @@ body
       margin: 0 auto
       max-width: $max-width
 
-    img
-      float: left
-      height: 39px
-      width: 120px
+      > a
+        $vertical-padding: ($header-height - 30px) / 2
+        float: left
+        border-right: 1px solid $gradient-stop
+        padding: $vertical-padding 20px $vertical-padding 0
+
+        img
+          display: block
+          height: 30px
+          width: 93px
 
     nav
       float: left
-      margin: 8px 20px 0 20px
+      border-left: 1px solid $gradient-start
+      padding: 0 0 0 20px
 
       a
         color: #ccc
@@ -66,23 +75,57 @@ body
         font-family: "Helvetica Neue", sans-serif
         font-size: 12px
         font-weight: bold
+        line-height: $header-height
         margin: 0 10px
         text-decoration: none
+        +text-shadow(#000, 0px, 1px, 1px)
+
+        &:first-child
+          margin-left: 0
 
         &:hover
-          color: #eee
+          color: #fff
+
+  > footer
+    background: url(/images/redis-small.png) no-repeat left top
+    padding: 10px 10px 10px 50px
+    max-width: $max-width - 10px - 50px
+    margin: 15px auto
+    color: #777
+    position: relative
+    font-size: 11px
+
+    .sponsor
+      position: absolute
+      top: 0
+      right: 0
+
+      img
+        display: block
 
 #text
+  +box-shadow(#ccc, 0px, 0px, 10px)
   background-color: #fafafa
+  color: #333
   margin: 0 auto
-  max-width: $max-width
-  padding: 20px
+  max-width: $max-width - 30px * 2
+  padding: 20px 30px
+
+  a
+    color: #0066aa
+    text-decoration: none
+    +text-shadow(#f0f0f0, 1px, 1px, 0px)
+
+    &:hover
+      color: #0099ff
+      text-decoration: underline
 
 // iPhone
 @media screen and (max-device-width: 480px)
   body
     > header
       height: auto
+      padding: 0 8px
 
       > .container
         position: relative
@@ -92,22 +135,39 @@ body
           height: 30px
           left: 0
           overflow: hidden
+          padding-left: 0
+          padding-right: 8px
           position: absolute
           top: 0
-          width: 38px
+          width: 34px
 
         img
-          height: 30px
           position: absolute
-          width: 95px
 
       nav
         float: left
-        margin: 0 0 0 43px
+        margin: 0 0 0 34px + 8px + 1px
+        padding: 0 0 0 8px
 
         a
           font-size: 12px
-          margin: 0 3px
+          margin: 0 4px
+
+    > footer
+      background-image: none
+      line-height: 22px
+      margin: 10px 0
+      padding: 2px 8px
+
+      > .sponsor
+        position: static
+
+        img
+          display: inline
+          vertical-align: middle
+
+  #text
+    padding: 15px 10px
 
   #commands
     .command
