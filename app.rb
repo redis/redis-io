@@ -1,3 +1,5 @@
+ROOT_PATH = File.expand_path(File.dirname(__FILE__))
+
 require "cuba"
 require "haml"
 require "rdiscount"
@@ -10,95 +12,29 @@ require "rack/openid"
 require "ohm"
 require "rack/static"
 
-ROOT_PATH = File.expand_path(File.dirname(__FILE__))
+require File.expand_path("lib/reference", ROOT_PATH)
+require File.expand_path("lib/template", ROOT_PATH)
 
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::OpenID
 Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 
-require File.expand_path("reference", ROOT_PATH)
-require File.expand_path("user", ROOT_PATH)
-
 Encoding.default_external = Encoding::UTF_8
 
-class Tilt::SassTemplate
-  OPTIONS = Compass.sass_engine_options
-  OPTIONS.merge!(style: :compact, line_comments: false)
-  OPTIONS[:load_paths] << File.expand_path("views")
+module Kernel
+private
 
-  def prepare
-    @engine = ::Sass::Engine.new(data, sass_options.merge(OPTIONS))
-  end
-end
-
-class RedisTemplate < Tilt::RDiscountTemplate
-  SECTIONS = {
-    "complexity"  => "Time complexity",
-    "description" => "Description",
-    "examples"    => "Examples",
-    "return"      => "Return value",
-  }
-
-  REPLY_TYPES = {
-    "nil"         => "Null multi-bulk reply",
-    "status"      => "Status code reply",
-    "integer"     => "Integer reply",
-    "bulk"        => "Bulk reply",
-    "multi-bulk"  => "Multi-bulk reply"
-  }
-
-  def sections(source)
-    source.gsub(/^\@(\w+)$/) do
-      title = SECTIONS[$1]
-      "#{title}\n---"
-    end
+  def commands
+    @commands ||= Reference.new(JSON.parse(File.read("redis-doc/commands.json")))
   end
 
-  def autolink_commands(source)
-    source.gsub(/\B`([A-Z]+)`\B/) do
-      name = $1
-      command = commands[name]
-
-      if command
-        "[#{name}](/commands/#{name.downcase})"
-      else
-        name
-      end
-    end
+  def redis
+    @redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
   end
 
-  def reply_types(source)
-    source.gsub(/@(#{REPLY_TYPES.keys.join("|")})\-reply/) do
-      type = $1
-      "[#{REPLY_TYPES[type]}](/protocol##{type}-reply)"
-    end
+  def user
+    @user ||= User[session[:user]]
   end
-
-  def preprocess(data)
-    data = sections(data)
-    data = autolink_commands(data)
-    data = reply_types(data)
-    data
-  end
-
-  def prepare
-    @data = preprocess(@data)
-    super
-  end
-end
-
-Tilt.register "md", RedisTemplate
-
-def commands
-  $commands ||= Reference.new(JSON.parse(File.read("redis-doc/commands.json")))
-end
-
-def redis
-  $redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
-end
-
-def user
-  $user ||= User[session[:user]]
 end
 
 Ohm.redis = redis

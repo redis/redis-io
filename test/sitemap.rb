@@ -4,6 +4,14 @@ scope do
   test "Sitemap" do
     visit "/"
 
+    click_link_or_button "Commands"
+
+    assert has_content?("PING")
+
+    click_link_or_button "Clients"
+
+    assert has_content?("redis-rb")
+
     click_link_or_button "Download"
 
     assert has_content?("Redis is now compiled.")

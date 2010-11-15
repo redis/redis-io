@@ -1,6 +1,6 @@
 require "./test/helper"
 
-require File.expand_path("../reference", File.dirname(__FILE__))
+require File.expand_path("../lib/reference", File.dirname(__FILE__))
 
 reference = Reference.new(JSON.parse(File.read("./redis-doc/commands.json")))
 
