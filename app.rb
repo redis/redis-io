@@ -18,7 +18,6 @@ Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 
 require File.expand_path("reference", ROOT_PATH)
 require File.expand_path("user", ROOT_PATH)
-require File.expand_path("comment", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -185,27 +184,6 @@ Cuba.define do
 
     res.write haml("topics/name")
   end
-
-  # on post, path("comments"), param("url"), param("body") do |_, _, url, body|
-  #   Comment.create(user_id: session[:user], body: body, url: url)
-  #   res.redirect url
-  # end
-
-  # on get, path("login") do
-  #   if response = env["rack.openid.response"]
-  #     user = User.from_openid(response)
-  #     session[:user] = user.id
-  #     res.set_cookie :gravatar, gravatar_hash(user.email)
-  #     res.redirect(session.delete(:return_to) || "/")
-  #   else
-  #     session[:return_to] = req.referer
-  #     res.headers["WWW-Authenticate"] = Rack::OpenID.build_header(
-  #       identifier: "https://www.google.com/accounts/o8/id",
-  #       required: ["http://schema.openid.net/contact/email"]
-  #     )
-  #     res.status = 401
-  #   end
-  # end
 
   on post do
     on path("commits"), param(:payload) do
