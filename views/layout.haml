@@ -7,14 +7,16 @@
     %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
     %script(src="http://timeago.yarp.com/jquery.timeago.js")
     %script(src="/app.js?#{File.mtime("views/app.js").to_i}")
+    %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
 
     %title
       = [@title, "Redis"].compact.join(" – ")
 
   %body
     %header
-      %a(href="/")
-        %img(src="/images/redis.png" alt="Redis" width="149" height="48")
+      .container
+        %a(href="/")
+          %img(src="/images/redis.png" alt="Redis" width="149" height="48")
 
       %nav
         %a(href="/download") Download

@@ -1,31 +1,120 @@
 @import "compass/reset"
+@import "compass/css3"
 
 +global-reset
 +reset-html5
 
-body
-  padding: 10px
-
 body, textarea
-  font: 13.5px/18px sans-serif
+  font: 14px/20px "Helvetica Neue", sans-serif
+
+h1, h2
+  font-weight: 300
+  color: #000
 
 h1
-  font-size: 22px
+  font-size: 24px
   line-height: 26px
-  font-weight: bold
   margin: 10px 0
 
 h2
-  font-size: 16px
+  font-size: 18px
   line-height: 22px
-  font-weight: bold
   margin: 14px 0 2px 0
 
 pre
   code
     font-family: "Menlo", monospace
 
+$max-width: 800px
+
+body
+  $header-height: 48px
+  background-color: #f0f0f0
+  color: #333
+  padding: $header-height 0 10px 0
+
+  > header
+    +box-shadow(#999, 0px, 4px, 8px)
+    +linear-gradient(color_stops(#333, #111))
+    background-color: #333
+    border-bottom: 1px solid #000
+    height: $header-height - 10px
+    left: 0
+    padding: 5px 10px
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 1000
+
+    > .container
+      margin: 0 auto
+      max-width: $max-width
+
+    img
+      float: left
+      height: 39px
+      width: 120px
+
+    nav
+      float: left
+      margin: 8px 20px 0 20px
+
+      a
+        color: #ccc
+        display: block
+        float: left
+        font-family: "Helvetica Neue", sans-serif
+        font-size: 12px
+        font-weight: bold
+        margin: 0 10px
+        text-decoration: none
+
+        &:hover
+          color: #eee
+
+#text
+  background-color: #fafafa
+  margin: 0 auto
+  max-width: $max-width
+  padding: 20px
+
+// iPhone
+@media screen and (max-device-width: 480px)
+  body
+    > header
+      height: auto
+
+      > .container
+        position: relative
+
+        a
+          display: block
+          height: 30px
+          left: 0
+          overflow: hidden
+          position: absolute
+          top: 0
+          width: 38px
+
+        img
+          height: 30px
+          position: absolute
+          width: 95px
+
+      nav
+        float: left
+        margin: 0 0 0 43px
+
+        a
+          font-size: 12px
+          margin: 0 3px
+
+  #commands
+    .command
+      font-weight: bold
+
 @import "home"
 @import "clients"
 @import "topics"
 @import "comments"
+@import "commands"

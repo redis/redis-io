@@ -1,10 +1,12 @@
-%h1 Commands
+%section#commands
+  %ul
+    - @commands.each do |command|
+      %li
+        %span.command
+          %a(href="/commands/#{command.to_param}")= command.name
 
-%ul
-  - @commands.each do |command|
-    %li
-      %a(href="/commands/#{command.to_param}")
-        = command.name
+          %span.args
+            - command.arguments.each do |argument|
+              = argument
 
-      %br
-      = command.command["summary"]
+        %span.summary= command.command["summary"]

@@ -1,0 +1,57 @@
+@import "compass/css3"
+@import "compass/utilities/text/ellipsis"
+
+#commands
+  $command-width: 10em
+  $command-margin: 0.3em
+
+  font-size: 12px
+  margin: 0 15px
+
+  li
+    +border-radius(5px)
+    +box-shadow(#e0e0e0)
+    background-color: #fafafa
+    margin: 10px 0
+    padding: 10px 10px
+
+    .command
+      +ellipsis
+      display: block
+      font-family: "Monaco", "Menlo", monospace
+      font-size: 10px
+      margin: 0 0 2px 0
+
+      a
+        color: #0066aa
+        text-decoration: none
+        font-size: 13px
+        +text-shadow(#f0f0f0, 1px, 1px, 0px)
+
+        &:hover
+          color: #0099ff
+
+      .args
+        font-size: 10px
+        color: #555
+
+    .summary
+      display: block
+      font-size: 11.5px
+      line-height: 1.5em
+
+@media (min-width: 460px)
+  #commands
+    ul
+      +column-count(2)
+      +column-width(100% / 2)
+
+      li
+        .summary
+          height: 11.5px * 3
+
+@media (min-width: 960px)
+  #commands
+    ul
+      +column-count(4)
+      +column-width(100% / 4)

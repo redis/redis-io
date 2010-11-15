@@ -1,18 +1,19 @@
-%section
-  = render("redis-doc/homepage.md")
+#text
+  %section
+    = render("redis-doc/homepage.md")
 
-%section#commits
-  %h2 Latest commits in Redis master
+  %section#commits
+    %h2 Latest commits in Redis master
 
-  - if @commits.empty?
-    %p Nothing to show at the moment :-(
-  - else
-    %ul
-      - @commits.each do |commit|
-        %li
-          = partial "avatar", email: commit["author"]["email"], size: 20, alt: commit["author"]["name"]
+    - if @commits.empty?
+      %p Nothing to show at the moment :-(
+    - else
+      %ul
+        - @commits.each do |commit|
+          %li
+            = partial "avatar", email: commit["author"]["email"], size: 20, alt: commit["author"]["name"]
 
-          %a(href="http://github.com#{commit["url"]}")= commit["message"].split("\n").first
+            %a(href="http://github.com#{commit["url"]}")= commit["message"].split("\n").first
 
-          - # %time(datetime="#{commit["committed_date"]}")
-          - #   = commit["committed_date"]
+            - # %time(datetime="#{commit["committed_date"]}")
+            - #   = commit["committed_date"]

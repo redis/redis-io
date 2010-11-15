@@ -1,13 +1,14 @@
-%h1
-  = @command.to_s
+#text
+  %h1
+    = @command.to_s
 
-%article
-  %p
-    - if @command.since
-      Available since #{@command.since}.
-    - else
-      Available in Redis master.
+  %article
+    %p
+      - if @command.since
+        Available since #{@command.since}.
+      - else
+        Available in Redis master.
 
-  ~ render("redis-doc/commands/#{@name.downcase}.md")
+    ~ render("redis-doc/commands/#{@name.downcase}.md")
 
-  = partial("comments")
+    = partial("comments")

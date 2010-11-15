@@ -67,13 +67,7 @@ class Reference
     end
 
     def to_s
-      @to_s ||= [name].tap do |res|
-        break res unless command["arguments"]
-
-        command["arguments"].each do |argument|
-          res << Argument.new(argument).to_s
-        end
-      end.join(" ")
+      @to_s ||= [name, *arguments].join(" ")
     end
 
     def since
@@ -82,6 +76,12 @@ class Reference
 
     def to_param
       name.downcase.gsub(" ", "-")
+    end
+
+    def arguments
+      (command["arguments"] || []).map do |argument|
+        Argument.new(argument)
+      end
     end
   end
 
