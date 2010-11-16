@@ -132,6 +132,12 @@ Cuba.define do
     end
   end
 
+  on get, path(/\w+\.json/) do |_, file|
+    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+    res.headers["Content-Type"] = "application/json;charset=UTF-8"
+    res.write File.read("redis-doc/#{file}")
+  end
+
   on get, path("styles.css") do
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "text/css; charset=utf-8"
