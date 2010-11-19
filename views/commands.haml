@@ -1,7 +1,13 @@
 %section#commands
+  %nav
+    %a(href="#") All
+
+    - Reference::GROUPS.each do |name, description|
+      %a(href="##{name}")= description
+
   %ul
     - @commands.each do |command|
-      %li
+      %li(data-group="#{command.command["group"]}")
         %span.command
           %a(href="/commands/#{command.to_param}")= command.name
 

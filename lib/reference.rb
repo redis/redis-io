@@ -1,4 +1,17 @@
 class Reference
+  GROUPS = {
+    "generic" => "Keys",
+    "string" => "Strings",
+    "hash" => "Hashes",
+    "list" => "Lists",
+    "set" => "Sets",
+    "sorted_set" => "Sorted Sets",
+    "pubsub" => "Pub/Sub",
+    "transactions" => "Transactions",
+    "connection" => "Connection",
+    "server" => "Server",
+  }
+
   class Command
     class Argument
       attr :argument

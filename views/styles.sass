@@ -1,5 +1,6 @@
 @import "compass/reset"
 @import "compass/css3"
+@import "compass/utilities/general/clearfix"
 
 +reset-html5
 
@@ -30,6 +31,7 @@ body
   background-color: #f0f0f0
   color: #333
   padding: $header-height 0 10px 0
+  margin: 0
 
   > header
     $gradient-start: #323232
@@ -37,11 +39,12 @@ body
 
     +box-shadow(#999, 0px, 4px, 8px)
     background-color: #333
+    +clearfix
     +linear-gradient(color_stops($gradient-start, $gradient-stop))
     border-top: 1px solid #000
     height: $header-height
     left: 0
-    padding: 0 10px
+    padding: 0
     position: fixed
     top: 0
     width: 100%
@@ -119,38 +122,49 @@ body
       color: #0099ff
       text-decoration: underline
 
-// iPhone
 @media screen and (max-device-width: 480px)
   body
+    padding: 0
+
     > header
       height: auto
-      padding: 0 8px
+      padding: 0
+      position: relative
 
       > .container
+        display: table
+        margin: 0
+        max-width: none
+        position: relative
+        width: 100%
+
+        > a
+          background: url(/images/redis.png) no-repeat 6px 4px
+          display: table-cell
+          float: none
+          height: 30px
+          overflow: hidden
+          padding: 5px 0
+          position: relative
+          width: 46px
+
+          img
+            display: none
+
+      nav
+        display: table-cell
+        padding: 5px 0 5px 8px
+        float: none
+        vertical-align: middle
+        border-left: 1px solid #323232
         position: relative
 
         a
-          display: block
-          height: 30px
-          left: 0
-          overflow: hidden
-          padding-left: 0
-          padding-right: 8px
-          position: absolute
-          top: 0
-          width: 34px
-
-        img
-          position: absolute
-
-      nav
-        float: left
-        margin: 0 0 0 34px + 8px + 1px
-        padding: 0 0 0 8px
-
-        a
           font-size: 12px
-          margin: 0 4px
+          margin: 0 4px 0 0
+          display: inline
+          height: auto
+          line-height: 18px
 
     > footer
       background-image: none

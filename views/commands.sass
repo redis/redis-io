@@ -1,18 +1,24 @@
 @import "compass/css3"
 @import "compass/utilities/text/ellipsis"
+@import "compass/utilities/general/clearfix"
 
 #commands
   $command-width: 10em
   $command-margin: 0.3em
 
   font-size: 12px
-  margin: 20px 15px
+  text-align: center
+
+  ul
+    margin: 0 15px
+    text-align: left
+    padding: 50px 0 0 0
 
   li
     +border-radius(5px)
     +box-shadow(#e0e0e0)
     background-color: #fafafa
-    margin: 10px 0
+    margin: 0 0 10px 0
     padding: 10px 10px
 
     .command
@@ -40,6 +46,30 @@
       font-size: 11.5px
       line-height: 1.5em
 
+  nav
+    margin: 0 auto
+    padding: 7px 0 6px 0
+    background-color: #f0f0f0
+    position: fixed
+    width: 100%
+    +box-shadow(#aaa, 0px, 4px, 8px)
+    +linear-gradient(color_stops(#fefefe, #f0f0f0))
+
+    a
+      color: #555
+      text-decoration: none
+      padding: 2px 2px
+      font-size: 11px
+      line-height: 14px
+      display: inline-block
+
+      &.current
+        background-color: #666
+        color: #fff
+        +border-radius(8px)
+        +text-shadow(#000, 1px, 1px)
+        padding: 2px 8px
+
 @media (min-width: 460px)
   #commands
     ul
@@ -55,3 +85,18 @@
     ul
       +column-count(4)
       +column-width(100% / 4)
+
+@media screen and (max-device-width: 480px)
+  #commands
+    nav
+      position: static
+
+      a
+        padding: 2px 1px
+        font-size: 11px
+
+        &.current
+          padding: 2px 4px
+
+    ul
+      padding-top: 10px

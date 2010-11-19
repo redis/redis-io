@@ -5,7 +5,6 @@
     %meta(charset="utf-8")
     %link(rel="stylesheet" href="/styles.css?#{File.mtime("views/styles.sass").to_i}" type="text/css")
     %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
-    %script(src="http://timeago.yarp.com/jquery.timeago.js")
     %script(src="/app.js?#{File.mtime("views/app.js").to_i}")
     %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
 
@@ -18,12 +17,12 @@
         %a(href="/")
           %img(src="/images/redis.png" alt="Redis" width="93" height="30")
 
-      %nav
-        %a(href="/commands") Commands
-        %a(href="/clients") Clients
-        %a(href="/documentation") Documentation
-        %a(href="/community") Community
-        %a(href="/download") Download
+        %nav
+          %a(href="/commands") Commands
+          %a(href="/clients") Clients
+          %a(href="/documentation") Documentation
+          %a(href="/community") Community
+          %a(href="/download") Download
 
     = content
 
