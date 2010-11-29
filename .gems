@@ -5,3 +5,4 @@ ohm -v 0.1.0.rc6
 rack-openid
 rdiscount
 redis
+pistol

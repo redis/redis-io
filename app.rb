@@ -11,13 +11,10 @@ require "redis"
 require "rack/openid"
 require "ohm"
 require "rack/static"
+require "pistol"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
-
-Cuba.use Rack::Session::Cookie
-Cuba.use Rack::OpenID
-Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -42,6 +39,13 @@ private
 end
 
 Ohm.redis = redis
+
+Cuba.use Rack::Session::Cookie
+Cuba.use Rack::OpenID
+Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
+Cuba.use Pistol, Dir[documentation_path + "/topics/*.md"] do
+  Thread.current[:_cache].clear
+end
 
 Cuba.define do
   def render(path, locals = {})
