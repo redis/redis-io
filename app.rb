@@ -24,8 +24,12 @@ Encoding.default_external = Encoding::UTF_8
 module Kernel
 private
 
+  def documentation_path
+    @documentation_path ||= ENV["REDIS_DOC"] || "redis-doc"
+  end
+
   def commands
-    @commands ||= Reference.new(JSON.parse(File.read("redis-doc/commands.json")))
+    @commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
   end
 
   def redis
@@ -41,7 +45,8 @@ Ohm.redis = redis
 
 Cuba.define do
   def render(path, locals = {})
-    return unless File.expand_path(path).start_with?(ROOT_PATH)
+    expanded = File.expand_path(path)
+    return unless expanded.start_with?(ROOT_PATH) || expanded.start_with?(documentation_path)
     super(path, locals)
   end
 
@@ -107,7 +112,7 @@ Cuba.define do
   end
 
   on get, path("clients") do
-    @clients = JSON.parse(File.read("redis-doc/clients.json"))
+    @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
 
     @clients_by_language = @clients.group_by { |name, info| info["language"] }.sort_by { |name, _| name.downcase }
 
@@ -115,7 +120,7 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
-    @body = render("redis-doc/topics/#{name}.md")
+    @body = render(documentation_path + "/topics/#{name}.md")
     @title = @body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
 
     res.write haml("topics/name")
@@ -135,7 +140,7 @@ Cuba.define do
   on get, path(/\w+\.json/) do |_, file|
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "application/json;charset=UTF-8"
-    res.write File.read("redis-doc/#{file}")
+    res.write File.read(documentation_path + "/#{file}")
   end
 
   on get, path("styles.css") do
