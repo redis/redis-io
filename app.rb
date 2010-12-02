@@ -43,7 +43,7 @@ Ohm.redis = redis
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::OpenID
 Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
-Cuba.use Pistol, Dir[documentation_path + "/topics/*.md"] do
+Cuba.use Pistol, Dir[documentation_path + "/**/*.md"] do
   Thread.current[:_cache].clear
 end
 
