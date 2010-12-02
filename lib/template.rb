@@ -51,10 +51,17 @@ class RedisTemplate < Tilt::RDiscountTemplate
     end
   end
 
+  def formulas(source)
+    source.gsub(/(\w+\(.+?\)[\+\s\.])/) do
+      %Q[<span class="math">#{$1}</span>]
+    end
+  end
+
   def preprocess(data)
     data = sections(data)
     data = autolink_commands(data)
     data = reply_types(data)
+    data = formulas(data)
     data
   end
 

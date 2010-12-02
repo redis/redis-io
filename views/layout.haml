@@ -5,7 +5,7 @@
     %meta(charset="utf-8")
     %link(rel="stylesheet" href="/styles.css?#{File.mtime("views/styles.sass").to_i}" type="text/css")
     %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
-    %script(src="/app.js?#{File.mtime("views/app.js").to_i}")
+    %script(src="/app.js?#{File.mtime("views/app.js").to_i}" defer async)
     %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
 
     %title
