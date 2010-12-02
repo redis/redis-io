@@ -9,6 +9,6 @@
       - else
         Available in Redis master.
 
-    ~ render("redis-doc/commands/#{@name.downcase}.md")
+    ~ render(documentation_path + "/commands/#{@name.downcase}.md")
 
     - # = partial("comments")
