@@ -73,6 +73,7 @@ class Reference
 
     attr :name
     attr :command
+    attr :group
 
     def initialize(name, command)
       @name = name
@@ -87,6 +88,10 @@ class Reference
       command["since"]
     end
 
+    def group
+      command["group"]
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end
@@ -97,6 +102,8 @@ class Reference
       end
     end
   end
+
+  include Enumerable
 
   def initialize(commands)
     @commands = commands

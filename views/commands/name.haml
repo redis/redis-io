@@ -1,4 +1,17 @@
 #text
+  #sidebar.commands
+    #pull
+      %a
+        = "&raquo;"
+    #contents
+      %h3
+        = "Related commands"
+
+      %ul
+        - @related.each do |command|
+          %li{:class => command.name == @command.name ? "current" : ""}
+            %a(href="/commands/#{command.to_param}")= command.name
+
   %h1
     = @command.to_s
 

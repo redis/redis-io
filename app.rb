@@ -103,6 +103,9 @@ Cuba.define do
     on segment do |name|
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
+      @related = commands.select do |command|
+        command.group == @command.group
+      end
 
       res.write haml("commands/name")
     end
