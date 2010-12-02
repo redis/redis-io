@@ -39,7 +39,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
       if command
         "[#{name}](/commands/#{name.downcase})"
       else
-        name
+        "`#{name}`"
       end
     end
   end

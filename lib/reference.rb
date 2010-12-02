@@ -103,7 +103,7 @@ class Reference
   end
 
   def [](name)
-    Command.new(name, @commands[name])
+    Command.new(name, @commands[name]) if @commands[name]
   end
 
   def each
