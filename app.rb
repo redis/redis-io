@@ -104,8 +104,8 @@ Cuba.define do
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
       @related = commands.select do |command|
-        command.group == @command.group
-      end
+        command.name != @name && command.group == @command.group
+      end.sort_by(&:name)
 
       res.write haml("commands/name")
     end

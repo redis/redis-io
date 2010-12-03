@@ -59,21 +59,6 @@ $(document).ready(function() {
   $(window).resize(adjustCommandReference)
 
   filterCommandReference()
-
-  // Attach listener for sidebar pull
-  $("#sidebar #pull a").click(function() {
-    var sidebar = $(this).closest("#sidebar");
-    var width = sidebar.outerWidth();
-    var margin = parseInt(sidebar.css("margin-right"));
-    if (sidebar.hasClass("hidden")) {
-      sidebar.css("margin-right", margin + width);
-      $(this).html("&raquo;");
-    } else {
-      sidebar.css("margin-right", margin - width);
-      $(this).html("&laquo;");
-    }
-    sidebar.toggleClass("hidden");
-  });
 })
 
 })(jQuery);
