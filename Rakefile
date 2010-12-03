@@ -29,7 +29,7 @@ task :deploy do
     Task[:update].invoke
 
     sh "git add redis-doc"
-    sh "git commit -m 'Add redis-doc.'"
+    sh "git commit -m 'Add redis-doc.' || true"
     sh "git push heroku deploy:master -f"
   ensure
     sh "git checkout #{current_branch}"
