@@ -52,7 +52,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
   end
 
   def formulas(source)
-    source.gsub(/(\w+\(.+?\)[\+\s\.])/) do
+    source.gsub(/(O\(.+?\)[\+\s\.,])/) do
       %Q[<span class="math">#{$1}</span>]
     end
   end
