@@ -1,7 +1,7 @@
 compass
-cuba -v 0.3.0
+cuba
 haml
-ohm -v 0.1.0.rc6
+ohm
 rack-openid
 rdiscount
 redis
