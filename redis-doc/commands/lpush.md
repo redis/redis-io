@@ -1,7 +1,0 @@
-@complexity
-
-@description
-
-@examples
-
-@return
