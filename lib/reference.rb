@@ -101,6 +101,17 @@ class Reference
         Argument.new(argument)
       end
     end
+
+    include Comparable
+
+    def ==(other)
+      name == other.name
+    end
+    alias eql? ==
+
+    def hash
+      name.hash
+    end
   end
 
   include Enumerable

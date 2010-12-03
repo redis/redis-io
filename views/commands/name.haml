@@ -12,11 +12,20 @@
         Available in Redis master.
 
     %aside
+
+      - unless @related_topics.empty?
+        %h2 Related topics
+
+        %ul
+          - @related_topics.each do |name, url|
+            %li
+              %a(href="#{url}")= name
+
       %h2
         Related commands
 
       %ul
-        - @related.each do |command|
+        - @related_commands.each do |command|
           %li
             %a(href="/commands/#{command.to_param}")= command.name
 

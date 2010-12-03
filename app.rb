@@ -36,6 +36,24 @@ private
   def user
     @user ||= User[session[:user]]
   end
+
+  def related_topics_for(command)
+    # For now this is a quick and dirty way of figuring out related topics.
+
+    path = "#{documentation_path}/topics/#{command.group}.md"
+
+    return [] unless File.exist?(path)
+
+    _, title = topic(path)
+
+    [[title, "/topics/#{command.group}"]]
+  end
+
+  def related_commands_for(group)
+    commands.select do |command|
+      command.group == group
+    end.sort_by(&:name)
+  end
 end
 
 Ohm.redis = redis
@@ -67,12 +85,10 @@ Cuba.define do
   end
 
   def topic(template)
-    # TODO: Relying on ivars for this is ugly.
+    body = render(template)
+    title = body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
 
-    @body = render(template)
-    @title = @body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
-
-    haml("topics/name")
+    return body, title
   end
 
   def gravatar_hash(email)
@@ -87,25 +103,19 @@ Cuba.define do
     res.write haml("home")
   end
 
-  on get, path("download") do
-    res.write topic("views/download.md")
-  end
-
-  on get, path("community") do
-    res.write topic("views/community.md")
-  end
-
-  on get, path("documentation") do
-    res.write topic("views/documentation.md")
+  %w[download community documentation].each do |topic|
+    on get, path(topic) do
+      @body, @title = topic("views/#{topic}.md")
+      res.write haml("topics/name")
+    end
   end
 
   on get, path("commands") do
     on segment do |name|
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
-      @related = commands.select do |command|
-        command.name != @name && command.group == @command.group
-      end.sort_by(&:name)
+      @related_commands = related_commands_for(@command.group) - [@command]
+      @related_topics = related_topics_for(@command)
 
       res.write haml("commands/name")
     end
@@ -127,8 +137,8 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
-    @body = render(documentation_path + "/topics/#{name}.md")
-    @title = @body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
+    @body, @title = topic("#{documentation_path}/topics/#{name}.md")
+    @related_commands = related_commands_for(name)
 
     res.write haml("topics/name")
   end

@@ -1,5 +1,15 @@
 #text
-  %article#topic
-    ~ @body
 
-    - # = partial("comments")
+  %article#topic
+
+    - unless @related_commands.nil? || @related_commands.empty?
+      %aside
+        %h2
+          Related commands
+
+        %ul
+          - @related_commands.each do |command|
+            %li
+              %a(href="/commands/#{command.to_param}")= command.name
+
+    ~ @body
