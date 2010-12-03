@@ -18,6 +18,7 @@ task :update do
   sh "rm -rf redis-doc/.git"
 end
 
+desc "Deploy to Heroku"
 task :deploy do
   current_branch = `git branch`[/^\* (.*)$/, 1]
 
@@ -26,7 +27,7 @@ task :deploy do
   begin
     sh "git rebase master"
 
-    Task[:update].invoke
+    Rake::Task[:update].invoke
 
     sh "git add redis-doc"
     sh "git commit -m 'Add redis-doc.' || true"
