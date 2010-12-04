@@ -31,14 +31,16 @@ class RedisTemplate < Tilt::RDiscountTemplate
     end
   end
 
+  # Prefix commands that should *not* be autolinked with "!".
   def autolink_commands(source)
-    source.gsub(/\B`([A-Z]+)`\B/) do
+    source.gsub(/\B`(!?[A-Z]+)`\B/) do
       name = $1
       command = commands[name]
 
       if command
         "[#{name}](/commands/#{name.downcase})"
       else
+        name.gsub!(/^!/, "")
         "`#{name}`"
       end
     end
