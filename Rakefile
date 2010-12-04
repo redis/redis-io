@@ -22,11 +22,10 @@ desc "Deploy to Heroku"
 task :deploy do
   current_branch = `git branch`[/^\* (.*)$/, 1]
 
-  sh "git checkout deploy || git checkout -b deploy"
+  sh "git branch -d deploy || true"
+  sh "git checkout -b deploy"
 
   begin
-    sh "git rebase master"
-
     Rake::Task[:update].invoke
 
     sh "git add redis-doc"
