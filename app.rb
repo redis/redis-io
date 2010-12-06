@@ -33,6 +33,10 @@ private
     @redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
   end
 
+  def redis_versions
+    @redis_versions ||= redis.hgetall("versions")
+  end
+
   def user
     @user ||= User[session[:user]]
   end
@@ -53,6 +57,24 @@ private
     commands.select do |command|
       command.group == group
     end.sort_by(&:name)
+  end
+
+  def update_redis_versions
+    tags = `git ls-remote -t https://github.com/antirez/redis.git`
+
+    versions = tags.scan(%r{refs/tags/(v?(?:\d\.?)*\-(?:stable|rc\w+|alpha\w+))}).flatten.uniq
+
+    stable, development = versions.partition { |v| v =~ /^v/ }
+
+    redis.hmset(
+      "versions",
+      "stable", stable.sort.last,
+      "development", development.sort.last
+    )
+  end
+
+  def version_name(tag)
+    tag[/v?(.*)/, 1].sub(/\-stable$/, "")
   end
 end
 
@@ -155,5 +177,9 @@ Cuba.define do
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "text/javascript; charset=utf-8"
     res.write File.read("views/app.js")
+  end
+
+  on post, path("commits"), param("payload") do
+    update_redis_versions
   end
 end

@@ -4,15 +4,15 @@ Download
 Stable versions
 ---
 
-* [Version 2.0.3](http://code.google.com/p/redis/downloads/detail?name=redis-2.0.3.tar.gz)
+* [Version <%= version_name redis_versions["stable"] %>](https://github.com/antirez/redis/tarball/<%= redis_versions["stable"] %>)
 * [Version 1.2.6](http://code.google.com/p/redis/downloads/detail?name=redis-1.2.6.tar.gz)
 
 Development versions
 ---
 
-* [Version 2.2 alpha 2](http://github.com/antirez/redis/tarball/2.2-alpha2)
+* [Version <%= version_name redis_versions["development"] %>](https://github.com/antirez/redis/tarball/<%= redis_versions["development"] %>)
 
-Other downloads are available on [GitHub](http://github.com/antirez/redis/downloads)
+Other downloads are available on [GitHub](https://github.com/antirez/redis/downloads)
 and [Google Code](http://code.google.com/p/redis/downloads/list?can=1).
 
 Installation
@@ -20,9 +20,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://redis.googlecode.com/files/redis-2.0.3.tar.gz
-    $ tar xf redis-2.0.3.tar.gz
-    $ cd redis-2.0.3
+    $ mkdir redis
+    $ cd redis
+    $ curl https://github.com/antirez/redis/tarball/<%= redis_versions["stable"] %> -L | tar -x --strip-components 1
     $ make
 
 Redis is now compiled. Run it with:

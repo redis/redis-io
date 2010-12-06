@@ -59,7 +59,12 @@ class RedisTemplate < Tilt::RDiscountTemplate
     end
   end
 
+  def erb(data)
+    ERB.new(data).result(binding)
+  end
+
   def preprocess(data)
+    data = erb(data)
     data = sections(data)
     data = autolink_commands(data)
     data = reply_types(data)
