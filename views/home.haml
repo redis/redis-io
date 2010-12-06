@@ -1,19 +1,12 @@
-#text
+#text.columns.home
   %section
     = render("#{documentation_path}/homepage.md")
 
-  %section#commits
-    %h2 Latest commits in Redis master
+  %aside
 
-    - if @commits.empty?
-      %p Nothing to show at the moment :-(
-    - else
+    %section#buzz
+      %h2 What people are saying
+
       %ul
-        - @commits.each do |commit|
-          %li
-            = partial "avatar", email: commit["author"]["email"], size: 20, alt: commit["author"]["name"]
 
-            %a(href="http://github.com#{commit["url"]}")= commit["message"].split("\n").first
-
-            - # %time(datetime="#{commit["committed_date"]}")
-            - #   = commit["committed_date"]
+      %a(href="http://search.twitter.com/search?tag=redis&lang=en") More...

@@ -53,12 +53,39 @@ function adjustCommandReference() {
   $commands.css("height", Math.ceil(containerHeight / commandHeight) * commandHeight)
 }
 
+function autolink(text) {
+  return text.replace(/(https?:\/\/[-\w\.]+:?\/[\w\/_\.]*(\?\S+)?)/, "<a href='$1'>$1</a>");
+}
+
+function massageTweet(text) {
+  text = text.replace(/^.* @\w+: /, "");
+
+  return autolink(text);
+}
+
+function buzz() {
+  var $buzz = $("#buzz");
+
+  if ($buzz.length == 0) return;
+
+  var $ul = $buzz.find("ul");
+  var url = $buzz.find("a").attr("href");
+
+  $.getJSON(url + "&rpp=10&format=json&callback=?", function(response) {
+    $.each(response.results, function() {
+      $ul.append("<li>" + massageTweet(this.text) + "</li>");
+    });
+  });
+}
+
 $(document).ready(function() {
   commandReference()
 
   $(window).resize(adjustCommandReference)
 
   filterCommandReference()
+
+  buzz();
 })
 
 })(jQuery);

@@ -96,10 +96,6 @@ Cuba.define do
   end
 
   on get, path("") do
-    json = redis.get("commits")
-
-    @commits = json ? JSON.parse(json)["commits"] : []
-
     res.write haml("home")
   end
 
@@ -141,17 +137,6 @@ Cuba.define do
     @related_commands = related_commands_for(name)
 
     res.write haml("topics/name")
-  end
-
-  on post do
-    on path("commits"), param(:payload) do
-      if redis.setnx("commits:refresh", 1)
-        redis.pipelined do
-          redis.set("commits", open("https://github.com/api/v2/json/commits/list/antirez/redis/master").read)
-          redis.expire("commits:refresh", 90)
-        end
-      end
-    end
   end
 
   on get, path(/\w+\.json/) do |_, file|

@@ -214,6 +214,27 @@ body
     .command
       font-weight: bold
 
+.columns
+  $margin: 20px
+
+  +clearfix
+
+  > *
+    float: left
+
+  > *:first-child
+    width: 70%
+
+    > *
+      margin-right: $margin !important
+
+  > aside
+    width: 29.5%
+    border-left: 1px solid #eee
+
+    > *
+      margin-left: $margin
+
 @import "home"
 @import "clients"
 @import "topics"
