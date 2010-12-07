@@ -1,5 +1,24 @@
 ;(function($) {
 
+var cssPrefix = null;
+
+if ($.browser.mozilla) cssPrefix = "moz";
+  else if ($.browser.webkit) cssPrefix = "webkit";
+  else if ($.browser.opera) cssPrefix = "o";
+
+$.cssHooks["columnCount"] = {
+  get: function(element, computed) {
+    var browserSpecificName = "-" + cssPrefix + "-column-count";
+
+    if (computed) {
+      return $.css(element, browserSpecificName);
+    }
+    else {
+      return element.style[browserSpecificName];
+    }
+  }
+}
+
 function commandReference() {
   var $groups = $("#commands nav a")
 
@@ -36,10 +55,6 @@ function filterCommandReference() {
 }
 
 function adjustCommandReference() {
-  // Firefox can deal with CSS3 columns
-  // without breaking boxes.
-  if (window.location.hash.length == 0 && $.browser.mozilla) return
-
   var $commands = $("#commands ul")
 
   $commands.css("height", "auto")
@@ -50,7 +65,11 @@ function adjustCommandReference() {
 
   var containerHeight = $commands.innerHeight()
 
-  $commands.css("height", Math.ceil(containerHeight / commandHeight) * commandHeight)
+  var factor = Math.floor(containerHeight / commandHeight)
+
+  if ((factor * $commands.css("column-count")) < $commands.children(":visible").length) factor++;
+
+  $commands.css("height", factor * commandHeight)
 }
 
 function autolink(text) {
