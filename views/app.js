@@ -82,6 +82,10 @@ function massageTweet(text) {
   return autolink(text);
 }
 
+function legitimate(text) {
+  return !text.match(/le redis|redis le/i);
+}
+
 function buzz() {
   var $buzz = $("#buzz");
 
@@ -89,15 +93,24 @@ function buzz() {
 
   var $ul = $buzz.find("ul");
   var url = $buzz.find("a").attr("href");
+  var count = 0;
+  var limit = 10;
 
-  $.getJSON(url + "&rpp=10&format=json&callback=?", function(response) {
+  $.getJSON(url + "&rpp=20&format=json&callback=?", function(response) {
     $.each(response.results, function() {
+
+      // Skip if the tweet is not Redis related.
+      if (!legitimate(this.text)) { return; }
+
+      // Stop when reaching the hardcoded limit.
+      if (count++ == limit) { return false; }
+
       $ul.append(
         "<li>" +
-          "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
-          "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
-          "</a> " +
-          massageTweet(this.text) +
+        "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
+        "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
+        "</a> " +
+        massageTweet(this.text) +
         "</li>"
       );
     });
