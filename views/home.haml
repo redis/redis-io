@@ -1,9 +1,9 @@
 .text.columns.home.sidebar
   %section
-    = render("#{documentation_path}/homepage.md")
+    != Nokogiri::HTML(render("#{documentation_path}/topics/introduction.md")).at_xpath("//p")
 
     %p
-      %a(href="/documentation") Learn more →
+      %a(href="/topics/introduction") Learn more →
 
     .columns
 

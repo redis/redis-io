@@ -1,6 +1,7 @@
 compass
 cuba
 haml
+nokogiri
 ohm
 rack-openid
 rdiscount

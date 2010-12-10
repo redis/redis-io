@@ -12,6 +12,7 @@ require "rack/openid"
 require "ohm"
 require "rack/static"
 require "pistol"
+require "nokogiri"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
