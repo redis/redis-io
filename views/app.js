@@ -86,7 +86,7 @@ function legitimate(text) {
   return !text.match(/le redis|redis le/i);
 }
 
-function buzz() {
+function buzz(limit) {
   var $buzz = $("#buzz");
 
   if ($buzz.length == 0) return;
@@ -94,7 +94,6 @@ function buzz() {
   var $ul = $buzz.find("ul");
   var url = $buzz.find("a").attr("href");
   var count = 0;
-  var limit = 10;
 
   $.getJSON(url + "&rpp=20&format=json&callback=?", function(response) {
     $.each(response.results, function() {
@@ -124,7 +123,7 @@ $(document).ready(function() {
 
   filterCommandReference()
 
-  buzz();
+  buzz(5);
 })
 
 })(jQuery);
