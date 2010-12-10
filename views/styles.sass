@@ -110,14 +110,14 @@ body
       img
         display: block
 
-#text
+.text
   +box-shadow(#ccc, 0px, 0px, 10px)
   +clearfix
   background-color: #fafafa
   color: #333
   margin: 0 auto
   max-width: $max-width - 30px * 2
-  padding: 20px 30px
+  padding: 30px
 
   a
     color: #0066aa
@@ -132,7 +132,7 @@ body
     margin: 5px 0
 
     strong
-      font-weight: 600
+      font-weight: 400
 
     em
       font-style: italic
@@ -207,7 +207,7 @@ body
           display: inline
           vertical-align: middle
 
-  #text
+  .text
     padding: 15px 10px
 
   #commands
@@ -222,18 +222,33 @@ body
   > *
     float: left
 
-  > *:first-child
-    width: 70%
+    &:first-child
+      border-right: 1px solid #eee
 
-    > *
-      margin-right: $margin !important
+      > *
+        margin-right: $margin !important
 
-  > aside
-    width: 29.5%
-    border-left: 1px solid #eee
+    &:last-child
+      border-left: 1px solid #eee
+      left: -1px
+      position: relative
 
-    > *
-      margin-left: $margin
+      > *
+        margin-left: $margin
+
+  > section
+    width: 49%
+
+  &.sidebar
+    > section
+      width: 70%
+
+    > aside
+      width: 29.5%
+
+    .columns
+      margin-left: 0 !important
+      margin-right: 0 !important
 
 @import "home"
 @import "clients"

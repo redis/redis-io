@@ -92,7 +92,14 @@ function buzz() {
 
   $.getJSON(url + "&rpp=10&format=json&callback=?", function(response) {
     $.each(response.results, function() {
-      $ul.append("<li>" + massageTweet(this.text) + "</li>");
+      $ul.append(
+        "<li>" +
+          "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
+          "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
+          "</a> " +
+          massageTweet(this.text) +
+        "</li>"
+      );
     });
   });
 }

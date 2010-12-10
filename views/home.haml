@@ -1,6 +1,31 @@
-#text.columns.home
+.text.columns.home.sidebar
   %section
     = render("#{documentation_path}/homepage.md")
+
+    %p
+      %a(href="/documentation") Learn more →
+
+    .columns
+
+      %section
+        %h2 Try it
+
+        %p
+          Ready for a test drive? Check this
+          %a(href="http://try.redis-db.com") interactive tutorial
+          that will walk you through the most important features of
+          Redis.
+
+      %section
+        %h2 Download it
+
+        %p
+          Get the latest
+          %a(href="https://github.com/antirez/redis/tarball/#{redis_versions["stable"]}") stable version
+          for production use, or a
+          %a(href="https://github.com/antirez/redis/tarball/#{redis_versions["development"]}") development version
+          to try the most up-to-date Redis.
+          %a(href="/topics/versions") Which one should you use?
 
   %aside
 

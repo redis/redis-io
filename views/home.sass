@@ -1,19 +1,48 @@
 .home
+  section p:first-child
+    font-size: 20px
+    line-height: 26px
+    font-weight: 300
+    margin-top: 0
+
   aside
     font-size: 11.5px
-    line-height: 14px
-    color: #666
+    line-height: 15px
 
     a
       color: #666
 
+    h2
+      &:first-child
+        margin-top: 0
+
   #buzz
+    text-align: right
+
+    h2, ul
+      text-align: left
+
     ul
-      margin: 0 0 5px 0
+      margin: 7px 0
 
     li
-      padding: 4px 0
-      border-bottom: 1px solid #eee
+      $avatar-size: 26px
 
-      &:last-child
-        border-bottom-width: 0
+      margin: 0 0 8px 0
+      padding-left: $avatar-size + 8px
+      position: relative
+
+      a
+        &:first-child
+
+          +box-shadow(#bbb, 0px, 0px, 3px)
+          display: block
+          height: $avatar-size
+          left: 0
+          position: absolute
+          top: 3px
+          width: $avatar-size
+
+          img
+            height: $avatar-size
+            width: $avatar-size
