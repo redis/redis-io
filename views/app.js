@@ -73,7 +73,7 @@ function adjustCommandReference() {
 }
 
 function autolink(text) {
-  return text.replace(/(https?:\/\/[-\w\.]+:?\/[\w\/_\.]*(\?\S+)?)/, "<a href='$1'>$1</a>");
+  return text.replace(/(https?:\/\/[-\w\.]+:?\/[\w\/_\-\.]*(\?\S+)?)/, "<a href='$1'>$1</a>");
 }
 
 function massageTweet(text) {
@@ -86,16 +86,17 @@ function legitimate(text) {
   return !text.match(/le redis|redis le/i);
 }
 
-function buzz(limit) {
+function buzz() {
   var $buzz = $("#buzz");
 
   if ($buzz.length == 0) return;
 
   var $ul = $buzz.find("ul");
-  var url = $buzz.find("a").attr("href");
   var count = 0;
+  var limit = parseInt($buzz.attr("data-limit"));
+  var page = $buzz.attr("data-page") || 1;
 
-  $.getJSON(url + "&rpp=20&format=json&callback=?", function(response) {
+  $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=20&format=json&page=" + page + "&callback=?", function(response) {
     $.each(response.results, function() {
 
       // Skip if the tweet is not Redis related.
@@ -114,6 +115,13 @@ function buzz(limit) {
       );
     });
   });
+
+  $buzz.find("> a.paging").click(function() {
+    var $buzz = $(this).parent();
+    $buzz.attr("data-page", parseInt($buzz.attr("data-page")) + 1);
+    buzz();
+    return false;
+  });
 }
 
 $(document).ready(function() {
@@ -123,7 +131,7 @@ $(document).ready(function() {
 
   filterCommandReference()
 
-  buzz(5);
+  buzz();
 })
 
 })(jQuery);

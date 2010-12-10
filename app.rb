@@ -122,6 +122,10 @@ Cuba.define do
     res.write haml("home")
   end
 
+  on get, path("buzz") do
+    res.write haml("buzz")
+  end
+
   %w[download community documentation].each do |topic|
     on get, path(topic) do
       @body, @title = topic("views/#{topic}.md")
