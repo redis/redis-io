@@ -29,6 +29,12 @@ h3
 code
   font-family: "Menlo", monospace
 
+a
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
 $max-width: 900px
 
 body
@@ -92,6 +98,7 @@ body
 
         &:hover
           color: #fff
+          text-decoration: none
 
   > footer
     background: url(/images/redis-small.png) no-repeat left top
@@ -101,6 +108,9 @@ body
     color: #777
     position: relative
     font-size: 11px
+
+    a
+      color: #444
 
     .sponsor
       position: absolute
@@ -121,12 +131,10 @@ body
 
   a
     color: #0066aa
-    text-decoration: none
     +text-shadow(#f0f0f0, 1px, 1px, 0px)
 
     &:hover
       color: #0099ff
-      text-decoration: underline
 
   p
     margin: 5px 0
