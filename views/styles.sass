@@ -14,12 +14,12 @@ h1, h2, h3
 h1
   font-size: 24px
   line-height: 26px
-  margin: 10px 0
+  margin: 18px 0 2px 0
 
 h2
   font-size: 18px
   line-height: 22px
-  margin: 14px 0 2px 0
+  margin: 14px 0 8px 0
 
 h3
   font-size: 14px
@@ -131,11 +131,11 @@ body
   p
     margin: 5px 0
 
-    strong
-      font-weight: 400
+  strong
+    font-weight: 600
 
-    em
-      font-style: italic
+  em
+    font-style: italic
 
   .math
     font-family: serif
@@ -149,6 +149,9 @@ body
       margin: 10px 0
       background-color: #fefefe
       +border-radius(10px)
+
+  h1:first-child
+    margin-top: 0
 
 @media screen and (max-device-width: 480px)
   body

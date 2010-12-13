@@ -30,3 +30,25 @@ article
 
     h2
       font-size: 16px
+
+  table
+    margin: 10px 0
+
+    tr
+      td
+        vertical-align: top
+        padding: 6px 10px
+        border-bottom: 1px solid #ddd
+
+      &:last-child
+        td
+          border-bottom-width: 0
+
+      &.current
+        background-color: #feffe8
+
+    &.versions
+      td
+        &:first-child
+          font-size: 22px
+          line-height: 22px
