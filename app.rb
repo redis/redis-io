@@ -160,6 +160,7 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
+    @css = [:topics, name]
     @body, @title = topic("#{documentation_path}/topics/#{name}.md")
     @related_commands = related_commands_for(name)
 

@@ -37,6 +37,8 @@ low level.
 * [Internals](/topics/internals): learn details about how Redis is
 implemented under the hood.
 
+* [Who's using it?](/topics/whos-using-redis)
+
 Tutorials
 ---
 

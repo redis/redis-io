@@ -11,7 +11,7 @@
     %title
       = [@title, "Redis"].compact.join(" – ")
 
-  %body
+  %body(class="#{@css.join(" ") if @css}")
     %header
       .container
         %a(href="/")
