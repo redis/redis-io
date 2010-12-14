@@ -74,6 +74,10 @@ private
     )
   end
 
+  def clean_version(version)
+    version[/((?:\d\.?)+)/, 1]
+  end
+
   def version_name(tag)
     tag[/v?(.*)/, 1].sub(/\-stable$/, "")
   end

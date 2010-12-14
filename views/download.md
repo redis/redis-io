@@ -27,7 +27,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     mature too. <strong>This is what you should use</strong>, unless you
     need features that are only available in the unstable release.</td>
     <td>
-      <a href="https://github.com/antirez/redis/tarball/<%= redis_versions["stable"] %>">Download</a>
+      <a href="http://code.google.com/p/redis/downloads/detail?name=redis-<%= clean_version redis_versions["stable"] %>.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -53,9 +53,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ mkdir redis
-    $ cd redis
-    $ curl https://github.com/antirez/redis/tarball/<%= redis_versions["stable"] %> -L | tar -x --strip-components 1
+    $ curl -O http://redis.googlecode.com/files/redis-<%= clean_version redis_versions["stable"] %>.tar.gz
+    $ tar xzf redis-<%= clean_version redis_versions["stable"] %>.tar.gz
+    $ cd redis-<%= clean_version redis_versions["stable"] %>
     $ make
 
 Redis is now compiled. Run it with:
