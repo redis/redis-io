@@ -38,7 +38,6 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     the 2.2-alpha tags: every time the new code passes all tests for
     a couple of weeks and no bugs are reported, the master branch is
     tagged with 2.2-alpha&lt;number&gt;. <br>
-    Redis 2.2 RC1 is expected around December 15, 2010.</td>
     <td>
       <a href="https://github.com/antirez/redis/tarball/<%= redis_versions["development"] %>">Download</a>
     </td>
