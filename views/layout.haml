@@ -4,6 +4,7 @@
   %head
     %meta(charset="utf-8")
     %link(rel="stylesheet" href="/styles.css?#{File.mtime("views/styles.sass").to_i}" type="text/css")
+    %link(rel="shortcut icon" href="/images/favicon.png")
     %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
     %script(src="/app.js?#{File.mtime("views/app.js").to_i}" defer async)
     %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
@@ -11,7 +12,18 @@
     %title
       = [@title, "Redis"].compact.join(" – ")
 
-  %body
+    :javascript
+       var _gaq = _gaq || [];
+       _gaq.push(['_setAccount', 'UA-20243082-1']);
+       _gaq.push(['_trackPageview']);
+
+       (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+  %body(class="#{@css.join(" ") if @css}")
     %header
       .container
         %a(href="/")
@@ -23,12 +35,15 @@
           %a(href="/documentation") Documentation
           %a(href="/community") Community
           %a(href="/download") Download
+          %a(href="http://code.google.com/p/redis/issues/list") Issues
 
     = content
 
     %footer
       %p
-        Redis is a trademark of Salvatore Sanfilippo.
+        This website is
+        <a href="https://github.com/antirez/redis-io">open source software</a>
+        developed by <a href="http://citrusbyte.com">Citrusbyte</a>.
 
       .sponsor
         Sponsored by

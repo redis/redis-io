@@ -14,12 +14,12 @@ h1, h2, h3
 h1
   font-size: 24px
   line-height: 26px
-  margin: 10px 0
+  margin: 18px 0 2px 0
 
 h2
   font-size: 18px
   line-height: 22px
-  margin: 14px 0 2px 0
+  margin: 14px 0 8px 0
 
 h3
   font-size: 14px
@@ -28,6 +28,12 @@ h3
 
 code
   font-family: "Menlo", monospace
+
+a
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
 
 $max-width: 900px
 
@@ -92,6 +98,7 @@ body
 
         &:hover
           color: #fff
+          text-decoration: none
 
   > footer
     background: url(/images/redis-small.png) no-repeat left top
@@ -101,6 +108,9 @@ body
     color: #777
     position: relative
     font-size: 11px
+
+    a
+      color: #444
 
     .sponsor
       position: absolute
@@ -121,21 +131,19 @@ body
 
   a
     color: #0066aa
-    text-decoration: none
     +text-shadow(#f0f0f0, 1px, 1px, 0px)
 
     &:hover
       color: #0099ff
-      text-decoration: underline
 
   p
     margin: 5px 0
 
-    strong
-      font-weight: 400
+  strong
+    font-weight: 600
 
-    em
-      font-style: italic
+  em
+    font-style: italic
 
   .math
     font-family: serif
@@ -149,6 +157,9 @@ body
       margin: 10px 0
       background-color: #fefefe
       +border-radius(10px)
+
+  h1:first-child
+    margin-top: 0
 
 @media screen and (max-device-width: 480px)
   body

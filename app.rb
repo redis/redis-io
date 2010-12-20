@@ -74,6 +74,10 @@ private
     )
   end
 
+  def clean_version(version)
+    version[/((?:\d\.?)+)/, 1]
+  end
+
   def version_name(tag)
     tag[/v?(.*)/, 1].sub(/\-stable$/, "")
   end
@@ -160,6 +164,7 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
+    @css = [:topics, name]
     @body, @title = topic("#{documentation_path}/topics/#{name}.md")
     @related_commands = related_commands_for(name)
 
