@@ -86,7 +86,6 @@ end
 Ohm.redis = redis
 
 Cuba.use Rack::Session::Cookie
-Cuba.use Rack::OpenID
 Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 # Cuba.use Pistol, Dir[documentation_path + "/**/*.md"] do
 #   Thread.current[:_cache] && Thread.current[:_cache].clear
@@ -164,11 +163,18 @@ Cuba.define do
   end
 
   on get, path("topics"), segment do |_, _, name|
-    @css = [:topics, name]
-    @body, @title = topic("#{documentation_path}/topics/#{name}.md")
-    @related_commands = related_commands_for(name)
+    path = "/topics/#{name}.md"
 
-    res.write haml("topics/name")
+    if File.exist?(File.join(documentation_path, path))
+      @css = [:topics, name]
+      @body, @title = topic(File.join(documentation_path, path))
+      @related_commands = related_commands_for(name)
+
+      res.write haml("topics/name")
+    else
+      res.status = 404
+      res.write haml("404", path: path)
+    end
   end
 
   on get, path(/\w+\.json/) do |_, file|
