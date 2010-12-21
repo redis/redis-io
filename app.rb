@@ -84,7 +84,6 @@ end
 
 Ohm.redis = redis
 
-Cuba.use Rack::Session::Cookie
 Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 
 Cuba.define do
