@@ -49,7 +49,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
   def reply_types(source)
     source.gsub(/@(#{REPLY_TYPES.keys.join("|")})\-reply/) do
       type = $1
-      "[#{REPLY_TYPES[type]}](/protocol##{type}-reply)"
+      "[#{REPLY_TYPES[type]}](/topics/protocol##{type}-reply)"
     end
   end
 
