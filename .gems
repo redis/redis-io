@@ -3,7 +3,5 @@ cuba
 haml
 nokogiri
 ohm
-rack-openid
 rdiscount
 redis
-pistol
