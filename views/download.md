@@ -76,7 +76,7 @@ Where's Redis Cluster?
 
 Salvatore is already hacking on Redis Cluster. By March 2010 we should
 have some kind of experimental version, while a Release Candidate is not
-expected until June 2010.
+expected until June 2011.
 
 Probably the first stable version of Redis with clustering support will
 be called 3.0, but Salvatore will try to merge to 2.2 as an experimental
