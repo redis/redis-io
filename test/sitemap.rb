@@ -1,5 +1,10 @@
 require "./test/helper"
 
+prepare do
+  redis.flushdb
+  redis.hmset("versions", "stable", "2.0.4", "development", "2.1.9")
+end
+
 scope do
   test "Sitemap" do
     visit "/"
