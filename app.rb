@@ -11,7 +11,6 @@ require "redis"
 require "rack/openid"
 require "ohm"
 require "rack/static"
-# require "pistol"
 require "nokogiri"
 
 require File.expand_path("lib/reference", ROOT_PATH)
@@ -87,9 +86,6 @@ Ohm.redis = redis
 
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
-# Cuba.use Pistol, Dir[documentation_path + "/**/*.md"] do
-#   Thread.current[:_cache] && Thread.current[:_cache].clear
-# end
 
 Cuba.define do
   def render(path, locals = {})
