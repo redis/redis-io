@@ -18,20 +18,16 @@ task :update do
   sh "rm -rf redis-doc/.git"
 end
 
-desc "Deploy to Heroku"
+desc "Deploy"
 task :deploy do
-  current_branch = `git branch`[/^\* (.*)$/, 1]
+  script = <<-EOS
+  cd ~/redis-doc
+  git pull
+  cd ~/redis-io
+  git pull
+  kill -s INT $(cat log/redis-io.pid)
+  rvm 1.9.2 exec unicorn -D -c unicorn.rb
+  EOS
 
-  sh "git branch -D deploy || true"
-  sh "git checkout -b deploy"
-
-  begin
-    Rake::Task[:update].invoke
-
-    sh "git add redis-doc"
-    sh "git commit -m 'Add redis-doc.'"
-    sh "git push heroku deploy:master -f"
-  ensure
-    sh "git checkout #{current_branch}"
-  end
+  sh "ssh redis-io '#{script.split("\n").map(&:strip).join(" && ")}'"
 end
