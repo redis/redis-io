@@ -40,3 +40,8 @@ Books
 ---
 
 @tnm, @pnoordhuis, and @antirez are writing a Redis book for O'Reilly that will be available in a few months.
+
+Sponsors
+---
+
+All the work [Salvatore Sanfilippo](http://twitter.com/antirez) and [Pieter Noordhuis](http://twitter.com/pnoordhuis) do in order to develop Redis is sponsored by [VMware](http://vmware.com). In the past Redis accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
