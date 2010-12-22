@@ -95,6 +95,7 @@ function buzz() {
   var count = 0;
   var limit = parseInt($buzz.attr("data-limit"));
   var page = $buzz.attr("data-page") || 1;
+  var users = {};
 
   $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=20&format=json&page=" + page + "&callback=?", function(response) {
     $.each(response.results, function() {
@@ -105,14 +106,20 @@ function buzz() {
       // Stop when reaching the hardcoded limit.
       if (count++ == limit) { return false; }
 
-      $ul.append(
-        "<li>" +
-        "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
-        "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
-        "</a> " +
-        massageTweet(this.text) +
-        "</li>"
-      );
+      // Don't show the same user multiple time
+      if (!users[this.from_user])  {
+          // Remember this user
+          users[this.from_user] = true;
+
+          $ul.append(
+            "<li>" +
+            "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
+            "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
+            "</a> " +
+            massageTweet(this.text) +
+            "</li>"
+          );
+       }
     });
   });
 
