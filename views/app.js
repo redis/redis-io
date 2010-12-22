@@ -103,9 +103,6 @@ function buzz() {
       // Skip if the tweet is not Redis related.
       if (!legitimate(this.text)) { return; }
 
-      // Stop when reaching the hardcoded limit.
-      if (count++ == limit) { return false; }
-
       // Don't show the same user multiple time
       if (!users[this.from_user])  {
           // Remember this user
@@ -119,6 +116,9 @@ function buzz() {
             massageTweet(this.text) +
             "</li>"
           );
+
+          // Stop when reaching the hardcoded limit.
+          if (count++ == limit) { return false; }
        }
     });
   });
