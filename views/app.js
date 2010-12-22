@@ -104,22 +104,22 @@ function buzz() {
       if (!legitimate(this.text)) { return; }
 
       // Don't show the same user multiple time
-      if (!users[this.from_user])  {
-          // Stop when reaching the hardcoded limit.
-          if (count++ == limit) { return false; }
+      if (users[this.from_user]) { return true; }
 
-          // Remember this user
-          users[this.from_user] = true;
+      // Stop when reaching the hardcoded limit.
+      if (count++ == limit) { return false; }
 
-          $ul.append(
-            "<li>" +
-            "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
-            "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
-            "</a> " +
-            massageTweet(this.text) +
-            "</li>"
-          );
-       }
+      // Remember this user
+      users[this.from_user] = true;
+
+      $ul.append(
+        "<li>" +
+        "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
+        "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
+        "</a> " +
+        massageTweet(this.text) +
+        "</li>"
+      );
     });
   });
 
