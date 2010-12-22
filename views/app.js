@@ -97,7 +97,7 @@ function buzz() {
   var page = $buzz.attr("data-page") || 1;
   var users = {};
 
-  $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=20&format=json&page=" + page + "&callback=?", function(response) {
+  $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=30&format=json&page=" + page + "&callback=?", function(response) {
     $.each(response.results, function() {
 
       // Skip if the tweet is not Redis related.
@@ -105,6 +105,9 @@ function buzz() {
 
       // Don't show the same user multiple time
       if (!users[this.from_user])  {
+          // Stop when reaching the hardcoded limit.
+          if (count++ == limit) { return false; }
+
           // Remember this user
           users[this.from_user] = true;
 
@@ -116,9 +119,6 @@ function buzz() {
             massageTweet(this.text) +
             "</li>"
           );
-
-          // Stop when reaching the hardcoded limit.
-          if (count++ == limit) { return false; }
        }
     });
   });
