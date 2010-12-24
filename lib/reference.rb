@@ -20,6 +20,18 @@ class Reference
         @argument = argument
       end
 
+      def type
+        [argument["type"]].flatten
+      end
+
+      def optional?
+        argument["optional"] || false
+      end
+
+      def multiple?
+        argument["multiple"] || false
+      end
+
       def to_s
         if argument["multiple"]
           res = multiple(argument)
