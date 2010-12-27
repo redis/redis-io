@@ -131,6 +131,42 @@ function buzz() {
   });
 }
 
+function examples() {
+  $('div.example').each(function() {
+    var $example = $(this);
+
+    $example.find('form').submit(function(event) {
+      var $form = $(this);
+
+      // Append command to execute
+      $form.before(
+        "<p>" +
+        "redis> " + $form.find("input").val() +
+        "</p>"
+      );
+
+      // Hide form
+      $form.hide();
+
+      // POST command to app
+      var url = "/session/" + $example.attr("data-session");
+      $.post(url, $form.serialize(), function(data) {
+        $form.before(
+          "<p>" +
+          data +
+          "</p>"
+        );
+
+        // Reset input field and show form
+        $form.find("input").val("");
+        $form.show();
+      });
+
+      return false;
+    });
+  });
+}
+
 $(document).ready(function() {
   commandReference()
 
@@ -139,6 +175,8 @@ $(document).ready(function() {
   filterCommandReference()
 
   buzz();
+
+  examples();
 })
 
 })(jQuery);

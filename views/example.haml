@@ -1,8 +1,9 @@
-%div(class="example" data-foo="bar")
+%div(class="example" data-session="#{session.namespace}")
   - lines.each do |line|
     %p= "redis> %s" % line.join(" ")
     %p= session.run(line)
-  %p
-    = "redis>"
-    %input{type: "text"}
+  %form
+    %p
+      = "redis>"
+      %input(type="text" name="command" autocomplete="off")
 

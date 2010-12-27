@@ -175,6 +175,12 @@ Cuba.define do
     end
   end
 
+  on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
+    session = ::Try::Session.new(id)
+    args = Shellwords.shellwords req.params["command"].to_s
+    res.write session.run(args) if !args.empty?
+  end
+
   on get, path("clients") do
     @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
 
