@@ -157,16 +157,7 @@ body
     font-family: serif
     font-size: 13px
 
-  pre
-    code
-      display: inline-block
-      padding: 15px
-      border: 1px solid #eee
-      margin: 10px 0
-      background-color: #fefefe
-      +border-radius(10px)
-
-  .example
+  pre code, .example
     display: inline-block
     padding: 15px
     border: 1px solid #eee
@@ -174,21 +165,18 @@ body
     background-color: #fefefe
     +border-radius(10px)
 
-    p
+  .example
+    p, input
       margin: 0
+      padding: 0
       line-height: 20px
       font-size: 12px
       font-family: Menlo, "monospace"
 
     input
-      margin: 0
-      border: 0
-      line-height: 20px
-      font-size: 12px
-      line-height: 20px
-      font-size: 12px
-      font-family: Menlo, "monospace"
+      margin-left: -1px
       outline: none
+      border: 0
       color: #333
 
   h1:first-child
