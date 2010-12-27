@@ -64,14 +64,18 @@ module Try
       when NilClass
         "(nil)\n"
       when Array
-        out = ""
-        index_size = reply.size.to_s.size
-        reply.each_with_index do |element, index|
-          out << prefix if index > 0
-          out << "%#{index_size}d) " % (index + 1)
-          out << format_reply(element, prefix + (" " * (index_size + 2)))
+        if reply.empty?
+          "(empty list or set)\n"
+        else
+          out = ""
+          index_size = reply.size.to_s.size
+          reply.each_with_index do |element, index|
+            out << prefix if index > 0
+            out << "%#{index_size}d) " % (index + 1)
+            out << format_reply(element, prefix + (" " * (index_size + 2)))
+          end
+          out
         end
-        out
       else
         raise "Don't know how to format #{reply.inspect}"
       end
