@@ -7,7 +7,6 @@ require "json"
 require "compass"
 require "open-uri"
 require "digest/md5"
-require "shellwords"
 require "redis"
 require "ohm"
 require "rack/static"
@@ -115,7 +114,6 @@ Cuba.define do
       lines = $1.split(/\n+/m).map(&:strip)
       if lines.shift == "@cli"
         session = ::Try::Session.new(namespace)
-        lines = lines.map { |line| Shellwords.shellwords line }
         render("views/example.haml", session: session, lines: lines)
       else
         match
@@ -181,8 +179,7 @@ Cuba.define do
 
   on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
     session = ::Try::Session.new(id)
-    args = Shellwords.shellwords req.params["command"].to_s
-    res.write session.run(args) if !args.empty?
+    res.write session.run(req.params["command"].to_s)
   end
 
   on get, path("clients") do

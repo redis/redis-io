@@ -1,3 +1,5 @@
+require "shellwords"
+
 module Try
 
   class LineReply < String; end
@@ -34,9 +36,18 @@ module Try
       @namespace = namespace
     end
 
-    def run(args)
-      with_namespace = try_commands.namespace(namespace, args)
-      reply = self.class.redis.client.call(*with_namespace)
+    def run(line)
+      arguments = Shellwords.shellwords(line)
+      if arguments.empty?
+        reply = ErrorReply.new("ERR No command")
+      else
+        with_namespace = try_commands.namespace(namespace, arguments.dup)
+        if with_namespace.nil?
+          reply = ErrorReply.new("ERR Unknown or disabled command '%s'" % arguments[0])
+        else
+          reply = self.class.redis.client.call(*with_namespace)
+        end
+      end
       format_reply(reply)
     end
 
