@@ -137,6 +137,10 @@ function examples() {
 
     $example.find('form').submit(function(event) {
       var $form = $(this);
+      var command = $form.find("input").val();
+
+      if (command.length == 0)
+        return false;
 
       // Append command to execute
       $form.before(
@@ -144,7 +148,7 @@ function examples() {
         "redis>&nbsp;" +
         "</span>" +
         "<span class='monospace command'>" +
-        $form.find("input").val() +
+        command +
         "</span>"
       );
 
