@@ -140,9 +140,9 @@ function examples() {
 
       // Append command to execute
       $form.before(
-        "<p>" +
+        "<pre>" +
         "redis> " + $form.find("input").val() +
-        "</p>"
+        "</pre>"
       );
 
       // Hide form
@@ -151,11 +151,7 @@ function examples() {
       // POST command to app
       var url = "/session/" + $example.attr("data-session");
       $.post(url, $form.serialize(), function(data) {
-        $form.before(
-          "<p>" +
-          data +
-          "</p>"
-        );
+        $form.before("<pre>" + data + "</pre>");
 
         // Reset input field and show form
         $form.find("input").val("");
