@@ -32,8 +32,12 @@ private
     @commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
   end
 
+  def new_redis_connection
+    Redis.connect(url: ENV["REDISTOGO_URL"])
+  end
+
   def redis
-    @redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
+    @redis ||= new_redis_connection
   end
 
   def redis_versions
