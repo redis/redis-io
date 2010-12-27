@@ -166,17 +166,30 @@ body
     +border-radius(10px)
 
   .example
-    pre, input, .monospace
+    max-height: 15 * 20px
+    width: 420px - 2 * 15px
+    overflow: auto
+
+    .monospace, pre, input
       margin: 0
       padding: 0
       line-height: 20px
       font-size: 12px
       font-family: Menlo, "monospace"
 
-    .monospace
+    pre
+      clear: both
+
+    .prompt, .command
       float: left
 
+    .prompt
+      width: 50px
+      font-weight: bold
+
     input
+      // Box width - padding - prompt - little extra
+      width: 420px - 2 * 15px - 50px - 15px
       margin-left: -1px
       outline: none
       border: 0

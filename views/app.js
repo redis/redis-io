@@ -140,9 +140,12 @@ function examples() {
 
       // Append command to execute
       $form.before(
-        "<pre>" +
-        "redis> " + $form.find("input").val() +
-        "</pre>"
+        "<span class='monospace prompt'>" +
+        "redis>&nbsp;" +
+        "</span>" +
+        "<span class='monospace command'>" +
+        $form.find("input").val() +
+        "</span>"
       );
 
       // Hide form

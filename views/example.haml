@@ -1,8 +1,9 @@
 %div(class="example" data-session="#{session.namespace}")
   - lines.each do |line|
-    %pre= "redis> %s" % line.join(" ")
+    %span(class="monospace prompt")= "redis>&nbsp;"
+    %span(class="monospace command")= line.join(" ")
     %pre<= session.run(line)
   %form>
-    %span(class="monospace")= "redis>&nbsp;"
+    %span(class="monospace prompt")= "redis>&nbsp;"
     %input(type="text" name="command" autocomplete="off" spellcheck="false")
 
