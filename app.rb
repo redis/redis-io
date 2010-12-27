@@ -115,6 +115,11 @@ Cuba.define do
     Digest::MD5.hexdigest(email)
   end
 
+  def not_found(locals = {path: nil})
+    res.status = 404
+    res.write haml("404", locals)
+  end
+
   on get, path("") do
     res.write haml("home")
   end
@@ -134,6 +139,9 @@ Cuba.define do
     on segment do |name|
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
+
+      break not_found unless @command
+
       @related_commands = related_commands_for(@command.group) - [@command]
       @related_topics = related_topics_for(@command)
 
@@ -159,16 +167,13 @@ Cuba.define do
   on get, path("topics"), segment do |_, _, name|
     path = "/topics/#{name}.md"
 
-    if File.exist?(File.join(documentation_path, path))
-      @css = [:topics, name]
-      @body, @title = topic(File.join(documentation_path, path))
-      @related_commands = related_commands_for(name)
+    break not_found(path: path) unless File.exist?(File.join(documentation_path, path))
 
-      res.write haml("topics/name")
-    else
-      res.status = 404
-      res.write haml("404", path: path)
-    end
+    @css = [:topics, name]
+    @body, @title = topic(File.join(documentation_path, path))
+    @related_commands = related_commands_for(name)
+
+    res.write haml("topics/name")
   end
 
   on get, path(/\w+\.json/) do |_, file|

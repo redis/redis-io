@@ -49,4 +49,11 @@ scope do
     assert has_css?("title", text: "DEBUG OBJECT")
     assert has_css?("h1", text: "DEBUG OBJECT")
   end
+
+  test "Missing command" do
+    visit "/commands/foobar"
+
+    assert has_content?("Sorry")
+    assert page.driver.response.status == 404
+  end
 end
