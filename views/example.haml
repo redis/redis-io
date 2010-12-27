@@ -1,0 +1,8 @@
+%div(class="example" data-foo="bar")
+  - lines.each do |line|
+    %p= "redis> %s" % line.join(" ")
+    %p= session.run(line)
+  %p
+    = "redis>"
+    %input{type: "text"}
+
