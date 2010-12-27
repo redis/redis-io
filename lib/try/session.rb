@@ -44,8 +44,10 @@ module Try
 
     def format_reply(reply, prefix = "")
       case reply
-      when LineReply, Fixnum
+      when LineReply
         reply.to_s + "\n"
+      when Fixnum
+        "(integer) " + reply.to_s + "\n"
       when String
         reply.inspect + "\n"
       when NilClass
