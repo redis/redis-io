@@ -1,36 +1,11 @@
+require File.expand_path(File.dirname(__FILE__) + "/redis")
 require "shellwords"
 
 module Interactive
 
-  class LineReply < String; end
-  class StatusReply < LineReply; end
-  class ErrorReply < LineReply; end
-
-  module RedisHacks
-
-    def format_status_reply(line)
-      StatusReply.new(line.strip)
-    end
-
-    def format_error_reply(line)
-      ErrorReply.new(line.strip)
-    end
-  end
-
   class Session
 
     attr :namespace
-
-    def self.redis
-      @redis ||=
-        begin
-          redis = new_redis_connection
-          class << redis.client
-            include RedisHacks
-          end
-          redis
-        end
-    end
 
     def initialize(namespace)
       @namespace = namespace
@@ -65,7 +40,7 @@ module Interactive
       end
 
       # Make the call
-      reply = self.class.redis.client.call(*namespaced)
+      reply = ::Interactive.redis.client.call(*namespaced)
 
       # Strip namespace for KEYS
       if arguments.first.downcase == "keys"
