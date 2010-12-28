@@ -15,8 +15,8 @@ require "nokogiri"
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
 
+require File.expand_path("lib/try/namespace", ROOT_PATH)
 require File.expand_path("lib/try/session", ROOT_PATH)
-require File.expand_path("lib/try/commands", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
