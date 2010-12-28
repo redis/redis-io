@@ -54,6 +54,11 @@ module Interactive
           reply = ErrorReply.new("ERR Unknown or disabled command '%s'" % arguments[0])
         else
           reply = self.class.redis.client.call(*with_namespace)
+
+          # Strip namespace for KEYS
+          if with_namespace.first.downcase == "keys"
+            reply.map! { |key| key[/^\w+:(.*)$/,1] }
+          end
         end
       end
       format_reply(reply)
