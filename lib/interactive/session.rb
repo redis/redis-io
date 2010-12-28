@@ -36,35 +36,44 @@ module Interactive
       @namespace = namespace
     end
 
-    def validate(arguments)
-      if arguments.empty?
-        "No command"
-      elsif arguments.size > 100 || arguments.any? { |arg| arg.size > 100 }
-        "Web-based interface is limited"
-      end
-    end
-
     def run(line)
-      arguments = Shellwords.shellwords(line)
-      if error = validate(arguments)
-        reply = ErrorReply.new("ERR " + error)
-      else
-        with_namespace = ::Interactive.namespace(namespace, arguments.dup)
-        if with_namespace.empty?
-          reply = ErrorReply.new("ERR Unknown or disabled command '%s'" % arguments[0])
-        else
-          reply = self.class.redis.client.call(*with_namespace)
-
-          # Strip namespace for KEYS
-          if with_namespace.first.downcase == "keys"
-            reply.map! { |key| key[/^\w+:(.*)$/,1] }
-          end
-        end
-      end
-      format_reply(reply)
+      _run(line)
+    rescue => error
+      format_reply(ErrorReply.new("ERR " + error.message))
     end
 
   private
+
+    def _run(line)
+      begin
+        arguments = Shellwords.shellwords(line)
+      rescue => error
+        raise error.message.split(":").first
+      end
+
+      if arguments.empty?
+        raise "No command"
+      end
+
+      if arguments.size > 100 || arguments.any? { |arg| arg.size > 100 }
+        raise "Web-based interface is limited"
+      end
+
+      namespaced = ::Interactive.namespace(namespace, arguments)
+      if namespaced.empty?
+        raise "Unknown or disabled command '%s'" % arguments.first
+      end
+
+      # Make the call
+      reply = self.class.redis.client.call(*namespaced)
+
+      # Strip namespace for KEYS
+      if arguments.first.downcase == "keys"
+        reply.map! { |key| key[/^\w+:(.*)$/,1] }
+      end
+
+      format_reply(reply)
+    end
 
     def format_reply(reply, prefix = "")
       case reply

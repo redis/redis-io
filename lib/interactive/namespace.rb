@@ -13,6 +13,7 @@ module Interactive
   end
 
   def self.pattern(args)
+    args = args.dup
     name = args.shift
     return [] if COMMANDS[name.downcase].nil?
     type, pattern = COMMANDS[name.downcase]
