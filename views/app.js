@@ -131,6 +131,27 @@ function buzz() {
   });
 }
 
+// Easily set caret position in input field
+$.fn.setSelection = function(start, end) {
+  var i, size = this.size();
+
+  // Only set caret by default
+  if (end === undefined) end = start;
+
+  for (i = 0; i < size; i++) {
+    var element = this.get(i);
+    if (element.createTextRange) { // IE
+      var range = element.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', end);
+      range.moveStart('character', start);
+      range.select();
+    } else if (element.setSelectionRange) { // Other browsers
+      element.setSelectionRange(start, end);
+    }
+  }
+}
+
 function examples() {
   $('div.example').each(function() {
     var $example = $(this);
@@ -155,7 +176,10 @@ function examples() {
       if (index >= 0 && index <= count) {
         $input.data("index", index);
         $input.val($example.find(".command").eq(index).text());
+        $input.setSelection($input.val().length);
       }
+
+      return false;
     });
 
     $form.submit(function(event) {
