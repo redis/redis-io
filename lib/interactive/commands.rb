@@ -4,7 +4,7 @@
 # Do not edit.
 #
 
-module Try
+module Interactive
   COMMANDS = {
     # connection
     "echo" => [:zip, [nil]],

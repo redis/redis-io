@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/commands")
 
-module Try
+module Interactive
 
   def self.namespace(ns, args)
     pattern(args).map do |arg,type|

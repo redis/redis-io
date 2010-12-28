@@ -1,6 +1,6 @@
 require "shellwords"
 
-module Try
+module Interactive
 
   class LineReply < String; end
   class StatusReply < LineReply; end
@@ -41,7 +41,7 @@ module Try
       if arguments.empty?
         reply = ErrorReply.new("ERR No command")
       else
-        with_namespace = ::Try.namespace(namespace, arguments.dup)
+        with_namespace = ::Interactive.namespace(namespace, arguments.dup)
         if with_namespace.nil?
           reply = ErrorReply.new("ERR Unknown or disabled command '%s'" % arguments[0])
         else

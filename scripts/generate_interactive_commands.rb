@@ -67,7 +67,7 @@ template = <<-TPL
 # Do not edit.
 #
 
-module Try
+module Interactive
   COMMANDS = {
   <%- by_group.each do |group,commands| -%>
     # <%= group %>

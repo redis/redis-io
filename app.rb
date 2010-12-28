@@ -15,8 +15,8 @@ require "nokogiri"
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
 
-require File.expand_path("lib/try/namespace", ROOT_PATH)
-require File.expand_path("lib/try/session", ROOT_PATH)
+require File.expand_path("lib/interactive/namespace", ROOT_PATH)
+require File.expand_path("lib/interactive/session", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -45,10 +45,6 @@ private
 
   def user
     @user ||= User[session[:user]]
-  end
-
-  def try_commands
-    @try_commands ||= ::Try::Commands.new(commands)
   end
 
   def related_topics_for(command)
@@ -103,18 +99,18 @@ Cuba.define do
       super(path, locals)
     elsif expanded.start_with?(documentation_path)
       data = super(path, locals)
-      filter_session_examples(data)
+      filter_interactive_examples(data)
     end
   end
 
-  # Setup a new cli session for every <pre><code> with @cli
-  def filter_session_examples(data)
+  # Setup a new interactive session for every <pre><code> with @cli
+  def filter_interactive_examples(data)
     namespace = Digest::MD5.hexdigest(rand(2**32).to_s)
     data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
       if lines.shift == "@cli"
-        session = ::Try::Session.new(namespace)
-        render("views/example.haml", session: session, lines: lines)
+        session = ::Interactive::Session.new(namespace)
+        render("views/interactive.haml", session: session, lines: lines)
       else
         match
       end
@@ -178,7 +174,7 @@ Cuba.define do
   end
 
   on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
-    session = ::Try::Session.new(id)
+    session = ::Interactive::Session.new(id)
     res.write session.run(req.params["command"].to_s)
   end
 
