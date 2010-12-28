@@ -5,14 +5,14 @@
 +reset-html5
 
 body, textarea
-  font: 15px/18px "Helvetica Neue", sans-serif
+  font: 13px/1.5 "Helvetica Neue", sans-serif
 
 h1, h2, h3
-  font-weight: 450
+  font-weight: 300
   color: #000
 
 h1
-  font-size: 24px
+  font-size: 26px
   line-height: 26px
   margin: 18px 0 2px 0
 
@@ -22,12 +22,12 @@ h2
   margin: 14px 0 8px 0
 
 h3
-  font-size: 14px
+  font-size: 18px
   line-height: 18px
-  margin: 13px 0 2px 0
+  margin: 13px 0 6px 0
 
 code
-  font-family: "Menlo", monospace
+  font-family: "Menlo", "Monaco", monospace
 
 a
   text-decoration: none
@@ -139,11 +139,11 @@ body
   p
     margin: 5px 0
 
-    &:first-of-type
-      margin-top: 15px
+  > p:first-of-type, > * > p:first-of-type
+    margin-top: 15px
 
   strong
-    font-weight: 600
+    font-weight: 500
 
   em
     font-style: italic
