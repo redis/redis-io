@@ -36,13 +36,21 @@ module Interactive
       @namespace = namespace
     end
 
+    def validate(arguments)
+      if arguments.empty?
+        "No command"
+      elsif arguments.size > 100 || arguments.any? { |arg| arg.size > 100 }
+        "Web-based interface is limited"
+      end
+    end
+
     def run(line)
       arguments = Shellwords.shellwords(line)
-      if arguments.empty?
-        reply = ErrorReply.new("ERR No command")
+      if error = validate(arguments)
+        reply = ErrorReply.new("ERR " + error)
       else
         with_namespace = ::Interactive.namespace(namespace, arguments.dup)
-        if with_namespace.nil?
+        if with_namespace.empty?
           reply = ErrorReply.new("ERR Unknown or disabled command '%s'" % arguments[0])
         else
           reply = self.class.redis.client.call(*with_namespace)
