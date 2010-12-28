@@ -134,12 +134,32 @@ function buzz() {
 function examples() {
   $('div.example').each(function() {
     var $example = $(this);
+    var $form = $example.find("form");
+    var $input = $form.find("input");
 
-    $example.find('form').submit(function(event) {
-      var $form = $(this);
-      var command = $form.find("input").val();
+    $input.keydown(function(event) {
+      var count = $example.find(".command").size();
+      var index = $input.data("index");
+      if (index == undefined) index = count;
 
-      if (command.length == 0)
+      if (event.keyCode == 38) {
+        index--; // up
+      } else if (event.keyCode == 40) {
+        index++; // down
+      } else {
+        return;
+      }
+
+      // Out of range at the positive side of the range makes sure
+      // we can get back to an empty value.
+      if (index >= 0 && index <= count) {
+        $input.data("index", index);
+        $input.val($example.find(".command").eq(index).text());
+      }
+    });
+
+    $form.submit(function(event) {
+      if ($input.val().length == 0)
         return false;
 
       // Append command to execute
@@ -148,7 +168,7 @@ function examples() {
         "redis>&nbsp;" +
         "</span>" +
         "<span class='monospace command'>" +
-        command +
+        $input.val() +
         "</span>"
       );
 
@@ -161,13 +181,16 @@ function examples() {
         $form.before("<pre>" + data + "</pre>");
 
         // Reset input field and show form
-        $form.find("input").val("");
+        $input.val("");
+        $input.removeData("index");
         $form.show();
       });
 
       return false;
     });
   });
+
+  $('div.example:first :text').focus();
 }
 
 $(document).ready(function() {
