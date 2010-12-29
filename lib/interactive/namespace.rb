@@ -12,6 +12,12 @@ module Interactive
     end
   end
 
+  def self.keys(args)
+    pattern(args).map do |arg,type|
+      arg if type == :key
+    end.compact
+  end
+
   def self.pattern(args)
     args = args.dup
     name = args.shift

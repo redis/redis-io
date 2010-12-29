@@ -3,7 +3,29 @@ require "shellwords"
 
 module Interactive
 
+  # Create and find actions have race conditions, but I don't
+  # really care about them right now...
   class Session
+
+    # Create new instance.
+    def self.create(namespace)
+      raise "Already exists" if redis.zscore("sessions", namespace)
+      touch(namespace)
+      new(namespace)
+    end
+
+    # Return instance if namespace exists in sorted set.
+    def self.find(namespace)
+      if timestamp = redis.zscore("sessions", namespace)
+        if Time.now.to_i - timestamp.to_i < 3600
+          touch(namespace)
+          new(namespace)
+        end
+      end
+    end
+
+    # This should only be created through #new or #create
+    private_class_method :new
 
     attr :namespace
 
@@ -18,6 +40,23 @@ module Interactive
     end
 
   private
+
+    def self.touch(namespace)
+      redis.zadd("sessions", Time.now.to_i, namespace)
+    end
+
+    def register(arguments)
+      # TODO: Only store keys that receive writes.
+      keys = ::Interactive.keys(arguments)
+      redis.pipelined do
+        keys.each do |key|
+          redis.sadd("session:#{namespace}:keys", key)
+        end
+      end
+
+      # Command counter, not yet used
+      redis.incr("session:#{namespace}:commands")
+    end
 
     def _run(line)
       begin
@@ -38,6 +77,9 @@ module Interactive
       if namespaced.empty?
         raise "Unknown or disabled command '%s'" % arguments.first
       end
+
+      # Register the call
+      register(arguments)
 
       # Make the call
       reply = ::Interactive.redis.client.call(*namespaced)

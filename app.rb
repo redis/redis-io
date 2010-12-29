@@ -106,10 +106,11 @@ Cuba.define do
   # Setup a new interactive session for every <pre><code> with @cli
   def filter_interactive_examples(data)
     namespace = Digest::MD5.hexdigest(rand(2**32).to_s)
+    session = ::Interactive::Session.create(namespace)
+
     data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
       if lines.shift == "@cli"
-        session = ::Interactive::Session.new(namespace)
         render("views/interactive.haml", session: session, lines: lines)
       else
         match
@@ -174,8 +175,12 @@ Cuba.define do
   end
 
   on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
-    session = ::Interactive::Session.new(id)
-    res.write session.run(req.params["command"].to_s)
+    if session = ::Interactive::Session.find(id)
+      res.write session.run(req.params["command"].to_s)
+    else
+      res.status = 404
+      res.write "ERR Session does not exist or has timed out."
+    end
   end
 
   on get, path("clients") do
