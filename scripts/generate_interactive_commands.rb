@@ -5,7 +5,7 @@ require "erb"
 
 # Explicitly allow certain groups (don't allow "server", "connection" and
 # "pubsub" commands by default).
-ALLOW_GROUPS = %w(generic hash list set sorted_set string transactions).freeze
+ALLOW_GROUPS = %w(generic hash list set sorted_set string).freeze
 
 # Override ALLOW_GROUPS for some commands.
 ALLOW_COMMANDS = %w(ping select echo dbsize info lastsave).freeze

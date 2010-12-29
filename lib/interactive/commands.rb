@@ -115,13 +115,6 @@ module Interactive
     "setrange" => [:first],
     "strlen" => [:first],
 
-    # transactions
-    "discard" => [],
-    "exec" => [],
-    "multi" => [],
-    "unwatch" => [],
-    "watch" => [:all],
-
   }.freeze
 end
 
