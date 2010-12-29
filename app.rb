@@ -24,7 +24,7 @@ module Kernel
 private
 
   def documentation_path
-    @documentation_path ||= ENV["REDIS_DOC"] || "redis-doc"
+    @documentation_path ||= File.expand_path(ENV["REDIS_DOC"] || "redis-doc")
   end
 
   def commands
@@ -95,11 +95,11 @@ Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 Cuba.define do
   def render(path, locals = {})
     expanded = File.expand_path(path)
-    if expanded.start_with?(ROOT_PATH)
-      super(path, locals)
-    elsif expanded.start_with?(documentation_path)
+    if expanded.start_with?(documentation_path)
       data = super(path, locals)
       filter_interactive_examples(data)
+    elsif expanded.start_with?(ROOT_PATH)
+      super(path, locals)
     end
   end
 
