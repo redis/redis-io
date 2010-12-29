@@ -24,6 +24,22 @@ module Interactive
       end
     end
 
+    # Try to clean up old sessions
+    def self.clean!
+      now = Time.now.to_i
+      threshold = now - 10
+      namespace, timestamp = redis.zrangebyscore("sessions", "-inf", threshold,
+        :with_scores => true, :limit => [0, 1])
+      return if namespace.nil?
+
+      if redis.zrem("sessions", namespace)
+        keys = redis.smembers("session:#{namespace}:keys")
+        redis.del(*keys.map { |key| "#{namespace}:#{key}" })
+        redis.del("session:#{namespace}:keys")
+        redis.del("session:#{namespace}:commands")
+      end
+    end
+
     # This should only be created through #new or #create
     private_class_method :new
 
@@ -31,6 +47,7 @@ module Interactive
 
     def initialize(namespace)
       @namespace = namespace
+      self.class.clean!
     end
 
     def run(line)
