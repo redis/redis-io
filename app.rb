@@ -15,6 +15,9 @@ require "nokogiri"
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
 
+require File.expand_path("lib/interactive/namespace", ROOT_PATH)
+require File.expand_path("lib/interactive/session", ROOT_PATH)
+
 Encoding.default_external = Encoding::UTF_8
 
 module Kernel
@@ -28,8 +31,12 @@ private
     @commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
   end
 
+  def new_redis_connection
+    Redis.connect(url: ENV["REDISTOGO_URL"])
+  end
+
   def redis
-    @redis ||= Redis.connect(url: ENV["REDISTOGO_URL"])
+    @redis ||= new_redis_connection
   end
 
   def redis_versions
@@ -88,8 +95,27 @@ Cuba.use Rack::Static, urls: ["/images"], root: File.join(ROOT_PATH, "public")
 Cuba.define do
   def render(path, locals = {})
     expanded = File.expand_path(path)
-    return unless expanded.start_with?(ROOT_PATH) || expanded.start_with?(documentation_path)
-    super(path, locals)
+    if expanded.start_with?(ROOT_PATH)
+      super(path, locals)
+    elsif expanded.start_with?(documentation_path)
+      data = super(path, locals)
+      filter_interactive_examples(data)
+    end
+  end
+
+  # Setup a new interactive session for every <pre><code> with @cli
+  def filter_interactive_examples(data)
+    namespace = Digest::MD5.hexdigest(rand(2**32).to_s)
+    session = ::Interactive::Session.create(namespace)
+
+    data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
+      lines = $1.split(/\n+/m).map(&:strip)
+      if lines.shift == "@cli"
+        render("views/interactive.haml", session: session, lines: lines)
+      else
+        match
+      end
+    end
   end
 
   def haml(template, locals = {})
@@ -153,6 +179,15 @@ Cuba.define do
       @title = "Command reference"
 
       res.write haml("commands")
+    end
+  end
+
+  on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
+    if session = ::Interactive::Session.find(id)
+      res.write session.run(req.params["command"].to_s)
+    else
+      res.status = 404
+      res.write "ERR Session does not exist or has timed out."
     end
   end
 

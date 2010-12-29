@@ -157,14 +157,46 @@ body
     font-family: serif
     font-size: 13px
 
-  pre
-    code
-      display: inline-block
-      padding: 15px
-      border: 1px solid #eee
-      margin: 10px 0
-      background-color: #fefefe
-      +border-radius(10px)
+  pre code, .example
+    display: inline-block
+    padding: 15px
+    border: 1px solid #eee
+    margin: 10px 0
+    background-color: #fefefe
+    +border-radius(10px)
+
+  .example
+    max-height: 20 * 20px
+    width: 420px - 2 * 15px
+    overflow: auto
+
+    .monospace, pre, input
+      margin: 0
+      padding: 0
+      line-height: 20px
+      font-size: 12px
+      font-family: Menlo, "monospace"
+
+    pre
+      clear: both
+
+    .prompt, .command
+      float: left
+
+    .prompt
+      width: 50px
+      color: #888
+
+    .command, input
+      font-weight: bold
+
+    input
+      // Box width - padding - prompt - little extra
+      width: 420px - 2 * 15px - 50px - 15px
+      margin-left: -1px
+      outline: none
+      border: 0
+      color: #333
 
   h1:first-child
     margin-top: 0

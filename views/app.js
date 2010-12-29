@@ -131,6 +131,92 @@ function buzz() {
   });
 }
 
+// Easily set caret position in input field
+$.fn.setSelection = function(start, end) {
+  var i, size = this.size();
+
+  // Only set caret by default
+  if (end === undefined) end = start;
+
+  for (i = 0; i < size; i++) {
+    var element = this.get(i);
+    if (element.createTextRange) { // IE
+      var range = element.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', end);
+      range.moveStart('character', start);
+      range.select();
+    } else if (element.setSelectionRange) { // Other browsers
+      element.setSelectionRange(start, end);
+    }
+  }
+}
+
+function examples() {
+  $('div.example').each(function() {
+    var $example = $(this);
+    var $form = $example.find("form");
+    var $input = $form.find("input");
+
+    $input.keydown(function(event) {
+      var count = $example.find(".command").size();
+      var index = $input.data("index");
+      if (index == undefined) index = count;
+
+      if (event.keyCode == 38) {
+        index--; // up
+      } else if (event.keyCode == 40) {
+        index++; // down
+      } else {
+        return;
+      }
+
+      // Out of range at the positive side of the range makes sure
+      // we can get back to an empty value.
+      if (index >= 0 && index <= count) {
+        $input.data("index", index);
+        $input.val($example.find(".command").eq(index).text());
+        $input.setSelection($input.val().length);
+      }
+
+      return false;
+    });
+
+    $form.submit(function(event) {
+      if ($input.val().length == 0)
+        return false;
+
+      // Append command to execute
+      $form.before(
+        "<span class='monospace prompt'>" +
+        "redis>&nbsp;" +
+        "</span>" +
+        "<span class='monospace command'>" +
+        $input.val() +
+        "</span>"
+      );
+
+      // Hide form
+      $form.hide();
+
+      // POST command to app
+      var url = "/session/" + $example.attr("data-session");
+      $.post(url, $form.serialize(), function(data) {
+        $form.before("<pre>" + data + "</pre>");
+
+        // Reset input field and show form
+        $input.val("");
+        $input.removeData("index");
+        $form.show();
+      });
+
+      return false;
+    });
+  });
+
+  $('div.example:first :text').focus();
+}
+
 $(document).ready(function() {
   commandReference()
 
@@ -139,6 +225,8 @@ $(document).ready(function() {
   filterCommandReference()
 
   buzz();
+
+  examples();
 })
 
 })(jQuery);
