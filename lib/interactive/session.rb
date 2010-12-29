@@ -34,7 +34,7 @@ module Interactive
 
       if redis.zrem("sessions", namespace)
         keys = redis.smembers("session:#{namespace}:keys")
-        redis.del(*keys.map { |key| "#{namespace}:#{key}" })
+        redis.del(*keys.map { |key| "#{namespace}:#{key}" }) if !keys.empty?
         redis.del("session:#{namespace}:keys")
         redis.del("session:#{namespace}:commands")
       end
