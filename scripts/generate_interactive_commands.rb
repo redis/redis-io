@@ -8,10 +8,10 @@ require "erb"
 ALLOW_GROUPS = %w(generic hash list set sorted_set string).freeze
 
 # Override ALLOW_GROUPS for some commands.
-ALLOW_COMMANDS = %w(ping echo dbsize info lastsave).freeze
+ALLOW_COMMANDS = %w(ping echo info lastsave).freeze
 
 # Explicitly deny some commands.
-DENY_COMMANDS = %w(blpop brpop brpoplpush).freeze
+DENY_COMMANDS = %w(blpop brpop brpoplpush select move randomkey).freeze
 
 def allowed_commands
   @allowed_commands ||= commands.select do |cmd|

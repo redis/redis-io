@@ -16,9 +16,7 @@ module Interactive
     "expire" => [:first],
     "expireat" => [:first],
     "keys" => [:zip, [nil]],
-    "move" => [:first],
     "persist" => [:first],
-    "randomkey" => [],
     "rename" => [:all],
     "renamenx" => [:all],
     "sort" => [:custom],
@@ -56,7 +54,6 @@ module Interactive
     "rpushx" => [:first],
 
     # server
-    "dbsize" => [],
     "info" => [],
     "lastsave" => [],
 
