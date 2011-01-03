@@ -168,7 +168,7 @@ Cuba.define do
 
       break not_found unless @command
 
-      @related_commands = related_commands_for(@command.group) - [@command]
+      @related_commands = related_commands_for(@command.group)
       @related_topics = related_topics_for(@command)
 
       res.write haml("commands/name")

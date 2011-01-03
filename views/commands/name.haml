@@ -27,6 +27,10 @@
       %ul
         - @related_commands.each do |command|
           %li
-            %a(href="/commands/#{command.to_param}")= command.name
+            %a(href="/commands/#{command.to_param}")
+              - if command == @command
+                %strong= command.name
+              - else
+                = command.name
 
     ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
