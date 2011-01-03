@@ -103,12 +103,16 @@ module Interactive
       # Make the call
       reply = ::Interactive.redis.client.call(*namespaced)
 
-      # Strip namespace for KEYS
-      if arguments.first.downcase == "keys"
-        reply.map! { |key| key[/^\w+:(.*)$/,1] }
+      case arguments.first.downcase
+      when "keys"
+        # Strip namespace for KEYS
+        format_reply(reply.map { |key| key[/^\w+:(.*)$/,1] })
+      when "info"
+        # Don't #inspect the string reply for INFO
+        reply.to_s
+      else
+        format_reply(reply)
       end
-
-      format_reply(reply)
     end
 
     def format_reply(reply, prefix = "")
