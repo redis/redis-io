@@ -7,6 +7,8 @@ module Interactive
   # really care about them right now...
   class Session
 
+    TIMEOUT = 3600
+
     # Create new instance.
     def self.create(namespace)
       raise "Already exists" if redis.zscore("sessions", namespace)
@@ -17,7 +19,7 @@ module Interactive
     # Return instance if namespace exists in sorted set.
     def self.find(namespace)
       if timestamp = redis.zscore("sessions", namespace)
-        if Time.now.to_i - timestamp.to_i < 3600
+        if Time.now.to_i - timestamp.to_i < TIMEOUT
           touch(namespace)
           new(namespace)
         end
@@ -27,7 +29,7 @@ module Interactive
     # Try to clean up old sessions
     def self.clean!
       now = Time.now.to_i
-      threshold = now - 10
+      threshold = now - TIMEOUT
       namespace, timestamp = redis.zrangebyscore("sessions", "-inf", threshold,
         :with_scores => true, :limit => [0, 1])
       return if namespace.nil?
