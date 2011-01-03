@@ -117,7 +117,11 @@ module Interactive
       case arguments.first.downcase
       when "keys"
         # Strip namespace for KEYS
-        format_reply(reply.map { |key| key[/^\w+:(.*)$/,1] })
+        if reply.respond_to?(:map)
+          format_reply(reply.map { |key| key[/^\w+:(.*)$/,1] })
+        else
+          format_reply(reply)
+        end
       when "info"
         # Don't #inspect the string reply for INFO
         reply.to_s
