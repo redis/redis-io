@@ -92,6 +92,17 @@ module Interactive
         raise "Web-based interface is limited"
       end
 
+      case arguments[0].downcase
+      when "setbit"
+        if arguments[2].to_i >= 2048
+          raise "Web-based interface is limited"
+        end
+      when "setrange"
+        if arguments[2].to_i + arguments[3].to_s.size >= 256
+          raise "Web-based interface is limited"
+        end
+      end
+
       namespaced = ::Interactive.namespace(namespace, arguments)
       if namespaced.empty?
         raise "Unknown or disabled command '%s'" % arguments.first
