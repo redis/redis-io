@@ -133,7 +133,7 @@ module Interactive
       when Fixnum
         "(integer) " + reply.to_s + "\n"
       when String
-        reply.inspect + "\n"
+        reply.force_encoding("ASCII").inspect + "\n"
       when NilClass
         "(nil)\n"
       when Array
