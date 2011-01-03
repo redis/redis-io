@@ -9,7 +9,6 @@ module Interactive
     # connection
     "echo" => [:zip, [nil]],
     "ping" => [],
-    "select" => [:zip, [nil]],
 
     # generic
     "del" => [:all],
