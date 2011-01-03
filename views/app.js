@@ -200,14 +200,19 @@ function examples() {
       $form.hide();
 
       // POST command to app
-      var url = "/session/" + $example.attr("data-session");
-      $.post(url, $form.serialize(), function(data) {
-        $form.before("<pre>" + data + "</pre>");
+      $.ajax({
+        type: "post",
+        url: "/session/" + $example.attr("data-session"),
+        data: $form.serialize(),
+        complete: function(xhr, textStatus) {
+          var data = xhr.responseText;
+          $form.before("<pre>" + data + "</pre>");
 
-        // Reset input field and show form
-        $input.val("");
-        $input.removeData("index");
-        $form.show();
+          // Reset input field and show form
+          $input.val("");
+          $input.removeData("index");
+          $form.show();
+        }
       });
 
       return false;
