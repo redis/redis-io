@@ -105,7 +105,7 @@ Cuba.define do
 
   # Setup a new interactive session for every <pre><code> with @cli
   def filter_interactive_examples(data)
-    namespace = Digest::MD5.hexdigest(rand(2**32).to_s)
+    namespace = Digest::MD5.hexdigest([rand(2**32), Time.now.usec, Process.pid].join("-"))
     session = ::Interactive::Session.create(namespace)
 
     data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
