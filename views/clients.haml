@@ -7,21 +7,21 @@
       %h2= language
 
       %table
-        - clients.sort_by { |name, _| name.downcase }.each do |name, info|
+        - clients.each do |client|
           %tr
             %td
-              = name
+              = client["name"]
 
             %td
-              - if info["repository"]
-                %a(href="#{info["repository"]}") Repository
+              - if client["repository"]
+                %a(href="#{client["repository"]}") Repository
 
-              - if info["url"]
-                %a(href="#{info["url"]}") Homepage
+              - if client["url"]
+                %a(href="#{client["url"]}") Homepage
 
             %td
-              - info["authors"].each do |author|
+              - client["authors"].each do |author|
                 %a(href="http://twitter.com/#{author}")= author
 
             %td
-              = info["description"]
+              = client["description"]

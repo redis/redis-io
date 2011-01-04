@@ -194,7 +194,7 @@ Cuba.define do
   on get, path("clients") do
     @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
 
-    @clients_by_language = @clients.group_by { |name, info| info["language"] }.sort_by { |name, _| name.downcase }
+    @clients_by_language = @clients.group_by { |info| info["language"] }.sort_by { |name, _| name.downcase }
 
     res.write haml("clients")
   end
