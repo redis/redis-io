@@ -219,7 +219,15 @@ function examples() {
     });
   });
 
-  $('div.example:first :text').focus();
+  // Only focus field when it is visible
+  var $first = $('div.example:first :text');
+  var windowTop = $(window).scrollTop();
+  var windowBottom = windowTop + $(window).height();
+  var elemTop = $first.offset().top;
+  var elemBottom = elemTop + $first.height();
+  if (elemTop >= windowTop && elemBottom < windowBottom) {
+    $first.focus();
+  }
 }
 
 $(document).ready(function() {
