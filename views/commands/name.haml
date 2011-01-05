@@ -1,7 +1,9 @@
 .text
 
-  %h1
-    = @command.to_s
+  %h1.command
+    %span.name= @command.name
+    - @command.arguments.each do |arg|
+      %span.arg= arg
 
   %article
 
