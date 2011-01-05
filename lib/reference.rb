@@ -49,29 +49,22 @@ class Reference
     private
 
       def multiple(argument)
-        complex(argument) do |parts|
-          parts.collect! do |part|
-            part.unshift(argument["command"])
-          end
+        complex(argument) do |part|
+          part.unshift(argument["command"]) if argument["command"]
         end
       end
 
       def variadic(argument)
-        complex(argument) do |parts|
-          parts.unshift(argument["command"])
-        end
+        [argument["command"], complex(argument)].join(" ")
       end
 
       def complex(argument)
-        parts = %w{1 2 N}.map do |suffix|
-          Array(argument["name"]).map do |arg|
-            "#{arg}#{suffix}"
-          end
-        end
-
-        yield(parts) if argument["command"]
-
-        parts.insert(-2, "...").flatten.join(" ")
+        2.times.map do |i|
+          part = Array(argument["name"])
+          yield(part) if block_given?
+          part = part.join(" ")
+          i == 0 ? part : "[" + part + " ...]"
+        end.join(" ")
       end
 
       def simple(argument)
