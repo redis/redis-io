@@ -221,12 +221,14 @@ function examples() {
 
   // Only focus field when it is visible
   var $first = $('div.example:first :text');
-  var windowTop = $(window).scrollTop();
-  var windowBottom = windowTop + $(window).height();
-  var elemTop = $first.offset().top;
-  var elemBottom = elemTop + $first.height();
-  if (elemTop >= windowTop && elemBottom < windowBottom) {
-    $first.focus();
+  if ($first.size() > 0) {
+    var windowTop = $(window).scrollTop();
+    var windowBottom = windowTop + $(window).height();
+    var elemTop = $first.offset().top;
+    var elemBottom = elemTop + $first.height();
+    if (elemTop >= windowTop && elemBottom < windowBottom) {
+      $first.focus();
+    }
   }
 }
 
