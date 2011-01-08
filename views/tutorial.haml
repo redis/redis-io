@@ -6,5 +6,5 @@
 
     %div#files
       - Dir["views/tutorial/*.md"].each do |file|
-        - klass = File.basename(file).split(".").first
-        %div{class: ["file", klass]}= render(file)
+        %div{class: ["file", File.basename(file).split(".").first]}
+          ~ render(file)
