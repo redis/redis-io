@@ -157,6 +157,7 @@ function tutorialInit($tutorial) {
   var $example = $tutorial.find(".example");
   var $files = $tutorial.find("#files");
   $example.find("form").before($files.children(".intro"));
+  $tutorial.data("index",0);
 }
 
 function tutorialHandleSubmit($tutorial) {

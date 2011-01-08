@@ -2,7 +2,9 @@
 
   %article#tutorial
 
-    = render("views/interactive.haml", session: session, lines: [], content: "foo")
+    %h1= "Interactive Redis tutorial"
+
+    = render("views/interactive.haml", session: session, lines: [])
 
     %div#files
       - Dir["views/tutorial/*.md"].each do |file|

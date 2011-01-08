@@ -1,5 +1,3 @@
-Welcome to **Try Redis**, a demonstration of the
-[Redis](http://code.google.com/p/redis/) database!
-
-Please type TUTORIAL to begin a brief tutorial, HELP to see a list of supported
-commands, or any valid Redis command to play with the database.
+Please type `TUTORIAL` to begin a brief tutorial. Use `NEXT` or `PREV` to
+navigate through the different parts of the tutorial, or type any supported
+Redis command to play with the database.
