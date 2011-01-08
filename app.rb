@@ -105,9 +105,7 @@ Cuba.define do
 
   # Setup a new interactive session for every <pre><code> with @cli
   def filter_interactive_examples(data)
-    namespace = Digest::MD5.hexdigest([rand(2**32), Time.now.usec, Process.pid].join("-"))
-    session = ::Interactive::Session.create(namespace)
-
+    session = create_interactive_session
     data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
       if lines.shift == "@cli"
@@ -116,6 +114,11 @@ Cuba.define do
         match
       end
     end
+  end
+
+  def create_interactive_session
+    namespace = Digest::MD5.hexdigest([rand(2**32), Time.now.usec, Process.pid].join("-"))
+    ::Interactive::Session.create(namespace)
   end
 
   def haml(template, locals = {})
@@ -152,6 +155,11 @@ Cuba.define do
 
   on get, path("buzz") do
     res.write haml("buzz")
+  end
+
+  on get, path("tutorial") do
+    session = create_interactive_session
+    res.write haml("tutorial", session: session)
   end
 
   %w[download community documentation].each do |topic|

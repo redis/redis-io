@@ -152,11 +152,53 @@ $.fn.setSelection = function(start, end) {
   }
 }
 
+
+function tutorialInit($tutorial) {
+  var $example = $tutorial.find(".example");
+  var $files = $tutorial.find("#files");
+  $example.find("form").before($files.children(".intro"));
+}
+
+function tutorialHandleSubmit($tutorial) {
+  var $form = $tutorial.find("div.example:first form");
+  var $input = $form.find("input");
+  var $files = $tutorial.find("#files .tut");
+  var index = $tutorial.data("index");
+
+  switch($input.val()) {
+    case "tutorial":
+      $form.before($files.eq(0).clone());
+      $tutorial.data("index", 0);
+      break;
+    case "next":
+    case "n":
+      index = Math.min(index+1,$files.length-1);
+      $form.before($files.eq(index).clone());
+      $tutorial.data("index", index);
+      break;
+    case "previous":
+    case "prev":
+    case "p":
+    case "back":
+      index = Math.max(index-1,0);
+      $form.before($files.eq(index).clone());
+      $tutorial.data("index", index);
+      break;
+    default:
+      return false;
+  }
+  return true;
+}
+
 function examples() {
   $('div.example').each(function() {
     var $example = $(this);
     var $form = $example.find("form");
     var $input = $form.find("input");
+    var $tutorial = $form.closest("article#tutorial");
+
+    if ($tutorial.length == 1)
+      tutorialInit($tutorial);
 
     $input.keydown(function(event) {
       var count = $example.find(".command").size();
@@ -182,9 +224,11 @@ function examples() {
       return false;
     });
 
+    // Adds command to DOM if non-empty
     $form.submit(function(event) {
+      event.preventDefault();
       if ($input.val().length == 0)
-        return false;
+        return;
 
       // Append command to execute
       $form.before(
@@ -193,29 +237,42 @@ function examples() {
         "</span>" +
         "<span class='monospace command'>" +
         $input.val() +
-        "</span>"
+        "</span>" +
+        "<br/>"
       );
 
       // Hide form
       $form.hide();
 
-      // POST command to app
-      $.ajax({
-        type: "post",
-        url: "/session/" + $example.attr("data-session"),
-        data: $form.serialize(),
-        complete: function(xhr, textStatus) {
-          var data = xhr.responseText;
-          $form.before("<pre>" + data + "</pre>");
-
-          // Reset input field and show form
-          $input.val("");
-          $input.removeData("index");
-          $form.show();
+      // Handle any tutorial commands when this is a tutorial session
+      if ($tutorial.length == 1) {
+        if (tutorialHandleSubmit($tutorial) === true) {
+          finalize();
+        } else {
+          post();
         }
-      });
+      } else {
+        post();
+      }
 
-      return false;
+      function post() {
+        $.ajax({
+          type: "post",
+          url: "/session/" + $example.attr("data-session"),
+          data: $form.serialize(),
+          complete: function(xhr, textStatus) {
+            var data = xhr.responseText;
+            $form.before("<pre>" + data + "</pre>");
+            finalize();
+          }
+        });
+      }
+
+      function finalize() {
+        $input.val("");
+        $input.removeData("index");
+        $form.show();
+      }
     });
   });
 
