@@ -24,11 +24,11 @@ module Kernel
 private
 
   def documentation_path
-    @documentation_path ||= File.expand_path(ENV["REDIS_DOC"] || "redis-doc")
+    $documentation_path ||= File.expand_path(ENV["REDIS_DOC"] || "redis-doc")
   end
 
   def commands
-    @commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
+    $commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
   end
 
   def new_redis_connection
@@ -36,15 +36,11 @@ private
   end
 
   def redis
-    @redis ||= new_redis_connection
+    $redis ||= new_redis_connection
   end
 
   def redis_versions
-    @redis_versions ||= redis.hgetall("versions")
-  end
-
-  def user
-    @user ||= User[session[:user]]
+    $redis_versions ||= redis.hgetall("versions")
   end
 
   def related_topics_for(command)
