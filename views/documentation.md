@@ -35,6 +35,7 @@ Tutorials
 
 * [15 minutes introduction to Redis data types](/topics/data-types-intro)
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
+* [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
 
 Books
 ---
