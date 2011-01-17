@@ -8,17 +8,6 @@ release: 1.2, 2.0, 2.2.  Odd minors are used for **unstable**
 releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
-  <tr>
-    <td>1.2</td>
-    <td>Stable (Legacy)</td>
-    <td>Now superseded by 2.0, which is almost completely
-    backwards-compatible. Still the 1.2 series is believed to be a very
-    stable release, with many people using it in production today.</td>
-    <td>
-      <a href="http://code.google.com/p/redis/downloads/detail?name=redis-1.2.6.tar.gz">Download</a>
-    </td>
-  </tr>
-
   <tr class="current">
     <td>2.0</td>
     <td>Stable</td>
@@ -27,19 +16,40 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     mature too. <strong>This is what you should use</strong>, unless you
     need features that are only available in the unstable release.</td>
     <td>
-      <a href="http://code.google.com/p/redis/downloads/detail?name=redis-<%= clean_version redis_versions["stable"] %>.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.0.4.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr>
-    <td>2.1</td>
-    <td>Unstable</td>
-    <td>This is what will become Redis 2.2. You can download it using
+    <td>2.2</td>
+    <td>Release Candidate</td>
+    <td>This is what will become Redis 2.2 stable soon. You can download it using
     the 2.2-alpha tags: every time the new code passes all tests for
     a couple of weeks and no bugs are reported, the master branch is
     tagged with 2.2-alpha&lt;number&gt;. <br>
     <td>
+      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc2.tar.gz">Download</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2.3</td>
+    <td>Master</td>
+    <td>The master branch merges the unstable branch at specific points in time:
+    every time the new code passes all tests for
+    a couple of weeks and no bugs are reported, the unstable branch is
+    tagged with an -alpha&lt;number&gt; and is merged into master. <br>
+    <td>
       <a href="https://github.com/antirez/redis/tarball/<%= redis_versions["development"] %>">Download</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2.3</td>
+    <td>Unstable</td>
+    <td>This is where all the development happens. Only for hard core hackers.
+    <td>
+      <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
     </td>
   </tr>
 </table>
