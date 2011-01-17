@@ -23,12 +23,16 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr>
     <td>2.2</td>
     <td>Release Candidate</td>
-    <td>This is what will become Redis 2.2 stable soon. You can download it using
-    the 2.2-alpha tags: every time the new code passes all tests for
-    a couple of weeks and no bugs are reported, the master branch is
-    tagged with 2.2-alpha&lt;number&gt;. <br>
+    <td>This is what will become Redis 2.2 stable soon (a few weeks)
+    Release Candidates for 2.2 are also tagged into git if you prefer.
+    We think that 2.2 is mature enough to be used in production with some
+    monitoring, given the big benefits it has compared to 2.0 both in terms
+    of performances and memory usage. In the latest months we received a single
+    critical bug report that was fixed after 29 minutes the issue was
+    submitted.
+    <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc2.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc3.tar.gz">Download</a>
     </td>
   </tr>
 
