@@ -32,7 +32,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     submitted.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc3.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc4.tar.gz">Download</a>
     </td>
   </tr>
 
