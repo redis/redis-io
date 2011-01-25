@@ -187,14 +187,16 @@ function examples() {
         return false;
 
       // Append command to execute
-      $form.before(
-        "<span class='monospace prompt'>" +
-        "redis>&nbsp;" +
-        "</span>" +
-        "<span class='monospace command'>" +
-        $input.val() +
-        "</span>"
-      );
+      var ps1 = $("<span></span>")
+        .addClass("monospace")
+        .addClass("prompt")
+        .html("redis&gt;&nbsp;");
+      var cmd = $("<span></span>")
+        .addClass("monospace")
+        .addClass("command")
+        .text($input.val());
+      $form.before(ps1);
+      $form.before(cmd);
 
       // Hide form
       $form.hide();
@@ -206,7 +208,8 @@ function examples() {
         data: $form.serialize(),
         complete: function(xhr, textStatus) {
           var data = xhr.responseText;
-          $form.before("<pre>" + data + "</pre>");
+          var pre = $("<pre></pre>").text(data);
+          $form.before(pre);
 
           // Reset input field and show form
           $input.val("");
