@@ -20,6 +20,7 @@ fit in RAM, you can use VM.
 at once, saving on round trip time.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
+* [Redis Administration](/topics/admin): selected administration topics.
 * [Benchmarks](/topics/benchmarks): see how fast Redis is in different
 platforms.
 * [FAQ](/topics/faq): some common questions about Redis.
