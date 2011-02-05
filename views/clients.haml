@@ -4,7 +4,7 @@
     %h1 Clients
 
     - @clients_by_language.each do |language, clients|
-      %h2= language
+      %h2(id="#{language}")= language
 
       %table
         - clients.each do |client|
