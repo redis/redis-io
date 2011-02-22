@@ -38,6 +38,15 @@ Tutorials
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
 * [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
 
+Presentations
+-------------
+
+* Salvatore Sanfilippo: [Redis cluster overview](/presentation/Redis_Cluster.pdf)
+* Pieter Noordhuis: [What's new in Redis 2.2](/presentation/Pnoordhuis_whats_new_in_2_2.pdf)
+
+If you would like to include the logo in a presentation, please use the
+[high-res version](/images/redis-300dpi.png).
+
 Books
 ---
 
