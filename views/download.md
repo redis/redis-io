@@ -9,9 +9,24 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.0</td>
+    <td>2.2</td>
     <td>Stable</td>
-    <td>2.0 is better than 1.2 in every aspect: more features, better
+    <td>This is the newset Redis stable release.
+    Redis 2.2 is production ready and provides big benefits compared to
+    2.0 both in terms of performances, memory usage and functionality.
+    To check what is new in Redis 2.2 please read the
+    <a href="https://github.com/antirez/redis/raw/1a6281f52f6025a7c3304c3937cccf52deee48bb/00-RELEASENOTES">Release Notes</a>.
+    <br>
+    <td>
+      <a href="http://redis.googlecode.com/files/redis-2.2.0.tar.gz">Download</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2.0</td>
+    <td>Legacy</td>
+    <td>Note: we stronly suggest using 2.2 instead.
+    <br>2.0 is better than 1.2 in every aspect: more features, better
     replication, better persistence. The internals of Redis are more
     mature too. <strong>This is what you should use</strong>, unless you
     need features that are only available in the unstable release.</td>
@@ -21,18 +36,11 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   </tr>
 
   <tr>
-    <td>2.2</td>
-    <td>Release Candidate</td>
-    <td>This is what will become Redis 2.2 stable soon (a few weeks)
-    Release Candidates for 2.2 are also tagged into git if you prefer.
-    We think that 2.2 is mature enough to be used in production with some
-    monitoring, given the big benefits it has compared to 2.0 both in terms
-    of performances and memory usage. In the latest months we received a single
-    critical bug report that was fixed after 29 minutes the issue was
-    submitted.
-    <br>
+    <td>2.3</td>
+    <td>Unstable</td>
+    <td>This is where all the development happens. Only for hard core hackers.
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.0-rc4.tar.gz">Download</a>
+      <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
     </td>
   </tr>
 
@@ -42,18 +50,9 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <td>The master branch merges the unstable branch at specific points in time:
     every time the new code passes all tests for
     a couple of weeks and no bugs are reported, the unstable branch is
-    tagged with an -alpha&lt;number&gt; and is merged into master. <br>
+    tagged with an -alpha&lt;number&gt; and is merged into master.<br>
     <td>
       <a href="https://github.com/antirez/redis/tarball/<%= redis_versions["development"] %>">Download</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>2.3</td>
-    <td>Unstable</td>
-    <td>This is where all the development happens. Only for hard core hackers.
-    <td>
-      <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
     </td>
   </tr>
 </table>
