@@ -11,7 +11,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr class="current">
     <td>2.2</td>
     <td>Stable</td>
-    <td>This is the newset Redis stable release.
+    <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
     2.0 both in terms of performances, memory usage and functionality.
     To check what is new in Redis 2.2 please read the
