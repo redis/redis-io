@@ -9,21 +9,21 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.2</td>
+    <td>2.2.1</td>
     <td>Stable</td>
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
     2.0 both in terms of performances, memory usage and functionality.
     To check what is new in Redis 2.2 please read the
-    <a href="https://github.com/antirez/redis/raw/1a6281f52f6025a7c3304c3937cccf52deee48bb/00-RELEASENOTES">Release Notes</a>.
+    <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.0.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.1.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr>
-    <td>2.0</td>
+    <td>2.0.4</td>
     <td>Legacy</td>
     <td>Note: we stronly suggest using 2.2 instead.
     <br>2.0 is better than 1.2 in every aspect: more features, better
