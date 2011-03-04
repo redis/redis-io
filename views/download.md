@@ -9,7 +9,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.2.1</td>
+    <td>2.2.2</td>
     <td>Stable</td>
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
@@ -18,12 +18,12 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.1.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.2.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr>
-    <td>2.0.4</td>
+    <td>2.0.5</td>
     <td>Legacy</td>
     <td>Note: we stronly suggest using 2.2 instead.
     <br>2.0 is better than 1.2 in every aspect: more features, better
@@ -31,7 +31,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     mature too. <strong>This is what you should use</strong>, unless you
     need features that are only available in the unstable release.</td>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.0.4.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.0.5.tar.gz">Download</a>
     </td>
   </tr>
 
