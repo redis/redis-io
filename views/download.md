@@ -14,7 +14,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
     2.0 both in terms of performances, memory usage and functionality.
-    To check what is new in Redis 2.2 please read the
+    To check what is new in version 2.2 please read the
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
@@ -25,11 +25,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr>
     <td>2.0.5</td>
     <td>Legacy</td>
-    <td>Note: we stronly suggest using 2.2 instead.
-    <br>2.0 is better than 1.2 in every aspect: more features, better
-    replication, better persistence. The internals of Redis are more
-    mature too. <strong>This is what you should use</strong>, unless you
-    need features that are only available in the unstable release.</td>
+    <td><strong>Note: we stronly suggest using 2.2 instead.</strong>
     <td>
       <a href="http://redis.googlecode.com/files/redis-2.0.5.tar.gz">Download</a>
     </td>
@@ -65,18 +61,18 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ curl -O http://redis.googlecode.com/files/redis-<%= clean_version redis_versions["stable"] %>.tar.gz
-    $ tar xzf redis-<%= clean_version redis_versions["stable"] %>.tar.gz
-    $ cd redis-<%= clean_version redis_versions["stable"] %>
+    $ curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
+    $ tar xzf redis-2.2.2.tar.gz
+    $ cd redis-2.2.2
     $ make
 
-Redis is now compiled. Run it with:
+The binaries that are now compiled are available in the `src` directory. Run Redis with:
 
-    $ ./redis-server
+    $ src/redis-server
 
 You can interact with Redis using the built-in client:
 
-    $ ./redis-cli
+    $ src/redis-cli
     redis> set foo bar
     OK
     redis> get foo
