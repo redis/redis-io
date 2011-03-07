@@ -3,6 +3,9 @@
 
     %h1 Clients
 
+    %p
+      The recommended client(s) for a language are marked with a <span class="star">&#9733;</span>.
+
     - @clients_by_language.each do |language, clients|
       %h2= language
 
@@ -11,6 +14,8 @@
           %tr
             %td
               = client["name"]
+              - if client["recommended"]
+                %span.star &#9733;
 
             %td
               - if client["repository"]
