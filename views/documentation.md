@@ -1,7 +1,7 @@
 Documentation
 ===
 
-Note: all the Redis doc is also available on raw (programming friendly) format in the [redis-doci github repository](http://github.com/antirez/redis-doc).
+Note: the Redis documentation is also available in raw (programming friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc).
 
 Command reference
 ---
