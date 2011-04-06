@@ -7,7 +7,7 @@
       The recommended client(s) for a language are marked with a <span class="star">&#9733;</span>.
 
     - @clients_by_language.each do |language, clients|
-      %h2= language
+      %h2(id="#{language}")= language
 
       %table
         - clients.each do |client|
