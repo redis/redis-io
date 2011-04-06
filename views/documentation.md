@@ -1,6 +1,8 @@
 Documentation
 ===
 
+Note: all the Redis doc is also available on raw (programming friendly) format in the [redis-doci github repository](http://github.com/antirez/redis-doc).
+
 Command reference
 ---
 
@@ -50,7 +52,7 @@ If you would like to include the logo in a presentation, please use the
 Books
 ---
 
-@tnm, @pnoordhuis, and @antirez are writing a Redis book for O'Reilly that will be available in a few months.
+@pnoordhuis and @antirez are writing a Redis book for O'Reilly that will be available in a few months.
 
 Sponsors
 ---
