@@ -9,7 +9,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.2.2</td>
+    <td>2.2.3</td>
     <td>Stable</td>
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
@@ -18,14 +18,14 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.2.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.3.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr>
     <td>2.0.5</td>
     <td>Legacy</td>
-    <td><strong>Note: we stronly suggest using 2.2 instead.</strong>
+    <td><strong>Note: we stronly suggest using 2.2.x instead.</strong>
     <td>
       <a href="http://redis.googlecode.com/files/redis-2.0.5.tar.gz">Download</a>
     </td>
@@ -61,9 +61,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
-    $ tar xzf redis-2.2.2.tar.gz
-    $ cd redis-2.2.2
+    $ wget http://redis.googlecode.com/files/redis-2.2.3.tar.gz
+    $ tar xzf redis-2.2.3.tar.gz
+    $ cd redis-2.2.3
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
