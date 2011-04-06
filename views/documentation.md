@@ -20,6 +20,7 @@ Redis' durability.
 fit in RAM, you can use VM.
 * [Pipelining](/topics/pipelining): learn how to send multiple commands
 at once, saving on round trip time.
+* [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [Redis Administration](/topics/admin): selected administration topics.
