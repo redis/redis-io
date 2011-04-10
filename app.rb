@@ -22,7 +22,6 @@ Encoding.default_external = Encoding::UTF_8
 
 module Kernel
 private
-
   def documentation_path
     $documentation_path ||= File.expand_path(ENV["REDIS_DOC"] || "redis-doc")
   end
@@ -150,7 +149,7 @@ Cuba.define do
     res.write haml("buzz")
   end
 
-  %w[download community documentation].each do |topic|
+  %w[download community documentation tutorial].each do |topic|
     on get, path(topic) do
       @body, @title = topic("views/#{topic}.md")
       res.write haml("topics/name")
