@@ -48,7 +48,18 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     a couple of weeks and no bugs are reported, the unstable branch is
     tagged with an -alpha&lt;number&gt; and is merged into master.<br>
     <td>
-      <a href="https://github.com/antirez/redis/tarball/<%= redis_versions["development"] %>">Download</a>
+      <a href="https://github.com/antirez/redis/tree/master">Clone</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2.2.105-scripting</td>
+    <td>2.2-scripting</td>
+    <td>
+    This is an experimental version of Redis 2.2.5 with support for Lua scripting, backported from the scripting branch. Instructions about how to use it are <a href="http://antirez.com/post/scripting-branch-released.html">contained in this blog post. Note that there is <b>no guarantee</b> that scripting works correctly or that it will be merged into future versions of Redis! For now we are just experimenting with the idea.</a>
+    <br>
+    <td>
+      <a href="http://redis.googlecode.com/files/redis-2.2.105-scripting.tar.gz">Download</a>
     </td>
   </tr>
 </table>
