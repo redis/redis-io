@@ -8,6 +8,6 @@ scope do
 
     visit "/clients.json"
 
-    assert has_content?("\"redis-rb\": {")
+    assert has_content?("\"name\": \"redis-rb\"")
   end
 end

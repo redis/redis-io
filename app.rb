@@ -142,23 +142,21 @@ Cuba.define do
     res.write haml("404", locals)
   end
 
-  on get, path("") do
+  on get, "" do
     res.write haml("home")
   end
 
-  on get, path("buzz") do
+  on get, "buzz" do
     res.write haml("buzz")
   end
 
-  %w[download community documentation].each do |topic|
-    on get, path(topic) do
-      @body, @title = topic("views/#{topic}.md")
-      res.write haml("topics/name")
-    end
+  on get, /(download|community|documentation)/ do |topic|
+    @body, @title = topic("views/#{topic}.md")
+    res.write haml("topics/name")
   end
 
-  on get, path("commands") do
-    on segment do |name|
+  on get, "commands" do
+    on :name do |name|
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
 
@@ -178,7 +176,7 @@ Cuba.define do
     end
   end
 
-  on post, path("session"), path(/[0-9a-f]{32}/i) do |_, _, id|
+  on post, "session", /[0-9a-f]{32}/i do |_, _, id|
     if session = ::Interactive::Session.find(id)
       res.write session.run(req.params["command"].to_s)
     else
@@ -187,7 +185,7 @@ Cuba.define do
     end
   end
 
-  on get, path("clients") do
+  on get, "clients" do
     @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
 
     @clients_by_language = @clients.group_by { |info| info["language"] }.sort_by { |name, _| name.downcase }
@@ -195,7 +193,7 @@ Cuba.define do
     res.write haml("clients")
   end
 
-  on get, path("topics"), segment do |_, _, name|
+  on get, "topics/:name" do |name|
     path = "/topics/#{name}.md"
 
     break not_found(path: path) unless File.exist?(File.join(documentation_path, path))
@@ -207,25 +205,25 @@ Cuba.define do
     res.write haml("topics/name")
   end
 
-  on get, path(/\w+\.json/) do |_, file|
+  on get, extension("json") do |file|
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "application/json;charset=UTF-8"
-    res.write File.read(documentation_path + "/#{file}")
+    res.write File.read(documentation_path + "/#{file}.json")
   end
 
-  on get, path("styles.css") do
+  on get, extension("css") do |file|
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "text/css; charset=utf-8"
-    res.write render("views/styles.sass")
+    res.write render("views/#{file}.sass")
   end
 
-  on get, path("app.js") do |_, file|
+  on get, extension("js") do |file|
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "text/javascript; charset=utf-8"
-    res.write File.read("views/app.js")
+    res.write File.read("views/#{file}.js")
   end
 
-  on post, path("commits"), param("payload") do
+  on post, "commits/payload" do
     update_redis_versions
   end
 end

@@ -19,7 +19,7 @@ scope do
 
     click_link_or_button "Download"
 
-    assert has_content?("Redis is now compiled.")
+    assert has_content?("Run Redis with:")
 
     click_link_or_button "Community"
 
