@@ -176,7 +176,7 @@ Cuba.define do
     end
   end
 
-  on post, "session", /[0-9a-f]{32}/i do |_, _, id|
+  on post, "session", /([0-9a-f]{32})/i do |id|
     if session = ::Interactive::Session.find(id)
       res.write session.run(req.params["command"].to_s)
     else
