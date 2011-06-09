@@ -9,7 +9,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.2.8</td>
+    <td>2.2.9</td>
     <td>Stable</td>
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
@@ -18,7 +18,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.8.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.9.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -72,9 +72,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://redis.googlecode.com/files/redis-2.2.8.tar.gz
-    $ tar xzf redis-2.2.8.tar.gz
-    $ cd redis-2.2.8
+    $ wget http://redis.googlecode.com/files/redis-2.2.9.tar.gz
+    $ tar xzf redis-2.2.9.tar.gz
+    $ cd redis-2.2.9
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
@@ -96,9 +96,4 @@ Where's Redis Cluster?
 
 Salvatore is already hacking on Redis Cluster. By March 2011 we should
 have some kind of experimental version, while a Release Candidate is not
-expected until June 2011.
-
-Probably the first stable version of Redis with clustering support will
-be called 3.0, but Salvatore will try to merge to 2.2 as an experimental
-feature if the stability of the system is not affected when the cluster
-is not used.
+expected until end of summer 2011.
