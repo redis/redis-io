@@ -9,7 +9,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
   <tr class="current">
-    <td>2.2.9</td>
+    <td>2.2.10</td>
     <td>Stable</td>
     <td>This is the newest Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
@@ -18,7 +18,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.9.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.10.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -53,13 +53,13 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   </tr>
 
   <tr>
-    <td>2.2.107-scripting</td>
+    <td>2.2.110-scripting</td>
     <td>2.2-scripting</td>
     <td>
-    This is an experimental version of Redis 2.2.7 with support for Lua scripting, backported from the scripting branch. Instructions about how to use it are <a href="http://antirez.com/post/scripting-branch-released.html">contained in this blog post</a>. Note that there is <b>no guarantee</b> that scripting works correctly or that it will be merged into future versions of Redis! For now we are just experimenting with the idea.</a> Note that this is a Redis stable version with backported Lua scripting, you can find the main development branch for the Lua scripting engine rebased against Redis unstable in the <a href="https://github.com/antirez/redis/tree/scripting">scripting branch at github</a>.
+    This is an experimental version of Redis 2.2.10 with support for Lua scripting, backported from the scripting branch. Instructions about how to use it are <a href="http://antirez.com/post/scripting-branch-released.html">contained in this blog post</a>. Note that there is <b>no guarantee</b> that scripting works correctly or that it will be merged into future versions of Redis! For now we are just experimenting with the idea.</a> Note that this is a Redis stable version with backported Lua scripting, you can find the main development branch for the Lua scripting engine rebased against Redis unstable in the <a href="https://github.com/antirez/redis/tree/scripting">scripting branch at github</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.107-scripting.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.110-scripting.tar.gz">Download</a>
     </td>
   </tr>
 </table>
@@ -72,9 +72,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://redis.googlecode.com/files/redis-2.2.9.tar.gz
-    $ tar xzf redis-2.2.9.tar.gz
-    $ cd redis-2.2.9
+    $ wget http://redis.googlecode.com/files/redis-2.2.10.tar.gz
+    $ tar xzf redis-2.2.10.tar.gz
+    $ cd redis-2.2.10
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
