@@ -26,7 +26,7 @@ task :deploy do
   cd ~/redis-io
   git pull
   kill -s INT $(cat log/redis-io.pid)
-  rvm 1.9.2 exec unicorn -D -c unicorn.rb
+  rvm 1.9.2 exec unicorn -D -c unicorn.rb -E production
   EOS
 
   sh "ssh redis-io '#{script.split("\n").map(&:strip).join(" && ")}'"
