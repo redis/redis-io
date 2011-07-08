@@ -25,7 +25,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr>
     <td>2.0.5</td>
     <td>Legacy</td>
-    <td><strong>Note: we stronly suggest using 2.2.x instead.</strong>
+    <td><strong>Note: we strongly suggest using 2.2.x instead.</strong>
     <td>
       <a href="http://redis.googlecode.com/files/redis-2.0.5.tar.gz">Download</a>
     </td>
