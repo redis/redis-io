@@ -14,6 +14,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
     "description" => "Description",
     "examples"    => "Examples",
     "return"      => "Return value",
+    "history"     => "History"
   }
 
   REPLY_TYPES = {
