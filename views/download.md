@@ -11,7 +11,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr class="current">
     <td>2.2.12</td>
     <td>Stable</td>
-    <td>This is the newest Redis stable release.
+    <td>This is the Redis stable release.
     Redis 2.2 is production ready and provides big benefits compared to
     2.0 both in terms of performances, memory usage and functionality.
     To check what is new in version 2.2 please read the
@@ -22,33 +22,23 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     </td>
   </tr>
 
-  <tr>
-    <td>2.0.5</td>
-    <td>Legacy</td>
-    <td><strong>Note: we strongly suggest using 2.2.x instead.</strong>
+  <tr class>
+    <td>2.4.0</td>
+    <td>Release Candidate 5</td>
+    <td>This is the newest Redis version that will replace Redis 2.2 in a few weeks.
+    Redis 2.4 offers a number of significant advantages over Redis 2.2, you can
+    read about all the changes <a href="http://antirez.com/post/everything-about-redis-24">in this detailed article</a>.
+    <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.0.5.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.4.0-rc5.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr>
-    <td>2.3</td>
     <td>Unstable</td>
     <td>This is where all the development happens. Only for hard core hackers.
     <td>
       <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>2.3</td>
-    <td>Master</td>
-    <td>The master branch merges the unstable branch at specific points in time:
-    every time the new code passes all tests for
-    a couple of weeks and no bugs are reported, the unstable branch is
-    tagged with an -alpha&lt;number&gt; and is merged into master.<br>
-    <td>
-      <a href="https://github.com/antirez/redis/tree/master">Clone</a>
     </td>
   </tr>
 </table>
