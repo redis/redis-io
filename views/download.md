@@ -24,13 +24,13 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
   <tr class>
     <td>2.4.0</td>
-    <td>Release Candidate 5</td>
+    <td>Release Candidate 6</td>
     <td>This is the newest Redis version that will replace Redis 2.2 in a few weeks.
     Redis 2.4 offers a number of significant advantages over Redis 2.2, you can
     read about all the changes <a href="http://antirez.com/post/everything-about-redis-24">in this detailed article</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.4.0-rc5.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.4.0-rc6.tar.gz">Download</a>
     </td>
   </tr>
 
