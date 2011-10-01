@@ -73,6 +73,7 @@ Are you new to Redis? Try our [online, interactive tutorial](http://try.redis-db
 Where's Redis Cluster?
 ---
 
-Salvatore is already hacking on Redis Cluster. By March 2011 we should
-have some kind of experimental version, while a Release Candidate is not
-expected until end of summer 2011.
+Salvatore is already hacking on Redis Cluster. We already have
+have some kind of experimental version in the unstable branch,
+while a Release Candidate or at least a fully working beta is expected
+for the end of 2011.
