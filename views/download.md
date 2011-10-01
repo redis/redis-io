@@ -73,7 +73,7 @@ Are you new to Redis? Try our [online, interactive tutorial](http://try.redis-db
 Where's Redis Cluster?
 ---
 
-Salvatore is already hacking on Redis Cluster. We already have
+The Redis core team is already hacking on Redis Cluster. We already have
 have some kind of experimental version in the unstable branch,
 while a Release Candidate or at least a fully working beta is expected
 for the end of 2011.
