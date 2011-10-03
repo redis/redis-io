@@ -33,12 +33,12 @@ what the use case is and how the API would look like.
     5. Add tests and code for your changes.
     6. Once you're done, make sure all tests still pass: `make && make test`
     7. Commit and push to your fork.
-    8. [Create an issue](http://code.google.com/p/redis/issues/entry) with a link to your patch.
+    8. [Create an issue](https://github.com/antirez/redis/issues) with a link to your patch.
     9. Sit back and enjoy.
 
 There are other ways to help:
 
-* [Fix a bug](http://code.google.com/p/redis/issues/list?can=2&q=status%3AAccepted)
+* [Fix a bug or share your experience on issues](https://github.com/antirez/redis/issues)
 
 * Improve the [documentation](http://github.com/antirez/redis-doc)
 
