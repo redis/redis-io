@@ -37,6 +37,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
   <tr>
     <td>Unstable</td>
+    <td>unstable</td>
     <td>This is where all the development happens. Only for hard core hackers.
     <td>
       <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
