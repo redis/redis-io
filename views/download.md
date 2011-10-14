@@ -4,7 +4,7 @@ Download
 Redis uses a standard practice for its versioning:
 **major.minor.patchlevel**.
 An even **minor** marks a **stable**
-release: 1.2, 2.0, 2.2.  Odd minors are used for **unstable**
+release: 1.2, 2.0, 2.2, 2.4. Odd minors are used for **unstable**
 releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
 <table class="versions">
@@ -23,7 +23,8 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr>
     <td>2.2.14</td>
     <td>Legacy</td>
-    <td>This is the Redis stable release.
+    <td>This is the previous (now legacy) Redis stable release.
+    We suggest using 2.4 stable instead.
     Redis 2.2 is production ready and provides big benefits compared to
     2.0 both in terms of performances, memory usage and functionality.
     To check what is new in version 2.2 please read the
