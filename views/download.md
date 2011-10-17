@@ -21,7 +21,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   </tr>
 
   <tr>
-    <td>2.2.14</td>
+    <td>2.2.15</td>
     <td>Legacy</td>
     <td>This is the previous (now legacy) Redis stable release.
     We suggest using 2.4 stable instead.
@@ -31,7 +31,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     <a href="https://github.com/antirez/redis/raw/2.2/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.2.14.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.2.15.tar.gz">Download</a>
     </td>
   </tr>
 
