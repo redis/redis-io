@@ -23,7 +23,7 @@ at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
-* [High latency troubleshooting]: read this document if you want to understand the possible causes of high latency in Redis.
+* [High latency troubleshooting](/topics/latency): read this document if you want to understand the possible causes of high latency in Redis.
 * [Redis Administration](/topics/admin): selected administration topics.
 * [Benchmarks](/topics/benchmarks): see how fast Redis is in different
 platforms.
