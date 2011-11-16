@@ -54,7 +54,12 @@ If you would like to include the logo in a presentation, please use the
 Books
 ---
 
-@pnoordhuis and @antirez are writing a Redis book for O'Reilly that will be available in a few months.
+The two core team developers Pieter Noordhuis and Salvatore Sanfilippo are writing the book "Redis: the Definitive Guide" for O'Reilly Media that will be available in a few months.
+
+The following is a list of books covering Redis that are already published:
+
+* [Redis Cookbook (O'Reilly Media, 2011)](http://shop.oreilly.com/product/0636920020127.do)
+* [Mining the Social Web (O'Reilly Media, 2011)](http://shop.oreilly.com/product/0636920010203.do)
 
 Sponsors
 ---
