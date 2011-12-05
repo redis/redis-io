@@ -12,6 +12,8 @@ with thorough documentation for each of them.
 Topics
 ---
 
+* [Data types](/topics/data-types): a summary of the different types of values
+  that Redis supports.
 * [Replication](/topics/replication): what you need to know in order to
 set up master-slave replication.
 * [Persistence](/topics/persistence): know your options when configuring
