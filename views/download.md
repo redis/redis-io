@@ -37,7 +37,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
   <tr>
     <td>Unstable</td>
-    <td>unstable</td>
+    <td>Unstable</td>
     <td>This is where all the development happens. Only for hard core hackers.
     <td>
       <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
@@ -46,7 +46,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
 
   <tr>
     <td>Win32/64</td>
-    <td>unofficial</td>
+    <td>Unofficial</td>
     <td>The Redis project does not directly win32/win64, however we look at interest to projects trying to make a win32/win64 port that is separated from the main project. Two such efforts already exists:
     <ul>
         <li><a href="https://github.com/dmajkic/redis/">A Native win32/win64 port</a> created by Dušan Majkić</li>.
