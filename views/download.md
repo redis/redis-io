@@ -47,7 +47,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   <tr>
     <td>Win32/64</td>
     <td>Unofficial</td>
-    <td>The Redis project does not directly win32/win64, however we look at interest to projects trying to make a win32/win64 port that is separated from the main project. Two such efforts already exists:
+    <td>The Redis project does not directly support win32/win64, however we look at interest to projects trying to make a win32/win64 port that is separated from the main project. Two such efforts already exists:
     <ul>
         <li><a href="https://github.com/dmajkic/redis/">A Native win32/win64 port</a> created by Dušan Majkić</li>.
         <li><a href="https://gist.github.com/1439660">A patch released by Microsoft</a> based on <a href="https://github.com/joyent/libuv">libuv</a>.
