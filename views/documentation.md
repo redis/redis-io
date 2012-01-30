@@ -33,6 +33,7 @@ platforms.
 * [Protocol specification](/topics/protocol): if you're implementing a
 client, or out of curiosity, learn how to communicate with Redis at a
 low level.
+* [Debugging Redis](/topics/debugging): in the unlikely event you are experiencing a Redis crash, you can use this guide to send the right information to the Redis Core Team.
 * [Internals](/topics/internals): learn details about how Redis is
 implemented under the hood.
 * [Who's using it?](/topics/whos-using-redis)
