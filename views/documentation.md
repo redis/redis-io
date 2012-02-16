@@ -52,7 +52,7 @@ Presentations
 * Pieter Noordhuis: [What's new in Redis 2.2](/presentation/Pnoordhuis_whats_new_in_2_2.pdf)
 
 If you would like to include the logo in a presentation, please use the
-[high-res version](/images/redis-300dpi.png). The [svg version is also available](/images/redis-logo.svg)
+[high-res version](/images/redis-300dpi.png). The [svg version is also available](/images/redis-logo.svg).
 
 Books
 ---
