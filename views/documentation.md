@@ -18,14 +18,13 @@ Topics
 set up master-slave replication.
 * [Persistence](/topics/persistence): know your options when configuring
 Redis' durability.
-* [Virtual memory](/topics/virtual-memory): when your dataset doesn't
-fit in RAM, you can use VM.
 * [Pipelining](/topics/pipelining): learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [High latency troubleshooting](/topics/latency): read this document if you want to understand the possible causes of high latency in Redis.
+* [Redis Security](/topics/security): an overview of Redis security.
 * [Redis Administration](/topics/admin): selected administration topics.
 * [Benchmarks](/topics/benchmarks): see how fast Redis is in different
 platforms.
@@ -36,7 +35,9 @@ low level.
 * [Debugging Redis](/topics/debugging): in the unlikely event you are experiencing a Redis crash, you can use this guide to send the right information to the Redis Core Team.
 * [Internals](/topics/internals): learn details about how Redis is
 implemented under the hood.
-* [Who's using it?](/topics/whos-using-redis)
+* [Who's using Redis?](/topics/whos-using-redis)
+* [Virtual memory (DEPRECATED)](/topics/virtual-memory): when your dataset doesn't
+fit in RAM, you can use VM.
 
 Tutorials
 ---
