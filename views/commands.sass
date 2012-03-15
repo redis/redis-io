@@ -1,5 +1,5 @@
 @import "compass/css3"
-@import "compass/utilities/text/ellipsis"
+@import "compass/typography/text/ellipsis"
 @import "compass/utilities/general/clearfix"
 
 #commands
@@ -15,14 +15,14 @@
     padding: 50px 0 0 0
 
   li
-    +border-radius(5px)
-    +box-shadow(#e0e0e0)
+    @include border-radius(5px)
+    @include box-shadow(#e0e0e0)
     background-color: #fafafa
     margin: 0 0 10px 0
     padding: 10px 10px
 
     .command
-      +ellipsis
+      @include ellipsis
       display: block
       font-family: "Monaco", "Menlo", monospace
       font-size: 10px
@@ -32,7 +32,7 @@
         color: #0066aa
         text-decoration: none
         font-size: 13px
-        +text-shadow(#f0f0f0, 1px, 1px, 0px)
+        @include text-shadow(#f0f0f0, 1px, 1px, 0px)
 
         &:hover
           color: #0099ff
@@ -52,8 +52,8 @@
     background-color: #f0f0f0
     position: fixed
     width: 100%
-    +box-shadow(#aaa, 0px, 4px, 8px)
-    +linear-gradient(color_stops(#fefefe, #f0f0f0))
+    @include box-shadow(#aaa, 0px, 4px, 8px)
+    @include background(linear-gradient(color_stops(#fefefe, #f0f0f0)))
 
     a
       color: #555
@@ -66,15 +66,15 @@
       &.current
         background-color: #666
         color: #fff
-        +border-radius(8px)
-        +text-shadow(#000, 1px, 1px)
+        @include border-radius(8px)
+        @include text-shadow(#000, 1px, 1px)
         padding: 2px 8px
 
 @media (min-width: 460px)
   #commands
     ul
-      +column-count(2)
-      +column-width(100% / 2)
+      @include column-count(2)
+      @include column-width(100% / 2)
 
       li
         .summary
@@ -83,8 +83,8 @@
 @media (min-width: 960px)
   #commands
     ul
-      +column-count(4)
-      +column-width(100% / 4)
+      @include column-count(4)
+      @include column-width(100% / 4)
 
 @media screen and (max-device-width: 480px)
   #commands
