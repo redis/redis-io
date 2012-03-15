@@ -3,4 +3,4 @@ haml -v 3.1.4
 ohm -v 0.1.5
 rdiscount -v 1.6.8
 nokogiri -v 1.5.2
-compass -v 0.10.6
+compass -v 0.12.1
