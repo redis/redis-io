@@ -4,10 +4,11 @@ This repository holds the source code for the website that runs [redis.io](http:
 
 ## Getting started
 
-The code doesn't use a gem manager like Bundler. Simply install the required gems
-in (preferably in an RVM gemset or so), by running:
+The required gems are listed in the .gems file. To get up and running,
+preferably using a gemset, run:
 
-    cat .gems | xargs gem install
+    gem install dep
+    dep install
 
 Now you need to clone the [redis-doc](https://github.com/antirez/redis-doc)
 project, and set its path in the `REDIS_DOC` environment variable before starting
