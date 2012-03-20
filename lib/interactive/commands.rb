@@ -56,6 +56,7 @@ module Interactive
     # server
     "info" => [],
     "lastsave" => [],
+    "time" => [],
 
     # set
     "sadd" => [:first],
