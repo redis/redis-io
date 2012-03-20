@@ -136,6 +136,8 @@ module Interactive
         reply.to_s + "\n"
       when Fixnum
         "(integer) " + reply.to_s + "\n"
+      when Bignum
+        "(integer) " + reply.to_s + "\n"
       when String
         reply.force_encoding("ASCII").inspect + "\n"
       when NilClass
