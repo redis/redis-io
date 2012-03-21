@@ -10,7 +10,6 @@ end
 
 class RedisTemplate < Tilt::RDiscountTemplate
   SECTIONS = {
-    "complexity"  => "Time complexity",
     "description" => "Description",
     "examples"    => "Examples",
     "return"      => "Return value",

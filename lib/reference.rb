@@ -97,6 +97,10 @@ class Reference
       command["group"]
     end
 
+    def complexity
+      command["complexity"]
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end
