@@ -11,19 +11,18 @@ scope do
   test "Command page" do
     visit "/commands"
 
-    click_link_or_button "EXPIREAT"
+    click_link_or_button "ECHO"
 
-    assert has_css?("title", text: "EXPIREAT")
+    assert has_css?("title", text: "ECHO")
 
     within "h1" do
-      assert has_content?("EXPIREAT")
-      assert has_content?("key")
-      assert has_content?("timestamp")
+      assert has_content?("ECHO")
+      assert has_content?("message")
     end
 
     within "article" do
-      assert has_css?("p", text: "Set a timeout on key.")
-      assert has_content?("Available since 1.1")
+      assert has_css?("p", text: "Returns message.")
+      assert has_content?("Available since 0.07")
     end
   end
 
