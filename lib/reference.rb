@@ -8,6 +8,7 @@ class Reference
     "sorted_set" => "Sorted Sets",
     "pubsub" => "Pub/Sub",
     "transactions" => "Transactions",
+    "scripting" => "Scripting",
     "connection" => "Connection",
     "server" => "Server",
   }
