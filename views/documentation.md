@@ -21,6 +21,7 @@ Redis' durability.
 * [Pipelining](/topics/pipelining): learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
+* [Redis Lua scripting](/commands/eval): Redis 2.6 Lua scripting feature documentation.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [High latency troubleshooting](/topics/latency): read this document if you want to understand the possible causes of high latency in Redis.
