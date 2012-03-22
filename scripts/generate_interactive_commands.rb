@@ -5,13 +5,13 @@ require "erb"
 
 # Explicitly allow certain groups (don't allow "server", "connection" and
 # "pubsub" commands by default).
-ALLOW_GROUPS = %w(generic hash list set sorted_set string).freeze
+ALLOW_GROUPS = %w(generic hash list set sorted_set string scripting).freeze
 
 # Override ALLOW_GROUPS for some commands.
 ALLOW_COMMANDS = %w(ping echo info lastsave).freeze
 
 # Explicitly deny some commands.
-DENY_COMMANDS = %w(blpop brpop brpoplpush select move randomkey).freeze
+DENY_COMMANDS = %w(blpop brpop brpoplpush select move randomkey eval).freeze
 
 def allowed_commands
   @allowed_commands ||= commands.select do |cmd|
