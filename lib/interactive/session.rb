@@ -85,7 +85,7 @@ module Interactive
       line.scan(/\G\s*(?>([^\s\\\'\"]+)|'([^\']*)'|"((?:[^\"\\]|\\.)*)"|(\\.?)|(\S))(\s|\z)?/) do
         |word, sq, dq, esc, garbage, sep|
         raise ArgumentError, "Unmatched double quote: #{line.inspect}" if garbage
-        field << (word || sq || (dq || esc))
+        field << (word || sq || (dq || esc).gsub(/(\\(x[0-9a-f]{2}|.))/) { eval('"%s"' % $1) })
         if sep
           words << field
           field = ''
@@ -156,7 +156,7 @@ module Interactive
       when Bignum
         "(integer) " + reply.to_s + "\n"
       when String
-        %Q{"%s"\n} % reply.force_encoding("ASCII")
+        reply.force_encoding("ASCII").inspect
       when NilClass
         "(nil)\n"
       when Array
