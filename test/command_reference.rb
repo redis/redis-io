@@ -22,7 +22,7 @@ scope do
 
     within "article" do
       assert has_css?("p", text: "Returns message.")
-      assert has_content?("Available since 0.07")
+      assert has_content?("Available since 1.0.0")
     end
   end
 
