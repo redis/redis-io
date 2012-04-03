@@ -24,7 +24,7 @@ at once, saving on round trip time.
 * [Redis Lua scripting](/commands/eval): Redis 2.6 Lua scripting feature documentation.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
-* [High latency troubleshooting](/topics/latency): read this document if you want to understand the possible causes of high latency in Redis.
+* [Redis problems?](/topics/problems): Bugs? High latency? Other issues? Use [our problems troubleshooting page](/topics/problems) as a starting point to find more information.
 * [Redis Security](/topics/security): an overview of Redis security.
 * [Redis Administration](/topics/admin): selected administration topics.
 * [Benchmarks](/topics/benchmarks): see how fast Redis is in different
@@ -33,7 +33,6 @@ platforms.
 * [Protocol specification](/topics/protocol): if you're implementing a
 client, or out of curiosity, learn how to communicate with Redis at a
 low level.
-* [Debugging Redis](/topics/debugging): in the unlikely event you are experiencing a Redis crash, you can use this guide to send the right information to the Redis Core Team.
 * [Internals](/topics/internals): learn details about how Redis is
 implemented under the hood.
 * [Who's using Redis?](/topics/whos-using-redis)
