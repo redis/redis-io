@@ -1,5 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + "/redis")
-require "shellwords"
 
 module Interactive
 
@@ -77,9 +76,27 @@ module Interactive
       redis.incr("session:#{namespace}:commands")
     end
 
+    # This method is extracted from the shellwords library. It's
+    # replicated here because the gsub for double quoted and escaped
+    # text had to be removed.
+    def shellsplit(line)
+      words = []
+      field = ''
+      line.scan(/\G\s*(?>([^\s\\\'\"]+)|'([^\']*)'|"((?:[^\"\\]|\\.)*)"|(\\.?)|(\S))(\s|\z)?/) do
+        |word, sq, dq, esc, garbage, sep|
+        raise ArgumentError, "Unmatched double quote: #{line.inspect}" if garbage
+        field << (word || sq || (dq || esc))
+        if sep
+          words << field
+          field = ''
+        end
+      end
+      words
+    end
+
     def _run(line)
       begin
-        arguments = Shellwords.shellwords(line)
+        arguments = shellsplit(line)
       rescue => error
         raise error.message.split(":").first
       end
@@ -139,7 +156,7 @@ module Interactive
       when Bignum
         "(integer) " + reply.to_s + "\n"
       when String
-        reply.force_encoding("ASCII").inspect + "\n"
+        %Q{"%s"\n} % reply.force_encoding("ASCII")
       when NilClass
         "(nil)\n"
       when Array
