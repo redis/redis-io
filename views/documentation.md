@@ -13,8 +13,8 @@ at once, saving on round trip time.
 * [Redis Lua scripting](/commands/eval): Redis 2.6 Lua scripting feature documentation.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
-* [Keys with limited time to live](/topics/expire).
-* [Redis transactions](/topics/transactions)
+* [Expires](/topics/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
+* [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
 
 Administration
 ---
