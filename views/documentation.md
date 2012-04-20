@@ -3,45 +3,48 @@ Documentation
 
 Note: the Redis documentation is also available in raw (programming friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc).
 
-Command reference
+Redis API
 ---
 
-See [the full list of commands](/commands) implemented by Redis, along
-with thorough documentation for each of them.
-
-Topics
----
-
-* [Data types](/topics/data-types): a summary of the different types of values
-  that Redis supports.
-* [Replication](/topics/replication): what you need to know in order to
-set up master-slave replication.
-* [Persistence](/topics/persistence): know your options when configuring
-Redis' durability.
+* [The full list of commands](/commands) implemented by Redis, along with thorough documentation for each of them.
 * [Pipelining](/topics/pipelining): learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Redis Lua scripting](/commands/eval): Redis 2.6 Lua scripting feature documentation.
 * [Memory optimization](/topics/memory-optimization): understand how
 Redis uses RAM and learn some tricks to use less of it.
-* [Redis problems?](/topics/problems): Bugs? High latency? Other issues? Use [our problems troubleshooting page](/topics/problems) as a starting point to find more information.
-* [Redis Security](/topics/security): an overview of Redis security.
-* [Redis Administration](/topics/admin): selected administration topics.
-* [Benchmarks](/topics/benchmarks): see how fast Redis is in different
-platforms.
-* [FAQ](/topics/faq): some common questions about Redis.
-* [Protocol specification](/topics/protocol): if you're implementing a
-client, or out of curiosity, learn how to communicate with Redis at a
-low level.
-* [Internals](/topics/internals): learn details about how Redis is
-implemented under the hood.
-* [Who's using Redis?](/topics/whos-using-redis)
-* [Virtual memory (DEPRECATED)](/topics/virtual-memory): when your dataset doesn't
-fit in RAM, you can use VM.
+* [Keys with limited time to live](/topics/expire).
+* [Redis transactions](/topics/transactions)
 
-Tutorials
+Administration
+---
+* [Replication](/topics/replication): what you need to know in order to
+set up master-slave replication.
+* [Persistence](/topics/persistence): know your options when configuring
+Redis' durability.
+* [Redis Administration](/topics/admin): selected administration topics.
+* [Redis Security](/topics/security): an overview of Redis security.
+* [Benchmarks](/topics/benchmarks): see how fast Redis is in different platforms.
+
+Troubleshooting
 ---
 
+* [Redis problems?](/topics/problems): Bugs? High latency? Other issues? Use [our problems troubleshooting page](/topics/problems) as a starting point to find more information.
+
+Specifications
+---
+
+* [Redis Protocol specification](/topics/protocol): if you're implementing a
+client, or out of curiosity, learn how to communicate with Redis at a
+low level.
+* [Redis RDB format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format) specification, and [RDB version history](https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile).
+* [Internals](/topics/internals): learn details about how Redis is implemented under the hood.
+
+Tutorials & FAQ
+---
+
+* [FAQ](/topics/faq): some common questions about Redis.
+* [Data types](/topics/data-types): a summary of the different types of values that Redis supports.
 * [15 minutes introduction to Redis data types](/topics/data-types-intro)
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
 * [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
@@ -54,6 +57,11 @@ Presentations
 
 If you would like to include the logo in a presentation, please use the
 [high-res version](/images/redis-300dpi.png). The [svg version is also available](/images/redis-logo.svg).
+
+
+Use cases
+---
+* [Who is using Redis](/topics/whos-using-redis)
 
 Books
 ---
