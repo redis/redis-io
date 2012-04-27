@@ -21,7 +21,7 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
   </tr>
 
   <tr">
-    <td>2.6.0-RC1</td>
+    <td>2.6.0-rc1</td>
     <td>Release Candidate</td>
     <td>This is the newest Redis version replacing Redis 2.4.
     Redis 2.6 features support for <a href="/commands/eval">Lua scripting</a>, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features. For the complete list of new features, and the list of fixes contained in each 2.6 release, please check the <a href="https://github.com/antirez/redis/raw/2.6/00-RELEASENOTES">Release Notes</a>.
