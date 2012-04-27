@@ -15,6 +15,8 @@ releases: 1.3.x were the unstable versions that became 2.0 once stable.
     Redis 2.4 offers a number of significant advantages over Redis 2.2, you can
     read about all the changes <a href="http://antirez.com/post/everything-about-redis-24">in this detailed article</a>. For a list of fixes contained in each 2.4 release candidate please check the <a href="https://github.com/antirez/redis/raw/2.4/00-RELEASENOTES">Release Notes</a>.
     <br>
+    <b>Note: we are not aware of bugs in 2.6.0-RC1, but it's new code, so handle it with care if you plan to use it in production environments.</b>
+    <br>
     <td>
       <a href="http://redis.googlecode.com/files/redis-2.4.11.tar.gz">Download</a>
     </td>
