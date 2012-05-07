@@ -15,6 +15,7 @@ at once, saving on round trip time.
 Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
+* [Mass insertion of data](/topics/mass-insert): How to add a big amount of pre existing or generated data to a Redis instance in a short time.
 
 Administration
 ---
