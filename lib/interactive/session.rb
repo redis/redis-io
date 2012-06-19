@@ -151,9 +151,7 @@ module Interactive
       case reply
       when LineReply
         reply.to_s + "\n"
-      when Fixnum
-        "(integer) " + reply.to_s + "\n"
-      when Bignum
+      when Integer
         "(integer) " + reply.to_s + "\n"
       when String
         %Q{"%s"\n} % reply.force_encoding("ASCII")
