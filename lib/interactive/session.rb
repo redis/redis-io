@@ -129,7 +129,7 @@ module Interactive
       register(arguments)
 
       # Make the call
-      reply = ::Interactive.redis.client.call(*namespaced)
+      reply = ::Interactive.redis.client.call(namespaced)
 
       case arguments.first.downcase
       when "keys"
@@ -151,9 +151,7 @@ module Interactive
       case reply
       when LineReply
         reply.to_s + "\n"
-      when Fixnum
-        "(integer) " + reply.to_s + "\n"
-      when Bignum
+      when Integer
         "(integer) " + reply.to_s + "\n"
       when String
         %Q{"%s"\n} % reply.force_encoding("ASCII")
