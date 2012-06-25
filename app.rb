@@ -2,7 +2,8 @@ ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 require "cuba"
 require "haml"
-require "rdiscount"
+require "redcarpet"
+require "htmlentities"
 require "json"
 require "compass"
 require "open-uri"
@@ -90,12 +91,17 @@ Cuba.use Rack::Static, urls: ["/images", "/presentation"], root: File.join(ROOT_
 
 Cuba.define do
   def render(path, locals = {})
+    options = {
+      :fenced_code_blocks => true,
+      :superscript => true,
+    }
+
     expanded = File.expand_path(path)
     if expanded.start_with?(documentation_path)
-      data = super(path, locals)
+      data = super(path, locals, options)
       filter_interactive_examples(data)
     elsif expanded.start_with?(ROOT_PATH)
-      super(path, locals)
+      super(path, locals, options)
     end
   end
 
@@ -104,13 +110,9 @@ Cuba.define do
     namespace = Digest::MD5.hexdigest([rand(2**32), Time.now.usec, Process.pid].join("-"))
     session = ::Interactive::Session.create(namespace)
 
-    data.gsub %r{<pre><code>(.*?)</code></pre>}m do |match|
+    data.gsub %r{<pre>\s*<code class="cli">\s*(.*?)\s*</code>\s*</pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
-      if lines.shift == "@cli"
-        render("views/interactive.haml", session: session, lines: lines)
-      else
-        match
-      end
+      render("views/interactive.haml", session: session, lines: lines)
     end
   end
 

@@ -8,7 +8,7 @@ class Tilt::SassTemplate
   end
 end
 
-class RedisTemplate < Tilt::RDiscountTemplate
+class RedisTemplate < Tilt::RedcarpetTemplate::Redcarpet2
   SECTIONS = {
     "description" => "Description",
     "examples"    => "Examples",
@@ -27,7 +27,7 @@ class RedisTemplate < Tilt::RDiscountTemplate
   def sections(source)
     source.gsub(/^\@(\w+)$/) do
       title = SECTIONS[$1]
-      "#{title}\n---"
+      "## #{title}\n"
     end
   end
 
