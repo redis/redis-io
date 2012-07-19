@@ -1,3 +1,10 @@
+%section#commands
+  %nav
+    %a(href="#") All
+
+    - Reference::GROUPS.each do |name, description|
+      %a(href="##{name}")= description
+
 .text
 
   %h1.command
