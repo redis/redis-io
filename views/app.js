@@ -20,56 +20,65 @@ $.cssHooks["columnCount"] = {
 }
 
 function commandReference() {
-  var $groups = $("#commands nav a")
+  var $groups = $("#commands nav a");
 
   $groups.click(function() {
-    window.location.hash = this.getAttribute("href").substring(1)
+    var commandLoc = this.getAttribute("href").substring(1);
+    if (endsWith(window.location.pathname, "commands")) {
+      window.location.hash = commandLoc;
+    } else {
+      window.location = "/commands#" + commandLoc;
+    }
 
-    filterCommandReference()
+    filterCommandReference();
 
-    return false
+    return false;
   })
 }
 
 function filterCommandReference() {
-  var $commands = $("#commands ul")
+  var $commands = $("#commands ul");
 
-  var group = window.location.hash.substring(1)
+  var group = window.location.hash.substring(1);
 
   if (group.length == 0) {
-    $commands.children().show()
-    $commands.css("height", "auto")
+    $commands.children().show();
+    $commands.css("height", "auto");
   }
   else {
-    $commands.find("li[data-group='" + group + "']").show()
-    $commands.find("li[data-group!='" + group + "']").hide()
+    $commands.find("li[data-group='" + group + "']").show();
+    $commands.find("li[data-group!='" + group + "']").hide();
   }
 
-  adjustCommandReference()
+  adjustCommandReference();
 
-  var $groups = $("#commands nav a")
+  var $groups = $("#commands nav a");
 
-  $groups.removeClass("current")
+  $groups.removeClass("current");
 
-  $groups.filter("[href='#" + group + "']").addClass("current")
+  if (endsWith(window.location.pathname, "commands")) {
+    $groups.filter("[href='#" + group + "']").addClass("current");
+  } else {
+    $groups.filter("[href='#" + $(".name").attr('group') + "']").addClass("current");
+  }
 }
 
 function adjustCommandReference() {
-  var $commands = $("#commands ul")
+  var $commands = $("#commands ul");
 
-  $commands.css("height", "auto")
+  $commands.css("height", "auto");
 
-  var $command = $commands.find("> *:first")
+  var $command = $commands.find("> *:first");
 
-  var commandHeight = $command.outerHeight(true)
+  var commandHeight = $command.outerHeight(true);
 
-  var containerHeight = $commands.innerHeight()
+  var containerHeight = $commands.innerHeight();
 
-  var factor = Math.floor(containerHeight / commandHeight)
+  var factor = Math.floor(containerHeight / commandHeight);
 
   if ((factor * $commands.css("column-count")) < $commands.children(":visible").length) factor++;
 
-  $commands.css("height", factor * commandHeight)
+  $commands.css("height", factor * commandHeight);
 }
 
 function autolink(text) {
@@ -235,12 +244,16 @@ function examples() {
   }
 }
 
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
 $(document).ready(function() {
-  commandReference()
+  commandReference();
 
-  $(window).resize(adjustCommandReference)
+  $(window).resize(adjustCommandReference);
 
-  filterCommandReference()
+  filterCommandReference();
 
   buzz();
 
