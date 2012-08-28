@@ -154,7 +154,7 @@ module Interactive
       when Integer
         "(integer) " + reply.to_s + "\n"
       when String
-        %Q{"%s"\n} % reply.force_encoding("ASCII")
+        reply.inspect + "\n"
       when NilClass
         "(nil)\n"
       when Array
