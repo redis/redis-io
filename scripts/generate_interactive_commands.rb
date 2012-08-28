@@ -34,6 +34,7 @@ DENY_COMMANDS = %w(
   randomkey
   script
   eval
+  evalsha
   object
 ).freeze
 
