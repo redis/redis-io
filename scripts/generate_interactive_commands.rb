@@ -36,6 +36,7 @@ DENY_COMMANDS = %w(
   eval
   evalsha
   object
+  migrate
 ).freeze
 
 def allowed_commands
