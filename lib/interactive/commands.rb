@@ -12,6 +12,7 @@ module Interactive
 
     # generic
     "del" => [:all],
+    "dump" => [:first],
     "exists" => [:first],
     "expire" => [:first],
     "expireat" => [:first],
@@ -22,6 +23,7 @@ module Interactive
     "pttl" => [:first],
     "rename" => [:all],
     "renamenx" => [:all],
+    "restore" => [:first],
     "sort" => [:custom],
     "ttl" => [:first],
     "type" => [:first],
@@ -98,6 +100,8 @@ module Interactive
 
     # string
     "append" => [:first],
+    "bitcount" => [:first],
+    "bitop" => [:custom],
     "decr" => [:first],
     "decrby" => [:first],
     "get" => [:first],
