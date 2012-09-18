@@ -26,6 +26,7 @@ set up master-slave replication.
 Redis' durability.
 * [Redis Administration](/topics/admin): selected administration topics.
 * [Redis Security](/topics/security): an overview of Redis security.
+* [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis. Currently work in progress (beta stage, active development), already usable.
 * [Benchmarks](/topics/benchmarks): see how fast Redis is in different platforms.
 
 Troubleshooting
