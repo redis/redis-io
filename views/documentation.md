@@ -19,6 +19,7 @@ Redis uses RAM and learn some tricks to use less of it.
 
 Administration
 ---
+* [Configuration](/topics/config): how to configure redis.
 * [Replication](/topics/replication): what you need to know in order to
 set up master-slave replication.
 * [Persistence](/topics/persistence): know your options when configuring
