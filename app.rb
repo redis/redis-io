@@ -189,6 +189,7 @@ Cuba.define do
 
   on get, "clients" do
     @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
+    @redis_tools = JSON.parse(File.read(documentation_path + "/tools.json"))
 
     @clients_by_language = @clients.group_by { |info| info["language"] }.sort_by { |name, _| name.downcase }
 

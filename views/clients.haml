@@ -30,3 +30,30 @@
 
             %td
               = client["description"]
+
+    %h1(style="margin-top:80px") Higher level libraries and tools
+
+    %p
+      This is an additional list of libraries that are not direct layers on top of the Redis API, but higher level libraries such as ORMs, messaging libraries, and other misc tools that are designed for Redis.
+
+      %table
+        - @redis_tools.each do |tool|
+          - tool["description"] += " (#{tool['language']})"
+          %tr
+            %td
+              = tool["name"]
+
+            %td
+              - if tool["repository"]
+                %a(href="#{tool["repository"]}") Repository
+
+              - if tool["url"]
+                %a(href="#{tool["url"]}") Homepage
+
+            %td
+              - tool["authors"].each do |author|
+                %a(href="http://twitter.com/#{author}")= author
+
+            %td
+              = tool["description"]
+
