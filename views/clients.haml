@@ -7,6 +7,14 @@
       The recommended client(s) for a language are marked with a <span class="star">&#9733;</span>.
     %p
       Clients with some activity in the official repository within the latest six months are marked with a <span class="active">&#9786;</span>.
+    %p
+      Want
+      %strong your client listed here?
+      Please fork the
+      %a(href="https://github.com/antirez/redis-doc") redis-doc repository
+      and edit the clients.json file.
+      %strong Submit a pull request
+      and you are done.
 
     - @clients_by_language.each do |language, clients|
       %h2(id="#{language}")= language
