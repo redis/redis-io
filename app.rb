@@ -162,7 +162,10 @@ Cuba.define do
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
 
-      break not_found unless @command
+      if @command.nil?
+        res.redirect "https://www.google.com/search?q=#{CGI.escape(name)}+site%3Aredis.io", 307
+        halt res.finish
+      end
 
       @related_commands = related_commands_for(@command.group)
       @related_topics = related_topics_for(@command)
