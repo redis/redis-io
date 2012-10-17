@@ -87,7 +87,7 @@ end
 
 Ohm.redis = redis
 
-Cuba.use Rack::Static, urls: ["/images", "/presentation"], root: File.join(ROOT_PATH, "public")
+Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml"], root: File.join(ROOT_PATH, "public")
 
 Cuba.define do
   def render(path, locals = {})
@@ -162,7 +162,10 @@ Cuba.define do
       @name = @title = name.upcase.gsub("-", " ")
       @command = commands[@name]
 
-      break not_found unless @command
+      if @command.nil?
+        res.redirect "https://www.google.com/search?q=#{CGI.escape(name)}+site%3Aredis.io", 307
+        halt res.finish
+      end
 
       @related_commands = related_commands_for(@command.group)
       @related_topics = related_topics_for(@command)
