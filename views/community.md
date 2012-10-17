@@ -3,7 +3,7 @@ Community
 
 * Join the [mailing list](http://groups.google.com/group/redis-db)
 * Meet us at the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis))
-* Follow [Salvatore](http://twitter.com/antirez) on Twitter
+* Follow [Redis news feed](http://twitter.com/redisfeed) on Twitter
 
 Local meetups
 ---

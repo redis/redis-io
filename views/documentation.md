@@ -86,4 +86,4 @@ The following books have Redis related content but are not specifically about Re
 Sponsors
 ---
 
-All the work [Salvatore Sanfilippo](http://twitter.com/antirez) and [Pieter Noordhuis](http://twitter.com/pnoordhuis) do in order to develop Redis is sponsored by [VMware](http://vmware.com). In the past Redis accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
+All the work [Salvatore Sanfilippo](http://antirez.com) and [Pieter Noordhuis](http://twitter.com/pnoordhuis) do in order to develop Redis is sponsored by [VMware](http://vmware.com). In the past Redis accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
