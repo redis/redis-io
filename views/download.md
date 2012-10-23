@@ -16,7 +16,7 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
     Redis 2.6 features support for <a href="/commands/eval">Lua scripting</a>, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features. For the complete list of new features, and the list of fixes contained in each 2.6 release, please check the <a href="https://github.com/antirez/redis/raw/2.6/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.6.0-rc8.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.6.0.tar.gz">Download</a>
     </td>
   </tr>
 
