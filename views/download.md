@@ -10,25 +10,25 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
 <table class="versions">
 
   <tr class="current">
-    <td>2.6.5</td>
+    <td>2.6.6</td>
     <td>Stable</td>
     <td>This is the newest Redis version replacing Redis 2.4.
     Redis 2.6 features support for <a href="/commands/eval">Lua scripting</a>, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features. For the complete list of new features, and the list of fixes contained in each 2.6 release, please check the <a href="https://github.com/antirez/redis/raw/2.6/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.6.5.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.6.6.tar.gz">Download</a>
     </td>
   </tr>
 
   <tr class="current">
-    <td>2.4.17</td>
+    <td>2.4.18</td>
     <td>Legacy</td>
     <td>
     Redis 2.4 offers a number of significant advantages over Redis 2.2, you can
     read about all the changes <a href="http://antirez.com/post/everything-about-redis-24">in this detailed article</a>. For a list of fixes contained in each 2.4 release candidate please check the <a href="https://github.com/antirez/redis/raw/2.4/00-RELEASENOTES">Release Notes</a>. <strong>New Redis users should use 2.6 instead</strong>.
     <br>
     <td>
-      <a href="http://redis.googlecode.com/files/redis-2.4.17.tar.gz">Download</a>
+      <a href="http://redis.googlecode.com/files/redis-2.4.18.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -65,9 +65,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://redis.googlecode.com/files/redis-2.6.5.tar.gz
-    $ tar xzf redis-2.6.5.tar.gz
-    $ cd redis-2.6.5
+    $ wget http://redis.googlecode.com/files/redis-2.6.6.tar.gz
+    $ tar xzf redis-2.6.6.tar.gz
+    $ cd redis-2.6.6
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
