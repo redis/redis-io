@@ -1,9 +1,9 @@
 Documentation
 ===
 
-Note: the Redis documentation is also available in raw (programming friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc).
+Note: the Redis documentation is also available in raw (computer friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc).
 
-Redis API
+Programming with Redis
 ---
 
 * [The full list of commands](/commands) implemented by Redis, along with thorough documentation for each of them.
@@ -16,6 +16,7 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
 * [Mass insertion of data](/topics/mass-insert): How to add a big amount of pre existing or generated data to a Redis instance in a short time.
+* [Partitioning](/topics/partitioning): How to distribute your data among multiple Redis instances.
 
 Administration
 ---
