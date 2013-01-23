@@ -7,11 +7,11 @@ Programming with Redis
 ---
 
 * [The full list of commands](/commands) implemented by Redis, along with thorough documentation for each of them.
-* [Pipelining](/topics/pipelining): learn how to send multiple commands
+* [Pipelining](/topics/pipelining): Learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Redis Lua scripting](/commands/eval): Redis 2.6 Lua scripting feature documentation.
-* [Memory optimization](/topics/memory-optimization): understand how
+* [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
@@ -20,16 +20,17 @@ Redis uses RAM and learn some tricks to use less of it.
 
 Administration
 ---
-* [Configuration](/topics/config): how to configure redis.
-* [Replication](/topics/replication): what you need to know in order to
+* [Configuration](/topics/config): How to configure redis.
+* [Replication](/topics/replication): What you need to know in order to
 set up master-slave replication.
-* [Persistence](/topics/persistence): know your options when configuring
+* [Persistence](/topics/persistence): Know your options when configuring
 Redis' durability.
-* [Redis Administration](/topics/admin): selected administration topics.
-* [Redis Security](/topics/security): an overview of Redis security.
-* [Redis Signal Handling](/topics/signals): how Redis handles signals.
+* [Redis Administration](/topics/admin): Selected administration topics.
+* [Security](/topics/security): An overview of Redis security.
+* [Signals Handling](/topics/signals): How Redis handles signals.
+* [Connections Handling](/topics/signals): How Redis handles clients connections.
 * [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis. Currently work in progress (beta stage, active development), already usable.
-* [Benchmarks](/topics/benchmarks): see how fast Redis is in different platforms.
+* [Benchmarks](/topics/benchmarks): See how fast Redis is in different platforms.
 
 Troubleshooting
 ---
@@ -43,13 +44,13 @@ Specifications
 client, or out of curiosity, learn how to communicate with Redis at a
 low level.
 * [Redis RDB format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format) specification, and [RDB version history](https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile).
-* [Internals](/topics/internals): learn details about how Redis is implemented under the hood.
+* [Internals](/topics/internals): Learn details about how Redis is implemented under the hood.
 
 Tutorials & FAQ
 ---
 
-* [FAQ](/topics/faq): some common questions about Redis.
-* [Data types](/topics/data-types): a summary of the different types of values that Redis supports.
+* [FAQ](/topics/faq): Some common questions about Redis.
+* [Data types](/topics/data-types): A summary of the different types of values that Redis supports.
 * [15 minutes introduction to Redis data types](/topics/data-types-intro)
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
 * [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
@@ -70,8 +71,6 @@ Use cases
 
 Books
 ---
-
-The two core team developers Pieter Noordhuis and Salvatore Sanfilippo are writing the book "Redis: the Definitive Guide" for O'Reilly Media that will be available in a few months.
 
 The following is a list of books covering Redis that are already published:
 
