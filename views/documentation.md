@@ -37,6 +37,11 @@ Troubleshooting
 
 * [Redis problems?](/topics/problems): Bugs? High latency? Other issues? Use [our problems troubleshooting page](/topics/problems) as a starting point to find more information.
 
+Documentation of unstable features
+---
+
+* [Redis keyspace notifications](/topic/notifications): Get notifications of keyspace events via Pub/Sub. This feature was recently merged into the unstable branches. The first stable release of this implementation will be in Redis 2.8.
+
 Specifications
 ---
 
