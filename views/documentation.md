@@ -40,7 +40,7 @@ Troubleshooting
 Documentation of unstable features
 ---
 
-* [Redis keyspace notifications](/topic/notifications): Get notifications of keyspace events via Pub/Sub. This feature was recently merged into the unstable branches. The first stable release of this implementation will be in Redis 2.8.
+* [Redis keyspace notifications](/topics/notifications): Get notifications of keyspace events via Pub/Sub. This feature was recently merged into the unstable branches. The first stable release of this implementation will be in Redis 2.8.
 
 Specifications
 ---
