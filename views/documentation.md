@@ -28,7 +28,7 @@ Redis' durability.
 * [Redis Administration](/topics/admin): Selected administration topics.
 * [Security](/topics/security): An overview of Redis security.
 * [Signals Handling](/topics/signals): How Redis handles signals.
-* [Connections Handling](/topics/connections): How Redis handles clients connections.
+* [Connections Handling](/topics/clients): How Redis handles clients connections.
 * [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis. Currently work in progress (beta stage, active development), already usable.
 * [Benchmarks](/topics/benchmarks): See how fast Redis is in different platforms.
 
