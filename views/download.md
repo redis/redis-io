@@ -44,14 +44,11 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
   <tr>
     <td>Win32/64</td>
     <td>Unofficial</td>
-    <td>The Redis project does not directly support win32/win64, however we look at interest to projects trying to make a win32/win64 port that is separated from the main project. Two such efforts already exists:
-    <ul>
-        <li><a href="https://github.com/dmajkic/redis/">A Native win32/win64 port</a> created by Dušan Majkić.</li>
-        <li><a href="https://gist.github.com/1439660">A patch released by Microsoft</a> based on <a href="https://github.com/joyent/libuv">libuv</a>.
-    </ul>
-    Currently both ports are not production quality but can be used for development purposes on Windows environments. We look forward for collaborating with the authors of this efforts but currently <a href="http://antirez.com/post/redis-win32-msft-patch.html">we will not merge the win32 port</a> to the main code base.
+    <td>The Redis project does not directly support Windows, however the Microsoft Open Tech group develops and maintains an <a href="https://github.com/MSOpenTech/redis">experimental Windows port targeting Win32/64</a>.
+
+    Currently the port is not production quality but can be used for development purposes on Windows environments. We look forward for collaborating with the authors of this efforts but currently <a href="http://antirez.com/post/redis-win32-msft-patch.html">we will not merge the Windows port</a> to the main code base.
     <td>
-      <a href="https://github.com/antirez/redis/tree/unstable">Clone</a>
+      <a href="https://github.com/MSOpenTech/redis">Clone</a>
     </td>
   </tr>
 
