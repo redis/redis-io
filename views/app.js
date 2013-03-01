@@ -113,7 +113,7 @@ function buzz() {
   var page = $buzz.attr("data-page") || 1;
   var users = {};
 
-  $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=30&format=json&page=" + page + "&callback=?", function(response) {
+  $.getJSON("http://search.twitter.com/search.json?q=redis+-RT&lang=en&rpp=30&page=" + page + "&callback=?", function(response) {
     $.each(response.results, function() {
 
       // Skip if the tweet is not Redis related.
