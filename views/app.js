@@ -82,8 +82,24 @@ function massageTweet(text) {
   return autolink(text);
 }
 
-function legitimate(text) {
-  return !text.match(/le redis|redis le/i);
+function legitimate(text, user) {
+  // Messages from @redisfeed are automatically approved.
+  if (user == "redisfeed") {
+    return true;
+  }
+
+  // The message content should mention Redis.
+  if (!text.match(/(^|[^@])redis/i)) {
+    return false;
+  }
+
+  // We need to filter some messages in French,
+  // where "redis" has a different meaning.
+  if (text.match(/le redis|redis le/i)) {
+    return false;
+  }
+
+  return true;
 }
 
 function buzz() {
@@ -97,11 +113,11 @@ function buzz() {
   var page = $buzz.attr("data-page") || 1;
   var users = {};
 
-  $.getJSON("http://search.twitter.com/search?q=redis+-RT&lang=en&rpp=30&format=json&page=" + page + "&callback=?", function(response) {
+  $.getJSON("http://search.twitter.com/search.json?q=redis+-RT&lang=en&rpp=30&page=" + page + "&callback=?", function(response) {
     $.each(response.results, function() {
 
       // Skip if the tweet is not Redis related.
-      if (!legitimate(this.text)) { return; }
+      if (!legitimate(this.text, this.from_user)) { return; }
 
       // Don't show the same user multiple time
       if (users[this.from_user]) { return true; }
