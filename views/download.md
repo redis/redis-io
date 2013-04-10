@@ -84,6 +84,4 @@ Are you new to Redis? Try our [online, interactive tutorial](http://try.redis-db
 Where's Redis Cluster?
 ---
 
-Redis 2.6 was just released, so the new priorities are now Redis Sentinel and Redis Cluster. The unstable branch already contains most of the fundamental parts of Redis Cluster, the goal now is to turn the current alpha implementation into a beta product that users can start to seriously test.
-
-It is hard to make forecasts since we'll release Redis Cluster as stable only when we feel it is rock solid and useful for our customers, but we hope to have a reasonable beta for early 2013.
+Redis Cluster, the distributed version of Redis, is making a lot of progresses and will be released as beta at the start of Q3 2013, and in a stable release before the end of 2013. You can [watch a video about what Redis Cluster can currently do](https://vimeo.com/63672368). The source code of Redis Cluster is publicly available in the `unstable` branch, check the `cluster.c` source code.
