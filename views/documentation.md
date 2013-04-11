@@ -45,6 +45,7 @@ Documentation of unstable features
 Specifications
 ---
 
+* [Redis Design Drafts](/topics/rdd): Design drafts of new proposals.
 * [Redis Protocol specification](/topics/protocol): if you're implementing a
 client, or out of curiosity, learn how to communicate with Redis at a
 low level.
