@@ -21,11 +21,11 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
   </tr>
 
   <tr>
-    <td>2.8.0-rc1</td>
+    <td>2.8.0-rc2</td>
     <td>Release Candidate</td>
     <td>Redis 2.8 is almost ready to replace 2.6, providing significant improvements like: Replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more. While it is not production ready, it is considered beta-quality code with a good degree of stability. See the <a href="https://github.com/antirez/redis/raw/2.8/00-RELEASENOTES">Release Notes</a> for a full list of changes.</td>
     <td>
-      <a href="http://download.redis.io/releases/redis-2.8.0-rc1.tar.gz">Download</a>
+      <a href="http://download.redis.io/releases/redis-2.8.0-rc2.tar.gz">Download</a>
     </td>
   </tr>
 
