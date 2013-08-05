@@ -110,40 +110,32 @@ function buzz() {
   var $ul = $buzz.find("ul");
   var count = 0;
   var limit = parseInt($buzz.attr("data-limit"));
-  var page = $buzz.attr("data-page") || 1;
   var users = {};
 
-  $.getJSON("http://search.twitter.com/search.json?q=redis+-RT&lang=en&rpp=30&page=" + page + "&callback=?", function(response) {
-    $.each(response.results, function() {
+  $.getJSON("http://redis-buzz.herokuapp.com/?callback=?", function(response) {
+    $.each(response.statuses, function() {
 
       // Skip if the tweet is not Redis related.
-      if (!legitimate(this.text, this.from_user)) { return; }
+      if (!legitimate(this.text, this.user.screen_name)) { return; }
 
       // Don't show the same user multiple time
-      if (users[this.from_user]) { return true; }
+      if (users[this.user.screen_name]) { return true; }
 
       // Stop when reaching the hardcoded limit.
       if (count++ == limit) { return false; }
 
       // Remember this user
-      users[this.from_user] = true;
+      users[this.user.screen_name] = true;
 
       $ul.append(
         "<li>" +
-        "<a href='http://twitter.com/" + this.from_user + "/statuses/" + this.id_str + "' title='" + this.from_user + "'>" +
-        "<img src='" + this.profile_image_url + "' alt='" + this.from_user + "' />" +
+        "<a href='http://twitter.com/" + this.user.screen_name + "/statuses/" + this.id_str + "' title='" + this.user.screen_name + "'>" +
+        "<img src='" + this.user.profile_image_url + "' alt='" + this.user.screen_name + "' />" +
         "</a> " +
         massageTweet(this.text) +
         "</li>"
       );
     });
-  });
-
-  $buzz.find("> a.paging").click(function() {
-    var $buzz = $(this).parent();
-    $buzz.attr("data-page", parseInt($buzz.attr("data-page")) + 1);
-    buzz();
-    return false;
   });
 }
 
