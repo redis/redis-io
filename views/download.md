@@ -51,8 +51,9 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
 
 </table>
 
-Other downloads are available on [GitHub](https://github.com/antirez/redis/downloads)
-and [Google Code](http://code.google.com/p/redis/downloads/list?can=1).
+Other downloads are available on [GitHub](https://github.com/antirez/redis/downloads), Historical downloads are available on [Google Code](http://code.google.com/p/redis/downloads/list?can=1).
+
+<b>Scripts and other automatic downloads</b> can easily access the tarball of the latest Redis stable version at <a href="http://download.redis.io/redis-stable.tar.gz">http://download.redis.io/redis-stable.tar.gz</a>. The source code of the latest stable release is [always browsable here](http://download.redis.io/redis-stable), use the file **src/version.h** in order to extract the version in an automatic way.
 
 Installation
 ===
