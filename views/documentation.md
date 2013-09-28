@@ -91,6 +91,13 @@ The following books have Redis related content but are not specifically about Re
 * [Mining the Social Web (O'Reilly Media, 2011)](http://shop.oreilly.com/product/0636920010203.do)
 * [Professional NoSQL (Wrox, 2011)](http://www.wrox.com/WileyCDA/WroxTitle/Professional-NoSQL.productCd-047094224X.html)
 
+Credits
+---
+
+Redis is maintained and developed by [Salvatore Sanfilippo](http://twitter.com/antirez). [Pieter Noordhuis](http://twitter.com/pnoordhuis) provided a very significant amount of code and ideas to both the Redis core and a number of client libraries.
+
+The full list of Redis contributors can be found in the [Redis contributors page at Github](https://github.com/antirez/redis/graphs/contributors). However there are other forms of contributions such as ideas, testing, and bug reporting. When possible this contributions are acknowledged in the commit messages. The [mailing list archives](http://groups.google.com/group/redis-db) and the [Github issues page](https://github.com/antirez/redis/issues) are good sources to find people active in the Redis community providing ideas and helping other users.
+
 Sponsors
 ---
 
