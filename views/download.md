@@ -10,22 +10,22 @@ releases: 2.7.x were the unstable versions that became 2.8 once stable.
 <table class="versions">
 
   <tr class="current">
-    <td>2.6.16</td>
+    <td>2.8.0</td>
     <td>Stable</td>
+    <td>Redis 2.8 provides significant improvements like: Replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more. See the <a href="https://github.com/antirez/redis/raw/2.8/00-RELEASENOTES">Release Notes</a> for a full list of changes in this release.</td>
+    <td>
+      <a href="http://download.redis.io/releases/redis-2.8.0.tar.gz">Download</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2.6.16</td>
+    <td>Old</td>
     <td>This is the newest Redis version replacing Redis 2.4.
     Redis 2.6 features support for <a href="/commands/eval">Lua scripting</a>, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features. For the complete list of new features, and the list of fixes contained in each 2.6 release, please check the <a href="https://github.com/antirez/redis/raw/2.6/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
       <a href="http://download.redis.io/releases/redis-2.6.16.tar.gz">Download</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>2.8.0-rc6</td>
-    <td>Release Candidate</td>
-    <td>Redis 2.8 is almost ready to replace 2.6, providing significant improvements like: Replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more. While it is not production ready, it is considered beta-quality code with a good degree of stability. See the <a href="https://github.com/antirez/redis/raw/2.8/00-RELEASENOTES">Release Notes</a> for a full list of changes.</td>
-    <td>
-      <a href="http://download.redis.io/releases/redis-2.8.0-rc6.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -65,9 +65,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://download.redis.io/releases/redis-2.6.16.tar.gz
-    $ tar xzf redis-2.6.16.tar.gz
-    $ cd redis-2.6.16
+    $ wget http://download.redis.io/releases/redis-2.8.0.tar.gz
+    $ tar xzf redis-2.8.0.tar.gz
+    $ cd redis-2.8.0
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
@@ -87,4 +87,4 @@ Are you new to Redis? Try our [online, interactive tutorial](http://try.redis-db
 Where's Redis Cluster?
 ---
 
-Redis Cluster, the distributed version of Redis, is making a lot of progresses and will be released as beta at the start of Q3 2013, and in a stable release before the end of 2013. You can [watch a video about what Redis Cluster can currently do](https://vimeo.com/63672368). The source code of Redis Cluster is publicly available in the `unstable` branch, check the `cluster.c` source code.
+Redis Cluster, the distributed version of Redis, is making a lot of progresses and you can find a full implementation in the *unstable* branch at Github. It will be released as a release candidate at the end of 2013. You can [watch a video about what Redis Cluster can currently do](https://vimeo.com/63672368).
