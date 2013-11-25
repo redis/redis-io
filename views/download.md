@@ -3,18 +3,16 @@ Download
 
 Redis uses a standard practice for its versioning:
 **major.minor.patchlevel**.
-An even **minor** marks a **stable**
-release: 1.2, 2.0, 2.2, 2.4, 2.6. Odd minors are used for **unstable**
-releases: 2.7.x were the unstable versions that became 2.8 once stable.
+An even **minor** marks a **stable** release, like 1.2, 2.0, 2.2, 2.4, 2.6, 2.8.Odd minors are used for **unstable** releases, for example 2.9.x releases are the unstable versions of what will be Redis 3.0 once stable.
 
 <table class="versions">
 
   <tr class="current">
-    <td>2.8.0</td>
+    <td>2.8.1</td>
     <td>Stable</td>
     <td>Redis 2.8 provides significant improvements like: Replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more. See the <a href="https://github.com/antirez/redis/raw/2.8/00-RELEASENOTES">Release Notes</a> for a full list of changes in this release.</td>
     <td>
-      <a href="http://download.redis.io/releases/redis-2.8.0.tar.gz">Download</a>
+      <a href="http://download.redis.io/releases/redis-2.8.1.tar.gz">Download</a>
     </td>
   </tr>
 
@@ -65,9 +63,9 @@ Installation
 
 Download, extract and compile Redis with:
 
-    $ wget http://download.redis.io/releases/redis-2.8.0.tar.gz
-    $ tar xzf redis-2.8.0.tar.gz
-    $ cd redis-2.8.0
+    $ wget http://download.redis.io/releases/redis-2.8.1.tar.gz
+    $ tar xzf redis-2.8.1.tar.gz
+    $ cd redis-2.8.1
     $ make
 
 The binaries that are now compiled are available in the `src` directory. Run Redis with:
