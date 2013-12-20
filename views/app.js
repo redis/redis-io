@@ -99,6 +99,11 @@ function legitimate(text, user) {
     return false;
   }
 
+  /* Don't show other people's automated errors */
+  if (text.match(/Error 331, Caught exception: Redis server went away/)) {
+    return false;
+  }
+
   return true;
 }
 
