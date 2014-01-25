@@ -41,7 +41,7 @@ Troubleshooting
 
 Redis Cluster
 ---
-* [Redis Cluster toturial](/topics/cluster-tutorial): a gentle introduction and setup guide to Redis Cluster (currently not production ready, but usable).
+* [Redis Cluster tutorial](/topics/cluster-tutorial): a gentle introduction and setup guide to Redis Cluster (currently not production ready, but usable).
 * [Redis Cluster specification](/topics/cluster-spec): the more formal description of the behavior and algorithms used in Redis Cluster.
 
 Specifications
