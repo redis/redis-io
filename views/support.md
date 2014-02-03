@@ -13,8 +13,4 @@ Visit the [Community](/community) page for more public support options and detai
 Commercial Support
 ---
 
-Pivotal, the official sponsor of Redis, offers support for developers and 24x7 production Redis deployments.
-
-Visit Pivotal's [Redis Support](http://www.gopivotal.com/products/redis) page for more on Pivotal's Redis support, consulting, and training.
-
-The Pivotal [Redis blog](http://blog.gopivotal.com/tag/redis) also covers case studies of Redis in large scale delopments supporting millions of users per day.
+Pivotal, the official sponsor of Redis, offers [Redis support](http://www.gopivotal.com/products/redis) for developers and 24x7 production Redis deployments.
