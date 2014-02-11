@@ -17,6 +17,17 @@ An even **minor** marks a **stable** release, like 1.2, 2.0, 2.2, 2.4, 2.6, 2.8.
   </tr>
 
   <tr>
+    <td>3.0.0</td>
+    <td>Beta</td>
+    <td>This is the first beta of Redis 3.0.0.
+    Redis 3.0 features support for <a href="/topics/cluster-tutorial">Redis Cluster</a> and important speed improvements under certain workloads. This is a developers preview and is not suitable for production environments. The next beta scheduled for 11 March 2014. For the complete list of new features, please check the <a href="https://github.com/antirez/redis/raw/3.0/00-RELEASENOTES">Release Notes</a>.
+    <br>
+    <td>
+      <a href="https://github.com/antirez/redis/archive/3.0.0-beta1.tar.gz">Download</a>
+    </td>
+  </tr>
+
+  <tr>
     <td>2.6.17</td>
     <td>Old</td>
     <td>This is the newest Redis version replacing Redis 2.4.
@@ -82,7 +93,3 @@ You can interact with Redis using the built-in client:
 
 Are you new to Redis? Try our [online, interactive tutorial](http://try.redis-db.com).
 
-Where's Redis Cluster?
----
-
-Redis Cluster, the distributed version of Redis, is making a lot of progresses and you can find a full implementation in the *unstable* branch at Github. It will be released as a release candidate at the end of 2013. You can [watch a video about what Redis Cluster can currently do](https://vimeo.com/63672368).
