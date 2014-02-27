@@ -24,6 +24,7 @@ module Interactive
     "rename" => [:all],
     "renamenx" => [:all],
     "restore" => [:first],
+    "scan" => [:custom],
     "sort" => [:custom],
     "ttl" => [:first],
     "type" => [:first],
@@ -39,6 +40,7 @@ module Interactive
     "hlen" => [:first],
     "hmget" => [:first],
     "hmset" => [:first],
+    "hscan" => [:first],
     "hset" => [:first],
     "hsetnx" => [:first],
     "hvals" => [:first],
@@ -60,7 +62,7 @@ module Interactive
     "rpushx" => [:first],
 
     # server
-    "info" => [],
+    "info" => [:custom],
     "lastsave" => [],
     "time" => [],
 
@@ -77,6 +79,7 @@ module Interactive
     "spop" => [:first],
     "srandmember" => [:first],
     "srem" => [:first],
+    "sscan" => [:first],
     "sunion" => [:all],
     "sunionstore" => [:all],
 
@@ -95,6 +98,7 @@ module Interactive
     "zrevrange" => [:first],
     "zrevrangebyscore" => [:first],
     "zrevrank" => [:first],
+    "zscan" => [:first],
     "zscore" => [:first],
     "zunionstore" => [:custom],
 
@@ -102,6 +106,7 @@ module Interactive
     "append" => [:first],
     "bitcount" => [:first],
     "bitop" => [:custom],
+    "bitpos" => [:first],
     "decr" => [:first],
     "decrby" => [:first],
     "get" => [:first],
