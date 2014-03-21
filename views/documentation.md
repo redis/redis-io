@@ -14,6 +14,7 @@ at once, saving on round trip time.
 * [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
+* [Redis as an LRU cache](/topics/lru-cache): How to configure and use Redis as a cache with a fixed amount of memory and auto eviction of keys.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
 * [Mass insertion of data](/topics/mass-insert): How to add a big amount of pre existing or generated data to a Redis instance in a short time.
 * [Partitioning](/topics/partitioning): How to distribute your data among multiple Redis instances.
