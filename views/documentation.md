@@ -64,16 +64,6 @@ Tutorials & FAQ
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
 * [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
 
-Presentations
--------------
-
-* Salvatore Sanfilippo: [Redis cluster overview](/presentation/Redis_Cluster.pdf)
-* Pieter Noordhuis: [What's new in Redis 2.2](/presentation/Pnoordhuis_whats_new_in_2_2.pdf)
-
-If you would like to include the logo in a presentation, please use the
-[high-res version](/images/redis-300dpi.png). The [svg version is also available](/images/redis-logo.svg).
-
-
 Use cases
 ---
 * [Who is using Redis](/topics/whos-using-redis)
@@ -81,11 +71,13 @@ Use cases
 Books
 ---
 
-The following is a list of books covering Redis that are already published:
+The following is a list of books covering Redis that are already published. Books are ordered by release date (newer books first).
 
-* [The Little Redis Book](http://openmymind.net/2012/1/23/The-Little-Redis-Book/) by [Karl Seguin](http://twitter.com/karlseguin) is a great *free* and concise book that will get you started with Redis.
-* [Redis in Action](http://www.manning.com/carlson/) by [Josiah L. Carlson](http://twitter.com/dr_josiah) (early access edition).
-* [Redis Cookbook (O'Reilly Media, 2011)](http://shop.oreilly.com/product/0636920020127.do)
+* [Redis in Action (Manning, 2013)](http://www.manning.com/carlson/) by [Josiah L. Carlson](http://twitter.com/dr_josiah) (early access edition).
+* [Instant Redis Optimization How-to (Packt, 2013)](http://www.packtpub.com/redis-optimization-how-to/book) by [Arun Chinnachamy](http://twitter.com/ArunChinnachamy).
+* [Instant Redis Persistence (Packt, 2013)](http://www.packtpub.com/redis-persistence/book) by Matt Palmer.
+* [The Little Redis Book (Free Book, 2012)](http://openmymind.net/2012/1/23/The-Little-Redis-Book/) by [Karl Seguin](http://twitter.com/karlseguin) is a great *free* and concise book that will get you started with Redis.
+* [Redis Cookbook (O'Reilly Media, 2011)](http://shop.oreilly.com/product/0636920020127.do) by [Tiago Macedo](http://twitter.com/tmacedo) and [Fred Oliveira](http://twitter.com/f).
 
 The following books have Redis related content but are not specifically about Redis:
 
