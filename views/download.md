@@ -48,11 +48,9 @@ An even **minor** marks a **stable** release, like 1.2, 2.0, 2.2, 2.4, 2.6, 2.8.
   </tr>
 
   <tr>
-    <td>Win32/64</td>
+    <td>Win64</td>
     <td>Unofficial</td>
-    <td>The Redis project does not directly support Windows, however the Microsoft Open Tech group develops and maintains an <a href="https://github.com/MSOpenTech/redis">experimental Windows port targeting Win32/64</a>.
-
-    Currently the port is not production quality but can be used for development purposes on Windows environments. We look forward for collaborating with the authors of this efforts but currently <a href="http://antirez.com/post/redis-win32-msft-patch.html">we will not merge the Windows port</a> to the main code base.
+    <td>The Redis project does not directly support Windows, however the Microsoft Open Tech group develops and maintains an <a href="https://github.com/MSOpenTech/redis">Windows port targeting Win64</a>.
     <td>
       <a href="https://github.com/MSOpenTech/redis">Clone</a>
     </td>
