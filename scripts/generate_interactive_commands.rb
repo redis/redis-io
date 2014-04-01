@@ -11,6 +11,7 @@ ALLOW_GROUPS = %w(
   list
   set
   sorted_set
+  hyperloglog
   string
   scripting
 ).freeze

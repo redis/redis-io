@@ -6,6 +6,7 @@ class Reference
     "list" => "Lists",
     "set" => "Sets",
     "sorted_set" => "Sorted Sets",
+    "hyperloglog" => "HyperLogLog",
     "pubsub" => "Pub/Sub",
     "transactions" => "Transactions",
     "scripting" => "Scripting",

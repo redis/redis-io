@@ -45,6 +45,11 @@ module Interactive
     "hsetnx" => [:first],
     "hvals" => [:first],
 
+    # hyperloglog
+    "pfadd" => [:first],
+    "pfcount" => [:first],
+    "pfmerge" => [:all],
+
     # list
     "lindex" => [:first],
     "linsert" => [:first],
