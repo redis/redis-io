@@ -1,7 +1,7 @@
 Documentation
 ===
 
-Note: the Redis documentation is also available in raw (computer friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc).
+Note: The Redis Documentation is also available in raw (computer friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc). The Redis Documentation is released under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Programming with Redis
 ---
