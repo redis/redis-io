@@ -47,7 +47,7 @@ module Interactive
 
     # hyperloglog
     "pfadd" => [:first],
-    "pfcount" => [:first],
+    "pfcount" => [:all],
     "pfmerge" => [:all],
 
     # list
