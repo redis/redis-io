@@ -95,6 +95,7 @@ module Interactive
     "zincrby" => [:first],
     "zinterstore" => [:custom],
     "zrange" => [:first],
+    "zrangebylex" => [:first],
     "zrangebyscore" => [:first],
     "zrank" => [:first],
     "zrem" => [:first],
