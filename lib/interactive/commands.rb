@@ -94,6 +94,7 @@ module Interactive
     "zcount" => [:first],
     "zincrby" => [:first],
     "zinterstore" => [:custom],
+    "zlexcount" => [:first],
     "zrange" => [:first],
     "zrangebylex" => [:first],
     "zrangebyscore" => [:first],
