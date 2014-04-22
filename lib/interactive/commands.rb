@@ -100,6 +100,7 @@ module Interactive
     "zrangebyscore" => [:first],
     "zrank" => [:first],
     "zrem" => [:first],
+    "zremrangebylex" => [:first],
     "zremrangebyrank" => [:first],
     "zremrangebyscore" => [:first],
     "zrevrange" => [:first],
