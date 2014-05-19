@@ -18,6 +18,7 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
 * [Mass insertion of data](/topics/mass-insert): How to add a big amount of pre existing or generated data to a Redis instance in a short time.
 * [Partitioning](/topics/partitioning): How to distribute your data among multiple Redis instances.
+* [Distributed locks](/topics/distlock): Implementing a distributed lock manager with Redis.
 * [Redis keyspace notifications](/topics/notifications): Get notifications of keyspace events via Pub/Sub (Redis 2.8 or greater).
 
 Administration
