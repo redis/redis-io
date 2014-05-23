@@ -43,8 +43,14 @@ Troubleshooting
 
 Redis Cluster
 ---
+
 * [Redis Cluster tutorial](/topics/cluster-tutorial): a gentle introduction and setup guide to Redis Cluster (currently not production ready, but usable).
 * [Redis Cluster specification](/topics/cluster-spec): the more formal description of the behavior and algorithms used in Redis Cluster.
+
+Other distributed systems based on Redis
+---
+
+* [Roshi](https://github.com/soundcloud/roshi) is a large-scale CRDT set implementation for timestamped events based on Redis and implemented in Go. It was initially developed for [the SoundCloud stream](http://developers.soundcloud.com/blog/roshi-a-crdt-system-for-timestamped-events).
 
 Specifications
 ---
