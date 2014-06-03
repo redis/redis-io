@@ -21,6 +21,15 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Distributed locks](/topics/distlock): Implementing a distributed lock manager with Redis.
 * [Redis keyspace notifications](/topics/notifications): Get notifications of keyspace events via Pub/Sub (Redis 2.8 or greater).
 
+Tutorials & FAQ
+---
+
+* [Introduction to Redis data types](/topics/data-types-intro): This is a good starting point to learn the Redis API and data model.
+* [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
+* [Auto complete with Redis](http://autocomplete.redis.io)
+* [Data types short summary](/topics/data-types): A short summary of the different types of values that Redis supports, not as updated and info rich as the first tutorial listed in this section.
+* [FAQ](/topics/faq): Some common questions about Redis.
+
 Administration
 ---
 * [Configuration](/topics/config): How to configure redis.
@@ -61,15 +70,6 @@ client, or out of curiosity, learn how to communicate with Redis at a
 low level.
 * [Redis RDB format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format) specification, and [RDB version history](https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile).
 * [Internals](/topics/internals): Learn details about how Redis is implemented under the hood.
-
-Tutorials & FAQ
----
-
-* [FAQ](/topics/faq): Some common questions about Redis.
-* [Data types](/topics/data-types): A summary of the different types of values that Redis supports.
-* [15 minutes introduction to Redis data types](/topics/data-types-intro)
-* [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
-* [Auto complete with Redis](http://antirez.com/post/autocomplete-with-redis.html)
 
 Use cases
 ---
