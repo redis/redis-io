@@ -103,3 +103,9 @@ Sponsors
 ---
 
 The work [Salvatore Sanfilippo](http://antirez.com) do in order to develop Redis is sponsored by [Pivotal](http://gopivotal.com). In the past the Redis project was sponsored and accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
+
+License, Trademark and Logo
+---
+
+* Redis is released under the three clause BSD license. You can find [additional information in our license page](/topics/license).
+* The Redis trademark and logos are owned by Salvatore Sanfilippo, please read the [Redis trademark guidelines](/topics/trademark) for our policy about the use of the Redis trademarks and logo.
