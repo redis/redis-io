@@ -23,6 +23,7 @@ ALLOW_COMMANDS = %w(
   info
   lastsave
   time
+  role
 ).freeze
 
 # Explicitly deny some commands.
