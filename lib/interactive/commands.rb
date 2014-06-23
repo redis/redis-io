@@ -69,6 +69,7 @@ module Interactive
     # server
     "info" => [:custom],
     "lastsave" => [],
+    "role" => [],
     "time" => [],
 
     # set
