@@ -1,7 +1,14 @@
+%section#commands
+  %nav
+    %a(href="#") All
+
+    - Reference::GROUPS.each do |name, description|
+      %a(href="##{name}")= description
+
 .text
 
   %h1.command
-    %span.name= @command.name
+    %span.name{:group => @command.group}= @command.name
     - @command.arguments.each do |arg|
       %span.arg= arg
 
