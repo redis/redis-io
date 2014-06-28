@@ -71,6 +71,11 @@ low level.
 * [Redis RDB format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format) specification, and [RDB version history](https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile).
 * [Internals](/topics/internals): Learn details about how Redis is implemented under the hood.
 
+Resources
+---
+
+* [Redis Cheat Sheet](http://www.cheatography.com/tasjaevan/cheat-sheets/redis/): Online or printable function reference for Redis.
+
 Use cases
 ---
 * [Who is using Redis](/topics/whos-using-redis)
