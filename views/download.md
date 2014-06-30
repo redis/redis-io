@@ -18,12 +18,12 @@ An even **minor** marks a **stable** release, like 1.2, 2.0, 2.2, 2.4, 2.6, 2.8.
 
   <tr>
     <td>3.0.0</td>
-    <td>Beta-6</td>
-    <td>This is the 6th beta of Redis 3.0.0.
-    Redis 3.0 features support for <a href="/topics/cluster-tutorial">Redis Cluster</a> and important speed improvements under certain workloads. This is a developers preview and is not suitable for production environments. The next beta is scheduled for 20 June 2014. For the complete list of new features, please check the <a href="https://github.com/antirez/redis/raw/3.0/00-RELEASENOTES">Release Notes</a>.
+    <td>Beta-7</td>
+    <td>This is the 7th beta of Redis 3.0.0.
+    Redis 3.0 features support for <a href="/topics/cluster-tutorial">Redis Cluster</a> and important speed improvements under certain workloads. This is a developers preview and is not suitable for production environments. The next beta is scheduled for 15 July 2014. For the complete list of new features, please check the <a href="https://github.com/antirez/redis/raw/3.0/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
-      <a href="https://github.com/antirez/redis/archive/3.0.0-beta5.tar.gz">Download</a>
+      <a href="https://github.com/antirez/redis/archive/3.0.0-beta7.tar.gz">Download</a>
     </td>
   </tr>
 
