@@ -36,6 +36,9 @@ module Interactive
       end
     when :custom
       case name.downcase
+      when "bitop"
+        # BITOP arg positions 1,2,3 are always keys
+        out[1,3] = 3.times.map{:key}
       when "zunionstore", "zinterstore"
         # Destination key
         if args.size >= 1
