@@ -104,7 +104,7 @@ The full list of Redis contributors can be found in the [Redis contributors page
 Sponsors
 ---
 
-The work [Salvatore Sanfilippo](http://antirez.com) do in order to develop Redis is sponsored by [Pivotal](http://gopivotal.io). In the past the Redis project was sponsored and accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
+The work [Salvatore Sanfilippo](http://antirez.com) does in order to develop Redis is sponsored by [Pivotal](http://gopivotal.io). In the past the Redis project was sponsored and accepted donations from other companies that are listed in the [Sponsors page](/topics/sponsors).
 
 License, Trademark and Logo
 ---
