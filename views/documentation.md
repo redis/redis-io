@@ -42,7 +42,7 @@ Redis' durability.
 * [Encyption](/topics/encryption): How to encrypt Redis client-server communication.
 * [Signals Handling](/topics/signals): How Redis handles signals.
 * [Connections Handling](/topics/clients): How Redis handles clients connections.
-* [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis. Currently work in progress (beta stage, active development), already usable.
+* [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis.
 * [Latency monitoring](/topics/latency-monitor): Redis integrated latency monitoring and reporting capabilities are helpful to tune Redis instances for low latency workloads.
 * [Benchmarks](/topics/benchmarks): See how fast Redis is in different platforms.
 * [Redis Releases](/topics/releases): Redis development cycle and version numbering.
