@@ -65,7 +65,7 @@ Other downloads are available on [GitHub](https://github.com/antirez/redis/downl
 How to verify files for integrity
 ===
 
-The Github repository <a href="https://github.com/antirez/redis-hashes/blob/master/README">redis-hashes</a> contains a README file with SHA1 digets of released tarball archives.
+The Github repository <a href="https://github.com/antirez/redis-hashes/blob/master/README">redis-hashes</a> contains a README file with SHA1 digests of released tarball archives.
 
 Installation
 ===
