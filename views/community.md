@@ -1,7 +1,7 @@
 Community
 ===
 
-* Join the [mailing list](http://groups.google.com/group/redis-db) (Subscribe via [mail](mailto:redis-db+subscribe@googlegroups.com))
+* Join the [mailing list](http://groups.google.com/group/redis-db) (Subscribe via [email](mailto:redis-db+subscribe@googlegroups.com))
 * Meet us at the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis))
 * Follow [Redis news feed](http://twitter.com/redisfeed) on Twitter
 
