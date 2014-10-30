@@ -101,7 +101,8 @@ Cuba.define do
       data = super(path, locals, options)
       filter_interactive_examples(data)
     elsif expanded.start_with?(ROOT_PATH)
-      super(path, locals, options)
+      data = super(path, locals, options)
+      add_header_ids(data)
     end
   end
 
@@ -113,6 +114,20 @@ Cuba.define do
     data.gsub %r{<pre>\s*<code class="cli">\s*(.*?)\s*</code>\s*</pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
       render("views/interactive.haml", session: session, lines: lines)
+    end
+  end
+
+  def add_header_ids(data)
+    data.gsub %r{(<(?<hdr>h.)>(?<section>.*?)</h.>)} do |match|
+      found = $~
+      hdr = found[:hdr]
+      section = found[:section]
+      # convert spaces to underscores
+      id = section.downcase.gsub /[\s+]/, '_'
+      # remove commas, HTML code, brackets, and rogue underscores from id
+      id.gsub! /,|(_?<.*>|_?\[|\])/, ''
+      header = "<#{hdr} id=\"#{id}\">#{section}</#{hdr}>"
+      "<a href=\"\##{id}\">#{header}</a>"
     end
   end
 
