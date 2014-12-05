@@ -99,12 +99,18 @@ function buzz() {
 
       if (count++ == limit) { return false; }
 
+      if (this.retweeted_status) {
+        var status = this.retweeted_status;
+      } else {
+        var status = this;
+      }
+
       $ul.append(
         "<li>" +
-        "<a href='http://twitter.com/" + this.user.screen_name + "/statuses/" + this.id_str + "' title='" + this.user.screen_name + "'>" +
-        "<img src='" + this.user.profile_image_url + "' alt='" + this.user.screen_name + "' />" +
+        "<a href='http://twitter.com/" + status.user.screen_name + "/statuses/" + status.id_str + "' title='" + status.user.screen_name + "'>" +
+        "<img src='" + status.user.profile_image_url + "' alt='" + status.user.screen_name + "' />" +
         "</a> " +
-        massageTweet(this.text) +
+        massageTweet(status.text) +
         "</li>"
       );
     });
