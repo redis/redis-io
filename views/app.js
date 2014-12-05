@@ -82,26 +82,6 @@ function massageTweet(text) {
   return autolink(text);
 }
 
-function legitimate(text, user) {
-  // Messages from @redisfeed are automatically approved.
-  if (user == "redisfeed") {
-    return true;
-  }
-
-  // The message content should mention Redis.
-  if (!text.match(/(^|[^@])redis/i)) {
-    return false;
-  }
-
-  // We need to filter some messages in French,
-  // where "redis" has a different meaning.
-  if (text.match(/le redis|redis le/i)) {
-    return false;
-  }
-
-  return true;
-}
-
 function buzz() {
   var $buzz = $("#buzz");
 
@@ -112,20 +92,12 @@ function buzz() {
   var limit = parseInt($buzz.attr("data-limit"));
   var users = {};
 
+  console.log("hello");
+
   $.getJSON("http://redis-buzz.herokuapp.com/?callback=?", function(response) {
-    $.each(response.statuses, function() {
+    $.each(response, function() {
 
-      // Skip if the tweet is not Redis related.
-      if (!legitimate(this.text, this.user.screen_name)) { return; }
-
-      // Don't show the same user multiple time
-      if (users[this.user.screen_name]) { return true; }
-
-      // Stop when reaching the hardcoded limit.
       if (count++ == limit) { return false; }
-
-      // Remember this user
-      users[this.user.screen_name] = true;
 
       $ul.append(
         "<li>" +
