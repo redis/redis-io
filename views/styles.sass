@@ -51,7 +51,6 @@ body
     @include box-shadow(#999, 0px, 4px, 8px)
     background-color: #333
     @include clearfix
-    @include background(linear-gradient(color_stops($gradient-start, $gradient-stop)))
     border-top: 1px solid #000
     height: $header-height
     left: 0
@@ -69,7 +68,7 @@ body
         $vertical-padding: ($header-height - 30px) / 2
         float: left
         border-right: 1px solid $gradient-stop
-        padding: $vertical-padding 20px $vertical-padding 0
+        padding: $vertical-padding 20px $vertical-padding 20px
 
         img
           display: block
