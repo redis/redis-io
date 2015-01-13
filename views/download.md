@@ -20,7 +20,7 @@ An even **minor** marks a **stable** release, like 1.2, 2.0, 2.2, 2.4, 2.6, 2.8.
     <td>3.0.0</td>
     <td>RC-2</td>
     <td>This is the second (likely the last) release candidate of Redis 3.0.0.
-    Redis 3.0 features support for <a href="/topics/cluster-tutorial">Redis Cluster</a> and important speed improvements under certain workloads. This is a developers preview and is not suitable for production environments. The next RC is scheduled for 3 November 2014. For the complete list of new features, please check the <a href="https://github.com/antirez/redis/raw/3.0/00-RELEASENOTES">Release Notes</a>.
+    Redis 3.0 features support for <a href="/topics/cluster-tutorial">Redis Cluster</a> and important speed improvements under certain workloads. This is a developers preview and is not suitable for production environments. The stable release is scheduled for the first days of February 2015. For the complete list of new features, please check the <a href="https://github.com/antirez/redis/raw/3.0/00-RELEASENOTES">Release Notes</a>.
     <br>
     <td>
       <a href="https://github.com/antirez/redis/archive/3.0.0-rc2.tar.gz">Download</a>
