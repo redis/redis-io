@@ -82,6 +82,20 @@ function massageTweet(text) {
   return autolink(text);
 }
 
+function searchCommandReference() {
+  var $commands = $('li')
+  $('#filter').keyup(function(ev) {
+    if ((val = $(this).val()) == '') {
+      $commands.show()
+      $('nav a:first-child').addClass('current')
+    } else {
+      $commands.hide()
+      $('li[class^="' + val.toLowerCase() + '"]').show()
+      $('nav a').removeClass('current')
+    }      
+  }).focus()
+}
+
 function buzz() {
   var $buzz = $("#buzz");
 
@@ -227,10 +241,11 @@ $(document).ready(function() {
   $(window).resize(adjustCommandReference)
 
   filterCommandReference()
+  searchCommandReference()
 
-  buzz();
+  buzz()
 
-  examples();
+  examples()
 })
 
 })(jQuery);
