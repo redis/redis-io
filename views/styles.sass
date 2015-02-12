@@ -7,6 +7,14 @@
 body, textarea
   font: 13px/1.5 "Helvetica Neue", sans-serif
 
+// Compensate for fixed header when linking to sections
+h1:before, h2:before, h3:before
+  display: block
+  content: " "
+  margin-top: -55px
+  height: 55px
+  visibility: hidden
+
 h1, h2, h3
   font-weight: 300
   color: #000
@@ -214,7 +222,7 @@ body
       margin-left: -1.5em
 
   h1:first-child
-    margin-top: 0
+    margin-top: 20px
 
 #comments
   margin-top: 15px
@@ -284,7 +292,7 @@ body
       font-weight: bold
 
 .columns
-  $margin: 20px
+  $margin: 0
 
   @include clearfix
 
