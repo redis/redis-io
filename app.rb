@@ -123,7 +123,7 @@ Cuba.define do
       hdr = found[:hdr]
       section = found[:section]
       # convert spaces to underscores
-      id = section.downcase.gsub /[\s+]/, '_'
+      id = section.downcase.gsub /[\s+]/, '-'
       # remove commas, HTML code, brackets, and rogue underscores from id
       id.gsub! /,|(_?<.*>|_?\[|\])/, ''
       header = "<#{hdr} id=\"#{id}\">#{section}</#{hdr}>"
