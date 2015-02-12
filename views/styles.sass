@@ -16,6 +16,34 @@ h1:before, h2:before, h3:before
   visibility: hidden
 
 h1, h2, h3
+  position: relative
+
+  a.anchor
+    display: none
+    font-family: monospace
+    font-size: 25px
+    height: 1em
+    left: 0
+    margin-left: 30px
+    margin-top: 4px
+    padding-left: 30px
+    padding-right: 8px
+    position: absolute
+    text-align: center
+    text-decoration: none
+    width: 1em
+
+  &:hover
+    a.anchor
+      color: #888
+      display: block
+      margin-left: -30px
+      padding-left: 8px
+
+      &:hover
+        color: #000
+
+h1, h2, h3
   font-weight: 300
   color: #000
 

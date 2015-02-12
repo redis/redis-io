@@ -123,11 +123,8 @@ Cuba.define do
       hdr = found[:hdr]
       section = found[:section]
       # convert spaces to underscores
-      id = section.downcase.gsub /[\s+]/, '-'
-      # remove commas, HTML code, brackets, and rogue underscores from id
-      id.gsub! /,|(_?<.*>|_?\[|\])/, ''
-      header = "<#{hdr} id=\"#{id}\">#{section}</#{hdr}>"
-      "<a href=\"\##{id}\">#{header}</a>"
+      id = section.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
+      %Q[<#{hdr} id="#{id}"><a href="##{id}" class=anchor>*</a>#{section}</#{hdr}>]
     end
   end
 
