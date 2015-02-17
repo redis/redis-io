@@ -4,21 +4,21 @@
 
 @include reset-html5
 
+$header-height: 45px
+
 body, textarea
   font: 13px/1.5 "Helvetica Neue", sans-serif
 
-// Compensate for fixed header when linking to sections
-h1:before, h2:before, h3:before
+.anchor
   display: block
-  content: " "
-  margin-top: -55px
-  height: 55px
-  visibility: hidden
+  position: relative
+  z-index: -1
+  top: -$header-height
 
 h1, h2, h3
   position: relative
 
-  a.anchor
+  a.anchor-link
     display: none
     font-family: monospace
     font-size: 25px
@@ -34,7 +34,7 @@ h1, h2, h3
     width: 1em
 
   &:hover
-    a.anchor
+    a.anchor-link
       color: #888
       display: block
       margin-left: -30px
@@ -74,7 +74,6 @@ a
 $max-width: 900px
 
 body
-  $header-height: 45px
   background-color: #f0f0f0
   color: #333
   padding: $header-height 0 10px 0

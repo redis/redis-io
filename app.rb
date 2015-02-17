@@ -124,7 +124,7 @@ Cuba.define do
       section = found[:section]
       # convert spaces to underscores
       id = section.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
-      %Q[<#{hdr} id="#{id}"><a href="##{id}" class=anchor>*</a>#{section}</#{hdr}>]
+      %Q[<span id="#{id}" class=anchor></span><#{hdr} ><a href="##{id}" class=anchor-link>*</a>#{section}</#{hdr}>]
     end
   end
 
