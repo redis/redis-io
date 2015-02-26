@@ -14,6 +14,7 @@ require "redis"
 require "ohm"
 require "rack/static"
 require "nokogiri"
+require "date"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
