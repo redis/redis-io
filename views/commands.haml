@@ -1,18 +1,21 @@
 %section#commands
   %nav
-    %a(href="#") All
+    .container
+      %a(href="#") All
 
-    - Reference::GROUPS.each do |name, description|
-      %a(href="##{name}")= description
+      - Reference::GROUPS.each do |name, description|
+        %a(href="##{name}")= description
 
-  %ul
-    - @commands.each do |command|
-      %li(data-group="#{command.command["group"]}")
-        %span.command
-          %a(href="/commands/#{command.to_param}")= command.name
+  .container
+    %ul
+      - @commands.each do |command|
+        %li(data-group="#{command.command["group"]}")
+          %a(href="/commands/#{command.to_param}")
+            %span.command
+              = command.name
 
-          %span.args
-            - command.arguments.each do |argument|
-              = argument
+              %span.args
+                - command.arguments.each do |argument|
+                  = argument
 
-        %span.summary= command.command["summary"]
+            %span.summary= command.command["summary"]

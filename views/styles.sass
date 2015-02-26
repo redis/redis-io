@@ -1,13 +1,13 @@
-@import "compass/reset"
+@import "normalize"
 @import "compass/css3"
 @import "compass/utilities/general/clearfix"
 
-@include reset-html5
+$text-color: #333
 
 $header-height: 45px
 
 body, textarea
-  font: 13px/1.5 "Helvetica Neue", sans-serif
+  font: 16px/1.6 "Open Sans", Helvetica, sans-serif
 
 .anchor
   display: block
@@ -44,23 +44,16 @@ h1, h2, h3
       &:hover
         color: #000
 
-h1, h2, h3
-  font-weight: 300
-  color: #000
-
 h1
-  font-size: 26px
-  line-height: 26px
+  font-size: 2em
   margin: 18px 0 2px 0
 
 h2
-  font-size: 18px
-  line-height: 22px
+  font-size: 1.4em
   margin: 14px 0 8px 0
 
 h3
-  font-size: 18px
-  line-height: 18px
+  font-size: 1.2em
   margin: 13px 0 6px 0
 
 code
@@ -74,73 +67,52 @@ a
 
 $max-width: 900px
 
+.container
+  margin: 0 auto
+  max-width: $max-width
+
 body
-  background-color: #f0f0f0
-  color: #333
-  padding: $header-height 0 10px 0
+  background-color: #fff
+  color: $text-color
+  padding: 0
   margin: 0
 
   > header
-    $gradient-start: #323232
-    $gradient-stop: #000
-
-    @include box-shadow(#999, 0px, 4px, 8px)
-    background-color: #333
     @include clearfix
-    @include background(linear-gradient(color_stops($gradient-start, $gradient-stop)))
-    border-top: 1px solid #000
-    height: $header-height
-    left: 0
+    background-color: #222
     padding: 0
-    position: fixed
-    top: 0
     width: 100%
-    z-index: 1000
-
-    > .container
-      margin: 0 auto
-      max-width: $max-width
-
-      > a
-        $vertical-padding: ($header-height - 30px) / 2
-        float: left
-        border-right: 1px solid $gradient-stop
-        padding: $vertical-padding 20px $vertical-padding 0
-
-        img
-          display: block
-          height: 30px
-          width: 93px
 
     nav
-      float: left
-      border-left: 1px solid $gradient-start
-      padding: 0 0 0 20px
+      padding: 0.7em 0
+      white-space: nowrap
+      overflow: hidden
+
+      img
+        height: 40px
+        width: 120px
+        vertical-align: middle
+        margin-right: 1em
 
       a
-        color: #ccc
-        display: block
-        float: left
-        font-family: "Helvetica Neue", sans-serif
-        font-size: 12px
-        font-weight: bold
-        line-height: $header-height
-        margin: 0 10px
+        line-height: 40px
+        display: inline-block
+        color: #f9f9f9
+        padding: 0 0.5em
         text-decoration: none
-        @include text-shadow(#000, 0px, 1px, 1px)
 
         &:first-child
           margin-left: 0
 
         &:hover
-          color: #fff
           text-decoration: none
+          color: #fff
 
   > footer
     background: url(/images/redis-small.png) no-repeat left top
-    padding: 10px 10px 10px 50px
+    padding: 0 0 0 50px
     max-width: $max-width - 10px - 50px
-    margin: 20px auto
+    margin: 5em auto 3em auto
     color: #777
     position: relative
     font-size: 11px
@@ -148,18 +120,19 @@ body
     a
       color: #444
 
+    p
+      margin: 0
+
     .sponsor
       position: absolute
-      top: 0
+      top: -0.3em
       right: 0
 
       img
         display: block
 
 .text
-  @include box-shadow(#ccc, 0px, 0px, 10px)
   @include clearfix
-  background-color: #fafafa
   color: #333
   margin: 0 auto
   max-width: $max-width - 30px * 2
@@ -171,7 +144,6 @@ body
 
   a
     color: #0066aa
-    @include text-shadow(#f0f0f0, 1px, 1px, 0px)
 
     &:hover
       color: #0099ff
@@ -182,9 +154,6 @@ body
   > p:first-of-type, > * > p:first-of-type
     margin-top: 15px
 
-  strong
-    font-weight: 700
-
   em
     font-style: italic
 
@@ -192,9 +161,6 @@ body
     line-height: 100%
     vertical-align: super
     font-size: 70%
-
-  .math
-    font-weight: 700
 
   pre code, .example
     display: inline-block
@@ -360,8 +326,20 @@ body
       margin-left: 0 !important
       margin-right: 0 !important
 
+.wide-callout
+  background: #fffcc2
+  border-color: #f0ec8e
+  border-style: solid
+  border-width: 0 0 3px 0
+  display: block
+  padding: 0.5em 0
+  text-align: center
+
 @import "home"
 @import "clients"
 @import "topics"
 @import "commands"
 @import "buzz"
+
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,700")
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")

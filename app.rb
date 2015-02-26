@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 require "cuba"
@@ -123,9 +125,13 @@ Cuba.define do
       hdr = found[:hdr]
       section = found[:section]
       # convert spaces to underscores
-      id = section.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
+      id = anchorize(section)
       %Q[<span id="#{id}" class=anchor></span><#{hdr} ><a href="##{id}" class=anchor-link>*</a>#{section}</#{hdr}>]
     end
+  end
+
+  def anchorize(str)
+    str.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
   end
 
   def haml(template, locals = {})

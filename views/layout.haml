@@ -24,19 +24,21 @@
 
   %body(class="#{@css.join(" ") if @css}")
     %header
-      .container
+      %nav.container
         %a(href="/")
-          %img(src="/images/redis.png" alt="Redis" width="93" height="30")
+          %img(src="/images/redis-white.png" alt="Redis")
+        %a(href="/commands") Commands
+        %a(href="/clients") Clients
+        %a(href="/documentation") Documentation
+        %a(href="/community") Community
+        %a(href="/download") Download
+        %a(href="/support") Support
+        %a(href="/topics/license") License
 
-        %nav
-          %a(href="/commands") Commands
-          %a(href="/clients") Clients
-          %a(href="/documentation") Documentation
-          %a(href="/community") Community
-          %a(href="/download") Download
-          %a(href="https://github.com/antirez/redis/issues") Issues
-          %a(href="/support") Support
-          %a(href="/topics/license") License
+    - if Date.today < Date.new(2015, 3, 6)
+      %aside.wide-callout
+        .container
+          Join us for the largest gathering of Redis users and experts, anywhere: <a href="http://redisconference.com/">Redis Conf 2015</a>.
 
     = content
 

@@ -1,33 +1,46 @@
 #clients
   h2
-    border-top: 1px solid #e0e0e0
-    padding-top: 15px
-    margin-top: 15px
+    margin: 2em 0 1em 0
+    text-align: left
 
-    &:first-of-type
-      border-top-width: 0
-      padding-top: 0
+  .icon
+    color: #333
+    font-size: 20px
 
-  span.star
-    color: #dfbb0d
+  .icon-star
+    color: #ffe00d
 
   table
+    table-layout: fixed
 
-    th
-      font-size: 11px
-      color: #999
+    td, th
+      padding: 0.8em
+      border-bottom: 1px solid #efefef
 
-    tr
-      td
-        padding: 3px 5px 3px 0
+    td.description
+      color: #666
+      font-size: 0.9em
 
-        &:nth-child(1)
-          width: 150px
+    td.authors
+      text-align: right
 
-        &:nth-child(2)
-          width: 150px
+  col.homepage, col.recommended, col.active, col.repository
+    width: 1em
 
-      &:last-child
-        td
-          border-bottom-width: 0
+  col.authors
+    width: 120px
 
+  .twitter-avatar
+    width: 36px
+    height: 36px
+
+  .languages
+    list-style-type: none
+    margin: 1.5em 0 0 0
+    padding: 1.5em 0 0 0
+    border-top: 1px solid #efefef
+
+    li
+      display: inline-block
+      width: 7em
+      margin: 0.3em
