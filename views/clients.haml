@@ -65,9 +65,10 @@
               = client["description"]
 
             %td.authors
-              - client["authors"].each do |author|
-                %a(href="https://twitter.com/#{author}")
-                  %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
+              - if client["authors"]
+                - client["authors"].each do |author|
+                  %a(href="https://twitter.com/#{author}")
+                    %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
 
     %h1(style="margin-top:80px") Higher level libraries and tools
 
