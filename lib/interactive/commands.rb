@@ -43,6 +43,7 @@ module Interactive
     "hscan" => [:first],
     "hset" => [:first],
     "hsetnx" => [:first],
+    "hstrlen" => [:first],
     "hvals" => [:first],
 
     # hyperloglog
@@ -69,6 +70,7 @@ module Interactive
     # server
     "command" => [],
     "command count" => [],
+    "command getkeys" => [],
     "command info" => [:custom],
     "info" => [:custom],
     "lastsave" => [],
@@ -108,6 +110,7 @@ module Interactive
     "zremrangebyrank" => [:first],
     "zremrangebyscore" => [:first],
     "zrevrange" => [:first],
+    "zrevrangebylex" => [:first],
     "zrevrangebyscore" => [:first],
     "zrevrank" => [:first],
     "zscan" => [:first],
