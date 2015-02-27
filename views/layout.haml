@@ -24,32 +24,33 @@
 
   %body(class="#{@css.join(" ") if @css}")
     %header
-      .container
+      %nav.container
         %a(href="/")
-          %img(src="/images/redis.png" alt="Redis" width="93" height="30")
+          %img(src="/images/redis-white.png" alt="Redis")
+        %a(href="/commands") Commands
+        %a(href="/clients") Clients
+        %a(href="/documentation") Documentation
+        %a(href="/community") Community
+        %a(href="/download") Download
+        %a(href="/support") Support
+        %a(href="/topics/license") License
 
-        %nav
-          %a(href="/commands") Commands
-          %a(href="/clients") Clients
-          %a(href="/documentation") Documentation
-          %a(href="/community") Community
-          %a(href="/download") Download
-          %a(href="https://github.com/antirez/redis/issues") Issues
-          %a(href="/support") Support
-          %a(href="/topics/license") License
+    - if Date.today < Date.new(2015, 3, 6)
+      %aside.wide-callout
+        .container
+          Join us for the largest gathering of Redis users and experts, anywhere: <a href="http://redisconference.com/">Redis Conf 2015</a>.
 
     = content
 
     %footer
       %p
         This website is
-        <a href="https://github.com/antirez/redis-io">open source software</a>
-        developed by <a href="http://citrusbyte.com">Citrusbyte</a>.
-        <br> The Redis logo was designed by <a href="http://www.carlosprioglio.com/">Carlos Prioglio</a>. See more <a href="http://redis.io/topics/sponsors">credits</a>.
+        <a href="https://github.com/antirez/redis-io">open source software</a>.
+        See all <a href="/topics/sponsors">credits</a>.
 
       .sponsor
         Sponsored by
-        %a(href=" http://www.pivotal.io/big-data/redis")
+        %a(href="http://www.pivotal.io/big-data/redis")
           %img(src="/images/pivotal.png" alt="Redis Support" title="Redis Sponsor" width="99" height="25")
 
 %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")

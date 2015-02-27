@@ -6,91 +6,68 @@
   $command-width: 10em
   $command-margin: 0.3em
 
-  font-size: 12px
   text-align: center
 
   ul
-    margin: 0 15px
+    @include clearfix
+    margin: 1em 0
     text-align: left
-    padding: 50px 0 0 0
+    padding: 0
 
   li
-    @include border-radius(5px)
-    @include box-shadow(#e0e0e0)
-    background-color: #fafafa
-    margin: 0 0 10px 0
-    padding: 10px 10px
+    @include box-sizing(border-box)
+    margin: 1em 1.5%
     overflow: hidden
+    float: left
+    width: 30%
+
+    a
+      @include border-radius(5px)
+      background-color: #fafafa
+      display: block
+      height: 6em
+      padding: 1em
+      color: $text-color
+      text-decoration: none
+
+      &:hover, &:focus
+        color: $text-color
+        background: #ecf7fa
 
     .command
       @include ellipsis
       display: block
       font-family: "Monaco", "Menlo", monospace
-      font-size: 10px
+      font-size: 0.9em
       margin: 0 0 2px 0
-
-      a
-        color: #0066aa
-        text-decoration: none
-        font-size: 13px
-        @include text-shadow(#f0f0f0, 1px, 1px, 0px)
-
-        &:hover
-          color: #0099ff
+      color: #0066aa
 
       .args
-        font-size: 10px
+        font-size: 0.8em
         color: #555
 
     .summary
       display: block
-      font-size: 11.5px
+      font-size: 0.8em
       line-height: 1.5em
 
   nav
     margin: 0 auto
-    padding: 7px 0 6px 0
     background-color: #f0f0f0
-    position: fixed
     width: 100%
-    @include box-shadow(#aaa, 0px, 4px, 8px)
-    @include background(linear-gradient(color_stops(#fefefe, #f0f0f0)))
+    font-size: 0.85em
+    display: block
+    padding: 0 0 0.1em 0
 
     a
       color: #555
       text-decoration: none
-      padding: 2px 2px
-      font-size: 11.5px
-      line-height: 14px
       display: inline-block
+      padding: 0.3em 0.5em
 
       &.current
         background-color: #666
         color: #fff
-        @include border-radius(8px)
-        @include text-shadow(#000, 1px, 1px)
-        padding: 2px 8px
-
-@media (min-width: 460px)
-  #commands
-    ul
-      @include column-count(2)
-      @include column-width(100% / 2)
-
-      li
-        -webkit-column-break-inside: avoid
-        -moz-column-break-inside:    avoid
-        -o-column-break-inside:      avoid
-        column-break-inside:         avoid
-
-        .summary
-          height: 11.5px * 3
-
-@media (min-width: 960px)
-  #commands
-    ul
-      @include column-count(4)
-      @include column-width(100% / 4)
 
 @media screen and (max-device-width: 480px)
   #commands

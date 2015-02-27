@@ -4,9 +4,10 @@
     %h1 Clients
 
     %p
-      The recommended client(s) for a language are marked with a <span class="star">&#9733;</span>.
+      The recommended client(s) for a language are marked with a <i class="fa fa-star icon icon-star"></i>.
+
     %p
-      Clients with some activity in the official repository within the latest six months are marked with a <span class="active">&#9786;</span>.
+      Clients with some activity in the official repository within the latest six months are marked with a <i class="fa fa-smile-o icon"></i>.
     %p
       Want
       %strong your client listed here?
@@ -16,32 +17,58 @@
       %strong Submit a pull request
       and you are done.
 
-    - @clients_by_language.each do |language, clients|
-      %h2(id="#{language}")= language
+    .languages
+      Browse by language:
 
-      %table
-        - clients.each do |client|
+      %ul
+        - @clients_by_language.each do |language, _|
+          %li
+            %a(href="##{anchorize(language)}")= language
+
+    %table
+      %col(class="name")
+      %col(class="active")
+      %col(class="recommended")
+      %col(class="homepage")
+      %col(class="repository")
+      %col(class="description")
+      %col(class="authors")
+
+      - @clients_by_language.each do |language, clients|
+        %tr
+          %th(colspan="7")
+            %h2(id="#{anchorize(language)}")= language
+
+        - clients.sort_by { |c| c["name"].downcase }.each do |client|
           %tr
             %td
               = client["name"]
+            %td
               - if client["active"]
-                %span.active &#9786;
+                %i(class="fa fa-smile-o icon")
+
+            %td
               - if client["recommended"]
-                %span.star &#9733;
+                %i(class="fa fa-star icon icon-star")
+
+            %td
+              - if client["url"]
+                %a(href="#{client["url"]}" class="icon")
+                  %i(class="fa fa-home")
 
             %td
               - if client["repository"]
-                %a(href="#{client["repository"]}") Repository
+                %a(href="#{client["repository"]}" class="icon")
+                  %i(class="fa fa-code-fork")
 
-              - if client["url"]
-                %a(href="#{client["url"]}") Homepage
-
-            %td
-              - client["authors"].each do |author|
-                %a(href="http://twitter.com/#{author}")= author
-
-            %td
+            %td.description
               = client["description"]
+
+            %td.authors
+              - if client["authors"]
+                - client["authors"].each do |author|
+                  %a(href="https://twitter.com/#{author}")
+                    %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
 
     %h1(style="margin-top:80px") Higher level libraries and tools
 
