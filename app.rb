@@ -93,19 +93,22 @@ Ohm.redis = redis
 Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml"], root: File.join(ROOT_PATH, "public")
 
 Cuba.define do
-  def render(path, locals = {})
+  def render(path, locals = {}, options = {})
     options = {
       :fenced_code_blocks => true,
       :superscript => true,
-    }
+    }.merge(options)
 
     expanded = File.expand_path(path)
+
+    data = super(path, locals, options)
+
     if expanded.start_with?(documentation_path)
-      data = super(path, locals, options)
       filter_interactive_examples(data)
-    elsif expanded.start_with?(ROOT_PATH)
-      data = super(path, locals, options)
+    elsif expanded.start_with?(ROOT_PATH) && options[:anchors] != false
       add_header_ids(data)
+    else
+      data
     end
   end
 
@@ -139,12 +142,12 @@ Cuba.define do
     layout(partial(template, locals))
   end
 
-  def partial(template, locals = {})
-    render("views/#{template}.haml", locals)
+  def partial(template, locals = {}, options = {})
+    render("views/#{template}.haml", locals, options)
   end
 
   def layout(content)
-    partial("layout", content: content)
+    partial("layout", {content: content}, anchors: false)
   end
 
   def topic(template)

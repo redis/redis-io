@@ -1,15 +1,12 @@
-.home
-  section p:first-child
-    font-size: 1.3em
-    margin-top: 0
+@import "mixins"
 
-  aside
-    font-size: 11.5px
-    line-height: 15px
+.home-callout
+  max-width: $total-width
+  padding: 20px
+  border-bottom: 1px solid #eee
 
-    a
-      color: #666
+  .title
+    font-size: 20px
 
-    h2
-      &:first-child
-        margin-top: 0
+.home-intro
+  padding: 20px

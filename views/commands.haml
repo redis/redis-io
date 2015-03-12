@@ -1,10 +1,18 @@
 %section#commands
   %nav
     .container
-      %a(href="#") All
+      .mobile-nav
+        %select.command-reference-filter
+          %option(value="") All
 
-      - Reference::GROUPS.each do |name, description|
-        %a(href="##{name}")= description
+          - Reference::GROUPS.sort_by(&:last).each do |name, description|
+            %option(value="#{name}")= description
+
+      .desktop-nav
+        %a(href="#") All
+
+        - Reference::GROUPS.each do |name, description|
+          %a(href="##{name}")= description
 
   .container
     %ul

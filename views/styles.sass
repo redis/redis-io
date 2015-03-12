@@ -1,6 +1,8 @@
 @import "normalize"
 @import "compass/css3"
 @import "compass/utilities/general/clearfix"
+@import "grid"
+@import "mixins"
 
 $text-color: #333
 
@@ -45,7 +47,7 @@ h1, h2, h3
         color: #000
 
 h1
-  font-size: 2em
+  font-size: 24px
   margin: 18px 0 2px 0
 
 h2
@@ -60,14 +62,16 @@ code
   font-family: "Menlo", "Monaco", monospace
 
 a
+  color: #0066aa
   text-decoration: none
 
   &:hover
     text-decoration: underline
+    color: #0099ff
 
-$max-width: 900px
+$max-width: 920px
 
-.container
+.container, .site-content
   margin: 0 auto
   max-width: $max-width
 
@@ -77,48 +81,29 @@ body
   padding: 0
   margin: 0
 
-  > header
-    @include clearfix
-    background-color: #222
-    padding: 0
-    width: 100%
+.site-footer
+  color: #777
+  font-size: 11px
+  margin: 20px
+  border-top: 1px solid #eee
+  padding: 10px 0 0 0
 
-    nav
-      padding: 0.7em 0
-      white-space: nowrap
-      overflow: hidden
+  a
+    color: #444
 
-      img
-        height: 40px
-        width: 120px
-        vertical-align: middle
-        margin-right: 1em
+  .sponsor
+    img
+      vertical-align: middle
+      width: 59px
+      height: 15px
 
-      a
-        line-height: 40px
-        display: inline-block
-        color: #f9f9f9
-        padding: 0 0.5em
-        text-decoration: none
-
-        &:first-child
-          margin-left: 0
-
-        &:hover
-          text-decoration: none
-          color: #fff
-
-  > footer
+@include desktop
+  .site-footer
     background: url(/images/redis-small.png) no-repeat left top
     padding: 0 0 0 50px
-    max-width: $max-width - 10px - 50px
+    // max-width: $max-width - 10px - 50px
     margin: 5em auto 3em auto
-    color: #777
     position: relative
-    font-size: 11px
-
-    a
-      color: #444
 
     p
       line-height: 34px
@@ -131,23 +116,19 @@ body
 
       img
         display: block
+        width: 99px
+        height: 25px
 
 .text
   @include clearfix
   color: #333
   margin: 0 auto
-  max-width: $max-width - 30px * 2
-  padding: 30px
+  // max-width: $max-width - 30px * 2
+  padding: 20px
 
   aside
     position: relative
     z-index: 2
-
-  a
-    color: #0066aa
-
-    &:hover
-      color: #0099ff
 
   p
     margin: 5px 0
@@ -169,18 +150,18 @@ body
     border: 1px solid #eee
     margin: 10px 0
     background-color: #fefefe
-    @include border-radius(10px)
 
   .metadata
     border-left: 3px solid #dfdfdf
     color: #666
     font-size: 0.9em
-    margin: 1.5em 0 0 0
-    padding: 0 0 0 1em
+    margin: 1.5em 0
+    padding: 5px 15px
+    background: #fcfcfc
 
   .example
     max-height: 20 * 20px
-    width: 420px - 2 * 15px
+    max-width: 420px - 2 * 15px
     overflow: auto
 
     .monospace, pre, input
@@ -212,120 +193,19 @@ body
       color: #333
 
   h1.command
-    padding-left: 1.5em
+    padding-left: 20px
 
     span
       display: inline-block
 
     span.name
-      margin-left: -1.5em
+      margin-left: -20px
 
   h1:first-child
-    margin-top: 20px
+    margin-top: 0
 
 #comments
   margin-top: 15px
-
-@media screen and (max-device-width: 480px)
-  body
-    padding: 0
-
-    > header
-      height: auto
-      padding: 0
-      position: relative
-
-      > .container
-        display: table
-        margin: 0
-        max-width: none
-        position: relative
-        width: 100%
-
-        > a
-          background: url(/images/redis.png) no-repeat 6px 4px
-          display: table-cell
-          float: none
-          height: 30px
-          overflow: hidden
-          padding: 5px 0
-          position: relative
-          width: 46px
-
-          img
-            display: none
-
-      nav
-        display: table-cell
-        padding: 5px 0 5px 8px
-        float: none
-        vertical-align: middle
-        border-left: 1px solid #323232
-        position: relative
-
-        a
-          font-size: 12px
-          margin: 0 4px 0 0
-          display: inline
-          height: auto
-          line-height: 18px
-
-    > footer
-      background-image: none
-      line-height: 22px
-      margin: 10px 0
-      padding: 2px 8px
-
-      > .sponsor
-        position: static
-
-        img
-          display: inline
-          vertical-align: middle
-
-  .text
-    padding: 15px 10px
-
-  #commands
-    .command
-      font-weight: bold
-
-.columns
-  $margin: 20px
-
-  @include clearfix
-
-  > *
-    float: left
-
-    &:first-child
-      border-right: 1px solid #eee
-
-      > *
-        margin-right: $margin !important
-
-    &:last-child
-      border-left: 1px solid #eee
-      left: -1px
-      position: relative
-
-      > *
-        margin-left: $margin
-
-  > section
-    width: 49%
-
-  &.sidebar
-    > section
-      width: 70%
-
-    > aside
-      width: 29.5%
-      min-height: 400px
-
-    .columns
-      margin-left: 0 !important
-      margin-right: 0 !important
 
 .wide-callout
   background: #fffcc2
@@ -344,3 +224,119 @@ body
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,700")
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+@import "slideout"
+
+.site-header
+  @include clearfix
+  background-color: #222
+  padding: 0
+  width: 100%
+
+.desktop-header
+  padding: 0.7em 0
+  white-space: nowrap
+  overflow: hidden
+
+  .home
+    margin-right: 1em
+
+  a
+    line-height: 40px
+    display: inline-block
+    color: #f9f9f9
+    padding: 0 0.5em
+    text-decoration: none
+
+    &:first-child
+      margin-left: 0
+
+    &:hover
+      text-decoration: none
+      color: #fff
+
+.site-header .desktop-header
+  display: none
+
+@include desktop
+  .site-header
+    .desktop-header
+      display: block
+
+    .mobile-header
+      display: none
+
+.site-header .home img
+  height: 40px
+  width: 120px
+  vertical-align: middle
+
+.site-header .mobile-header
+  position: relative
+  padding: 10px
+  text-align: center
+
+  .btn-hamburger
+    border: 0
+    color: #eee
+    padding: 0
+    background: transparent
+    outline: none
+    position: absolute
+    left: 10px
+    top: 10px
+
+  a.home
+    img
+      width: 80px
+      height: 27px
+
+.site-wrapper
+  background: #fff
+
+.mobile-menu
+  background-color: #424242
+
+  a
+    color: #fff
+    &:hover
+      text-decoration: underline
+
+  .menu-header
+    border-bottom: 1px solid #58595a
+    padding: 15px
+    background: url('/images/redis-gray.png') no-repeat center center
+    background-size: 80px 71px
+    min-height: 71px
+    text-align: center
+
+  .menu-header-title
+    font-weight: 400
+    letter-spacing: 0.5px
+    margin: 0
+
+  .menu-section
+    margin: 25px 0
+
+  .menu-section-title
+    text-transform: uppercase
+    color: #85888d
+    font-weight: 200
+    font-size: 13px
+    letter-spacing: 1px
+    padding: 0 20px
+    margin: 0
+
+  .menu-section-list
+    padding: 0
+    margin: 10px 0
+    list-style: none
+    a
+      display: block
+      padding: 10px 20px
+      &:hover
+        background-color: rgba(255, 255, 255, 0.1)
+        text-decoration: none
+
+  .logo
+    width: 120px
+    height: 106px

@@ -29,6 +29,16 @@ function commandReference() {
 
     return false
   })
+
+  var filter = document.querySelector('.command-reference-filter');
+
+  filter.addEventListener('change', function(e) {
+    window.location.hash = e.target.value;
+  });
+
+  window.onhashchange = function() {
+    filterCommandReference();
+  }
 }
 
 function filterCommandReference() {
@@ -38,20 +48,22 @@ function filterCommandReference() {
 
   if (group.length == 0) {
     $commands.children().show()
-    $commands.css("height", "auto")
+    // $commands.css("height", "auto")
   }
   else {
     $commands.find("li[data-group='" + group + "']").show()
     $commands.find("li[data-group!='" + group + "']").hide()
   }
 
-  adjustCommandReference()
+  // adjustCommandReference()
 
   var $groups = $("#commands nav a")
 
   $groups.removeClass("current")
 
   $groups.filter("[href='#" + group + "']").addClass("current")
+
+  document.querySelector('.command-reference-filter').value = group;
 }
 
 function adjustCommandReference() {
@@ -222,11 +234,25 @@ function examples() {
 }
 
 $(document).ready(function() {
-  commandReference()
+  var slideout = new Slideout({
+    'panel': document.querySelector('.site-wrapper'),
+    'menu': document.querySelector('.mobile-menu'),
+    'padding': 256,
+    'tolerance': 70
+  });
 
-  $(window).resize(adjustCommandReference)
+  document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+    slideout.toggle();
+  });
 
-  filterCommandReference()
+  document.querySelector('.mobile-menu').addEventListener('click', function(eve) {
+    if (eve.target.nodeName === 'A') { slideout.close(); }
+  });
+
+  if (document.getElementById('commands')) {
+    commandReference();
+    filterCommandReference();
+  }
 
   buzz();
 

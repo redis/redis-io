@@ -1,6 +1,10 @@
 @import "compass/css3"
 @import "compass/typography/text/ellipsis"
 @import "compass/utilities/general/clearfix"
+@import "mixins"
+
+@mixin monospace
+  font-family: "Monaco", "Menlo", monospace
 
 #commands
   $command-width: 10em
@@ -16,16 +20,9 @@
 
   li
     @include box-sizing(border-box)
-    margin: 1em 1.5%
-    overflow: hidden
-    float: left
-    width: 30%
 
     a
-      @include border-radius(5px)
-      background-color: #fafafa
       display: block
-      height: 6em
       padding: 1em
       color: $text-color
       text-decoration: none
@@ -36,14 +33,12 @@
 
     .command
       @include ellipsis
+      @include monospace
       display: block
-      font-family: "Monaco", "Menlo", monospace
-      font-size: 0.9em
       margin: 0 0 2px 0
       color: #0066aa
 
       .args
-        font-size: 0.8em
         color: #555
 
     .summary
@@ -69,17 +64,41 @@
         background-color: #666
         color: #fff
 
-@media screen and (max-device-width: 480px)
+
+  .desktop-nav
+    display: none
+
+  .mobile-nav
+    padding: 10px
+
+    select
+      font-size: 16px
+
+h1.command
+  // @include monospace
+
+@include desktop
   #commands
-    nav
-      position: static
+    .mobile-nav
+      display: none
 
-      a
-        padding: 2px 1px
-        font-size: 11px
+    .desktop-nav
+      display: block
 
-        &.current
-          padding: 2px 4px
+    .command
+      font-size: 0.9em
+
+      .args
+        font-size: 0.8em
 
     ul
-      padding-top: 10px
+      li
+        float: left
+        margin: 1em 1.5%
+        overflow: hidden
+        width: 30%
+
+        a
+          @include border-radius(5px)
+          background-color: #fafafa
+          height: 6em

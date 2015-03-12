@@ -1,9 +1,12 @@
+@import "mixins"
+
 article
-  > p, ul
+  p, ul
     margin: 7px 0
 
-  > ul
+  ul
     list-style-type: disc
+    padding-left: 25px
 
   ol
     list-style-type: decimal
@@ -24,10 +27,6 @@ article
     margin-top: 18px
 
   aside
-    border-left: 1px solid #dfdfdf
-    float: right
-    margin: 0 0 15px 20px
-    padding: 0 0 0 20px
 
     > *:first-child
       margin-top: 0
@@ -57,6 +56,19 @@ article
         &:first-child
           font-size: 22px
           line-height: 22px
+
+@include desktop
+  .text
+    @include row
+
+    .article-main
+      @include column(8)
+
+    aside
+      @include column(4)
+      border-left: 1px solid #dfdfdf
+      margin: 0 0 15px 20px
+      padding: 0 0 0 20px
 
 body.topics
   &.whos-using-redis

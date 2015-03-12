@@ -1,42 +1,43 @@
-.text.columns.home.sidebar
-  %section
-    != Nokogiri::HTML(render("#{documentation_path}/topics/introduction.md")).at_xpath("//p")
+.site-content
+  %section.home-callout
+    .title
+      != Nokogiri::HTML(render("#{documentation_path}/topics/introduction.md")).at_xpath("//p")
 
-    %p
-      %a(href="/topics/introduction") Learn more →
+      %a.learn-more(href="/topics/introduction") Learn more →
 
-    .columns
+  .home-intro
 
-      %section
-        %h2 Try it
+    %section
+      %h2 Try it
 
-        %p
-          Ready for a test drive? Check this
-          %a(href="http://try.redis.io") interactive tutorial
-          that will walk you through the most important features of
-          Redis.
+      %p
+        Ready for a test drive? Check this
+        %a(href="http://try.redis.io") interactive tutorial
+        that will walk you through the most important features of
+        Redis.
 
-      %section
-        %h2 Download it
+    %section
+      %h2 Download it
 
-        %p
-          %a(href="http://download.redis.io/releases/redis-2.8.19.tar.gz") Redis 2.8.19 is the latest stable version.
-          Interested in release candidates or unstable versions?
-          %a(href="/download") Check the downloads page.
+      %p
+        %a(href="http://download.redis.io/releases/redis-2.8.19.tar.gz") Redis 2.8.19 is the latest stable version.
+        Interested in release candidates or unstable versions?
+        %a(href="/download") Check the downloads page.
 
-    %h2 Quick links
-    %p
-      The <a href="http://twitter.com/redisfeed">Redis Twitter account</a> is a good source of fresh info.
-    %p
-      Our <a href="http://github.com/antirez/redis">code is at GitHub</a> for you to follow the development daily.
-    %p
-      Get help or help other users subscribing to <a href="https://groups.google.com/forum/?fromgroups#!forum/redis-db">the Redis Google Group</a>, we are 5000 and counting!
+    %section
+      %h2 Quick links
+      %p
+        The <a href="http://twitter.com/redisfeed">Redis Twitter account</a> is a good source of fresh info.
+      %p
+        Our <a href="http://github.com/antirez/redis">code is at GitHub</a> for you to follow the development daily.
+      %p
+        Get help or help other users subscribing to <a href="https://groups.google.com/forum/?fromgroups#!forum/redis-db">the Redis Google Group</a>, we are 5000 and counting!
 
-  %aside
+  -# %aside
 
-    %section#buzz(data-limit="5")
-      %h2 Redis Twitter stream...
+  -#   %section#buzz(data-limit="5")
+  -#     %h2 Redis Twitter stream...
 
-      %ul
+  -#     %ul
 
-      %a(href="/buzz") More...
+  -#     %a(href="/buzz") More...

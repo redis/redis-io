@@ -6,6 +6,18 @@
       %span.arg= arg
 
   %article
+    .article-main
+
+      %div.metadata
+        - if @command.since
+          %p <strong>Available since #{@command.since}.</strong>
+        - else
+          %p <strong>Available in Redis master.
+
+        - if @command.complexity
+          %p <strong>Time complexity:</strong> #{@command.complexity}
+
+      ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
 
     %aside
 
@@ -28,17 +40,6 @@
                 %strong= command.name
               - else
                 = command.name
-
-    %div.metadata
-      - if @command.since
-        %p <strong>Available since #{@command.since}.</strong>
-      - else
-        %p <strong>Available in Redis master.
-
-      - if @command.complexity
-        %p <strong>Time complexity:</strong> #{@command.complexity}
-
-    ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
 
 #comments.text
   #disqus_thread
