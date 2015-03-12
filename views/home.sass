@@ -10,3 +10,10 @@
 
 .home-intro
   padding: 20px
+
+@include desktop
+  .home-intro
+    @include row
+
+    > section
+      @include column(4)
