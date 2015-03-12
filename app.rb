@@ -138,8 +138,8 @@ Cuba.define do
     str.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
   end
 
-  def haml(template, locals = {})
-    layout(partial(template, locals))
+  def haml(template, locals = {}, options = {})
+    layout(partial(template, locals, options))
   end
 
   def partial(template, locals = {}, options = {})
@@ -171,7 +171,7 @@ Cuba.define do
   end
 
   on get, "buzz" do
-    res.write haml("buzz")
+    res.write haml("buzz", {}, anchors: false)
   end
 
   on get, /(download|community|documentation|support)/ do |topic|

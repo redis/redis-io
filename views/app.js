@@ -104,8 +104,6 @@ function buzz() {
   var limit = parseInt($buzz.attr("data-limit"));
   var users = {};
 
-  console.log("hello");
-
   $.getJSON("http://redis-buzz.herokuapp.com/?callback=?", function(response) {
     $.each(response, function() {
 
