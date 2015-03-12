@@ -1,98 +1,99 @@
-.text
-  %section#clients
+.site-content
+  .text
+    %section#clients
 
-    %h1 Clients
+      %h1 Clients
 
-    %p
-      The recommended client(s) for a language are marked with a <i class="fa fa-star icon icon-star"></i>.
+      %p
+        The recommended client(s) for a language are marked with a <i class="fa fa-star icon icon-star"></i>.
 
-    %p
-      Clients with some activity in the official repository within the latest six months are marked with a <i class="fa fa-smile-o icon"></i>.
-    %p
-      Want
-      %strong your client listed here?
-      Please fork the
-      %a(href="https://github.com/antirez/redis-doc") redis-doc repository
-      and edit the clients.json file.
-      %strong Submit a pull request
-      and you are done.
+      %p
+        Clients with some activity in the official repository within the latest six months are marked with a <i class="fa fa-smile-o icon"></i>.
+      %p
+        Want
+        %strong your client listed here?
+        Please fork the
+        %a(href="https://github.com/antirez/redis-doc") redis-doc repository
+        and edit the clients.json file.
+        %strong Submit a pull request
+        and you are done.
 
-    .languages
-      Browse by language:
+      .languages
+        Browse by language:
 
-      %ul
-        - @clients_by_language.each do |language, _|
-          %li
-            %a(href="##{anchorize(language)}")= language
-
-    %table
-      %col(class="name")
-      %col(class="active")
-      %col(class="recommended")
-      %col(class="homepage")
-      %col(class="repository")
-      %col(class="description")
-      %col(class="authors")
-
-      - @clients_by_language.each do |language, clients|
-        %tr
-          %th(colspan="7")
-            %h2(id="#{anchorize(language)}")= language
-
-        - clients.sort_by { |c| c["name"].downcase }.each do |client|
-          %tr
-            %td
-              = client["name"]
-            %td
-              - if client["active"]
-                %i(class="fa fa-smile-o icon")
-
-            %td
-              - if client["recommended"]
-                %i(class="fa fa-star icon icon-star")
-
-            %td
-              - if client["url"]
-                %a(href="#{client["url"]}" class="icon")
-                  %i(class="fa fa-home")
-
-            %td
-              - if client["repository"]
-                %a(href="#{client["repository"]}" class="icon")
-                  %i(class="fa fa-code-fork")
-
-            %td.description
-              = client["description"]
-
-            %td.authors
-              - if client["authors"]
-                - client["authors"].each do |author|
-                  %a(href="https://twitter.com/#{author}")
-                    %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
-
-    %h1(style="margin-top:80px") Higher level libraries and tools
-
-    %p
-      This is an additional list of libraries that are not direct layers on top of the Redis API, but higher level libraries such as ORMs, messaging libraries, and other misc tools that are designed for Redis.
+        %ul
+          - @clients_by_language.each do |language, _|
+            %li
+              %a(href="##{anchorize(language)}")= language
 
       %table
-        - @redis_tools.each do |tool|
-          - tool["description"] += " (#{tool['language']})"
+        %col(class="name")
+        %col(class="active")
+        %col(class="recommended")
+        %col(class="homepage")
+        %col(class="repository")
+        %col(class="description")
+        %col(class="authors")
+
+        - @clients_by_language.each do |language, clients|
           %tr
-            %td
-              = tool["name"]
+            %th(colspan="7")
+              %h2(id="#{anchorize(language)}")= language
 
-            %td
-              - if tool["repository"]
-                %a(href="#{tool["repository"]}") Repository
+          - clients.sort_by { |c| c["name"].downcase }.each do |client|
+            %tr
+              %td
+                = client["name"]
+              %td
+                - if client["active"]
+                  %i(class="fa fa-smile-o icon")
 
-              - if tool["url"]
-                %a(href="#{tool["url"]}") Homepage
+              %td
+                - if client["recommended"]
+                  %i(class="fa fa-star icon icon-star")
 
-            %td
-              - tool["authors"].each do |author|
-                %a(href="http://twitter.com/#{author}")= author
+              %td
+                - if client["url"]
+                  %a(href="#{client["url"]}" class="icon")
+                    %i(class="fa fa-home")
 
-            %td
-              = tool["description"]
+              %td
+                - if client["repository"]
+                  %a(href="#{client["repository"]}" class="icon")
+                    %i(class="fa fa-code-fork")
+
+              %td.description
+                = client["description"]
+
+              %td.authors
+                - if client["authors"]
+                  - client["authors"].each do |author|
+                    %a(href="https://twitter.com/#{author}")
+                      %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
+
+      %h1(style="margin-top:80px") Higher level libraries and tools
+
+      %p
+        This is an additional list of libraries that are not direct layers on top of the Redis API, but higher level libraries such as ORMs, messaging libraries, and other misc tools that are designed for Redis.
+
+        %table
+          - @redis_tools.each do |tool|
+            - tool["description"] += " (#{tool['language']})"
+            %tr
+              %td
+                = tool["name"]
+
+              %td
+                - if tool["repository"]
+                  %a(href="#{tool["repository"]}") Repository
+
+                - if tool["url"]
+                  %a(href="#{tool["url"]}") Homepage
+
+              %td
+                - tool["authors"].each do |author|
+                  %a(href="http://twitter.com/#{author}")= author
+
+              %td
+                = tool["description"]
 

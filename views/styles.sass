@@ -51,12 +51,22 @@ h1
   margin: 18px 0 2px 0
 
 h2
-  font-size: 1.4em
+  font-size: 18px
   margin: 14px 0 8px 0
 
 h3
-  font-size: 1.2em
+  font-size: 15px
   margin: 13px 0 6px 0
+
+@include desktop
+  h1
+    font-size: 32px
+
+  h2
+    font-size: 22px
+
+  h3
+    font-size: 18px
 
 code
   font-family: "Menlo", "Monaco", monospace
@@ -69,7 +79,7 @@ a
     text-decoration: underline
     color: #0099ff
 
-$max-width: 920px
+$max-width: 900px
 
 .container, .site-content
   margin: 0 auto
@@ -101,9 +111,10 @@ body
   .site-footer
     background: url(/images/redis-small.png) no-repeat left top
     padding: 0 0 0 50px
-    // max-width: $max-width - 10px - 50px
+    max-width: $max-width - 10px - 50px
     margin: 5em auto 3em auto
     position: relative
+    border-top-width: 0
 
     p
       line-height: 34px

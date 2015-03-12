@@ -1,64 +1,66 @@
-.text
+.site-content
+  .text
 
-  %h1.command
-    %span.name= @command.name
-    - @command.arguments.each do |arg|
-      %span.arg= arg
+    %h1.command
+      %span.name= @command.name
+      - @command.arguments.each do |arg|
+        %span.arg= arg
 
-  %article
-    .article-main
+    %article
+      .article-main
 
-      %div.metadata
-        - if @command.since
-          %p <strong>Available since #{@command.since}.</strong>
-        - else
-          %p <strong>Available in Redis master.
+        %div.metadata
+          - if @command.since
+            %p <strong>Available since #{@command.since}.</strong>
+          - else
+            %p <strong>Available in Redis master.
 
-        - if @command.complexity
-          %p <strong>Time complexity:</strong> #{@command.complexity}
+          - if @command.complexity
+            %p <strong>Time complexity:</strong> #{@command.complexity}
 
-      ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
+        ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
 
-    %aside
+      .article-aside
+        %aside
 
-      - unless @related_topics.empty?
-        %h2 Related topics
+          - unless @related_topics.empty?
+            %h2 Related topics
 
-        %ul
-          - @related_topics.each do |name, url|
-            %li
-              %a(href="#{url}")= name
+            %ul
+              - @related_topics.each do |name, url|
+                %li
+                  %a(href="#{url}")= name
 
-      %h2
-        Related commands
+          %h2
+            Related commands
 
-      %ul
-        - @related_commands.each do |command|
-          %li
-            %a(href="/commands/#{command.to_param}")
-              - if command == @command
-                %strong= command.name
-              - else
-                = command.name
+          %ul
+            - @related_commands.each do |command|
+              %li
+                %a(href="/commands/#{command.to_param}")
+                  - if command == @command
+                    %strong= command.name
+                  - else
+                    = command.name
 
-#comments.text
-  #disqus_thread
+  #comments.text
+    #disqus_thread
 
-  :javascript
-    var disqus_shortname = 'redisio';
+    :javascript
+      var disqus_shortname = 'redisio';
 
-    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    var disqus_identifier = 'command_#{@name.downcase}';
-    var disqus_url = 'http://redis.io#{@env["SCRIPT_NAME"]}';
+      // The following are highly recommended additional parameters. Remove the slashes in front to use.
+      var disqus_identifier = 'command_#{@name.downcase}';
+      var disqus_url = 'http://redis.io#{@env["SCRIPT_NAME"]}';
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
 
-  %a(href="http://disqus.com" class="dsq-brlink")
-    = "Comments powered by"
-    %span(class="logo-disqus")
-      = "Disqus"
+    %a(href="http://disqus.com" class="dsq-brlink")
+      = "Comments powered by"
+      %span(class="logo-disqus")
+        = "Disqus"

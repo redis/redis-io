@@ -1,6 +1,9 @@
+@import "compass/utilities/general/clearfix"
 @import "mixins"
 
 article
+  @include clearfix
+
   p, ul
     margin: 7px 0
 
@@ -58,17 +61,19 @@ article
           line-height: 22px
 
 @include desktop
-  .text
+  article
     @include row
 
-    .article-main
-      @include column(8)
+  .article-main
+    @include column(9)
 
-    aside
-      @include column(4)
-      border-left: 1px solid #dfdfdf
-      margin: 0 0 15px 20px
-      padding: 0 0 0 20px
+  .article-aside
+    @include column(3)
+
+  aside
+    border-left: 1px solid #dfdfdf
+    margin: 0 0 15px 20px
+    padding: 0 0 0 20px
 
 body.topics
   &.whos-using-redis
