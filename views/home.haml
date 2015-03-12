@@ -1,11 +1,11 @@
 .site-content
-  %section.home-callout
+  %section.home-callout.home-section
     .title
       != Nokogiri::HTML(render("#{documentation_path}/topics/introduction.md")).at_xpath("//p")
 
       %a.learn-more(href="/topics/introduction") Learn more →
 
-  .home-intro
+  .home-intro.home-section
 
     %section
       %h2 Try it
@@ -31,11 +31,10 @@
         <a href="http://github.com/antirez/redis">GitHub</a>.
         Get help or help others by subscribing to <a href="https://groups.google.com/forum/?fromgroups#!forum/redis-db">our mailing list</a>, we are 5,000 and counting!
 
-  -# %aside
+  .home-buzz.home-section
+    %section#buzz(data-limit="5")
+      %h2 Redis News
 
-  -#   %section#buzz(data-limit="5")
-  -#     %h2 Redis Twitter stream...
+      %ul
 
-  -#     %ul
-
-  -#     %a(href="/buzz") More...
+      %a(href="/buzz") More...

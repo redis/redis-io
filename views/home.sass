@@ -1,15 +1,17 @@
 @import "mixins"
 
-.home-callout
-  max-width: $total-width
+.home-section
   padding: 20px
   border-bottom: 1px solid #eee
 
+  &:last-of-type
+    border-bottom-width: 0
+
+.home-callout
+  max-width: $total-width
+
   .title
     font-size: 20px
-
-.home-intro
-  padding: 20px
 
 @include desktop
   .home-intro
