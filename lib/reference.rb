@@ -12,6 +12,7 @@ class Reference
     "scripting" => "Scripting",
     "connection" => "Connection",
     "server" => "Server",
+    "cluster" => "Cluster",
   }
 
   class Command
