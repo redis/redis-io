@@ -174,6 +174,10 @@ Cuba.define do
     res.write haml("buzz", {}, anchors: false)
   end
 
+  on get, "download" do
+    res.write haml("download")
+  end
+
   on get, /(download|community|documentation|support)/ do |topic|
     @body, @title = topic("views/#{topic}.md")
     res.write haml("topics/name")

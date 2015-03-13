@@ -1,0 +1,33 @@
+{
+  "channels": {
+    "stable": {
+      "branch": "2.8",
+      "version": "2.8.19",
+      "notes": "Redis 2.8 provides significant improvements like replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
+    },
+
+    "testing": {
+      "branch": "3.0",
+      "version": "3.0.0-rc4",
+      "notes": "Redis 3.0 introduces Redis Cluster and important speed improvements under certain workloads. The next RC or stable release is scheduled for end of February 2015."
+    },
+
+    "unstable": {
+      "branch": "unstable",
+      "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements."
+    }
+  },
+
+  "other": {
+    "oldstable": {
+      "branch": "2.6",
+      "version": "2.6.17",
+      "notes": "Redis 2.6 features support for Lua scripting, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features."
+    },
+
+    "windows": {
+      "url": "https://github.com/MSOpenTech/redis",
+      "notes": "The Redis project does not officially support Windows. However, the Microsoft Open Tech group develops and maintains this Windows port targeting Win64."
+    }
+  }
+}

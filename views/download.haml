@@ -1,0 +1,133 @@
+- downloads = JSON.parse(File.read("downloads.json"), symbolize_names: true)
+
+.site-content
+  .text
+    %h1 Download
+
+    %p
+      Redis uses a standard practice for its versioning:
+      = succeed "." do
+        %strong major.minor.patchlevel
+      An even
+      %strong minor
+      marks a
+      %strong stable
+      release, like 1.2, 2.0, 2.2, 2.4, 2.6,
+      2.8. Odd minors are used for
+      %strong unstable
+      releases, for example 2.9.x releases
+      are the unstable versions of what will be Redis 3.0 once stable.
+
+    %ul.download-versions
+      - downloads[:channels].each do |channel, download|
+        %li
+          %h2
+            = channel.capitalize
+
+            - if download[:branch] =~ /^\d/
+              %span.download-version= "(#{download[:branch]})"
+
+          = download[:notes]
+
+          .download-links
+
+            - if channel != :unstable
+              %a.download-link(href="https://raw.githubusercontent.com/antirez/redis/#{download[:branch]}/00-RELEASENOTES")
+                %i.fa.fa-file-text-o
+                Release notes
+
+            - if channel == :stable
+              - download_link = "http://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
+            - else
+              - download_link = "https://github.com/antirez/redis/archive/#{download[:version] || download[:branch]}.tar.gz"
+
+            %a.download-link(href="#{download_link}")
+              %i.fa.fa-arrow-circle-o-down
+              Download
+              = download[:version] || download[:branch]
+
+    %h2 Other versions
+
+    - downloads[:other].each do |name, download|
+      %h3
+        = name.capitalize
+
+        - if download[:branch] =~ /^\d/
+          %span.download-version= "(#{download[:branch]})"
+
+      = download[:notes]
+
+      - if download[:version]
+        %br
+        See the
+
+        %a(href="https://raw.githubusercontent.com/antirez/redis/#{download[:branch]}/00-RELEASENOTES")
+          release notes
+
+        or
+
+        - download_link = "http://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
+
+        %a(href="#{download_link}")
+          download #{download[:version]}.
+
+      - else
+        %a(href="#{download[:url]}") Learn more
+
+    %h3 Other
+
+    Historical downloads are still available on
+    = succeed "." do
+      %a(href="https://code.google.com/p/redis/downloads/list?can=1") Google Code
+
+    %p
+      %strong Scripts and other automatic downloads
+      can easily access the tarball of the latest Redis stable version at
+      = succeed "." do
+        %a{:href => "http://download.redis.io/redis-stable.tar.gz"} http://download.redis.io/redis-stable.tar.gz
+      The source code of the latest stable release is
+      = succeed "," do
+        %a{:href => "http://download.redis.io/redis-stable"} always browsable here
+      use the file
+      %strong src/version.h
+      in order to extract the version in an automatic way.
+
+    %h2 How to verify files for integrity
+
+    %p
+      The Github repository
+      %a(href="https://github.com/antirez/redis-hashes/blob/master/README") redis-hashes
+      contains a README file with SHA1 digests of released tarball archives.
+
+    %h2 Installation
+    %p Download, extract and compile Redis with:
+    %pre
+      %code
+        :preserve
+          $ wget http://download.redis.io/releases/redis-2.8.19.tar.gz
+          $ tar xzf redis-2.8.19.tar.gz
+          $ cd redis-2.8.19
+          $ make
+    %p
+      The binaries that are now compiled are available in the
+      %code src
+      directory. Run Redis with:
+    %pre
+      %code
+        :preserve
+          $ src/redis-server
+    %p You can interact with Redis using the built-in client:
+    %pre
+      %code
+        :preserve
+          $ src/redis-cli
+          redis&gt; set foo bar
+          OK
+          redis&gt; get foo
+          &quot;bar&quot;
+    %p
+      Are you new to Redis? Try our
+      = succeed "." do
+        %a{:href => "http://try.redis-db.com"} online, interactive tutorial
+
+
