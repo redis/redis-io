@@ -167,7 +167,7 @@ Cuba.define do
   end
 
   on get, "" do
-    res.write haml("home")
+    res.write haml("home", {}, anchors: false)
   end
 
   on get, "buzz" do
