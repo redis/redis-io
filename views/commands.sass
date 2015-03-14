@@ -52,7 +52,7 @@
     width: 100%
     font-size: 0.85em
     display: block
-    padding: 0 0 0.1em 0
+    padding: 10px 0
 
     a
       color: #555
@@ -64,32 +64,48 @@
         background-color: #666
         color: #fff
 
+    label
+      margin: 0 10px
 
-  .desktop-nav
-    display: none
+      span
+        display: none
 
-  .mobile-nav
-    padding: 10px
+    select, input
+      border: 1px solid #bbb
+      font-size: 14px
+      margin: 0 5px
+
+    input
+      border-radius: 5px
+      padding: 5px 5px 6px 5px
+      width: 100px
+
+      &:focus
+        outline: none
 
     select
-      font-size: 16px
+      height: 32px
 
 h1.command
   // @include monospace
 
 @include desktop
   #commands
-    .mobile-nav
-      display: none
-
-    .desktop-nav
-      display: block
-
     .command
       font-size: 0.9em
 
       .args
         font-size: 0.8em
+
+    nav
+      label
+        margin: 0 10px 0 0
+
+        span
+          display: inline
+
+      input
+        width: 200px
 
     ul
       li

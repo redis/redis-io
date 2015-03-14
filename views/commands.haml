@@ -1,23 +1,25 @@
 %section#commands
   %nav
     .container
-      .mobile-nav
+      %label
+        %span Filter by group:
+
         %select.command-reference-filter
           %option(value="") All
 
           - Reference::GROUPS.sort_by(&:last).each do |name, description|
             %option(value="#{name}")= description
 
-      .desktop-nav
-        %a(href="#") All
+      or
 
-        - Reference::GROUPS.each do |name, description|
-          %a(href="##{name}")= description
+      %label
+        %span search for:
+        %input.js-command-reference-search(placeholder="e.g. #{@commands.sample.name}" autofocus)
 
   .container
     %ul
       - @commands.each do |command|
-        %li(data-group="#{command.command["group"]}")
+        %li(data-group="#{command.command["group"]}" data-name="#{command.name.downcase}")
           %a(href="/commands/#{command.to_param}")
             %span.command
               = command.name

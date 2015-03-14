@@ -94,6 +94,20 @@ function massageTweet(text) {
   return autolink(text);
 }
 
+function searchCommandReference() {
+  var $commands = $('li')
+  $('.js-command-reference-search').keyup(function(ev) {
+    window.location.hash = '';
+
+    if ((val = $(this).val()) == '') {
+      $commands.show()
+    } else {
+      $commands.hide()
+      $('li[data-name*="' + val.toLowerCase() + '"]').show()
+    }
+  })
+}
+
 function buzz() {
   var $buzz = $("#buzz");
 
@@ -250,11 +264,12 @@ $(document).ready(function() {
   if (document.getElementById('commands')) {
     commandReference();
     filterCommandReference();
+    searchCommandReference()
   }
 
-  buzz();
+  buzz()
 
-  examples();
+  examples()
 })
 
 })(jQuery);

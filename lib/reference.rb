@@ -141,4 +141,10 @@ class Reference
       yield Command.new(name, attrs)
     end
   end
+
+  def sample
+    key = @commands.keys.sample
+
+    Command.new(key, @commands[key])
+  end
 end
