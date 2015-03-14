@@ -99,6 +99,14 @@ function searchCommandReference() {
   $('.js-command-reference-search').keyup(function(ev) {
     window.location.hash = '';
 
+    if (ev.keyCode === 13) {
+      var name = $commands.filter(':visible')[0].getAttribute('data-name');
+
+      window.location = '/commands/' + name.replace(/ /g, '-');
+
+      return;
+    }
+
     if ((val = $(this).val()) == '') {
       $commands.show()
     } else {
