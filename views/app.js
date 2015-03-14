@@ -55,8 +55,6 @@ function filterCommandReference() {
     $commands.find("li[data-group!='" + group + "']").hide()
   }
 
-  // adjustCommandReference()
-
   var $groups = $("#commands nav a")
 
   $groups.removeClass("current")
@@ -64,24 +62,6 @@ function filterCommandReference() {
   $groups.filter("[href='#" + group + "']").addClass("current")
 
   document.querySelector('.command-reference-filter').value = group;
-}
-
-function adjustCommandReference() {
-  var $commands = $("#commands ul")
-
-  $commands.css("height", "auto")
-
-  var $command = $commands.find("> *:first")
-
-  var commandHeight = $command.outerHeight(true)
-
-  var containerHeight = $commands.innerHeight()
-
-  var factor = Math.floor(containerHeight / commandHeight)
-
-  if ((factor * $commands.css("column-count")) < $commands.children(":visible").length) factor++;
-
-  $commands.css("height", factor * commandHeight)
 }
 
 function autolink(text) {
