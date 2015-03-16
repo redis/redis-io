@@ -1,5 +1,3 @@
-- downloads = JSON.parse(File.read("downloads.json"), symbolize_names: true)
-
 .site-content
   .text
     %h1 Download
@@ -19,7 +17,7 @@
       are the unstable versions of what will be Redis 3.0 once stable.
 
     %ul.download-versions
-      - downloads[:channels].each do |channel, download|
+      - DOWNLOADS[:channels].each do |channel, download|
         %li
           %h2
             = channel.capitalize
@@ -48,7 +46,7 @@
 
     %h2 Other versions
 
-    - downloads[:other].each do |name, download|
+    - DOWNLOADS[:other].each do |name, download|
       %h3
         = name.capitalize
 
@@ -104,9 +102,9 @@
     %pre
       %code
         :preserve
-          $ wget http://download.redis.io/releases/redis-2.8.19.tar.gz
-          $ tar xzf redis-2.8.19.tar.gz
-          $ cd redis-2.8.19
+          $ wget http://download.redis.io/releases/redis-#{STABLE_VERSION}.tar.gz
+          $ tar xzf redis-#{STABLE_VERSION}.tar.gz
+          $ cd redis-#{STABLE_VERSION}
           $ make
     %p
       The binaries that are now compiled are available in the

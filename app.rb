@@ -24,6 +24,10 @@ require File.expand_path("lib/interactive/session", ROOT_PATH)
 
 Encoding.default_external = Encoding::UTF_8
 
+DOWNLOADS = JSON.parse(File.read("downloads.json"), symbolize_names: true)
+
+STABLE_VERSION = DOWNLOADS.fetch(:channels).fetch(:stable).fetch(:version)
+
 module Kernel
 private
 
