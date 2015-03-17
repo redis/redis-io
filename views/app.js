@@ -76,7 +76,8 @@ function massageTweet(text) {
 
 function searchCommandReference() {
   var $commands = $('li')
-  $('.js-command-reference-search').keyup(function(ev) {
+
+  $('.js-command-reference-search').bind('input', function(ev) {
     window.location.hash = '';
 
     if (ev.keyCode === 13) {
