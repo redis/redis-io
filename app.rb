@@ -189,7 +189,7 @@ Cuba.define do
 
   on get, "commands" do
     on :name do |name|
-      @name = @title = name.upcase.gsub("-", " ")
+      @name = @title = name.upcase.sub("-", " ")
       @command = commands[@name]
 
       if @command.nil?
