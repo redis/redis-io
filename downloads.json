@@ -8,7 +8,7 @@
 
     "testing": {
       "branch": "3.0",
-      "version": "3.0.0-rc5",
+      "version": "3.0.0-rc6",
       "notes": "Redis 3.0 introduces Redis Cluster and important speed improvements under certain workloads. The stable release is scheduled for end of March 2015. We are currently writing documentation for the new release."
     },
 
