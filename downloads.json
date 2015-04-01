@@ -6,7 +6,7 @@
       "notes": "Redis 3.0 introduces Redis Cluster and important speed improvements under certain workloads."
     },
 
-    "stable": {
+    "old": {
       "branch": "2.8",
       "version": "2.8.19",
       "notes": "Redis 2.8 is the older stable version of Redis. Compared to 2.6, it provided significant improvements like replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
@@ -19,7 +19,7 @@
   },
 
   "other": {
-    "oldstable": {
+    "older": {
       "branch": "2.6",
       "version": "2.6.17",
       "notes": "Very old, you should not use Redis 2.6. Compared to 2.4 it introduced support for Lua scripting, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features."
