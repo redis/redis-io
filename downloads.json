@@ -3,7 +3,7 @@
     "stable": {
       "branch": "3.0",
       "version": "3.0.0",
-      "notes": "Redis 3.0 introduces Redis Cluster and important speed improvements under certain workloads."
+      "notes": "Redis 3.0 introduces Redis Cluster, a distributed implementation of Redis with automatic data sharding and fault tolerance, important speed improvements under certain workloads, improved AOF rewriting, and more."
     },
 
     "old": {
