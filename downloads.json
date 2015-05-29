@@ -9,12 +9,12 @@
     "old": {
       "branch": "2.8",
       "version": "2.8.20",
-      "notes": "Redis 2.8 is the older stable version of Redis. Compared to 2.6, it provided significant improvements like replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
+      "notes": "Redis 2.8 is the older stable version of Redis. It provided significant improvements over version 2.6, such as replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
     },
 
     "unstable": {
       "branch": "unstable",
-      "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. In a coulpe of months this is going to be freezed, and used as the base for 3.2."
+      "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. In a couple of months this is going to be frozen and used as the base for 3.2."
     }
   },
 
