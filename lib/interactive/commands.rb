@@ -33,8 +33,10 @@ module Interactive
     # geo
     "geoadd" => [:first],
     "geodecode" => [:zip, [nil]],
+    "geodist" => [:first],
     "geoencode" => [:custom],
     "geohash" => [:first],
+    "geopos" => [:first],
     "georadius" => [:first],
     "georadiusbymember" => [:first],
 
