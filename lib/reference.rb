@@ -13,6 +13,7 @@ class Reference
     "connection" => "Connection",
     "server" => "Server",
     "cluster" => "Cluster",
+    "geo" => "Geo",
   }
 
   class Command

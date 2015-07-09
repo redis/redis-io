@@ -14,6 +14,7 @@ ALLOW_GROUPS = %w(
   hyperloglog
   string
   scripting
+  geo
 ).freeze
 
 # Override ALLOW_GROUPS for some commands.
