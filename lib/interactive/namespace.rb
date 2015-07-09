@@ -36,8 +36,8 @@ module Interactive
       end
     when :custom
       case name.downcase
-      when "info"
-        # INFO has no keys
+      when "info", "geoencode"
+        # Commands without keys
         nil
       when "bitop"
         # BITOP arg positions 1,2,3 are always keys
