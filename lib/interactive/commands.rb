@@ -34,6 +34,7 @@ module Interactive
     "geoadd" => [:first],
     "geodecode" => [:zip, [nil]],
     "geoencode" => [:custom],
+    "geohash" => [:first],
     "georadius" => [:first],
     "georadiusbymember" => [:first],
 
