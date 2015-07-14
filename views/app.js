@@ -88,11 +88,13 @@ function searchCommandReference() {
       return;
     }
 
-    if ((val = $(this).val()) == '') {
+    var val = $(this).val().toLowerCase().replace(/[^a-z0-9 ]/g, '');
+
+    if (val === '') {
       $commands.show()
     } else {
       $commands.hide()
-      $('li[data-name*="' + val.toLowerCase() + '"]').show()
+      $('li[data-name*="' + val + '"]').show()
     }
   })
 }
