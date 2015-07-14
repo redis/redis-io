@@ -13,7 +13,10 @@
           - if @command.since
             %p <strong>Available since #{@command.since}.</strong>
           - else
-            %p.betacmd <strong>This command is still in beta! Not available in a stable version of Redis.</strong> Check the <i>unstable</i> branch in the Redis GitHub repository to test the command.
+            %p
+              %span.betacmd Beta
+              Not yet available in a stable version of Redis.
+              <a href="/download">Download unstable</a> if you want to test this command.
 
           - if @command.complexity
             %p <strong>Time complexity:</strong> #{@command.complexity}
