@@ -13,4 +13,4 @@ Visit the [Community](/community) page for more public support options and detai
 Commercial Support
 ---
 
-Pivotal, the official sponsor of Redis, offers [Redis support](http://www.pivotal.io/big-data/redis) for developers and 24x7 production Redis deployments.
+You can [Get Managed Redis](https://redislabs.com) instances from [Redis Labs](http://redislabs.com), the official sponsor of the Redis Project. They provide fully managed instances with SSL, email alerts, backups and many more features.
