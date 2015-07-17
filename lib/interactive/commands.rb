@@ -13,7 +13,7 @@ module Interactive
     # generic
     "del" => [:all],
     "dump" => [:first],
-    "exists" => [:first],
+    "exists" => [:all],
     "expire" => [:first],
     "expireat" => [:first],
     "keys" => [:zip, [nil]],
@@ -32,9 +32,7 @@ module Interactive
 
     # geo
     "geoadd" => [:first],
-    "geodecode" => [:zip, [nil]],
     "geodist" => [:first],
-    "geoencode" => [:custom],
     "geohash" => [:first],
     "geopos" => [:first],
     "georadius" => [:first],
