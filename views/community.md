@@ -10,7 +10,7 @@ Local meetups
 
 * [London Redis Meetup Group](http://www.meetup.com/Redis-London)
 * [San Francisco Meetup Group](http://sfmeetup.redis.io)
-* (New York Meetup Group)(http://www.meetup.com/New-York-REDIS-Meetup)
+* [New York Meetup Group](http://www.meetup.com/New-York-REDIS-Meetup)
 
 Contributing to Redis
 ---
