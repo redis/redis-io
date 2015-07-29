@@ -14,7 +14,7 @@
 
     "unstable": {
       "branch": "unstable",
-      "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. In a coulpe of months this is going to be freezed, and used as the base for 3.2."
+      "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. In a couple of months this is going to be freezed, and used as the base for 3.2."
     }
   },
 
