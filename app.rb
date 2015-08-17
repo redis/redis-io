@@ -189,8 +189,9 @@ Cuba.define do
 
   on get, "commands" do
     on :name do |name|
-      @name = @title = name.upcase.sub("-", " ")
-      @command = commands[@name]
+      @name = name
+      @title = @name.upcase.sub("-", " ")
+      @command = commands[@title]
 
       if @command.nil?
         res.redirect "https://www.google.com/search?q=#{CGI.escape(name)}+site%3Aredis.io", 307
