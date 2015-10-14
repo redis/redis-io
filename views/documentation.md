@@ -20,6 +20,7 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Partitioning](/topics/partitioning): How to distribute your data among multiple Redis instances.
 * [Distributed locks](/topics/distlock): Implementing a distributed lock manager with Redis.
 * [Redis keyspace notifications](/topics/notifications): Get notifications of keyspace events via Pub/Sub (Redis 2.8 or greater).
+* [Creating secondary indexes with Redis](/topics/indexes): Use Redis data structures to create secondary indexes, composed indexes and traverse graphs.
 
 Tutorials & FAQ
 ---
