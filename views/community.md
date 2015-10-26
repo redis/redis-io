@@ -1,9 +1,14 @@
 Community
 ===
 
-* Join the [mailing list](http://groups.google.com/group/redis-db) (Subscribe via [email](mailto:redis-db+subscribe@googlegroups.com))
-* Meet us at the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis))
-* Follow [Redis news feed](http://twitter.com/redisfeed) on Twitter
+* The HQ of the Redis community is [/r/edis sub on Reddit](https://www.reddit.com/r/edis/). You can use the Reddit sub in order to ask for help, post new ideas for new features, link to articles of interest for the Redis community, and so forth.
+
+Other ways to interact with the Redis community are the following.
+
+* Join the [mailing list](http://groups.google.com/group/redis-db) (Subscribe via [email](mailto:redis-db+subscribe@googlegroups.com)).
+* Meet us at the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)).
+* Check the [Redis tag on Stack Overflow](http://stackoverflow.com/questions/tagged/redis?sort=newest&pageSize=30).
+* Follow [Redis news feed](http://twitter.com/redisfeed) and [antirez](http://twitter.com/antirez) on Twitter.
 
 Local meetups
 ---
