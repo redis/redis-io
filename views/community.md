@@ -1,7 +1,7 @@
 Community
 ===
 
-* The HQ of the Redis community is [/r/edis sub on Reddit](https://www.reddit.com/r/edis/). You can use the Reddit sub in order to ask for help, post new ideas for new features, link to articles of interest for the Redis community, and so forth.
+* The HQ of the Redis community is [/r/redis sub on Reddit](https://www.reddit.com/r/redis/). You can use the Reddit sub in order to ask for help, post new ideas for new features, link to articles of interest for the Redis community, and so forth.
 
 Other ways to interact with the Redis community are the following.
 
