@@ -12,12 +12,6 @@
       "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). Memory optimizations. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is availble in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
     },
 
-    "old": {
-      "branch": "2.8",
-      "version": "2.8.24",
-      "notes": "Redis 2.8 is the older stable version of Redis. It provided significant improvements over version 2.6, such as replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
-    },
-
     "unstable": {
       "branch": "unstable",
       "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. In a couple of months this is going to be frozen and used as the base for 3.2."
@@ -25,10 +19,10 @@
   },
 
   "other": {
-    "older": {
-      "branch": "2.6",
-      "version": "2.6.17",
-      "notes": "Very old, you should not use Redis 2.6. Compared to 2.4 it introduced support for Lua scripting, milliseconds precision expires, improved memory usage, unlimited number of clients, improved AOF generation, better performance, a number of new commands and features."
+    "old": {
+      "branch": "2.8",
+      "version": "2.8.24",
+      "notes": "Redis 2.8 is the older stable version of Redis. It provided significant improvements over version 2.6, such as replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
     },
 
     "windows": {
