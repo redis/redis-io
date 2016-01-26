@@ -2,13 +2,13 @@
   "channels": {
     "stable": {
       "branch": "3.0",
-      "version": "3.0.6",
+      "version": "3.0.7",
       "notes": "Redis 3.0 introduces Redis Cluster, a distributed implementation of Redis with automatic data sharding and fault tolerance, important speed improvements under certain workloads, improved AOF rewriting, and more."
     },
 
     "testing": {
       "branch": "3.2",
-      "version": "3.2-rc1",
+      "version": "3.2.0-rc2",
       "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). Memory optimizations. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is availble in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
     },
 
