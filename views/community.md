@@ -16,6 +16,7 @@ Local meetups
 * [London Redis Meetup Group](http://www.meetup.com/Redis-London)
 * [San Francisco Meetup Group](http://sfmeetup.redis.io)
 * [New York Meetup Group](http://www.meetup.com/New-York-REDIS-Meetup)
+* [#RedisTLV (Tel Aviv Redis) Meetup Group](www.meetup.com/Tel-Aviv-Redis-Meetup)
 
 Contributing to Redis
 ---
