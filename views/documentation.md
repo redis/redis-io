@@ -106,7 +106,7 @@ Credits
 
 Redis is maintained and developed by [Salvatore Sanfilippo](http://twitter.com/antirez). In the past [Pieter Noordhuis](http://twitter.com/pnoordhuis) and [Matt Stancliff](https://matt.sh) provided a very significant amount of code and ideas to both the Redis core and client libraries.
 
-The full list of Redis contributors can be found in the [Redis contributors page at Github](https://github.com/antirez/redis/graphs/contributors). However there are other forms of contributions such as ideas, testing, and bug reporting. When possible this contributions are acknowledged in the commit messages. The [mailing list archives](http://groups.google.com/group/redis-db) and the [Github issues page](https://github.com/antirez/redis/issues) are good sources to find people active in the Redis community providing ideas and helping other users.
+The full list of Redis contributors can be found in the [Redis contributors page at Github](https://github.com/antirez/redis/graphs/contributors). However there are other forms of contributions such as ideas, testing, and bug reporting. When it is possible, contributions are acknowledged in commit messages. The [mailing list archives](http://groups.google.com/group/redis-db) and the [Github issues page](https://github.com/antirez/redis/issues) are good sources to find people active in the Redis community providing ideas and helping other users.
 
 Sponsors
 ---
