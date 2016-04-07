@@ -11,7 +11,7 @@ Programming with Redis
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Redis Lua scripting](/commands/eval): Redis Lua scripting feature documentation.
-* [Debugging Lua scripts](/commands/ldb): Redis 3.2 introduces a native Lua debugger for Redis scripts.
+* [Debugging Lua scripts](/topics/ldb): Redis 3.2 introduces a native Lua debugger for Redis scripts.
 * [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
