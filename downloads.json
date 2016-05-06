@@ -1,15 +1,9 @@
 {
   "channels": {
     "stable": {
-      "branch": "3.0",
-      "version": "3.0.7",
-      "notes": "Redis 3.0 introduces Redis Cluster, a distributed implementation of Redis with automatic data sharding and fault tolerance, important speed improvements under certain workloads, improved AOF rewriting, and more."
-    },
-
-    "testing": {
       "branch": "3.2",
-      "version": "3.2.0-rc3",
-      "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). Memory optimizations. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is availble in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
+      "version": "3.2.0",
+      "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). The new BITFIELD command handles contiguous arrays of integers or counters of arbitrary bits width and offset inside strings. Memory optimizations to hold the same data in less memory. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is available in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
     },
 
     "unstable": {
@@ -20,9 +14,9 @@
 
   "other": {
     "old": {
-      "branch": "2.8",
-      "version": "2.8.24",
-      "notes": "Redis 2.8 is the older stable version of Redis. It provided significant improvements over version 2.6, such as replication partial resynchronization, IPv6 support, config rewriting, keyspace changes notifications via Pub/Sub, and more."
+      "branch": "3.0",
+      "version": "3.0.7",
+      "notes": "Redis 3.0 introduces Redis Cluster, a distributed implementation of Redis with automatic data sharding and fault tolerance, important speed improvements under certain workloads, improved AOF rewriting, and more."
     },
 
     "windows": {
