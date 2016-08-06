@@ -90,6 +90,7 @@ Books
 
 The following is a list of books covering Redis that are already published. Books are ordered by release date (newer books first).
 
+* [Armazenando dados com Redis (Casa do Código, 2014)](http://www.casadocodigo.com.br/products/livro-redis) by [Rodrigo Lazoti](https://twitter.com/rodrigolazoti).
 * [Redis in Action (Manning, 2013)](http://www.manning.com/carlson/) by [Josiah L. Carlson](http://twitter.com/dr_josiah) (early access edition).
 * [Instant Redis Optimization How-to (Packt, 2013)](http://www.packtpub.com/redis-optimization-how-to/book) by [Arun Chinnachamy](http://twitter.com/ArunChinnachamy).
 * [Instant Redis Persistence (Packt, 2013)](http://www.packtpub.com/redis-persistence/book) by Matt Palmer.
