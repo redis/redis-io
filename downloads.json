@@ -2,7 +2,7 @@
   "channels": {
     "stable": {
       "branch": "3.2",
-      "version": "3.2.4",
+      "version": "3.2.5",
       "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). The new BITFIELD command handles contiguous arrays of integers or counters of arbitrary bits width and offset inside strings. Memory optimizations to hold the same data in less memory. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is available in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
     },
 
