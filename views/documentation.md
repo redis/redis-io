@@ -90,6 +90,7 @@ Books
 
 The following is a list of books covering Redis that are already published. Books are ordered by release date (newer books first).
 
+* [Mastering Redis (Packt, 2016)](https://www.packtpub.com/big-data-and-business-intelligence/mastering-redis) by [Jeremy Nelson](https://www.packtpub.com/books/info/authors/jeremy-nelson).
 * [Redis in Action (Manning, 2013)](http://www.manning.com/carlson/) by [Josiah L. Carlson](http://twitter.com/dr_josiah) (early access edition).
 * [Instant Redis Optimization How-to (Packt, 2013)](http://www.packtpub.com/redis-optimization-how-to/book) by [Arun Chinnachamy](http://twitter.com/ArunChinnachamy).
 * [Instant Redis Persistence (Packt, 2013)](http://www.packtpub.com/redis-persistence/book) by Matt Palmer.
