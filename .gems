@@ -1,10 +1,8 @@
-redis -v 2.2.2
 cuba -v 2.2.1
 haml -v 3.1.4
+htmlentities -v 4.3.1
+oga -v 2.7
 ohm -v 0.1.5
 redcarpet -v 2.1.1
-htmlentities -v 4.3.1
-nokogiri -v 1.5.2
-compass -v 0.12.1
+redis -v 2.2.2
 tilt -v 1.3.3
-sass -v 3.2.1

@@ -3,18 +3,17 @@
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 require "cuba"
+require "date"
+require "digest/md5"
 require "haml"
-require "redcarpet"
 require "htmlentities"
 require "json"
-require "compass"
-require "open-uri"
-require "digest/md5"
-require "redis"
+require "oga"
 require "ohm"
+require "open-uri"
 require "rack/static"
-require "nokogiri"
-require "date"
+require "redcarpet"
+require "redis"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
@@ -94,7 +93,7 @@ end
 
 Ohm.redis = redis
 
-Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml"], root: File.join(ROOT_PATH, "public")
+Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml", "/styles.css"], root: File.join(ROOT_PATH, "public")
 
 Cuba.define do
   def render(path, locals = {}, options = {})
@@ -246,12 +245,6 @@ Cuba.define do
     res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
     res.headers["Content-Type"] = "application/json;charset=UTF-8"
     res.write File.read(documentation_path + "/#{file}.json")
-  end
-
-  on get, extension("css") do |file|
-    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-    res.headers["Content-Type"] = "text/css; charset=utf-8"
-    res.write render("views/#{file}.sass")
   end
 
   on get, extension("js") do |file|

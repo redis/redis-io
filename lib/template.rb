@@ -1,13 +1,3 @@
-class Tilt::SassTemplate
-  OPTIONS = Compass.sass_engine_options
-  OPTIONS.merge!(style: :compact, line_comments: false)
-  OPTIONS[:load_paths] << File.expand_path("views")
-
-  def prepare
-    @engine = ::Sass::Engine.new(data, sass_options.merge(OPTIONS))
-  end
-end
-
 class RedisTemplate < Tilt::RedcarpetTemplate::Redcarpet2
   SECTIONS = {
     "description" => "Description",
