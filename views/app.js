@@ -123,7 +123,7 @@ function buzz() {
       $ul.append(
         "<li>" +
         "<a href='http://twitter.com/" + status.user.screen_name + "/statuses/" + status.id_str + "' title='" + status.user.screen_name + "'>" +
-        "<img src='" + status.user.profile_image_url + "' alt='" + status.user.screen_name + "' />" +
+        "<img src='" + status.user.profile_image_url_https + "' alt='" + status.user.screen_name + "' />" +
         "</a> " +
         massageTweet(status.text) +
         "</li>"
