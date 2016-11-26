@@ -1,0 +1,11 @@
+language: ruby
+
+sudo: false
+
+script: /bin/true
+
+deploy:
+  provider: script
+  script: curl -G https://redis.io/deploy --data-urlencode token=$DEPLOY_TOKEN
+  on:
+    branch: master
