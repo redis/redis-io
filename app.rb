@@ -14,6 +14,7 @@ require "open-uri"
 require "rack/static"
 require "redcarpet"
 require "redis"
+require "fileutils"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
@@ -239,6 +240,14 @@ Cuba.define do
     @related_commands = related_commands_for(name)
 
     res.write haml("topics/name")
+  end
+
+  on get, "deploy" do
+    if ENV["DEPLOY_TOKEN"] && req.GET["token"] == ENV["DEPLOY_TOKEN"]
+      FileUtils.touch("deploy.txt")
+    else
+      res.status = 401
+    end
   end
 
   on get, extension("json") do |file|
