@@ -94,7 +94,7 @@ end
 
 Ohm.redis = redis
 
-Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml", "/styles.css"], root: File.join(ROOT_PATH, "public")
+Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml", "/styles.css", "/app.js"], root: File.join(ROOT_PATH, "public")
 
 Cuba.define do
   def render(path, locals = {}, options = {})
