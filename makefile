@@ -1,3 +1,6 @@
+test:
+	cutest test/**/*.rb
+
 deploy:
 	cd /srv/redis-doc
 	git pull
@@ -5,6 +8,4 @@ deploy:
 	git pull
 	service redis-io-app restart
 
-.PHONY: deploy
-
-
+.PHONY: deploy test
