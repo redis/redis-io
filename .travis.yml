@@ -5,7 +5,7 @@ sudo: false
 install:
   - gem install dep
   - dep install
-  - def -f .gems.dev install
+  - dep -f .gems.dev install
 
 script: make test
 
