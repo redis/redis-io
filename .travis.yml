@@ -2,6 +2,9 @@ language: ruby
 
 sudo: false
 
+services:
+  - redis-server
+
 install:
   - gem install dep
   - dep install
