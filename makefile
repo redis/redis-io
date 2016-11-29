@@ -1,5 +1,7 @@
+TEST_FILES=$(shell find test -name '*.rb')
+
 test:
-	cutest test/**/*.rb
+	cutest $(TEST_FILES)
 
 deploy:
 	cd /srv/redis-doc

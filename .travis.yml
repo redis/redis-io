@@ -2,7 +2,12 @@ language: ruby
 
 sudo: false
 
-script: /bin/true
+install:
+  - gem install dep
+  - dep install
+  - def -f .gems.dev install
+
+script: make test
 
 deploy:
   provider: script
