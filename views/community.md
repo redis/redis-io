@@ -13,10 +13,11 @@ Other ways to interact with the Redis community are the following.
 Local meetups
 ---
 
-* [London Redis Meetup Group](http://www.meetup.com/Redis-London)
-* [San Francisco Meetup Group](http://sfmeetup.redis.io)
-* [New York Meetup Group](http://www.meetup.com/New-York-REDIS-Meetup)
-* [#RedisTLV (Tel Aviv Redis) Meetup Group](www.meetup.com/Tel-Aviv-Redis-Meetup)
+* [London Redis Meetup Group](https://www.meetup.com/Redis-London)
+* [San Francisco Meetup Group](https://sfmeetup.redis.io)
+* [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
+* [#RedisTLV (Tel Aviv Redis) Meetup Group](https://www.meetup.com/Tel-Aviv-Redis-Meetup)
+* [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
 
 Contributing to Redis
 ---
