@@ -6,6 +6,11 @@
       "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). The new BITFIELD command handles contiguous arrays of integers or counters of arbitrary bits width and offset inside strings. Memory optimizations to hold the same data in less memory. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is available in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
     },
 
+    "beta": {
+      "branch": "4.0",
+      "notes": "Redis 4.0 finally reached Releas Candidate status. Contains big improvements like: a modules system, PSYNC2 that allows to partially resynchronize with promoted slaves, Last Frequently Used (LFU) caching eviction policy, non blocking variants of DEL and FLUSH commands, a new memory debugging command (MEMORY) and more."
+    },
+
     "unstable": {
       "branch": "unstable",
       "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. This is going to be the next Redis release in a few months."
