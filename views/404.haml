@@ -1,11 +1,12 @@
-.text
-  %h1 Sorry, I can't find that page :-/
+.site-content
+  .text
+    %h1 Sorry, I can't find that page :-/
 
-  - if path
-    %p
-      If you think this page should exist, add a
+    - if path
+      %p
+        If you think this page should exist, add a
 
-      %code
-        != path
+        %code
+          != path
 
-      file to <a href="https://github.com/antirez/redis-doc">the repository</a> and send a pull request.
+        file to <a href="https://github.com/antirez/redis-doc">the repository</a> and send a pull request.

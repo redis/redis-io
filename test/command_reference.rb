@@ -13,7 +13,7 @@ scope do
 
     click_link_or_button "ECHO"
 
-    assert has_css?("title", text: "ECHO")
+    assert has_title?("ECHO")
 
     within "h1" do
       assert has_content?("ECHO")
@@ -45,14 +45,13 @@ scope do
 
     click_link_or_button "DEBUG OBJECT"
 
-    assert has_css?("title", text: "DEBUG OBJECT")
+    assert has_title?("DEBUG OBJECT")
     assert has_css?("h1", text: "DEBUG OBJECT")
   end
 
   test "Missing command" do
     visit "/commands/foobar"
 
-    assert has_content?("Sorry")
-    assert page.driver.response.status == 404
+    assert_equal page.current_url, "https://www.google.com/search?q=foobar+site%3Aredis.io"
   end
 end

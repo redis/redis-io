@@ -1,4 +1,4 @@
-require "cuba/test"
+require "cuba/capybara"
 require File.expand_path("../app", File.dirname(__FILE__))
 
 begin

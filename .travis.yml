@@ -1,0 +1,23 @@
+language: ruby
+
+sudo: false
+
+services:
+  - redis-server
+
+install:
+  - gem install dep
+  - dep install
+  - dep -f .gems.dev install
+
+script: make test
+
+deploy:
+  provider: script
+  script: curl -G https://redis.io/deploy --data-urlencode token=$DEPLOY_TOKEN
+  on:
+    branch: master
+
+cache:
+  directories:
+    - ~/.rvm

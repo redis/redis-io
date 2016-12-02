@@ -3,13 +3,11 @@
 %html
   %head
     %meta(charset="utf-8")
-    %link(rel="stylesheet" href="/styles.css?#{File.mtime("views/styles.sass").to_i}" type="text/css")
+    %title= [@title, "Redis"].compact.join(" – ")
+    %link(rel="stylesheet" href="/styles.css")
     %link(rel="shortcut icon" href="/images/favicon.png")
     %link(rel="search" type="application/opensearchdescription+xml" title="Look up a Redis command" href="/opensearch.xml")
     %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
-
-    %title
-      = [@title, "Redis"].compact.join(" – ")
 
     :javascript
        var _gaq = _gaq || [];
@@ -86,11 +84,5 @@
             %a(href="https://redislabs.com/")
               %img(src="/images/redislabs.png" alt="Redis Labs" title="Get a Managed Redis" width="128" height="25")
 
-%script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
-%script(src="/slideout.js?#{File.mtime("views/slideout.js").to_i}")
-%script(src="/app.js?#{File.mtime("views/app.js").to_i}")
-<script type="text/javascript">
-lloogg_clientid = "20bb9c026e";
-</script>
-<script type="text/javascript" src="http://demo.lloogg.com/l.js?c=20bb9c026e">
-</script>
+    %script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
+    %script(src="/app.js?#{File.mtime("public/app.js").to_i}")

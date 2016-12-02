@@ -3,18 +3,19 @@
 ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
 require "cuba"
+require "cuba/render"
+require "date"
+require "digest/md5"
 require "haml"
-require "redcarpet"
 require "htmlentities"
 require "json"
-require "compass"
-require "open-uri"
-require "digest/md5"
-require "redis"
+require "oga"
 require "ohm"
+require "open-uri"
 require "rack/static"
-require "nokogiri"
-require "date"
+require "redcarpet"
+require "redis"
+require "fileutils"
 
 require File.expand_path("lib/reference", ROOT_PATH)
 require File.expand_path("lib/template", ROOT_PATH)
@@ -94,22 +95,48 @@ end
 
 Ohm.redis = redis
 
-Cuba.use Rack::Static, urls: ["/images", "/presentation", "/opensearch.xml"], root: File.join(ROOT_PATH, "public")
+class App < Cuba
+  plugin Cuba::Render
 
-Cuba.define do
-  def render(path, locals = {}, options = {})
+  settings[:render][:template_engine] = "haml"
+
+  use Rack::Static,
+    urls: ["/images", "/presentation", "/opensearch.xml", "/styles.css", "/app.js"],
+    root: File.join(ROOT_PATH, "public")
+
+  def custom_render(path, locals = {}, options = {})
+    res.headers["Content-Type"] ||= "text/html; charset=utf-8"
+    res.write(custom_view(path, locals, options))
+  end
+
+  def custom_view(path, locals = {}, options = {})
     options = {
-      :fenced_code_blocks => true,
-      :superscript => true,
+      fenced_code_blocks: true,
+      superscript:        true,
+      layout:             true
     }.merge(options)
 
-    expanded = File.expand_path(path)
+    path_with_extension = File.extname(path).empty? ?
+                            "#{path}.#{settings[:render][:template_engine]}" :
+                            path
 
-    data = super(path, locals, options)
+    if path_with_extension.start_with?("/")
+      expanded_path = path_with_extension
+    else
+      expanded_path = File.expand_path(path_with_extension, File.join(settings[:render][:views]))
+    end
 
-    if expanded.start_with?(documentation_path)
+    layout_path   = File.expand_path("#{settings[:render][:layout]}.#{settings[:render][:template_engine]}", File.join(settings[:render][:views]))
+
+    data = _render(expanded_path, locals, options)
+
+    unless options[:layout] == false
+      data = _render(layout_path, locals.merge(content: data), options)
+    end
+
+    if expanded_path.start_with?(documentation_path)
       filter_interactive_examples(data)
-    elsif expanded.start_with?(ROOT_PATH) && options[:anchors] != false
+    elsif expanded_path.start_with?(ROOT_PATH) && options[:anchors] != false
       add_header_ids(data)
     else
       data
@@ -123,7 +150,7 @@ Cuba.define do
 
     data.gsub %r{<pre>\s*<code class="cli">\s*(.*?)\s*</code>\s*</pre>}m do |match|
       lines = $1.split(/\n+/m).map(&:strip)
-      render("views/interactive.haml", session: session, lines: lines)
+      _render("views/interactive.haml", session: session, lines: lines)
     end
   end
 
@@ -142,20 +169,8 @@ Cuba.define do
     str.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
   end
 
-  def haml(template, locals = {}, options = {})
-    layout(partial(template, locals, options))
-  end
-
-  def partial(template, locals = {}, options = {})
-    render("views/#{template}.haml", locals, options)
-  end
-
-  def layout(content)
-    partial("layout", {content: content}, anchors: false)
-  end
-
   def topic(template)
-    body = render(template)
+    body = custom_view(template, {}, layout: false)
     title = body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill
 
     return body, title
@@ -167,100 +182,108 @@ Cuba.define do
 
   def not_found(locals = {path: nil})
     res.status = 404
-    res.write haml("404", locals)
+    res.write(custom_view("404", locals))
   end
 
-  on get, "" do
-    res.write haml("home", {}, anchors: false)
-  end
+  define do
+    on get, "" do
+      custom_render("home", {}, anchors: false)
+    end
 
-  on get, "buzz" do
-    res.write haml("buzz", {}, anchors: false)
-  end
+    on get, "buzz" do
+      custom_render("buzz", {}, anchors: false)
+    end
 
-  on get, "download" do
-    res.write haml("download")
-  end
+    on get, "download" do
+      custom_render("download")
+    end
 
-  on get, /(download|community|documentation|support)/ do |topic|
-    @body, @title = topic("views/#{topic}.md")
-    res.write haml("topics/name")
-  end
+    on get, /(download|community|documentation|support)/ do |topic|
+      @body, @title = topic("#{topic}.md")
+      custom_render("topics/name")
+    end
 
-  on get, "commands" do
-    on :name do |name|
-      @name = name
-      @title = @name.upcase.sub("-", " ")
-      @command = commands[@title]
+    on get, "commands" do
+      on :name do |name|
+        @name = name
+        @title = @name.upcase.sub("-", " ")
+        @command = commands[@title]
 
-      if @command.nil?
-        res.redirect "https://www.google.com/search?q=#{CGI.escape(name)}+site%3Aredis.io", 307
-        halt res.finish
+        if @command.nil?
+          res.redirect "https://www.google.com/search?q=#{CGI.escape(name)}+site%3Aredis.io", 307
+          halt res.finish
+        end
+
+        @related_commands = related_commands_for(@command.group)
+        @related_topics = related_topics_for(@command)
+
+        custom_render("commands/name")
       end
 
-      @related_commands = related_commands_for(@command.group)
-      @related_topics = related_topics_for(@command)
+      on default do
+        @commands = commands
+        @title = "Command reference"
 
-      res.write haml("commands/name")
+        custom_render("commands")
+      end
     end
 
-    on default do
-      @commands = commands
-      @title = "Command reference"
-
-      res.write haml("commands")
+    on post, "session", /([0-9a-f]{32})/i do |id|
+      if session = ::Interactive::Session.find(id)
+        res.write session.run(req.params["command"].to_s)
+      else
+        res.status = 404
+        res.write "ERR Session does not exist or has timed out."
+      end
     end
-  end
 
-  on post, "session", /([0-9a-f]{32})/i do |id|
-    if session = ::Interactive::Session.find(id)
-      res.write session.run(req.params["command"].to_s)
-    else
-      res.status = 404
-      res.write "ERR Session does not exist or has timed out."
+    on get, "clients" do
+      @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
+      @redis_tools = JSON.parse(File.read(documentation_path + "/tools.json"))
+
+      @clients_by_language = @clients.group_by { |info| info["language"] }.sort_by { |name, _| name.downcase }
+
+      custom_render("clients")
     end
-  end
 
-  on get, "clients" do
-    @clients = JSON.parse(File.read(documentation_path + "/clients.json"))
-    @redis_tools = JSON.parse(File.read(documentation_path + "/tools.json"))
+    on get, "topics/:name" do |name|
+      path = "/topics/#{name}.md"
 
-    @clients_by_language = @clients.group_by { |info| info["language"] }.sort_by { |name, _| name.downcase }
+      if File.exist?(File.join(documentation_path, path))
+        @css = [:topics, name]
+        @body, @title = topic(File.join(documentation_path, path))
+        @related_commands = related_commands_for(name)
 
-    res.write haml("clients")
-  end
+        custom_render("topics/name")
+      else
+        not_found(path: path)
+      end
+    end
 
-  on get, "topics/:name" do |name|
-    path = "/topics/#{name}.md"
+    on get, "deploy" do
+      if ENV["DEPLOY_TOKEN"] && req.GET["token"] == ENV["DEPLOY_TOKEN"]
+        FileUtils.touch("deploy.txt")
+      else
+        res.status = 401
+      end
+    end
 
-    break not_found(path: path) unless File.exist?(File.join(documentation_path, path))
+    on get, extension("json") do |file|
+      res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+      res.headers["Content-Type"] = "application/json;charset=UTF-8"
+      res.write File.read(documentation_path + "/#{file}.json")
+    end
 
-    @css = [:topics, name]
-    @body, @title = topic(File.join(documentation_path, path))
-    @related_commands = related_commands_for(name)
+    on get, extension("js") do |file|
+      res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
+      res.headers["Content-Type"] = "text/javascript; charset=utf-8"
+      res.write File.read("views/#{file}.js")
+    end
 
-    res.write haml("topics/name")
-  end
-
-  on get, extension("json") do |file|
-    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-    res.headers["Content-Type"] = "application/json;charset=UTF-8"
-    res.write File.read(documentation_path + "/#{file}.json")
-  end
-
-  on get, extension("css") do |file|
-    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-    res.headers["Content-Type"] = "text/css; charset=utf-8"
-    res.write render("views/#{file}.sass")
-  end
-
-  on get, extension("js") do |file|
-    res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-    res.headers["Content-Type"] = "text/javascript; charset=utf-8"
-    res.write File.read("views/#{file}.js")
-  end
-
-  on post, "commits/payload" do
-    update_redis_versions
+    on post, "commits/payload" do
+      update_redis_versions
+    end
   end
 end
+
+Cuba.define { run App }

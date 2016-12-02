@@ -1,7 +1,7 @@
 .site-content
   %section.home-callout.home-section
     .title
-      != Nokogiri::HTML(render("#{documentation_path}/topics/introduction.md")).at_xpath("//p")
+      != Oga.parse_html(custom_view("#{documentation_path}/topics/introduction.md")).at_xpath("//p").text
 
       %a.learn-more(href="/topics/introduction") Learn more →
 

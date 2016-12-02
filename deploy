@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+  inotifywait deploy.txt
+  make deploy
+done

@@ -21,7 +21,7 @@
           - if @command.complexity
             %p <strong>Time complexity:</strong> #{@command.complexity}
 
-        ~ render("#{documentation_path}/commands/#{@name.downcase}.md")
+        ~ custom_view("#{documentation_path}/commands/#{@name.downcase}.md", {}, layout: false)
 
       .article-aside
         %aside
