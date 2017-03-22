@@ -50,6 +50,11 @@ Redis' durability.
 * [Benchmarks](/topics/benchmarks): See how fast Redis is in different platforms.
 * [Redis Releases](/topics/releases): Redis development cycle and version numbering.
 
+Embedded and IoT
+---
+
+* [Redis on ARM and Raspberry Pi](/topics/ARM): Starting with Redis 4.0 ARM and the Raspberry Pi are officially supported platforms. This page contains general information and benchmarks.
+
 Troubleshooting
 ---
 
