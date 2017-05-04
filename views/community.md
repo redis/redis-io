@@ -8,9 +8,9 @@ To get help or provide any feedback, the main channel is the Redis mailing list:
 
 For bug reports please just use [Github](https://github.com/antirez/redis).
 
-Other places where you can find people interested in Redis are:
+Other places where you can find people interested in Redis:
 
-* Check the [Redis tag on Stack Overflow](http://stackoverflow.com/questions/tagged/redis?sort=newest&pageSize=30).
+* The [Redis tag on Stack Overflow](http://stackoverflow.com/questions/tagged/redis?sort=newest&pageSize=30).
 * Follow [Redis news feed](http://twitter.com/redisfeed) (very low traffic) and [antirez](http://twitter.com/antirez) (day by day development news) on Twitter.
 * The Redis community uses a Reddit sub for news and certain announcements (that also always go to the ML): [/r/redis sub on Reddit](https://www.reddit.com/r/redis/).
 * Meet people interested in Redis in the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)).
@@ -29,15 +29,9 @@ Contributing to Redis
 
 Would you like to contribute a feature to Redis?
 
-1. Enter the IRC channel `#redis` on Freenode and look for Salvatore (antirez) or Pieter (pietern).
-Ask them what they think about your idea and what the chances are of getting it merged upstream.
-We try hard to keep Redis simple, so you're likely to find high resistance to new features.
+1. Drop a message to the [mailing list](http://groups.google.com/group/redis-db) with your proposal. Make sure you explain what the use case is and how the API would look like.
 
-2. If you don't get any feedback, or if feedback is positive, drop a message to the
-[mailing list](http://groups.google.com/group/redis-db) with your proposal. Make sure you explain
-what the use case is and how the API would look like.
-
-3. If you get good feedback, do the following to submit a patch:
+2. If you get good feedbacks, do the following to submit a patch:
 
     1. Fork [the official repository](http://github.com/antirez/redis).
     2. Clone your fork: `git clone git@github.com:<your-username>/redis.git`
