@@ -1,0 +1,41 @@
+.site-content
+  .text
+    %section#clients
+
+      %h1 Redis Modules
+      
+      %p
+        This is a list of Redis modules, for Redis v4.0 or greater, ordered by Github stars. Only modules under an OSI approved license are listed here. Also to have the source code hosted at Github is currently mandatory. To add your module here please send a pull request for <a href="https://github.com/antirez/redis-doc/blob/master/modules.json">the modules.json file</a> in the <a href="https://github.com/antirez/redis-doc">Redis-doc</a> repository.
+
+      %table
+        %col(class="name")
+        %col(class="license")
+        %col(class="stars")
+        %col(class="repository")
+        %col(class="description")
+        %col(class="authors")
+
+        - @modules.each do |mod|
+          %tr
+            %td
+              = mod["name"]
+
+            %td
+              - if mod["repository"]
+                %a(href="#{mod["repository"]}" class="icon")
+                  %i(class="fa fa-home")
+
+            %td.description
+              = mod["description"]
+
+            %td.authors
+              - if mod["authors"]
+                - mod["authors"].each do |author|
+                  %a(href="https://github.com/#{author}") #{author}
+
+            %td
+              = mod["license"]
+
+            %td
+              #{mod["stars"]}
+              %i(class="fa fa-star icon-star")

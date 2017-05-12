@@ -246,6 +246,12 @@ class App < Cuba
       custom_render("clients")
     end
 
+    on get, "modules" do
+      @modules = JSON.parse(File.read(documentation_path + "/modules.json"))
+      @modules = @modules.sort_by {|m| -m["stars"]}
+      custom_render("modules")
+    end
+
     on get, "topics/:name" do |name|
       path = "/topics/#{name}.md"
 
