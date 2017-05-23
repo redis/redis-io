@@ -26,6 +26,7 @@ Redis uses RAM and learn some tricks to use less of it.
 Tutorials & FAQ
 ---
 
+* [Redis Quick Start](/topics/quickstart): This is a quick start document that targets people without prior experience with Redis.
 * [Introduction to Redis data types](/topics/data-types-intro): This is a good starting point to learn the Redis API and data model.
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
 * [Auto complete with Redis](http://autocomplete.redis.io)
