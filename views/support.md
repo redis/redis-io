@@ -1,16 +1,12 @@
 Support
 ===
 
-Community Support
----
-
-The Redis community offers support through the official [mailing list](http://groups.google.com/group/redis-db) and `#redis` on Freenode.
-
-The mailing list is under manual moderation, so it may take a few hours to a few days for your message to show up.
-
-Visit the [Community](/community) page for more public support options and details on how to contribute to Redis.
-
 Commercial Support
 ---
 
-You can [Get Managed Redis](https://redislabs.com) instances from [Redis Labs](http://redislabs.com), the official sponsor of the Redis Project. They provide fully managed instances with SSL, email alerts, backups and many more features.
+[Redis Labs](https://redislabs.com), the official sponsor of Redis, provides fully managed cloud services ([hosted](https://redislabs.com/products/redis-cloud/), [VPC](https://redislabs.com/products/redis-cloud-private/)), and on-premise [software](https://redislabs.com/products/redis-pack/), supporting Redis on Flash (SSD) memory, Redis CRDTs-based for multi-master cluster deployment and including integrated modules such as RediSearch, ReJSON, Redis-Graph and Redis-ML.
+
+Community Help
+---
+
+Visit the [Community](/community) page for more public support options and details on how to contribute to Redis.
