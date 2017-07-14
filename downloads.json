@@ -1,15 +1,9 @@
 {
   "channels": {
     "stable": {
-      "branch": "3.2",
-      "version": "3.2.9",
-      "notes": "Redis 3.2 contains significant changes to the API and implementation of Redis. A new set of commands for Geo indexing was added (GEOADD, GEORADIUS and related commands). The new BITFIELD command handles contiguous arrays of integers or counters of arbitrary bits width and offset inside strings. Memory optimizations to hold the same data in less memory. Lua scripts can now contain side effects using the new effect replication. A complete remote Lua debugger is available in order to make writing scripts a simpler task. Read the release notes for the full set of changes."
-    },
-
-    "beta": {
       "branch": "4.0",
-      "version": "4.0-rc3",
-      "notes": "Redis 4.0 finally reached Release Candidate status. Contains big improvements like: a modules system, PSYNC2 that allows to partially resynchronize with promoted slaves, Last Frequently Used (LFU) caching eviction policy, non blocking variants of DEL and FLUSH commands, a new memory debugging command (MEMORY), online memory defragmentation and more."
+      "version": "4.0.0",
+      "notes": "Redis 4.0 was released as GA in July 2017. Contains several big improvements: a modules system, much better replication (PSYNC2), improvements to eviction policies, threaded DEL/FLUSH, mixed RDB+AOF format, the new MEMORY command, Redis Cluster support for Nat/Docker, active memory defragmentation, memory usage and performance improvements, much faster Redis Cluster key creation, many other smaller features and a number of behavior fixed."
     },
 
     "unstable": {
@@ -20,9 +14,9 @@
 
   "other": {
     "old": {
-      "branch": "3.0",
-      "version": "3.0.7",
-      "notes": "Redis 3.0 introduces Redis Cluster, a distributed implementation of Redis with automatic data sharding and fault tolerance, important speed improvements under certain workloads, improved AOF rewriting, and more."
+      "branch": "3.2",
+      "version": "3.2.9",
+      "notes": "Redis 3.2 is the previous stable release. Does not include all the improvements in Redis 4.0 but is a very battle tested release, probably a good pick for critical applications while 4.0 matures more in the next months."
     },
 
     "windows": {
