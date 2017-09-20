@@ -23,6 +23,8 @@ Local meetups
 * [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
 * [#RedisTLV (Tel Aviv Redis) Meetup Group](https://www.meetup.com/Tel-Aviv-Redis-Meetup)
 * [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
+* [Seattle Redis Meetup](https://www.meetup.com/Seattle-Redis/)
+* [Silicon Valley Redis Meetup](https://www.meetup.com/sv-redis/)
 
 Contributing to Redis
 ---
