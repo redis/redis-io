@@ -1,8 +1,8 @@
+redis -v 2.2.2
 cuba -v 3.8.0
 haml -v 4.0.7
 htmlentities -v 4.3.4
 oga -v 2.7
 ohm -v 0.1.5
 redcarpet -v 2.1.1
-redis -v 2.2.2
 tilt -v 2.0.5
