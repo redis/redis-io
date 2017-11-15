@@ -36,7 +36,6 @@ Tutorials & FAQ
 
 * [Introduction to Redis data types](/topics/data-types-intro): This is a good starting point to learn the Redis API and data model.
 * [Writing a simple Twitter clone with PHP and Redis](/topics/twitter-clone)
-* [Auto complete with Redis](http://autocomplete.redis.io)
 * [Data types short summary](/topics/data-types): A short summary of the different types of values that Redis supports, not as updated and info rich as the first tutorial listed in this section.
 * [FAQ](/topics/faq): Some common questions about Redis.
 
