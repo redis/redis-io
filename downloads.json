@@ -2,7 +2,7 @@
   "channels": {
     "stable": {
       "branch": "4.0",
-      "version": "4.0.5",
+      "version": "4.0.6",
       "notes": "Redis 4.0 was released as GA in July 2017. Contains several big improvements: a modules system, much better replication (PSYNC2), improvements to eviction policies, threaded DEL/FLUSH, mixed RDB+AOF format, Raspberry Pi support as primary platform, the new MEMORY command, Redis Cluster support for Nat/Docker, active memory defragmentation, memory usage and performance improvements, much faster Redis Cluster key creation, many other smaller features and a number of behavior fixed."
     },
 
