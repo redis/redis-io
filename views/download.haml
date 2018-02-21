@@ -29,13 +29,15 @@
 
           .download-links
 
-            - if channel != :unstable
+            - if channel != :unstable && channel != :docker
               %a.download-link(href="https://raw.githubusercontent.com/antirez/redis/#{download[:branch]}/00-RELEASENOTES")
                 %i.fa.fa-file-text-o
                 Release notes
 
             - if channel == :stable
               - download_link = "http://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
+            - elsif channel == :docker
+              - download_link = download[:url]
             - else
               - download_link = "https://github.com/antirez/redis/archive/#{download[:version] || download[:branch]}.tar.gz"
 
