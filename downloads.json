@@ -9,6 +9,11 @@
     "unstable": {
       "branch": "unstable",
       "notes": "This is where all the development happens. Only for hard-core hackers. Use only if you need to test the latest features or performance improvements. This is going to be the next Redis release in a few months."
+    },
+
+    "docker": {
+      "url": "https://hub.docker.com/_/redis/",
+      "notes": "It is possible to get Docker images of Redis from the Docker Hub. Multiple versions are available, usually updated in a short time after a new release is available."
     }
   },
 
