@@ -134,4 +134,4 @@ License, Trademark and Logo
 ---
 
 * Redis is released under the three clause BSD license. You can find [additional information in our license page](/topics/license).
-* The Redis trademark and logos are owned by Salvatore Sanfilippo, please read the [Redis trademark guidelines](/topics/trademark) for our policy about the use of the Redis trademarks and logo.
+* The Redis trademark and logos are owned by Redis Labs Ltd, please read the [Redis trademark guidelines](/topics/trademark) for our policy about the use of the Redis trademarks and logo.
