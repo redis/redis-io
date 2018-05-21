@@ -130,6 +130,9 @@ module Interactive
     "zscore" => [:first],
     "zunionstore" => [:custom],
 
+    # stream
+    "xadd" => [:first],
+
     # string
     "append" => [:first],
     "bitcount" => [:first],
