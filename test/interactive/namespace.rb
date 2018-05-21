@@ -39,5 +39,11 @@ scope do
     expected = %w(sort ns:key by ns:foo by ns:bar get ns:foo get ns:bar store ns:dst limit 0 10 asc)
     assert expected == Interactive.namespace("ns", command)
   end
+
+  test "Namespace GEORADIUS" do
+    command = %w(georadius key 10 20 40 km withcoord store foo storedist bar)
+    expected = %w(georadius ns:key 10 20 40 km withcoord store ns:foo storedist ns:bar)
+    assert expected == Interactive.namespace("ns", command)
+  end
 end
 

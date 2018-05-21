@@ -81,6 +81,25 @@ module Interactive
             end
           end
         end
+      when "georadius","georadiusbymember"
+        tmpargs = args.dup
+
+        # First key with the sorted set
+        if !tmpargs.empty?
+          tmpargs.shift
+          out << :key
+
+          while keyword = tmpargs.shift
+            out << nil
+            if !tmpargs.empty?
+              case keyword.downcase
+              when "store", "storedist"
+                tmpargs.shift
+                out << :key
+              end
+            end
+          end
+        end
       else
         raise "Don't know what to do for \"#{name.downcase}\""
       end
