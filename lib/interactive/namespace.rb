@@ -36,7 +36,7 @@ module Interactive
       end
     when :custom
       case name.downcase
-      when "info", "geoencode"
+      when "info", "geoencode", "ping"
         # Commands without keys
         nil
       when "bitop"
