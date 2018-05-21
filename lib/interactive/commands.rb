@@ -8,7 +8,7 @@ module Interactive
   COMMANDS = {
     # connection
     "echo" => [:zip, [nil]],
-    "ping" => [],
+    "ping" => [:custom],
 
     # generic
     "del" => [:all],
@@ -26,8 +26,10 @@ module Interactive
     "restore" => [:first],
     "scan" => [:custom],
     "sort" => [:custom],
+    "touch" => [:all],
     "ttl" => [:first],
     "type" => [:first],
+    "unlink" => [:all],
     "wait" => [:zip, [nil, nil]],
 
     # geo
@@ -35,8 +37,8 @@ module Interactive
     "geodist" => [:first],
     "geohash" => [:first],
     "geopos" => [:first],
-    "georadius" => [:first],
-    "georadiusbymember" => [:first],
+    "georadius" => [:custom],
+    "georadiusbymember" => [:custom],
 
     # hash
     "hdel" => [:first],
@@ -110,6 +112,8 @@ module Interactive
     "zincrby" => [:first],
     "zinterstore" => [:custom],
     "zlexcount" => [:first],
+    "zpopmax" => [:first],
+    "zpopmin" => [:first],
     "zrange" => [:first],
     "zrangebylex" => [:first],
     "zrangebyscore" => [:first],
@@ -129,6 +133,7 @@ module Interactive
     # string
     "append" => [:first],
     "bitcount" => [:first],
+    "bitfield" => [:first],
     "bitop" => [:custom],
     "bitpos" => [:first],
     "decr" => [:first],

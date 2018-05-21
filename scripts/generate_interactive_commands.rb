@@ -33,6 +33,8 @@ DENY_COMMANDS = %w(
   blpop
   brpop
   brpoplpush
+  bzpopmin
+  bzpopmax
   select
   move
   randomkey
