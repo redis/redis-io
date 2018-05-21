@@ -15,6 +15,7 @@ ALLOW_GROUPS = %w(
   string
   scripting
   geo
+  stream
 ).freeze
 
 # Override ALLOW_GROUPS for some commands.
@@ -43,6 +44,8 @@ DENY_COMMANDS = %w(
   evalsha
   object
   migrate
+  xread
+  xreadgroup
 ).freeze
 
 def allowed_commands
