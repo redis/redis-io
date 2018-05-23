@@ -132,7 +132,9 @@ module Interactive
 
     # stream
     "xadd" => [:first],
+    "xlen" => [:first],
     "xrange" => [:first],
+    "xrevrange" => [:first],
 
     # string
     "append" => [:first],
