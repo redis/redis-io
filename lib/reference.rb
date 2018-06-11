@@ -14,6 +14,7 @@ class Reference
     "server" => "Server",
     "cluster" => "Cluster",
     "geo" => "Geo",
+    "stream" => "Streams",
   }
 
   class Command
