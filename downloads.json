@@ -2,7 +2,7 @@
   "channels": {
     "stable": {
       "branch": "4.0",
-      "version": "4.0.9",
+      "version": "4.0.10",
       "notes": "Redis 4.0 was released as GA in July 2017. Contains several big improvements: a modules system, much better replication (PSYNC2), improvements to eviction policies, threaded DEL/FLUSH, mixed RDB+AOF format, Raspberry Pi support as primary platform, the new MEMORY command, Redis Cluster support for Nat/Docker, active memory defragmentation, memory usage and performance improvements, much faster Redis Cluster key creation, many other smaller features and a number of behavior fixed."
     },
 
@@ -13,7 +13,7 @@
 
      "beta": {
        "branch": "5.0",
-       "version": "5.0-rc1",
+       "version": "5.0-rc2",
        "notes": "Redis 5.0 is the first version of Redis to introduce the new stream data type with consumer groups, sorted sets blocking pop operations, LFU/LRU info in RDB, Cluster manager inside redis-cli, active defragmentation V2, HyperLogLogs improvements and many other smaller improvements."
      },
 
@@ -26,7 +26,7 @@
   "other": {
     "old": {
       "branch": "3.2",
-      "version": "3.2.11",
+      "version": "3.2.12",
       "notes": "Redis 3.2 is the previous stable release. Does not include all the improvements in Redis 4.0 but is a very battle tested release, probably a good pick for critical applications while 4.0 matures more in the next months."
     }
   }
