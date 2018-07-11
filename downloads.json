@@ -27,7 +27,7 @@
     "old": {
       "branch": "3.2",
       "version": "3.2.12",
-      "notes": "Redis 3.2 is the previous stable release. Does not include all the improvements in Redis 4.0 but is a very battle tested release, probably a good pick for critical applications while 4.0 matures more in the next months."
+      "notes": "Redis 3.2 is the previous stable release. Does not include all the improvements in Redis 4.0 but is a very battle tested release, probably a good pick for critical applications."
     }
   }
 }
