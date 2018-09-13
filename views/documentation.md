@@ -46,7 +46,7 @@ Administration
 * [Redis-cli](/topics/rediscli): Learn how to master the Redis command line interface, something you'll be using a lot in order to administer, troubleshoot and experiment with Redis.
 * [Configuration](/topics/config): How to configure redis.
 * [Replication](/topics/replication): What you need to know in order to
-set up master-slave replication.
+set up master-replicas replication.
 * [Persistence](/topics/persistence): Know your options when configuring
 Redis' durability.
 * [Redis Administration](/topics/admin): Selected administration topics.
