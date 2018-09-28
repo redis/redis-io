@@ -18,51 +18,20 @@ Other places where you can find people interested in Redis:
 Local meetups
 ---
 * [San Francisco Redis Meetup Group](https://www.meetup.com/San-Francisco-Redis-Meetup/)
-* [Bangalore Redis Meetup] (https://www.meetup.com/Bangalore-Redis-Meetup/)
+* [Bangalore Redis Meetup](https://www.meetup.com/Bangalore-Redis-Meetup/)
 * [New York REDIS Meetup](https://www.meetup.com/New-York-REDIS-Meetup/)
 * [Silicon Valley Redis Meetup](https://www.meetup.com/sv-redis/)
 * [Redis Tel Aviv Meetup](https://www.meetup.com/Tel-Aviv-Redis-Meetup/)
-* [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
 * [Redis London](https://www.meetup.com/Redis-London/)
 * [Seattle Redis Meetup](https://www.meetup.com/Seattle-Redis/)
 * [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
-* [Redis Buenos Aires](https://www.meetup.com/Redis-Buenos-Aires/)
 * [Redis Singapore](https://www.meetup.com/Redis-SG/)
 * [Atlanta Redis Meetup](https://www.meetup.com/Atlanta-Redis/)
 * [Austin Redis Meetup Group](https://www.meetup.com/Austin-Redis-Meetup/)
 * [Redis Lille](https://www.meetup.com/Redis-Lille/)
 * [Los Angeles Redis Meetup](https://www.meetup.com/la-redis/)
-* [Dallas Redis Meetup](https://www.meetup.com/Dallas-Redis/)
-* [Redis Bordeaux](https://www.meetup.com/Redis-Bordeaux/)
-* [Redis Toulouse](https://www.meetup.com/Redis-Toulouse/)
-* [Redis France](https://www.meetup.com/Redis-France/)
-* [Mumbai Redis Meetup](https://www.meetup.com/Mumbai-Redis-Meetup/)
-* [Redis Lyon](https://www.meetup.com/Redis-Lyon/)
-* [Redis Sydney](https://www.meetup.com/Redisydney/)
 * [Boston Redis Meetup](https://www.meetup.com/Boston-Redis-Meetup/)
-* [Redis Manchester](https://www.meetup.com/Boston-Redis-Meetup/)
-* [Phoenix Redis Meetup](https://www.meetup.com/Phoenix-Redis/)
-* [Redis Madrid](https://www.meetup.com/Redis-Madrid/)
-* [Berlin Redis Meetup](https://www.meetup.com/Berlin-Redis-Meetup/)
-* [DC Redis](https://www.meetup.com/DC-Redis/)
-* [Chicago Redis User Group](https://www.meetup.com/Chicago-Redis-User-Group/)
-* [Barcelona Redis Meetup](https://www.meetup.com/Barcelona-Redis-Meetup/)
-* [Stockholm Redis Meetup](https://www.meetup.com/Stockholm-Redis-Meetup/)
-* [Dublin Redis Meetup](https://www.meetup.com/Dublin-Redis-Meetup/)
-* [Frankfurt Redis Meetup](https://www.meetup.com/Frankfurt-Redis-Meetup/)
-* [Tokyo Redis Meetup](https://www.meetup.com/tokyo-redis/)
-* [Redis Bruxelles](https://www.meetup.com/Redis-Bruxelles/)
-* [Munich Redis Meetup](https://www.meetup.com/Munich-Redis-Meetup/)
-* [Raleigh Redis Meetup](https://www.meetup.com/Raleigh-Redis-Meetup/)
-* [Denver Redis](https://www.meetup.com/Denver-Redis/)
-* [Toronto Redis Meetup](https://www.meetup.com/Denver-Redis/)
-* [Houston Redis Meetup](https://www.meetup.com/Houston-Redis-Meetup/)
-* [Copenhagen Redis Meetup](https://www.meetup.com/Copenhagen-Redis-Meetup/)
-* [Vancouver Redis Meetup](https://www.meetup.com/Vancouver-Redis-Meetup/)
-* [Cape Town Redis Meetup](https://www.meetup.com/Cape-Town-Redis-Meetup/)
-* [Austin Redis Meetup](https://www.meetup.com/meetup-group-ixabojGG/)
-* [San Antonio Redis Meetup](https://www.meetup.com/San-Antonio-Redis-Meetup/)
-
+* [more](https://www.meetup.com/topics/redis/)
 
 Contributing to Redis
 ---
@@ -74,7 +43,7 @@ Would you like to contribute a feature to Redis?
 2. If you get good feedbacks, do the following to submit a patch:
 
     1. Fork [the official repository](http://github.com/antirez/redis).
-    2. Clone your fork: `git clone http://github.com:<your-username>/redis.git`
+    2. Clone your fork: `git clone git@github.com:<your-username>/redis.git`
     3. Make sure tests are passing for you: `make && make test`
     4. Create a topic branch: `git checkout -b new-feature`
     5. Add tests and code for your changes.
