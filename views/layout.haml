@@ -5,6 +5,7 @@
     %meta(charset="utf-8")
     %title= [@title, "Redis"].compact.join(" – ")
     %link(rel="stylesheet" href="/styles.css")
+    %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css")
     %link(rel="shortcut icon" href="/images/favicon.png")
     %link(rel="search" type="application/opensearchdescription+xml" title="Look up a Redis command" href="/opensearch.xml")
     %meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0")
@@ -69,6 +70,10 @@
         %aside.wide-callout
           .container
             <a href="https://redislabs.com/community/redis-day-london-2018/">Join us at Redis Day London</a>: a day of Redis user stories and development updates. <a href="https://www.eventbrite.com/e/redis-day-london-tickets-47448914982">REGISTER FOR FREE</a>.
+      
+      %section#search
+        .container
+          %input.search-bar(placeholder="Search for any command or topic")
 
       = content
 
@@ -86,3 +91,12 @@
 
     %script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
     %script(src="/app.js?#{File.mtime("public/app.js").to_i}")
+    %script(src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js")
+    :javascript
+      docsearch({
+        appId: 'SQLJNQ4TNW',
+        apiKey: '102a9f557f6dbbf7f3cc6755f8f4b7b1',
+        indexName: 'redis',
+        inputSelector: '#search .search-bar',
+        debug: true
+      });

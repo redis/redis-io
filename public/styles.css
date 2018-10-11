@@ -329,3 +329,9 @@ body { width: 100%; height: 100%; }
 .mobile-menu .menu-section-list a { display: block; padding: 10px 20px; }
 .mobile-menu .menu-section-list a:hover { background-color: rgba(255, 255, 255, 0.1); text-decoration: none; }
 .mobile-menu .logo { width: 120px; height: 106px; }
+
+
+#search { margin: 0 auto; background-color: #f0f0f0; width: 100%; font-size: 0.85em; display: block; padding: 10px 0; text-align: center;}
+#search .algolia-autocomplete { width: 600px; margin: 0 auto; }
+#search .search-bar { border-radius: 5px; padding: 5px 5px 6px 5px; width: 100%;}
+#search .search-bar:focus { outline: none; }
