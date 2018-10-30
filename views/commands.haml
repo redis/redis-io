@@ -1,20 +1,4 @@
 %section#commands
-  %nav
-    .container
-      %label
-        %span Filter by group:
-
-        %select.command-reference-filter
-          %option(value="") All
-
-          - Reference::GROUPS.sort_by(&:last).each do |name, description|
-            %option(value="#{name}")= description
-
-      or
-
-      %label
-        %span search for:
-        %input.js-command-reference-search(placeholder="e.g. #{@commands.sample.name}" autofocus)
 
   .container
     %ul
