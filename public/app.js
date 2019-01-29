@@ -188,7 +188,7 @@ Slideout.prototype._initTouchEvents = function() {
    */
   this.panel.addEventListener(touch.move, function(eve) {
 
-    if (scrolling || self._preventOpen) { return; }
+    if (scrolling || self._preventOpen || eve.target.scrollWidth > window.innerWidth) { return; }
 
     var dif_x = eve.touches[0].clientX - self._startOffsetX;
     var translateX = self._currentOffsetX = dif_x;
