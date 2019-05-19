@@ -17,12 +17,21 @@ Other places where you can find people interested in Redis:
 
 Local meetups
 ---
-
-* [London Redis Meetup Group](https://www.meetup.com/Redis-London)
-* [San Francisco Meetup Group](http://sfmeetup.redis.io)
-* [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
-* [#RedisTLV (Tel Aviv Redis) Meetup Group](https://www.meetup.com/Tel-Aviv-Redis-Meetup)
+* [San Francisco Redis Meetup Group](https://www.meetup.com/San-Francisco-Redis-Meetup/)
+* [Bangalore Redis Meetup](https://www.meetup.com/Bangalore-Redis-Meetup/)
+* [New York REDIS Meetup](https://www.meetup.com/New-York-REDIS-Meetup/)
+* [Silicon Valley Redis Meetup](https://www.meetup.com/sv-redis/)
+* [Redis Tel Aviv Meetup](https://www.meetup.com/Tel-Aviv-Redis-Meetup/)
+* [Redis London](https://www.meetup.com/Redis-London/)
+* [Seattle Redis Meetup](https://www.meetup.com/Seattle-Redis/)
 * [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
+* [Redis Singapore](https://www.meetup.com/Redis-SG/)
+* [Atlanta Redis Meetup](https://www.meetup.com/Atlanta-Redis/)
+* [Austin Redis Meetup Group](https://www.meetup.com/Austin-Redis-Meetup/)
+* [Redis Lille](https://www.meetup.com/Redis-Lille/)
+* [Los Angeles Redis Meetup](https://www.meetup.com/la-redis/)
+* [Boston Redis Meetup](https://www.meetup.com/Boston-Redis-Meetup/)
+* [more](https://www.meetup.com/topics/redis/)
 
 Contributing to Redis
 ---
