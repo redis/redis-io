@@ -13,7 +13,7 @@ Other places where you can find people interested in Redis:
 * The [Redis tag on Stack Overflow](http://stackoverflow.com/questions/tagged/redis?sort=newest&pageSize=30).
 * Follow [Redis news feed](http://twitter.com/redisfeed) (very low traffic) and [antirez](http://twitter.com/antirez) (day by day development news) on Twitter.
 * The Redis community uses a Reddit sub for news and certain announcements (that also always go to the ML): [/r/redis sub on Reddit](https://www.reddit.com/r/redis/).
-* Meet people interested in Redis in the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)).
+* Meet people interested in Redis in the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)) or on Gitter chat room ([Redis/Lobby](https://gitter.im/Redis/Lobby)).  
 
 Local meetups
 ---
