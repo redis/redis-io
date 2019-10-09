@@ -63,6 +63,7 @@ Embedded and IoT
 ---
 
 * [Redis on ARM and Raspberry Pi](/topics/ARM): Starting with Redis 4.0 ARM and the Raspberry Pi are officially supported platforms. This page contains general information and benchmarks.
+* [A reference implementation of Redis for IoT and Edge Computing can be found here](https://redislabs.com/redis-enterprise/redis-edge/).
 
 Troubleshooting
 ---
@@ -78,7 +79,13 @@ Redis Cluster
 Other distributed systems based on Redis
 ---
 
+* [Redis CRDTs](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/) an active-active geo-distribution solutions for Redis.
 * [Roshi](https://github.com/soundcloud/roshi) is a large-scale CRDT set implementation for timestamped events based on Redis and implemented in Go. It was initially developed for [the SoundCloud stream](http://developers.soundcloud.com/blog/roshi-a-crdt-system-for-timestamped-events).
+
+Redis on SSD and persistent memory
+---
+
+* [Redis on Flash](https://redislabs.com/redis-enterprise/technology/redis-on-flash/) by Redis Labs extends DRAM capacity with SSD and persistent memory.
 
 Specifications
 ---
