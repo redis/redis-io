@@ -166,7 +166,7 @@ class App < Cuba
   end
 
   def anchorize(str)
-    str.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
+    str.downcase.gsub(/#/, "-sharp").gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
   end
 
   def topic(template)
