@@ -69,6 +69,7 @@ Troubleshooting
 ---
 
 * [Redis problems?](/topics/problems): Bugs? High latency? Other issues? Use [our problems troubleshooting page](/topics/problems) as a starting point to find more information.
+* [Redis debugging guide](/topics/debugging): A quick introduction to debugging the Redis server with GDB.
 
 Redis Cluster
 ---
