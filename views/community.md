@@ -15,9 +15,10 @@ Other places where you can find people interested in Redis:
 * The Redis community uses a Reddit sub for news and certain announcements (that also always go to the ML): [/r/redis sub on Reddit](https://www.reddit.com/r/redis/).
 * Meet people interested in Redis in the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)).
 
-Local meetups
+Conferences and meetups
 ---
 
+* [Redis annual conference 2020](https://events.redislabs.com/redisconf20/)
 * [London Redis Meetup Group](https://www.meetup.com/Redis-London)
 * [San Francisco Meetup Group](http://sfmeetup.redis.io)
 * [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
