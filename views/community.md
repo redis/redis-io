@@ -19,6 +19,8 @@ Conferences and meetups
 ---
 
 * [Redis annual conference 2020](https://events.redislabs.com/redisconf20/)
+* [Redis Day Seattle](https://connect.redislabs.com/redisdayseattle/mktg)
+* [Redis Day Bangalore](https://connect.redislabs.com/redisdaybangalore)
 * [London Redis Meetup Group](https://www.meetup.com/Redis-London)
 * [San Francisco Meetup Group](http://sfmeetup.redis.io)
 * [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
