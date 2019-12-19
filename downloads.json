@@ -11,6 +11,13 @@
        "notes": "Redis 5.0 is the first version of Redis to introduce the new stream data type with consumer groups, sorted sets blocking pop operations, LFU/LRU info in RDB, Cluster manager inside redis-cli, active defragmentation V2, HyperLogLogs improvements and many other improvements. Redis 5 was release as GA in October 2018."
      },
 
+      "beta": {
+        "branch": "6.0",
+        "version": "6.0-rc1",
+        "notes": "Redis 6.0 introduces SSL, the new RESP3 protocol, ACLs, client side caching, diskless replicas, I/O threads, and many more improvements. Currently in release candidate, will be stable between March and May 2020."
+      },
+
+
     "docker": {
       "url": "https://hub.docker.com/_/redis/",
       "notes": "It is possible to get Docker images of Redis from the Docker Hub. Multiple versions are available, usually updated in a short time after a new release is available."
