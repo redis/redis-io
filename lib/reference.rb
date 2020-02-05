@@ -15,7 +15,7 @@ class Reference
     "cluster" => "Cluster",
     "geo" => "Geo",
     "stream" => "Streams",
-    "bit" => "Bitmaps"
+    "bitmap" => "Bitmaps"
   }
 
   class Command
