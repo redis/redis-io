@@ -13,7 +13,7 @@
 
       "beta": {
         "branch": "6.0",
-        "version": "6.0-rc2",
+        "version": "6.0-rc3",
         "notes": "Redis 6.0 introduces SSL, the new RESP3 protocol, ACLs, client side caching, diskless replicas, I/O threads, and many more improvements. Currently in release candidate, will be stable between March and May 2020."
       },
 
