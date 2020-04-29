@@ -17,6 +17,7 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
 * [Redis as an LRU cache](/topics/lru-cache): How to configure and use Redis as a cache with a fixed amount of memory and auto eviction of keys.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
+* [Client side caching](/topics/client-side-caching): Starting with version 6 Redis supports server assisted client side caching. This document describes how to use it.
 * [Mass insertion of data](/topics/mass-insert): How to add a big amount of pre existing or generated data to a Redis instance in a short time.
 * [Partitioning](/topics/partitioning): How to distribute your data among multiple Redis instances.
 * [Distributed locks](/topics/distlock): Implementing a distributed lock manager with Redis.
@@ -51,6 +52,7 @@ set up master-replicas replication.
 Redis' durability.
 * [Redis Administration](/topics/admin): Selected administration topics.
 * [Security](/topics/security): An overview of Redis security.
+* [Redis Access Control Lists](/topics/acl): Starting with version 6 Redis supports ACLs. It is possible to configure users able to run only selected commands and able to access only specific key patterns.
 * [Encryption](/topics/encryption): How to encrypt Redis client-server communication.
 * [Signals Handling](/topics/signals): How Redis handles signals.
 * [Connections Handling](/topics/clients): How Redis handles clients connections.
