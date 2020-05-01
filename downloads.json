@@ -7,7 +7,7 @@
 
     "stable": {
       "branch": "6.0",
-      "version": "6.0.0",
+      "version": "6.0.1",
       "notes": "Redis 6.0 introduces SSL, the new RESP3 protocol, ACLs, client side caching, diskless replicas, I/O threads, faster RDB loading, new modules APIs and many more improvements."
     },
 
