@@ -106,6 +106,10 @@ class Reference
       command["complexity"]
     end
 
+    def aclcats
+      command["aclcats"]
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end
