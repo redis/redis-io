@@ -329,3 +329,123 @@ body { width: 100%; height: 100%; }
 .mobile-menu .menu-section-list a { display: block; padding: 10px 20px; }
 .mobile-menu .menu-section-list a:hover { background-color: rgba(255, 255, 255, 0.1); text-decoration: none; }
 .mobile-menu .logo { width: 120px; height: 106px; }
+
+:root {
+  --dark-color-background: #000;
+  --dark-color-card: #3e3e3e;
+  --dark-color-border: #5e5e5e;
+  --dark-color-text: #a2a2a2;
+  --dark-color-link: #e8e8e8;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .site-wrapper,
+  body {
+      background-color: var(--dark-color-background);
+  }
+
+  .home-section {
+      border-color: var(--dark-color-border);
+  }
+
+  .home-section .title,
+  .home-section p,
+  .home-section h1,
+  .home-section h2,
+  .home-section h3,
+  .home-section li {
+      color: var(--dark-color-text);
+  }
+
+  .home-section a {
+      color: var(--dark-color-link) !important;
+  }
+
+  #commands nav {
+      background-color: var(--dark-color-card);
+      color: var(--dark-color-text);
+  }
+
+  #commands nav select,
+  #commands nav input {
+      background-color: var(--dark-color-card);
+  }
+
+  .text {
+      background-color: var(--dark-color-background);
+      color: var(--dark-color-text);
+  }
+
+  code {
+      background-color: var(--dark-color-card) !important;
+      border: 1px solid var(--dark-color-border) !important;
+  }
+
+  #commands li a {
+      background-color: var(--dark-color-card) !important;
+      border: 1px solid var(--dark-color-border) !important;
+  }
+
+  #commands li a .command,
+  #commands li a .command .args {
+      color: var(--dark-color-link) !important;
+  }
+
+
+  #commands li a .summary {
+      color: var(--dark-color-link);
+  }
+
+  .site-footer {
+      border-color: var(--dark-color-border);
+  }
+
+  .site-footer p {
+      color: var(--dark-color-text);
+  }
+
+  .site-footer p a {
+      color: var(--dark-color-link);
+  }
+
+  .site-content a,
+  article a {
+      color: var(--dark-color--link);
+  }
+
+  .site-content a:hover,
+  article a:hover {
+      color: var(--dark-color--link);
+  }
+
+  article .metadata {
+      background-color: var(--dark-color-card) !important;
+      border-color: var(--dark-color-border) !important;
+  }
+
+  article .metadata p {
+      color: var(--dark-color-text) !important;
+  }
+
+  .download-link:hover {
+      background-color: var(--dark-color-card);
+      border: 1px solid var(--dark-color-border);
+  }
+
+  table td {
+      color: var(--dark-color-text) !important;
+  }
+
+  table td a {
+      color: var(--dark-color-link) !important;
+  }
+
+  i.icon {
+      color: var(--dark-color-text) !important;
+  }
+
+  .icon a {
+      color: var(--dark-color-link) !important;
+  }
+}
