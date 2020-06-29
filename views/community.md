@@ -17,7 +17,9 @@ Other places where you can find people interested in Redis:
 Project governance
 ---
 
-Redis has adopted a light governance model that is intended to be a meritocracy, aiming to empower individuals who demonstrate a long-term commitment and make significant contributions. For more information refer to the [Governance page](/topics/governance)
+Redis has adopted a light governance model that is intended to be a meritocracy, aiming to empower individuals who demonstrate a long-term commitment and make significant contributions.
+
+For more information refer to the [Governance page](/topics/governance).
 
 Conferences and meetups
 ---
