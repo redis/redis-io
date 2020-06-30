@@ -1,7 +1,6 @@
 Community
 ===
 
-
 To get help or provide any feedback, the main channel is the Redis mailing list:
 
 * Join the [mailing list](http://groups.google.com/group/redis-db) (Subscribe via [email](mailto:redis-db+subscribe@googlegroups.com)).
@@ -14,6 +13,13 @@ Other places where you can find people interested in Redis:
 * Follow [Redis news feed](http://twitter.com/redisfeed) (very low traffic) and [antirez](http://twitter.com/antirez) (day by day development news) on Twitter.
 * The Redis community uses a Reddit sub for news and certain announcements (that also always go to the ML): [/r/redis sub on Reddit](https://www.reddit.com/r/redis/).
 * Meet people interested in Redis in the `#redis` channel on Freenode ([web access link](http://webchat.freenode.net/?channels=redis)).
+
+Project governance
+---
+
+Redis has adopted a light governance model that is intended to be a meritocracy, aiming to empower individuals who demonstrate a long-term commitment and make significant contributions.
+
+For more information refer to the [Governance page](/topics/governance).
 
 Conferences and meetups
 ---

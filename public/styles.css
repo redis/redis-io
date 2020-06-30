@@ -164,7 +164,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 @media only screen and (min-width: 992px) { .site-footer { background: url(/images/redis-small.png) no-repeat left top; padding: 0 0 0 50px; max-width: 840px; margin: 5em auto 3em auto; position: relative; border-top-width: 0; }
   .site-footer p { line-height: 34px; margin: 0; }
   .site-footer .sponsor { position: absolute; top: -0.3em; right: 0; }
-  .site-footer .sponsor img { display: block; width: 128px; height: 25px; } }
+  .site-footer .sponsor img { display: block; width: 128px; height: 32px; } }
 .text { *zoom: 1; color: #333333; margin: 0 auto; padding: 20px; }
 .text:before, .text:after { content: ""; display: table; }
 .text:after { clear: both; }
