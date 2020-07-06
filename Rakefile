@@ -14,7 +14,7 @@ end
 
 task :update do
   sh "rm -rf redis-doc"
-  sh "git clone -q --depth 1 git://github.com/antirez/redis-doc.git"
+  sh "git clone -q --depth 1 git://github.com/redis/redis-doc.git"
   sh "rm -rf redis-doc/.git"
 end
 

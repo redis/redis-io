@@ -1,7 +1,7 @@
 TEST_FILES=$(shell find test -name '*.rb')
 
 test:
-	test -x redis-doc || git clone https://github.com/antirez/redis-doc
+	test -x redis-doc || git clone https://github.com/redis/redis-doc
 	cutest $(TEST_FILES)
 
 deploy:

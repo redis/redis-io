@@ -71,7 +71,7 @@ private
   end
 
   def update_redis_versions
-    tags = `git ls-remote -t https://github.com/antirez/redis.git`
+    tags = `git ls-remote -t https://github.com/redis/redis.git`
 
     versions = tags.scan(%r{refs/tags/(v?(?:\d\.?)*\-(?:stable|rc\w+|alpha\w+))}).flatten.uniq
 
