@@ -10,7 +10,7 @@ preferably using a gemset, run:
     gem install dep
     dep install
 
-Now you need to clone the [redis-doc](https://github.com/antirez/redis-doc)
+Now you need to clone the [redis-doc](https://github.com/redis/redis-doc)
 project, and set its path in the `REDIS_DOC` environment variable before starting
 the server or running the tests.
 

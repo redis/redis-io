@@ -1,7 +1,7 @@
 Documentation
 ===
 
-Note: The Redis Documentation is also available in raw (computer friendly) format in the [redis-doc github repository](http://github.com/antirez/redis-doc). The Redis Documentation is released under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
+Note: The Redis Documentation is also available in raw (computer friendly) format in the [redis-doc github repository](http://github.com/redis/redis-doc). The Redis Documentation is released under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Programming with Redis
 ---
@@ -130,9 +130,11 @@ The following books have Redis related content but are not specifically about Re
 Credits
 ---
 
-Redis is maintained and developed by [Salvatore Sanfilippo](http://twitter.com/antirez). In the past [Pieter Noordhuis](http://twitter.com/pnoordhuis) and [Matt Stancliff](https://matt.sh) provided a very significant amount of code and ideas to both the Redis core and client libraries.
+Redis is developed and maintained by the [Redis community](/community).
 
-The full list of Redis contributors can be found in the [Redis contributors page at Github](https://github.com/antirez/redis/graphs/contributors). However there are other forms of contributions such as ideas, testing, and bug reporting. When it is possible, contributions are acknowledged in commit messages. The [mailing list archives](http://groups.google.com/group/redis-db) and the [Github issues page](https://github.com/antirez/redis/issues) are good sources to find people active in the Redis community providing ideas and helping other users.
+The project was created, developed and maintained by [Salvatore Sanfilippo](http://twitter.com/antirez) until [June 30th, 2020](http://antirez.com/news/133). In the past [Pieter Noordhuis](http://twitter.com/pnoordhuis) and [Matt Stancliff](https://matt.sh) provided a very significant amount of code and ideas to both the Redis core and client libraries.
+
+The full list of Redis contributors can be found in the [Redis contributors page at Github](https://github.com/redis/redis/graphs/contributors). However there are other forms of contributions such as ideas, testing, and bug reporting. When it is possible, contributions are acknowledged in commit messages. The [mailing list archives](http://groups.google.com/group/redis-db) and the [Github issues page](https://github.com/redis/redis/issues) are good sources to find people active in the Redis community providing ideas and helping other users.
 
 Sponsors
 ---
