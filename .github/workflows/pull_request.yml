@@ -1,0 +1,23 @@
+name: Test pull request
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker://redis:latest
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - uses: actions/checkout@v2.1.1
+    - name: Install dep gem
+      run: gem install dep
+    - name: Install dependencies
+      run: dep install
+    - name: Install dev dependencies
+      run: dep -f .gems.dev install
+    - name: Run tests
+      run: make test
