@@ -35,7 +35,7 @@
                 Release notes
 
             - if channel == :stable
-              - download_link = "http://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
+              - download_link = "https://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
             - elsif channel == :docker
               - download_link = download[:url]
             - else
@@ -71,7 +71,7 @@
 
         or
 
-        - download_link = "http://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
+        - download_link = "https://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
 
         %a(href="#{download_link}")
           download #{download[:version]}.
@@ -89,10 +89,10 @@
       %strong Scripts and other automatic downloads
       can easily access the tarball of the latest Redis stable version at
       = succeed "." do
-        %a{:href => "http://download.redis.io/redis-stable.tar.gz"} http://download.redis.io/redis-stable.tar.gz
+        %a{:href => "https://download.redis.io/redis-stable.tar.gz"} https://download.redis.io/redis-stable.tar.gz
       The source code of the latest stable release is
       = succeed "," do
-        %a{:href => "http://download.redis.io/redis-stable"} always browsable here
+        %a{:href => "https://download.redis.io/redis-stable"} always browsable here
       use the file
       %strong src/version.h
       in order to extract the version in an automatic way.
@@ -110,7 +110,7 @@
     %pre
       %code
         :preserve
-          $ wget http://download.redis.io/releases/redis-#{STABLE_VERSION}.tar.gz
+          $ wget https://download.redis.io/releases/redis-#{STABLE_VERSION}.tar.gz
           $ tar xzf redis-#{STABLE_VERSION}.tar.gz
           $ cd redis-#{STABLE_VERSION}
           $ make
