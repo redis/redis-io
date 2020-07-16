@@ -90,6 +90,9 @@
       can easily access the tarball of the latest Redis stable version at
       = succeed "." do
         %a{:href => "http://download.redis.io/redis-stable.tar.gz"} http://download.redis.io/redis-stable.tar.gz
+      and its respective SHA256 sum at
+      = succeed "." do
+        %a{:href => "http://download.redis.io/redis-stable.tar.gz.SHA256SUM"} http://download.redis.io/redis-stable.tar.gz.SHA256SUM
       The source code of the latest stable release is
       = succeed "," do
         %a{:href => "http://download.redis.io/redis-stable"} always browsable here
