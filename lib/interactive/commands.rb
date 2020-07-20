@@ -67,6 +67,7 @@ module Interactive
     "linsert" => [:first],
     "llen" => [:first],
     "lpop" => [:first],
+    "lpos" => [:first],
     "lpush" => [:first],
     "lpushx" => [:first],
     "lrange" => [:first],
