@@ -292,4 +292,11 @@ class App < Cuba
   end
 end
 
-Cuba.define { run App }
+Cuba.define { 
+  begin
+    run App
+  rescue Exception => e
+    res.status = 500
+    res.write "I'm sorry, Dave. I'm afraid I can't do that."
+  end
+}
