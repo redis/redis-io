@@ -23,7 +23,6 @@ module Interactive
     "pttl" => [:first],
     "rename" => [:all],
     "renamenx" => [:all],
-    "restore" => [:first],
     "scan" => [:custom],
     "sort" => [:custom],
     "touch" => [:all],

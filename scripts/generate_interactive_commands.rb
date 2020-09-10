@@ -46,6 +46,7 @@ DENY_COMMANDS = %w(
   migrate
   xread
   xreadgroup
+  restore
 ).freeze
 
 def allowed_commands
