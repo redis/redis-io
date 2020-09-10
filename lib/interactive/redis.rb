@@ -19,7 +19,7 @@ module Interactive
     @redis ||=
       begin
         redis = new_redis_connection
-        class << redis.client.connection
+        class << redis._client.connection
           include RedisHacks
         end
         redis

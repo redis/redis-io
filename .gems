@@ -1,4 +1,4 @@
-redis -v 2.2.2
+redis -v 4.2.1 
 cuba -v 3.8.0
 haml -v 4.0.7
 htmlentities -v 4.3.4
