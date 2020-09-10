@@ -191,7 +191,7 @@ module Interactive
       register(arguments)
 
       # Make the call
-      reply = ::Interactive.redis.client.call(namespaced)
+      reply = ::Interactive.redis.call(*namespaced)
 
       case arguments.first.downcase
       when "keys"
