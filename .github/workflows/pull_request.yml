@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: docker run -d -p 6379:6379 redis
-    - uses: ruby/setup-ruby@v1
     - uses: actions/checkout@v2.1.1
+    - uses: ruby/setup-ruby@v1
     - name: Install dep gem
       run: gem install dep
     - name: Install dependencies
