@@ -10,8 +10,6 @@ jobs:
     steps:
     - run: docker run -d -p 6379:6379 redis
     - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
     - uses: actions/checkout@v2.1.1
     - name: Install dep gem
       run: gem install dep
