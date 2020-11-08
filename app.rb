@@ -169,6 +169,11 @@ class App < Cuba
     str.downcase.gsub(/[\s+]/, '-').gsub(/[^[:alnum:]-]/, "")
   end
 
+  def anchorize_language(str)
+    # Addresses languages such as C++ and C#
+    anchorize(str.gsub(/\+/, '-plus').gsub(/#/, '-sharp'))
+  end
+
   def topic(template)
     body = custom_view(template, {}, layout: false)
     title = body[%r{<h1>(.+?)</h1>}, 1] # Nokogiri may be overkill

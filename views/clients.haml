@@ -24,7 +24,7 @@
         %ul
           - @clients_by_language.each do |language, _|
             %li
-              %a(href="##{anchorize(language)}")= language
+              %a(href="##{anchorize_language(language)}")= language
 
       %table
         %col(class="name")
@@ -38,7 +38,7 @@
         - @clients_by_language.each do |language, clients|
           %tr
             %th(colspan="7")
-              %h2(id="#{anchorize(language)}")= language
+              %h2(id="#{anchorize_language(language)}")= language
 
           - clients.sort_by { |c| c["name"].downcase }.each do |client|
             %tr
