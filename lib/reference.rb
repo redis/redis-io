@@ -38,7 +38,9 @@ class Reference
       end
 
       def to_s
-        if argument["multiple"]
+        if argument["block"]
+          res = block(argument)
+        elsif argument["multiple"]
           res = multiple(argument)
         elsif argument["variadic"]
           res = variadic(argument)
@@ -52,6 +54,12 @@ class Reference
       end
 
     private
+
+      def block(argument)
+       argument["block"].map do |entry|
+        Argument.new(entry)
+       end.join(" ")
+      end
 
       def multiple(argument)
         complex(argument) do |part|
