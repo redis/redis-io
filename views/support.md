@@ -4,9 +4,9 @@ Support
 Commercial Support
 ---
 
-[Redis Labs](https://redislabs.com) the official sponsor of open source Redis.
+[Redis Labs](https://redislabs.com) is the official sponsor of open source Redis.
 
-Redis Labs provides commercial Redis support with Redis Enterprise, available as [a fully-managed cloud service](https://redislabs.com/products/redis-cloud/) and an [on-premises software deployment](https://redislabs.com/redis-enterprise/advantages).
+In addition, Redis Labs provides commercial Redis support with Redis Enterprise, available as [a fully-managed cloud service](https://redislabs.com/products/redis-cloud/) and an [on-premises software deployment](https://redislabs.com/redis-enterprise/advantages).
 
 Redis Enterprise simplifies the management of Redis at scale and includes [advanced security](https://redislabs.com/enterprise-grade-redis-security/), [active-active geo distribution](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/), and on-call customer support.
 
