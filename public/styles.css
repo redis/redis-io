@@ -286,8 +286,8 @@ h1.command { margin-bottom: 0.5em; }
 .download-link .fa { font-size: 20px; margin-bottom: 8px; display: block; }
 .download-link:hover { text-decoration: none; background: #fafafa; }
 
-@media only screen and (min-width: 992px) { .download-versions { display: block; width: 102.08333%; margin: 0 -1.04167%; overflow: hidden; *zoom: 1; margin-top: 30px; margin-bottom: 30px; }
-  .download-versions > li { display: inline; float: left; width: 31.25%; margin: 0 1.04167%; margin-bottom: 0; border-bottom-width: 0; padding-bottom: 0; } }
+@media only screen and (min-width: 992px) { .download-versions { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 1rem;} }
+
 body { width: 100%; height: 100%; }
 
 .slideout-menu { position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 0; width: 256px; overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; }
