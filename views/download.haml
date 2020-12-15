@@ -20,7 +20,7 @@
       - DOWNLOADS[:channels].each do |channel, download|
         %li
           %h2
-            = channel.capitalize
+            = download[:name] || channel.capitalize
 
             - if download[:branch] =~ /^\d/
               %span.download-version= "(#{download[:branch]})"
@@ -29,27 +29,27 @@
 
           .download-links
 
-            - if channel != :unstable && channel != :docker
+            - if channel != :unstable && channel != :docker && channel != :cloud
               %a.download-link(href="https://raw.githubusercontent.com/redis/redis/#{download[:branch]}/00-RELEASENOTES")
                 %i.fa.fa-file-text-o
                 Release notes
 
             - if channel == :stable
               - download_link = "https://download.redis.io/releases/redis-#{download[:version]}.tar.gz"
-            - elsif channel == :docker
+            - elsif channel == :docker || channel == :cloud
               - download_link = download[:url]
             - else
               - download_link = "https://github.com/redis/redis/archive/#{download[:version] || download[:branch]}.tar.gz"
 
-            %a.download-link(href="#{download_link}")
-              %i.fa.fa-arrow-circle-o-down
-              Download
-              = download[:version] || download[:branch]
-
-    %p
-      You can also use the
-      %a(href="https://redislabs.com/try-free/") free Redis Cloud
-      service from Redis Labs.
+            - if channel != :cloud
+              %a.download-link(href="#{download_link}")
+                %i.fa.fa-arrow-circle-o-down
+                Download
+                = download[:version] || download[:branch]
+            - else
+              %a.download-link(href="#{download_link}")
+                %i.fa.fa-external-link
+                Launch
 
     %h2 Other versions
 
@@ -83,7 +83,7 @@
 
     Historical downloads are still available on
     = succeed "." do
-      %a(href="https://code.google.com/p/redis/downloads/list?can=1") Google Code
+      %a(href="https://download.redis.io/") https://download.redis.io/
 
     %p
       %strong Scripts and other automatic downloads
