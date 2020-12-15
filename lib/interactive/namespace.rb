@@ -18,9 +18,18 @@ module Interactive
     end.compact
   end
 
+  def self.command_name(args)
+    name = args.shift
+    subcommands = SUBCOMMANDS[name.downcase]
+    if not subcommands.nil?
+      name = name + " " + args.shift(subcommands).join(" ")
+    end
+    return name
+  end
+
   def self.pattern(args)
     args = args.dup
-    name = args.shift
+    name = command_name(args)
     return [] if COMMANDS[name.downcase].nil?
     type, pattern = COMMANDS[name.downcase]
     out = []
@@ -111,7 +120,7 @@ module Interactive
     end
 
     out = args.zip(out).to_a
-    [[name, []], *out]
+    [[name.split(" "), []], *out]
   end
 end
 

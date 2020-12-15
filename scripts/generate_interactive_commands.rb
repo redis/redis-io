@@ -3,6 +3,11 @@
 require "./app"
 require "erb"
 
+# Treat the subcommands of these commands as part of the command.
+SUBCOMMANDS = %w(
+  client
+).freeze
+
 # Explicitly allow certain groups (don't allow "server", "connection" and
 # "pubsub" commands by default).
 ALLOW_GROUPS = %w(
@@ -27,6 +32,7 @@ ALLOW_COMMANDS = %w(
   time
   role
   command
+  client\ info
 ).freeze
 
 # Explicitly deny some commands.
@@ -52,9 +58,12 @@ DENY_COMMANDS = %w(
 def allowed_commands
   @allowed_commands ||= commands.select do |cmd|
     name = cmd.name.split(/\s+/).first.downcase
+    fullname = cmd.name.downcase
 
     !DENY_COMMANDS.include?(name) &&
       (ALLOW_COMMANDS.include?(name) ||
+         (SUBCOMMANDS.include?(name) &&
+          ALLOW_COMMANDS.include?(fullname)) ||
        ALLOW_GROUPS.include?(cmd.group))
   end
 end
@@ -114,9 +123,15 @@ module Interactive
     <%- end %>
   <%- end -%>
   }.freeze
+
+  SUBCOMMANDS = {
+  <%- SUBCOMMANDS.each do |command| -%>
+     "<%= command %>" => 1,
+  <%- end %>
+  }.freeze
 end
 
 TPL
 
-STDOUT.puts ERB.new(template, 0, "%<>-").result(binding)
+STDOUT.puts ERB.new(template, 0, "-").result(binding)
 
