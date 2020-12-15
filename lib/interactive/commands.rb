@@ -12,7 +12,6 @@ module Interactive
     "ping" => [:custom],
 
     # generic
-    "copy" => [:custom],
     "del" => [:all],
     "dump" => [:first],
     "exists" => [:all],
@@ -143,14 +142,9 @@ module Interactive
     "zunionstore" => [:custom],
 
     # stream
-    "xack" => [:first],
     "xadd" => [:first],
-    "xclaim" => [:first],
     "xdel" => [:first],
-    "xgroup" => [:custom],
-    "xinfo" => [:custom],
     "xlen" => [:first],
-    "xpending" => [:first],
     "xrange" => [:first],
     "xrevrange" => [:first],
     "xtrim" => [:first],

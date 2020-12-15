@@ -42,6 +42,7 @@ DENY_COMMANDS = %w(
   brpoplpush
   bzpopmin
   bzpopmax
+  copy
   select
   move
   randomkey
@@ -51,7 +52,12 @@ DENY_COMMANDS = %w(
   object
   migrate
   xread
+  xclaim
   xreadgroup
+  xack
+  xgroup
+  xinfo
+  xpending
   restore
 ).freeze
 
