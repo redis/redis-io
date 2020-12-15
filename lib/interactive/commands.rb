@@ -7,6 +7,7 @@
 module Interactive
   COMMANDS = {
     # connection
+    "client info" => [],
     "echo" => [:zip, [nil]],
     "ping" => [:custom],
 
@@ -38,6 +39,8 @@ module Interactive
     "geopos" => [:first],
     "georadius" => [:custom],
     "georadiusbymember" => [:custom],
+    "geosearch" => [:first],
+    "geosearchstore" => [:custom],
 
     # hash
     "hdel" => [:first],
@@ -62,9 +65,11 @@ module Interactive
     "pfmerge" => [:all],
 
     # list
+    "blmove" => [:zip, [:key, :key, nil, nil, nil]],
     "lindex" => [:first],
     "linsert" => [:first],
     "llen" => [:first],
+    "lmove" => [:zip, [:key, :key, nil, nil]],
     "lpop" => [:first],
     "lpos" => [:first],
     "lpush" => [:first],
@@ -97,6 +102,7 @@ module Interactive
     "sinterstore" => [:all],
     "sismember" => [:first],
     "smembers" => [:first],
+    "smismember" => [:first],
     "smove" => [:zip, [:key, :key, nil]],
     "spop" => [:first],
     "srandmember" => [:first],
@@ -109,9 +115,13 @@ module Interactive
     "zadd" => [:first],
     "zcard" => [:first],
     "zcount" => [:first],
+    "zdiff" => [:custom],
+    "zdiffstore" => [:custom],
     "zincrby" => [:first],
+    "zinter" => [:custom],
     "zinterstore" => [:custom],
     "zlexcount" => [:first],
+    "zmscore" => [:first],
     "zpopmax" => [:first],
     "zpopmin" => [:first],
     "zrange" => [:first],
@@ -128,13 +138,16 @@ module Interactive
     "zrevrank" => [:first],
     "zscan" => [:first],
     "zscore" => [:first],
+    "zunion" => [:custom],
     "zunionstore" => [:custom],
 
     # stream
     "xadd" => [:first],
+    "xdel" => [:first],
     "xlen" => [:first],
     "xrange" => [:first],
     "xrevrange" => [:first],
+    "xtrim" => [:first],
 
     # string
     "append" => [:first],
@@ -160,7 +173,13 @@ module Interactive
     "setex" => [:first],
     "setnx" => [:first],
     "setrange" => [:first],
+    "stralgo" => [:custom],
     "strlen" => [:first],
+
+  }.freeze
+
+  SUBCOMMANDS = {
+     "client" => 1,
 
   }.freeze
 end

@@ -18,9 +18,18 @@ module Interactive
     end.compact
   end
 
+  def self.command_name(args)
+    name = args.shift
+    subcommands = SUBCOMMANDS[name.downcase]
+    if not subcommands.nil?
+      name = name + " " + args.shift(subcommands).join(" ")
+    end
+    return name
+  end
+
   def self.pattern(args)
     args = args.dup
-    name = args.shift
+    name = command_name(args)
     return [] if COMMANDS[name.downcase].nil?
     type, pattern = COMMANDS[name.downcase]
     out = []
@@ -81,6 +90,15 @@ module Interactive
             end
           end
         end
+      when "geosearchstore"
+        out = [:key, :key]
+      when "zdiff", "zinter", "zunion"
+        numkeys = args[0].to_i
+        out[1,numkeys] = numkeys.times.map { :key }
+      when "zdiffstore"
+        numkeys = args[1].to_i
+        out[0] = :key
+        out[2,numkeys] = numkeys.times.map { :key }
       when "georadius","georadiusbymember"
         tmpargs = args.dup
 
@@ -110,8 +128,9 @@ module Interactive
       out[0] = :ns
     end
 
+    cmd = name.split(" ")
     out = args.zip(out).to_a
-    [[name, []], *out]
+    [*cmd, *out]
   end
 end
 
