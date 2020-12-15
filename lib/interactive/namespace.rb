@@ -90,6 +90,15 @@ module Interactive
             end
           end
         end
+      when "geosearchstore"
+        out = [:key, :key]
+      when "zdiff", "zinter", "zunion"
+        numkeys = args[0].to_i
+        out[1,numkeys] = numkeys.times.map { :key }
+      when "zdiffstore"
+        numkeys = args[1].to_i
+        out[0] = :key
+        out[2,numkeys] = numkeys.times.map { :key }
       when "georadius","georadiusbymember"
         tmpargs = args.dup
 
@@ -119,8 +128,9 @@ module Interactive
       out[0] = :ns
     end
 
+    cmd = name.split(" ")
     out = args.zip(out).to_a
-    [[name.split(" "), []], *out]
+    [*cmd, *out]
   end
 end
 
