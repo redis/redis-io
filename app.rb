@@ -41,7 +41,7 @@ private
   end
 
   def new_redis_connection
-    Redis.new(url: ENV["REDISTOGO_URL"])
+    Redis.new(url: ENV["REDISCLOUD_URL"])
   end
 
   def redis

@@ -18,8 +18,15 @@
     },
 
     "docker": {
+      "name": "Docker Hub",
       "url": "https://hub.docker.com/_/redis/",
       "notes": "It is possible to get Docker images of Redis from the Docker Hub. Multiple versions are available, usually updated in a short time after a new release is available."
+    },
+
+    "cloud": {
+      "name": "In the Cloud",
+      "url": "https://redislabs.com/try-free",
+      "notes": "Get a free-for-life Redis instance with Redis Cloud Essentials from Redis Labs, the home of Redis."
     }
   },
 

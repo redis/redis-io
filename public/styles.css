@@ -276,7 +276,7 @@ h1.command { margin-bottom: 0.5em; }
 #buzz li a:first-child img { height: 26px; width: 26px; }
 
 .download-versions { list-style-type: none; margin: 0; padding: 0; }
-.download-versions > li { margin-bottom: 20px; border-bottom: 1px solid #eeeeee; padding-bottom: 20px; }
+.download-versions > li { display: grid; grid-template-rows: min-content 1fr min-content; margin-bottom: 20px; border-bottom: 1px solid #eeeeee; padding-bottom: 20px; }
 
 .download-version { color: #999999; }
 
