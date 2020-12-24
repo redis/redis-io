@@ -185,6 +185,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 .text h1.command { padding-left: 20px; }
 .text h1.command span { display: inline-block; }
 .text h1.command span.name { margin-left: -20px; }
+.text h1.command span.arg { display: inline; }
 .text h1:first-child { margin-top: 0; }
 
 #comments { margin-top: 15px; }
