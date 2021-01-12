@@ -6,8 +6,8 @@ test:
 
 deploy:
 	cd /srv/redis-doc && git pull
-	cd /srv/redis-io  && git pull
-	bash --login -c "cd /srv/redis-io && git stash && REDIS_DOC=/srv/redis-doc /srv/redis-io/scripts/generate_interactive_commands.rb > /srv/redis-io/lib/interactive/commands.rb"
+	cd /srv/redis-io  && git stash && git pull
+	bash -i -c "cd /srv/redis-io && REDIS_DOC=/srv/redis-doc /srv/redis-io/scripts/generate_interactive_commands.rb > /srv/redis-io/lib/interactive/commands.rb"
 	service redis-io-app restart
 
 .PHONY: deploy test
