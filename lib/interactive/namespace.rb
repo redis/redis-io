@@ -99,6 +99,8 @@ module Interactive
         numkeys = args[1].to_i
         out[0] = :key
         out[2,numkeys] = numkeys.times.map { :key }
+      when "zrangestore"
+        out = [:key, :key]
       when "georadius","georadiusbymember"
         tmpargs = args.dup
 
