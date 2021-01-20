@@ -24,7 +24,7 @@ For more information refer to the [Governance page](/topics/governance).
 Conferences and meetups
 ---
 
-* [Redis annual conference 2020](https://events.redislabs.com/redisconf20/)
+* [RedisConf Annual Conference](https://redislabs.com/redisconf)
 * [Redis Day Seattle](https://connect.redislabs.com/redisdayseattle/mktg)
 * [Redis Day Bangalore](https://connect.redislabs.com/redisdaybangalore)
 * [London Redis Meetup Group](https://www.meetup.com/Redis-London)
