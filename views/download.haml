@@ -3,18 +3,9 @@
     %h1 Download
 
     %p
-      Redis uses a standard practice for its versioning:
-      = succeed "." do
-        %strong major.minor.patchlevel
-      An even
-      %strong minor
-      marks a
-      %strong stable
-      release, like 1.2, 2.0, 2.2, 2.4, 2.6,
-      2.8. Odd minors are used for
-      %strong unstable
-      releases, for example 2.9.x releases
-      are the unstable versions of what will be Redis 3.0 once stable.
+      Stable releases liberally follow the usual
+      %strong major.minor.patch
+      semantic versioning schema.
 
     %ul.download-versions
       - DOWNLOADS[:channels].each do |channel, download|
@@ -41,15 +32,19 @@
             - else
               - download_link = "https://github.com/redis/redis/archive/#{download[:version] || download[:branch]}.tar.gz"
 
-            - if channel != :cloud
+            - if channel == :docker
+              %a.download-link(href="#{download_link}")
+                %i.fa.fa-external-link
+                Docker Hub
+            - elsif channel == :cloud
+              %a.download-link(href="#{download_link}")
+                %i.fa.fa-external-link
+                Redis Cloud
+            - else
               %a.download-link(href="#{download_link}")
                 %i.fa.fa-arrow-circle-o-down
                 Download
                 = download[:version] || download[:branch]
-            - else
-              %a.download-link(href="#{download_link}")
-                %i.fa.fa-external-link
-                Launch
 
     %h2 Other versions
 
