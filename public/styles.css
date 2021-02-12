@@ -205,10 +205,12 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 #clients h2 { margin: 2em 0 1em 0; text-align: left; }
 #clients .icon { color: #333333; font-size: 20px; }
 #clients .icon-star { color: #ffe00d; }
+#clients .icon-heart { color: #d42e15; }
 #clients table { table-layout: fixed; }
 #clients table td, #clients table th { padding: 0.8em; border-bottom: 1px solid #efefef; }
 #clients table td.description { color: #666666; font-size: 0.9em; }
 #clients table td.authors { text-align: right; }
+#clients table td.stars { white-space: nowrap; }
 #clients col.homepage, #clients col.recommended, #clients col.active, #clients col.repository { width: 1em; }
 #clients col.authors { width: 120px; }
 #clients .twitter-avatar { width: 36px; height: 36px; }
