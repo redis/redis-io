@@ -71,10 +71,14 @@
             %a(href="/support") Support
             %a.tryfree(href="https://redislabs.com/try-free") Try Free
 
-      - if Date.today < Date.new(2021, 4, 15)
+      - if Date.today < Date.new(2021, 4, 22)
         %aside.wide-callout
           .container
-            Announcing <a href="https://redislabs.com/redisconf">RedisConf 2021</a>, April 20-21
+            Announcing
+            %a(href="https://redislabs.com/redisconf") RedisConf 2021
+            April 20 - 21 and
+            %a(href="https://redislabs.com/hackathon-2021") $100,000 Hackathon
+            April 15 - May 15
 
       = content
 
