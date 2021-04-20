@@ -7,7 +7,7 @@
 
     "stable": {
       "branch": "6.2",
-      "version": "6.2.1",
+      "version": "6.2.2",
       "notes": "Redis 6.2 includes many new commands and improvements, but no big features. It mainly makes Redis more complete and addresses issues that have been requested by many users frequently or for a long time."
     },
 
