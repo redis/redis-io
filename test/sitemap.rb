@@ -24,7 +24,6 @@ scope do
     find(".desktop-header").click_link_or_button "Community"
 
     assert has_css?("a[href='http://groups.google.com/group/redis-db']", text: "mailing list")
-    assert has_content?("#redis")
     assert has_css?("a[href='http://twitter.com/redisfeed']", text: "Redis news feed")
 
     find(".desktop-header").click_link_or_button "Documentation"
