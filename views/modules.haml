@@ -5,20 +5,34 @@
       %h1 Redis Modules
 
       %p
-        This is a list of Redis modules, for Redis v4.0 or greater, ordered by Github stars. This list contains two set of modules: modules under an OSI approved license, and modules that are under some proprietary license. Non OSI modules are clearly flagged as not open source. Also to have the source code hosted at Github is currently mandatory. To add your module here please send a pull request for <a href="https://github.com/redis/redis-doc/blob/master/modules.json">the modules.json file</a> in the <a href="https://github.com/redis/redis-doc">Redis-doc</a> repository. <a href="https://redislabs.com/community/redis-modules-hub/">More information about Redis modules can be found here</a>.
+        This is a list of Redis modules, for Redis v4.0 or greater, ordered by activity and Github stars.
+
+      %p
+        Modules with some activity in their GitHub repository within the last six months are marked with a <i class="fa fa-smile-o icon"></i>.
+
+      %p
+        This list contains two types of modules: modules under an OSI approved license, and modules that are under some proprietary license. Non-OSI modules are clearly flagged as not open source. Also to have the source code hosted at Github is currently mandatory.
+
+      %p
+        To add your module here please send a pull request for <a href="https://github.com/redis/redis-doc/blob/master/modules.json">the modules.json file</a> in the <a href="https://github.com/redis/redis-doc">Redis-doc</a> repository. <a href="https://redislabs.com/community/redis-modules-hub/">More information about Redis modules can be found here</a>.
 
       %table
         %col(class="name")
-        %col(class="license")
-        %col(class="stars")
+        %col(class="active")
         %col(class="repository")
         %col(class="description")
         %col(class="authors")
+        %col(class="license")
+        %col(class="stars")
 
         - @modules.each do |mod|
           %tr
             %td
               = mod["name"]
+
+            %td
+              - if mod["active"]
+                %i(class="fa fa-smile-o icon")
 
             %td
               - if mod["repository"]
@@ -36,6 +50,6 @@
             %td
               = mod["license"]
 
-            %td
+            %td.stars
               #{mod["stars"]}
               %i(class="fa fa-star icon-star")

@@ -5,10 +5,11 @@
       %h1 Clients
 
       %p
-        The recommended client(s) for a language are marked with a <i class="fa fa-star icon icon-star"></i>.
+        The recommended client(s) for a language are marked with a <i class="fa fa-heart icon icon-heart"></i>.
 
       %p
-        Clients with some activity in the official repository within the latest six months are marked with a <i class="fa fa-smile-o icon"></i>.
+        Clients with some activity in their GitHub repository within the last six months are marked with a <i class="fa fa-smile-o icon"></i>.
+
       %p
         Want
         %strong your client listed here?
@@ -32,25 +33,27 @@
         %col(class="recommended")
         %col(class="homepage")
         %col(class="repository")
+        %col(class="stars")
         %col(class="description")
         %col(class="authors")
 
         - @clients_by_language.each do |language, clients|
           %tr
-            %th(colspan="7")
+            %th(colspan="8")
               %h2(id="#{anchorize_language(language)}")= language
 
-          - clients.sort_by { |c| c["name"].downcase }.each do |client|
+          - clients.sort_by { |c| [ c["active"] ? 0 : 1, c["github"] && c["github"]["stars"] ? -c["github"]["stars"] : 0, c["name"].downcase ]}.each do |client|
             %tr
               %td
                 = client["name"]
+
               %td
                 - if client["active"]
                   %i(class="fa fa-smile-o icon")
 
               %td
-                - if client["recommended"]
-                  %i(class="fa fa-star icon icon-star")
+                - if client["recommended"] && client["active"]
+                  %i(class="fa fa-heart icon icon-heart")
 
               %td
                 - if client["url"]
@@ -61,6 +64,11 @@
                 - if client["repository"]
                   %a(href="#{client["repository"]}" class="icon")
                     %i(class="fa fa-code-fork")
+
+              %td.stars
+                - if client["github"] && client["github"]["stars"]
+                  #{client["github"]["stars"]}
+                  %i(class="fa fa-star icon icon-star")
 
               %td.description
                 = client["description"]
@@ -74,9 +82,17 @@
       %h1(style="margin-top:80px") Higher level libraries and tools
 
       %p
-        This is an additional list of libraries that are not direct layers on top of the Redis API, but higher level libraries such as ORMs, messaging libraries, and other misc tools that are designed for Redis.
+        This is an additional list of libraries that are not direct layers on top of the Redis API, but rather higher level libraries such as ORMs, messaging libraries, and other misc tools that are designed for Redis.
 
         %table
+          %col(class="name")
+          %col(class="active")
+          %col(class="homepage")
+          %col(class="repository")
+          %col(class="stars")
+          %col(class="description")
+          %col(class="authors")
+
           - @redis_tools.each do |tool|
             - tool["description"] += " (#{tool['language']})"
             %tr
@@ -84,16 +100,29 @@
                 = tool["name"]
 
               %td
-                - if tool["repository"]
-                  %a(href="#{tool["repository"]}") Repository
+                - if tool["active"]
+                  %i(class="fa fa-smile-o icon")
 
+              %td
                 - if tool["url"]
-                  %a(href="#{tool["url"]}") Homepage
+                  %a(href="#{tool["url"]}" class="icon")
+                    %i(class="fa fa-home")
 
               %td
-                - tool["authors"].each do |author|
-                  %a(href="http://twitter.com/#{author}")= author
+                - if tool["repository"]
+                  %a(href="#{tool["repository"]}" class="icon")
+                    %i(class="fa fa-code-fork")
 
-              %td
+              %td.stars
+                - if tool["github"] && tool["github"]["stars"]
+                  #{tool["github"]["stars"]}
+                  %i(class="fa fa-star icon icon-star")
+
+              %td.description
                 = tool["description"]
 
+              %td.authors
+                - if tool["authors"]
+                  - tool["authors"].each do |author|
+                    %a(href="https://twitter.com/#{author}")
+                      %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
