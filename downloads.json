@@ -7,7 +7,7 @@
 
     "stable": {
       "branch": "6.2",
-      "version": "6.2.4",
+      "version": "6.2.5",
       "notes": "Redis 6.2 includes many new commands and improvements, but no big features. It mainly makes Redis more complete and addresses issues that have been requested by many users frequently or for a long time."
     },
 
@@ -27,13 +27,13 @@
   "other": {
       "old": {
         "branch": "6.0",
-        "version": "6.0.14",
+        "version": "6.0.15",
         "notes": "Redis 6.0 introduces SSL, the new RESP3 protocol, ACLs, client side caching, diskless replicas, I/O threads, faster RDB loading, new modules APIs and many more improvements."
       },
 
      "older": {
        "branch": "5.0",
-       "version": "5.0.12",
+       "version": "5.0.13",
        "notes": "Redis 5.0 is the first version of Redis to introduce the new stream data type with consumer groups, sorted sets blocking pop operations, LFU/LRU info in RDB, Cluster manager inside redis-cli, active defragmentation V2, HyperLogLogs improvements and many other improvements. Redis 5 was release as GA in October 2018."
      }
   }
