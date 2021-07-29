@@ -37,7 +37,7 @@ private
   end
 
   def commands
-    $commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
+    $commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")).sort().to_h)
   end
 
   def new_redis_connection
