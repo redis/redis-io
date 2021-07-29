@@ -18,7 +18,7 @@
 
   .container
     %ul
-      - @commands.each do |command|
+      - @commands.sort{|a, b| a.name <=> b.name}.each do |command|
         %li(data-group="#{command.command["group"]}" data-name="#{command.name.downcase}")
           %a(href="/commands/#{command.to_param}")
             %span.command
