@@ -57,7 +57,7 @@
             %a.home(href="/")
               %img(src="/images/redis-white.png" alt="Redis")
 
-            %a.tryfree(href="https://redislabs.com/try-free") Try Free
+            %a.tryfree(href="https://redis.com/try-free") Try Free
 
           .desktop-header
             %a.home(href="/")
@@ -69,7 +69,7 @@
             %a(href="/download") Download
             %a(href="/modules") Modules
             %a(href="/support") Support
-            %a.tryfree(href="https://redislabs.com/try-free") Try Free
+            %a.tryfree(href="https://redis.com/try-free") Try Free
 
       - if Date.today < Date.new(2021, 4, 22)
         %aside.wide-callout
@@ -86,13 +86,10 @@
         .container
           %p
             This website is
-            <a href="https://github.com/redis/redis-io">open source software</a>.
+            <a href="https://github.com/redis/redis-io">open source software</a>
+            and is sponsored by
+            <a href="https://redis.com">Redis Ltd.</a>
             See all <a href="/topics/sponsors">credits</a>.
-
-          .sponsor
-            Sponsored by
-            %a(href="https://redislabs.com/")
-              %img(src="/images/redislabs.png" alt="Redis Labs" title="Get a Managed Redis")
 
     %script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js")
     %script(src="/app.js?#{File.mtime("public/app.js").to_i}")

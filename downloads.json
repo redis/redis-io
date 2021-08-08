@@ -19,8 +19,8 @@
 
     "cloud": {
       "name": "In the Cloud",
-      "url": "https://redislabs.com/try-free",
-      "notes": "Get a free-for-life Redis instance with Redis Cloud Essentials from Redis Labs, the home of Redis."
+      "url": "https://redis.com/try-free",
+      "notes": "Get a free-for-life Redis instance with Redis Cloud Essentials."
     }
   },
 
