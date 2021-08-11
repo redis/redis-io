@@ -65,7 +65,7 @@ Embedded and IoT
 ---
 
 * [Redis on ARM and Raspberry Pi](/topics/ARM): Starting with Redis 4.0 ARM and the Raspberry Pi are officially supported platforms. This page contains general information and benchmarks.
-* [A reference implementation of Redis for IoT and Edge Computing can be found here](https://redislabs.com/redis-enterprise/redis-edge/).
+* [A reference implementation of Redis for IoT and Edge Computing can be found here](https://redis.com/redis-enterprise/redis-edge/).
 
 Troubleshooting
 ---
@@ -81,13 +81,13 @@ Redis Cluster
 Other distributed systems based on Redis
 ---
 
-* [Redis CRDTs](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/) an active-active geo-distribution solutions for Redis.
+* [Redis CRDTs](https://redis.com/redis-enterprise/technology/active-active-geo-distribution/) an active-active geo-distribution solutions for Redis.
 * [Roshi](https://github.com/soundcloud/roshi) is a large-scale CRDT set implementation for timestamped events based on Redis and implemented in Go. It was initially developed for [the SoundCloud stream](http://developers.soundcloud.com/blog/roshi-a-crdt-system-for-timestamped-events).
 
 Redis on SSD and persistent memory
 ---
 
-* [Redis on Flash](https://redislabs.com/redis-enterprise/technology/redis-on-flash/) by Redis Labs extends DRAM capacity with SSD and persistent memory.
+* [Redis on Flash](https://redis.com/redis-enterprise/technology/redis-on-flash/) by Redis Ltd. extends DRAM capacity with SSD and persistent memory.
 
 Specifications
 ---
@@ -139,10 +139,10 @@ The full list of Redis contributors can be found in the [Redis contributors page
 Sponsors
 ---
 
-The work [Salvatore Sanfilippo](http://antirez.com) does in order to develop Redis is sponsored by [Redis Labs](http://redislabs.com). Other sponsors and past sponsors of the Redis project are listed in the [Sponsors page](/topics/sponsors).
+The work [Salvatore Sanfilippo](http://antirez.com) does in order to develop Redis is sponsored by [Redis Ltd.](http://redis.com) Other sponsors and past sponsors of the Redis project are listed in the [Sponsors page](/topics/sponsors).
 
 License, Trademark and Logo
 ---
 
 * Redis is released under the three clause BSD license. You can find [additional information in our license page](/topics/license).
-* The Redis trademark and logos are owned by Redis Labs Ltd, please read the [Redis trademark guidelines](/topics/trademark) for our policy about the use of the Redis trademarks and logo.
+* The Redis trademark and logos are owned by Redis Ltd., please read the [Redis trademark guidelines](/topics/trademark) for our policy about the use of the Redis trademarks and logo.
