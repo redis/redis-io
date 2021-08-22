@@ -29,7 +29,7 @@ scope do
   test "Command page with complex arguments" do
     visit "/commands"
 
-    click_link_or_button "SORT"
+    click_link(href: /\/sort$/)
 
     within "h1" do
       assert has_content?("[BY pattern]")
