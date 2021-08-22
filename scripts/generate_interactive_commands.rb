@@ -21,6 +21,7 @@ ALLOW_GROUPS = %w(
   scripting
   geo
   stream
+  bitmap
 ).freeze
 
 # Override ALLOW_GROUPS for some commands.
