@@ -130,6 +130,18 @@
           OK
           redis&gt; get foo
           &quot;bar&quot;
+    %h3 From the official Debian/Ubuntu APT Repository [Beta]
+    %p
+      You can install recent stable versions of Redis from the official
+      <code>packages.redis.io</code> APT repository. Add the repository to the
+      <code>apt</code> index, update it and install:
+    %pre
+      %code
+        :preserve
+          $ curl https://packages.redis.io/gpg | sudo apt-key add -
+          $ echo "deb https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+          $ sudo apt-get update
+          $ sudo apt-get install redis
     %h3 From the official Ubuntu PPA
     %p
       You can install the latest stable version of Redis from the
