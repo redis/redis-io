@@ -58,9 +58,13 @@ Redis' durability.
 * [Signals Handling](/topics/signals): How Redis handles signals.
 * [Connections Handling](/topics/clients): How Redis handles clients connections.
 * [High Availability](/topics/sentinel): Redis Sentinel is the official high availability solution for Redis.
+* [Redis Releases](/topics/releases): Redis development cycle and version numbering.
+
+Performance
+---
 * [Latency monitoring](/topics/latency-monitor): Redis integrated latency monitoring and reporting capabilities are helpful to tune Redis instances for low latency workloads.
 * [Benchmarks](/topics/benchmarks): See how fast Redis is in different platforms.
-* [Redis Releases](/topics/releases): Redis development cycle and version numbering.
+* [Redis on-CPU profiling and tracing](/topics/performance-on-cpu): See how to perform on-CPU resource bottlenecks analysis in Redis.
 
 Embedded and IoT
 ---
