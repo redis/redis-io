@@ -212,7 +212,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 #clients .languages { list-style-type: none; margin: 1.5em 0 0 0; padding: 1.5em 0 0 0; border-top: 1px solid #efefef; }
 #clients .languages li { display: inline-block; width: 7em; margin: 0.3em; }
 
-article { overflow: hidden; *zoom: 1; }
+article { *zoom: 1; }
 article p, article ul { margin: 7px 0; }
 article ul { list-style-type: disc; padding-left: 25px; }
 article ol { list-style-type: decimal; }
@@ -229,7 +229,7 @@ article table tr:last-child td { border-bottom-width: 0; }
 article table tr.current { background-color: #feffe8; }
 article table.versions td:first-child { font-size: 22px; line-height: 22px; }
 
-@media only screen and (min-width: 992px) { article { display: block; width: 102.08333%; margin: 0 -1.04167%; overflow: hidden; *zoom: 1; }
+@media only screen and (min-width: 992px) { article { display: block; width: 102.08333%; margin: 0 -1.04167%; *zoom: 1; }
   .article-main { display: inline; float: left; width: 64.58333%; margin: 0 1.04167%; }
   .article-aside { display: inline; float: left; width: 31.25%; margin: 0 1.04167%; }
   aside { border-left: 1px solid #dfdfdf; margin: 0 0 15px 20px; padding: 0 0 0 20px; } }
