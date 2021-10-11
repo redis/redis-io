@@ -135,9 +135,9 @@ body, textarea { font: 16px/1.6 "Open Sans", Helvetica, sans-serif; }
 .anchor { display: block; position: relative; z-index: -1; top: -45px; }
 
 h1, h2, h3 { position: relative; z-index: 1; }
-h1 a.anchor-link, h2 a.anchor-link, h3 a.anchor-link { opacity: 0; font-family: monospace; font-size: 25px; height: 1em; left: 0; margin-left: 30px; margin-top: 4px; padding-left: 30px; padding-right: 8px; position: absolute; text-align: center; text-decoration: none; width: 1em; }
-h1:hover a.anchor-link, h2:hover a.anchor-link, h3:hover a.anchor-link { color: #888888; opacity: 1; margin-left: -30px; padding-left: 8px; }
-h1:hover a.anchor-link:hover, h2:hover a.anchor-link:hover, h3:hover a.anchor-link:hover { color: black; }
+h2 a.anchor-link { opacity: 0; font-family: monospace; font-size: 25px; height: 1em; left: 0; margin-left: 30px; margin-top: 4px; padding-left: 30px; padding-right: 8px; position: absolute; text-align: center; text-decoration: none; width: 1em; }
+h2:hover a.anchor-link { color: #888888; opacity: 1; margin-left: -30px; padding-left: 8px; }
+h2:hover a.anchor-link:hover { color: black; }
 
 h1 { font-size: 24px; margin: 18px 0 2px 0; }
 
