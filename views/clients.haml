@@ -9,6 +9,7 @@
 
       %p
         Clients with some activity in the official repository within the latest six months are marked with a <i class="fa fa-smile-o icon"></i>.
+
       %p
         Want
         %strong your client listed here?
@@ -40,7 +41,7 @@
             %th(colspan="7")
               %h2(id="#{anchorize_language(language)}")= language
 
-          - clients.sort_by { |c| c["name"].downcase }.each do |client|
+          - clients.sort_by { |c| [c["active"] ? 0 : 1, c["recommended"] ? 0 : 1, c["name"].downcase] }.each do |client|
             %tr
               %td
                 = client["name"]
@@ -69,7 +70,7 @@
                 - if client["authors"]
                   - client["authors"].each do |author|
                     %a(href="https://twitter.com/#{author}")
-                      %img(src="//twitter-avatars.herokuapp.com/avatar/#{author}" alt="#{author}" class="twitter-avatar")
+                      = "@#{author} "
 
       %h1(style="margin-top:80px") Higher level libraries and tools
 
