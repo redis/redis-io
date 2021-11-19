@@ -34,6 +34,13 @@
                 %li
                   %a(href="#{url}")= name
 
+          - unless @command.aclcats.empty?
+            %h2 ACL categories
+
+            %ul
+              - @command.aclcats.each do |category|
+                %li #{category}
+
           %h2
             Related commands
 
