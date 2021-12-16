@@ -56,6 +56,9 @@ class Reference
         end
 
         token = argument["token"]
+        if token == ""
+          token = "\"\""
+        end
         if multiple_token?
           res = "#{res} [#{token} #{res} ...]"
         elsif multiple?
