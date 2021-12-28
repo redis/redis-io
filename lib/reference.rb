@@ -113,6 +113,18 @@ class Reference
       command["complexity"]
     end
 
+    def deprecated_since
+      command["deprecated_since"]
+    end
+
+    def replaced_by
+      command["replaced_by"]
+    end
+
+    def history
+      command["history"]
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end
