@@ -43,10 +43,10 @@ scope do
   test "Commands with spaces" do
     visit "/commands"
 
-    click_link_or_button "DEBUG OBJECT"
+    click_link_or_button "OBJECT ENCODING"
 
-    assert has_title?("DEBUG OBJECT")
-    assert has_css?("h1", text: "DEBUG OBJECT")
+    assert has_title?("OBJECT ENCODING")
+    assert has_css?("h1", text: "OBJECT ENCODING")
   end
 
   test "Missing command" do

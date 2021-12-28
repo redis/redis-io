@@ -15,7 +15,9 @@ class Reference
     "cluster" => "Cluster",
     "geo" => "Geo",
     "stream" => "Streams",
-    "bitmap" => "Bitmaps"
+    "bitmap" => "Bitmaps",
+    "cluster" => "Cluster",
+    "sentinel" => "Sentinel"
   }
 
   class Command
@@ -27,7 +29,7 @@ class Reference
       end
 
       def type
-        [argument["type"]].flatten
+        argument["type"]
       end
 
       def optional?
@@ -38,55 +40,51 @@ class Reference
         argument["multiple"] || false
       end
 
+      def multiple_token?
+        argument["multiple_token"] || false
+      end
+
       def to_s
-        if argument["block"]
+        if type == "block"
           res = block(argument)
-        elsif argument["multiple"]
-          res = multiple(argument)
-        elsif argument["variadic"]
-          res = variadic(argument)
-        elsif argument["enum"]
-          res = enum(argument)
+        elsif type == "oneof"
+          res = oneof(argument)
+        elsif type != "pure-token"
+          res = argument["name"]
         else
-          res = simple(argument)
+          res = ""
         end
 
-        argument["optional"] ? "[#{res}]" : res
+        token = argument["token"]
+        if token == ""
+          token = "\"\""
+        end
+        if multiple_token?
+          res = "#{res} [#{token} #{res} ...]"
+        elsif multiple?
+          res = "#{res} [#{res} ...]"
+        end
+
+        if token
+          res = "#{token} #{res}"
+          res = res.strip! || res
+        end
+
+        optional? ? "[#{res}]" : res
       end
 
     private
 
       def block(argument)
-       argument["block"].map do |entry|
-        Argument.new(entry)
-       end.join(" ")
-      end
-
-      def multiple(argument)
-        complex(argument) do |part|
-          part.unshift(argument["command"]) if argument["command"]
-        end
-      end
-
-      def variadic(argument)
-        [argument["command"], complex(argument)].join(" ")
-      end
-
-      def complex(argument)
-        2.times.map do |i|
-          part = Array(argument["name"])
-          yield(part) if block_given?
-          part = part.join(" ")
-          i == 0 ? part : "[" + part + " ...]"
+        argument["arguments"].map do |entry|
+          Argument.new(entry)
         end.join(" ")
       end
 
-      def simple(argument)
-        [argument["command"], argument["name"]].compact.flatten.join(" ")
-      end
-
-      def enum(argument)
-        [argument["command"], argument["enum"].join("|")].compact.join(" ")
+      def oneof(argument)
+        argument["arguments"].map do |entry|
+          Argument.new(entry)
+        end.join("|")
       end
     end
 
