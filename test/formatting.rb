@@ -8,9 +8,9 @@ setup do
   reference
 end
 
-test "DEBUG OBJECT" do |reference|
-  res = "DEBUG OBJECT key"
-  assert_equal reference["DEBUG OBJECT"].to_s, res
+test "OBJECT ENCODING" do |reference|
+  res = "OBJECT ENCODING key"
+  assert_equal reference["OBJECT ENCODING"].to_s, res
 end
 
 test "DEL" do |reference|
