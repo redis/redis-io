@@ -19,13 +19,14 @@
   .container
     %ul
       - @commands.each do |command|
-        %li(data-group="#{command.command["group"]}" data-name="#{command.name.downcase}")
-          %a(href="/commands/#{command.to_param}")
-            %span.command
-              = command.name
+        - if command.is_listed?
+          %li(data-group="#{command.command["group"]}" data-name="#{command.name.downcase}")
+            %a(href="/commands/#{command.to_param}")
+              %span.command
+                = command.name
 
-              %span.args
-                - command.arguments.each do |argument|
-                  = argument
+                %span.args
+                  - command.arguments.each do |argument|
+                    = argument
 
-            %span.summary= command.command["summary"]
+              %span.summary= command.command["summary"]

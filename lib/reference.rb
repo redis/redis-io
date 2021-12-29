@@ -125,6 +125,18 @@ class Reference
       command["history"]
     end
 
+    def is_helpsubcommand?
+      name.downcase.end_with?(" help")
+    end
+
+    def is_purecontainer?
+      command["arity"] == -2 && !command["arguments"]
+    end
+
+    def is_listed?
+      !is_purecontainer? && !is_helpsubcommand?
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end
