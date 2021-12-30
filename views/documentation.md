@@ -10,7 +10,7 @@ Programming with Redis
 * [Pipelining](/topics/pipelining): Learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
-* [Redis Lua scripting](/commands/eval): Redis Lua scripting feature documentation.
+* [Redis Programability](/topics/programability): Redis programability introduction.
 * [Debugging Lua scripts](/topics/ldb): Redis 3.2 introduces a native Lua debugger for Redis scripts.
 * [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
