@@ -172,6 +172,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 .text sup { line-height: 100%; vertical-align: super; font-size: 70%; }
 .text pre code, .text .example { display: inline-block; padding: 15px; border: 1px solid #eeeeee; margin: 10px 0; background-color: #fefefe; }
 .text .metadata { border-left: 3px solid #dfdfdf; color: #666666; font-size: 0.9em; margin: 0 0 1.5em 0; padding: 5px 15px; background: #fcfcfc; }
+.text .deprecation { border-left: 3px solid #d42e15; color: #333333; font-size: 0.9em; margin: 0 0 1.5em 0; padding: 5px 15px; background: #fcfcfc; }
 .text .example { max-height: 400px; max-width: 390px; overflow: auto; }
 .text .example .monospace, .text .example pre, .text .example input { margin: 0; padding: 0; line-height: 20px; font-size: 12px; font-family: Menlo, monospace; }
 .text .example pre { clear: both; }

@@ -66,7 +66,7 @@ private
 
   def related_commands_for(group)
     commands.select do |command|
-      command.group == group
+      command.group == group && command.is_listed?
     end.sort_by(&:name)
   end
 

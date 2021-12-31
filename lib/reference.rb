@@ -113,6 +113,30 @@ class Reference
       command["complexity"]
     end
 
+    def deprecated_since
+      command["deprecated_since"]
+    end
+
+    def replaced_by
+      command["replaced_by"]
+    end
+
+    def history
+      command["history"]
+    end
+
+    def is_helpsubcommand?
+      name.downcase.end_with?(" help")
+    end
+
+    def is_purecontainer?
+      command["arity"] == -2 && !command["arguments"]
+    end
+
+    def is_listed?
+      !is_purecontainer? && !is_helpsubcommand?
+    end
+
     def to_param
       name.downcase.gsub(" ", "-")
     end

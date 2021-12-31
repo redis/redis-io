@@ -21,7 +21,23 @@
           - if @command.complexity
             %p <strong>Time complexity:</strong> #{@command.complexity}
 
+        - if @command.deprecated_since
+          %div.deprecation
+            %p
+              <strong>Deprecation notice:</strong>
+              as of Redis version #{@command.deprecated_since} this command is
+              considered as deprecated. While it is unlikely that it will be
+              completely removed, prefer using #{@command.replaced_by} in its
+              stead.
+
         ~ custom_view("#{documentation_path}/commands/#{@name.downcase}.md", {}, layout: false)
+
+        - if @command.history
+          %h2 History
+          %ul
+            - @command.history.each do |entry|
+              %li
+                Redis version >= #{entry[0]}: #{entry[1]}
 
       .article-aside
         %aside
