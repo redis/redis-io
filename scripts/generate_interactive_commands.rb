@@ -15,7 +15,7 @@ ALLOW_GROUPS = %w(
   hash
   list
   set
-  sorted_set
+  sorted-set
   hyperloglog
   string
   scripting
