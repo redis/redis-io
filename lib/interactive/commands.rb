@@ -111,7 +111,7 @@ module Interactive
     "sunion" => [:all],
     "sunionstore" => [:all],
 
-    # sorted_set
+    # sorted-set
     "zadd" => [:first],
     "zcard" => [:first],
     "zcount" => [:first],
