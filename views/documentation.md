@@ -86,9 +86,9 @@ Redis Cluster
 Command runtime introspection
 ---
 
-* [Command arguments](/topics/command-arguments): an overview of command arguments as returned by the `COMMAND DOCS` command.
 * [Command key specifications](/topics/key-specifications): as of Redis 7.0, the server reports how to extract the names of keys accessed by every command.
-* [Command tips](/topics/command-tips): tips communicate special execution modes and post-processing information about commands.
+* [Command tips](/topics/command-tips): tips communicate non-trivial execution modes and post-processing information about commands.
+* [Command arguments](/topics/command-arguments): an overview of command arguments as returned by the `COMMAND DOCS` command.
 
 Other distributed systems based on Redis
 ---
