@@ -25,7 +25,7 @@ Redis uses RAM and learn some tricks to use less of it.
 Redis programmability
 ---
 
-* [Redis Programability](/topics/programability): An overview of programmability in Redis.
+* [Redis Programability](/topics/programmability): An overview of programmability in Redis.
 * [Redis Lua API](/topics/lua-api): Reference about the embedded [Lua 5.1](https://lua.org) interepreter runtime environment and APIs.
 * [Introduction to Eval Scripts](/topics/eval-intro): An introduction about using cached scripts.
 * [Introduction to Redis Functions](/topics/functions-intro): An introduction about using functions.
