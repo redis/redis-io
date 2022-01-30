@@ -10,8 +10,6 @@ Programming with Redis
 * [Pipelining](/topics/pipelining): Learn how to send multiple commands
 at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
-* [Redis Lua scripting](/commands/eval): Redis Lua scripting feature documentation.
-* [Debugging Lua scripts](/topics/ldb): Redis 3.2 introduces a native Lua debugger for Redis scripts.
 * [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
 * [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
@@ -23,6 +21,15 @@ Redis uses RAM and learn some tricks to use less of it.
 * [Distributed locks](/topics/distlock): Implementing a distributed lock manager with Redis.
 * [Redis keyspace notifications](/topics/notifications): Get notifications of keyspace events via Pub/Sub (Redis 2.8 or greater).
 * [Creating secondary indexes with Redis](/topics/indexes): Use Redis data structures to create secondary indexes, composed indexes and traverse graphs.
+
+Redis programmability
+---
+
+* [Redis Programability](/topics/programmability): An overview of programmability in Redis.
+* [Redis Lua API](/topics/lua-api): Reference about the embedded [Lua 5.1](https://lua.org) interepreter runtime environment and APIs.
+* [Introduction to Eval Scripts](/topics/eval-intro): An introduction about using cached scripts.
+* [Introduction to Redis Functions](/topics/functions-intro): An introduction about using functions.
+* [Debugging Lua scripts](/topics/ldb): An overveiw of the native Redis Lua debugger for cached scripts.
 
 Redis modules API
 ---
