@@ -41,11 +41,11 @@ Would you like to contribute a feature to Redis?
 
 1. Drop a message to the [mailing list](http://groups.google.com/group/redis-db) with your proposal. Make sure you explain what the use case is and how the API would look like.
 
-2. If you get good feedbacks, do the following to submit a patch:
+2. If you get good feedback, do the following to submit a patch:
 
     1. Fork [the official repository](http://github.com/redis/redis).
     2. Clone your fork: `git clone git@github.com:<your-username>/redis.git`
-    3. Make sure tests are passing for you: `make && make test`
+    3. Make sure tests pass: `make && make test`
     4. Create a topic branch: `git checkout -b new-feature`
     5. Add tests and code for your changes.
     6. Once you're done, make sure all tests still pass: `make && make test`
