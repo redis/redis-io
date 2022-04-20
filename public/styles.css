@@ -126,7 +126,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 td, th { padding: 0; }
 
-body { width: 100%; *zoom: 1; }
+body { width: 100%; }
 body:before, body:after { content: ""; display: table; }
 body:after { clear: both; }
 
@@ -135,9 +135,9 @@ body, textarea { font: 16px/1.6 "Open Sans", Helvetica, sans-serif; }
 .anchor { display: block; position: relative; z-index: -1; top: -45px; }
 
 h1, h2, h3 { position: relative; z-index: 1; }
-h1 a.anchor-link, h2 a.anchor-link, h3 a.anchor-link { display: none; font-family: monospace; font-size: 25px; height: 1em; left: 0; margin-left: 30px; margin-top: 4px; padding-left: 30px; padding-right: 8px; position: absolute; text-align: center; text-decoration: none; width: 1em; }
-h1:hover a.anchor-link, h2:hover a.anchor-link, h3:hover a.anchor-link { color: #888888; display: block; margin-left: -30px; padding-left: 8px; }
-h1:hover a.anchor-link:hover, h2:hover a.anchor-link:hover, h3:hover a.anchor-link:hover { color: black; }
+h2 a.anchor-link { opacity: 0; font-family: monospace; font-size: 25px; height: 1em; left: 0; margin-left: 30px; margin-top: 3px; padding-left: 30px; padding-right: 8px; position: absolute; text-align: center; text-decoration: none; width: 1em; }
+h2:hover a.anchor-link { color: #888888; opacity: 1; margin-left: -30px; padding-left: 8px; }
+h2:hover a.anchor-link:hover { color: black; }
 
 h1 { font-size: 24px; margin: 18px 0 2px 0; }
 
@@ -162,7 +162,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 
 @media only screen and (min-width: 992px) { .site-footer { background: url(/images/redis-small.png) no-repeat left top; padding: 0 0 0 50px; max-width: 840px; margin: 5em auto 3em auto; position: relative; border-top-width: 0; }
   .site-footer p { line-height: 34px; margin: 0; } }
-.text { *zoom: 1; color: #333333; margin: 0 auto; padding: 20px; }
+.text { color: #333333; margin: 0 auto; padding: 20px; }
 .text:before, .text:after { content: ""; display: table; }
 .text:after { clear: both; }
 .text aside { position: relative; z-index: 2; }
@@ -196,7 +196,7 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 .home-callout { max-width: 100%; }
 .home-callout .title { font-size: 20px; }
 
-@media only screen and (min-width: 992px) { .home-intro { display: block; width: 102.08333%; margin: 0 -1.04167%; *zoom: 1; }
+@media only screen and (min-width: 992px) { .home-intro { display: block; width: 102.08333%; margin: 0 -1.04167%; }
   .home-intro:before, .home-intro:after { content: ""; display: table; }
   .home-intro:after { clear: both; }
   .home-intro > section { display: inline; float: left; width: 31.25%; margin: 0 1.04167%; } }
@@ -213,7 +213,6 @@ body { background-color: white; color: #333333; padding: 0; margin: 0; }
 #clients .languages { list-style-type: none; margin: 1.5em 0 0 0; padding: 1.5em 0 0 0; border-top: 1px solid #efefef; }
 #clients .languages li { display: inline-block; width: 7em; margin: 0.3em; }
 
-article { overflow: hidden; *zoom: 1; }
 article p, article ul { margin: 7px 0; }
 article ul { list-style-type: disc; padding-left: 25px; }
 article ol { list-style-type: decimal; }
@@ -230,7 +229,7 @@ article table tr:last-child td { border-bottom-width: 0; }
 article table tr.current { background-color: #feffe8; }
 article table.versions td:first-child { font-size: 22px; line-height: 22px; }
 
-@media only screen and (min-width: 992px) { article { display: block; width: 102.08333%; margin: 0 -1.04167%; overflow: hidden; *zoom: 1; }
+@media only screen and (min-width: 992px) { article { display: block; width: 102.08333%; margin: 0 -1.04167%; }
   .article-main { display: inline; float: left; width: 64.58333%; margin: 0 1.04167%; }
   .article-aside { display: inline; float: left; width: 31.25%; margin: 0 1.04167%; }
   aside { border-left: 1px solid #dfdfdf; margin: 0 0 15px 20px; padding: 0 0 0 20px; } }
@@ -239,7 +238,7 @@ body.topics.whos-using-redis ul:first-of-type li { margin: 10px 10px; padding: 0
 body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; max-width: 200px; max-height: 76px; }
 
 #commands { text-align: center; }
-#commands ul { overflow: hidden; *zoom: 1; margin: 1em 0; text-align: left; padding: 0; }
+#commands ul { overflow: hidden; margin: 1em 0; text-align: left; padding: 0; }
 #commands li { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 #commands li a { display: block; padding: 1em; color: #333333; text-decoration: none; }
 #commands li a:hover, #commands li a:focus { color: #333333; background: #ecf7fa; }
@@ -297,7 +296,7 @@ body { width: 100%; height: 100%; }
 
 .slideout-open .slideout-menu { display: block; }
 
-.site-header { overflow: hidden; *zoom: 1; background-color: #222222; padding: 0; width: 100%; }
+.site-header { overflow: hidden; background-color: #222222; padding: 0; width: 100%; }
 
 .desktop-header { padding: 0.7em 0; white-space: nowrap; overflow: hidden; }
 .desktop-header .home { margin-right: 0.8em; }
