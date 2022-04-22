@@ -12,7 +12,7 @@ at once, saving on round trip time.
 * [Redis Pub/Sub](topics/pubsub): Redis is a fast and stable Publish/Subscribe messaging system! Check it out.
 * [Memory optimization](/topics/memory-optimization): Understand how
 Redis uses RAM and learn some tricks to use less of it.
-* [Expires](/commands/expire): Redis allows to set a time to live different for every key so that the key will be automatically removed from the server when it expires.
+* [Expires](/commands/expire): Redis allows setting a different time to live for every key so that the key will be automatically removed from the server when it expires.
 * [Redis as an LRU cache](/topics/lru-cache): How to configure and use Redis as a cache with a fixed amount of memory and auto eviction of keys.
 * [Redis transactions](/topics/transactions): It is possible to group commands together so that they are executed as a single transaction.
 * [Client side caching](/topics/client-side-caching): Starting with version 6 Redis supports server assisted client side caching. This document describes how to use it.
@@ -35,7 +35,7 @@ Redis modules API
 ---
 
 * [Introduction to Redis modules](/topics/modules-intro). A good place to start learing about Redis 4.0 modules programming.
-* [Implementing native data types](/topics/modules-native-types). Modules scan implement new data types (data structures and more) that look like built-in data types. This documentation covers the API to do so.
+* [Implementing native data types](/topics/modules-native-types). Modules can implement new data types (data structures and more) that look like built-in data types. This documentation covers the API to do so.
 * [Blocking operations](topics/modules-blocking-ops)  with modules. This is still an experimental API, but a very powerful one to write commands that can block the client (without blocking Redis) and can execute tasks in other threads.
 * [Redis modules API reference](topics/modules-api-ref). Directly generated from the top comments in the source code inside `src/module.c`. Contains many low level details about API usage.
 
