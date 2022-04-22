@@ -44,7 +44,14 @@
           - clients.sort_by { |c| [c["active"] ? 0 : 1, c["recommended"] ? 0 : 1, c["name"].downcase] }.each do |client|
             %tr
               %td
-                = client["name"]
+                - if client["url"]
+                  %a(href="#{client["url"]}")
+                    = client["name"]
+                - elsif client["repository"]
+                  %a(href="#{client["repository"]}")
+                    = client["name"]
+                - else 
+                  = client["name"]
               %td
                 - if client["active"]
                   %i(class="fa fa-smile-o icon")
