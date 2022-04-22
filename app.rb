@@ -195,6 +195,10 @@ class App < Cuba
       custom_render("home", {}, anchors: false)
     end
 
+    on head, "" do
+      res.status = 200
+    end
+
     on get, "buzz" do
       custom_render("buzz", {}, anchors: false)
     end
