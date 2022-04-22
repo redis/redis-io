@@ -33,6 +33,7 @@ Conferences and meetups
 * [New York Meetup Group](https://www.meetup.com/New-York-REDIS-Meetup)
 * [#RedisTLV (Tel Aviv Redis) Meetup Group](https://www.meetup.com/Tel-Aviv-Redis-Meetup)
 * [Paris Redis Meetup](https://www.meetup.com/Paris-Redis-Meetup/)
+* [Porto Redis Meetup Group](https://www.meetup.com/Redis-Porto)
 
 Contributing to Redis
 ---
